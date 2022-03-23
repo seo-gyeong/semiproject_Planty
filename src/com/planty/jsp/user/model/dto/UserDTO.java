@@ -12,14 +12,14 @@ public class UserDTO implements java.io.Serializable {
 	private String zipcode;
 	private String phone;
 	private String email;
-	private char testYn;
+	private char textYn;
 	private Date enrollDate;
 	private String name;
 	
 	public UserDTO() {}
 
 	public UserDTO(String id, int authNo, String pwd, String address, String addrDetail, String zipcode, String phone,
-			String email, char testYn, Date enrollDate, String name) {
+			String email, char textYn, Date enrollDate, String name) {
 		super();
 		this.id = id;
 		this.authNo = authNo;
@@ -29,7 +29,7 @@ public class UserDTO implements java.io.Serializable {
 		this.zipcode = zipcode;
 		this.phone = phone;
 		this.email = email;
-		this.testYn = testYn;
+		this.textYn = textYn;
 		this.enrollDate = enrollDate;
 		this.name = name;
 	}
@@ -98,12 +98,12 @@ public class UserDTO implements java.io.Serializable {
 		this.email = email;
 	}
 
-	public char getTestYn() {
-		return testYn;
+	public char getTextYn() {
+		return textYn;
 	}
 
-	public void setTestYn(char testYn) {
-		this.testYn = testYn;
+	public void setTextYn(char textYn) {
+		this.textYn = textYn;
 	}
 
 	public Date getEnrollDate() {
@@ -125,10 +125,10 @@ public class UserDTO implements java.io.Serializable {
 	@Override
 	public String toString() {
 		return "UserDTO [id=" + id + ", authNo=" + authNo + ", pwd=" + pwd + ", address=" + address + ", addrDetail="
-				+ addrDetail + ", zipcode=" + zipcode + ", phone=" + phone + ", email=" + email + ", testYn=" + testYn
+				+ addrDetail + ", zipcode=" + zipcode + ", phone=" + phone + ", email=" + email + ", textYn=" + textYn
 				+ ", enrollDate=" + enrollDate + ", name=" + name + "]";
 	}
-	
+
 	
 	
 	
