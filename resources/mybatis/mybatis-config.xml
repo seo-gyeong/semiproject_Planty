@@ -16,5 +16,9 @@
 		</environment>
 	</environments>
 	
+	<mappers>
+		<mapper resource="com/planty/jsp/customercare/model/dao/NoticeDAO.xml"/>
+	</mappers>
+	
 	
 </configuration>
