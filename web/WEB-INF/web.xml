@@ -9,4 +9,12 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  
+  <context-param>
+  	<param-name>mybatis-config-location</param-name>
+  	<param-value>mybatis/mybatis-config.xml</param-value>
+  </context-param>
+  
+  
+  
 </web-app>
