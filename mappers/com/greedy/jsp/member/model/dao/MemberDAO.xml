@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberDAO">
+	<resultMap type="com.planty.jsp.member.model.dto.MemberDTO" id="memberResultMap">
+		<id property="id" column="ID"/>
+		<result property="no" column="AUTH_NO"/>
+		<result property="pwd" column="PWD"/>
+		<result property="address" column="ADDRESS"/>
+		<result property="addressDetail" column="ADDRESS_DETAIL"/>
+		<result property="zipcode" column="ZIPCODE"/>
+		<result property="name" column="NAME"/>
+		<result property="phone" column="PHONE"/>
+		<result property="email" column="EMAIL"/>
+		<result property="status" column="TEXT_YN"/>
+		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="reqNo" column="REQ_NO"/>
+		
+		
+	</resultMap>
+
+	
+	<select id="selectEncryptedPwd" resultType="java.lang.String">
+        SELECT /* com.planty.jsp.member.model.dao.MemberDAO#selectEncryptedPwd() */
+               PWD
+          FROM MEMBER 
+         WHERE TEXT_YN = ' Y'
+           AND ID = #{ id }
+	</select>
+	
+	<select id="selectLoginMember" resultMap="memberResultMap">
+		SELECT /* com.planty.jsp.member.model.dao.MemberDAO#selectLoginMember() */
+			ID,
+			AUTH_NO,
+			PWD,
+			ADDRESS	,
+			ADDR_DETAIL,
+			ZIPCODE,
+			PHONE,
+			EMAIL,
+			TEXT_YN,
+			ENROLL_DATE,
+			NAME
+		  FROM MEMBER 
+		 WHERE TEXT_YN = ' Y'
+           AND ID = #{ id }
+	</select>
+	
+	<select id="memberIdCheck" resultType="_int">
+		SELECT /* com.planty.jsp.member.model.dao#MemberDao#memberIdCheck() */
+		       COUNT(*)
+		  FROM MEMBER
+		 WHERE ID = #{ id }
+	</select>
+	
+	
+	<select id="findMemberId" resultType="memberResultMap">
+		SELECT /* com.planty.jsp.member.model.dao#findId() */
+				*
+		 FROM MEMBER 
+		 WHERE NAME = #{name} 
+		 AND EMAIL = #{email}
+	</select>
+	
+	<select id="findPartnerId" resultType="memberResultMap">
+		SELECT /* com.planty.jsp.member.model.dao#findId() */
+				*
+		 FROM MEMBER 
+		 WHERE CEO_NAME = #{ceoName} 
+		 AND EMAIL = #{email}
+	</select>
+	
+	
+	<select id="findMemberPwd" resultType="memberResultMap">
+		SELECT /* com.planty.jsp.member.model.dao#findPwd() */
+				*
+		 FROM MEMBER 
+		 WHERE ID = #{ id } 
+		 AND  NAME = #{name} 
+		 AND EMAIL = #{email}
+	</select>
+	
+	<select id="findPartnerPwd" resultType="memberResultMap">
+		SELECT /* com.planty.jsp.member.model.dao#findPwd() */
+				*
+		 FROM MEMBER 
+		 WHERE ID = #{ id } 
+		 AND REG_NO = #{reqNo} 
+		 AND EMAIL = #{email}
+	</select>
+	
+	<update id="updateMemberPassword">
+		UPDATE /* com.planty.jsp.member.model.dao.MemberDAO#updateMemberPassword() */
+		       MEMBER
+		   SET PWD = #{ pwd }
+		 WHERE TEXT_YN = 'Y'
+		   AND ID = #{ id }
+	</update>
+
+
+</mapper>
