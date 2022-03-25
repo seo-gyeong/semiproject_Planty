@@ -46,8 +46,9 @@
             </div>
 
             <div class="navbar-right">
-                                   
-               <c:if test="${ empty sessionScope.loginMember }">
+            
+              <div>
+                <c:if test="${ empty sessionScope.loginMember }">
  			 	<a href="${ pageContext.servletContext.contextPath }/login/login"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/img/my.png"></a></li>
               	<a href="${ pageContext.servletContext.contextPath }/login/login"> <img class="icon" src="${ pageContext.servletContext.contextPath }/resources/img/cart.png"></a></li>
                </c:if>
@@ -56,6 +57,8 @@
               	<a href="${ pageContext.servletContext.contextPath }/cart"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/img/cart.png"></a></li>
                </c:if>
                
+              </div>                     
+             
                 
             </div>
      </div>            

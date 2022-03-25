@@ -14,10 +14,8 @@
     <link href="${ pageContext.servletContext.contextPath }/resources/css/change.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
+ <jsp:include page="../common/menubar.jsp"/>
 <body>
-
-	<jsp:include page="../common/menubar.jsp"/>
-
 	<div class="main-container">
 		<div class="main-wrap">
 		

@@ -14,55 +14,7 @@
     <link href="${ pageContext.servletContext.contextPath }/resources/css/login.css" rel="stylesheet" type="text/css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
- <header id="header" class="menu1"> 
-        <div class="back">
-        <div class="nav-bar">
-            <div class="navbar-left">
-
-                <div class="dropdown">
-                    <a href="${ pageContext.servletContext.contextPath }/main/aboutus"  class="dropbtn">ABOUT US</a>
-                  </div>
-      
-                <div class="dropdown">
-                    <button class="dropbtn">SHOP</button>
-                    <div class="dropdown-content">
-                      <a href="#">ALL</a>
-                      <a href="#">FUNCTION</a>
-                      <a href="#">PLACE</a>
-                      <a href="#">FOR ANIMALS</a>
-                    </div>
-                  </div>
-
-                <div class="dropdown">
-                    <button class="dropbtn">CUSTOMER</button>
-                    <div class="dropdown-content">
-                      <a href="#">NOTICE</a>
-                      <a href="${ pageContext.servletContext.contextPath }/main/faq">FAQ</a>
-                    </div>
-                  </div>
-
-            </div>
-            <div class="navbar-center">
-                   <a href="${ pageContext.servletContext.contextPath }/main/intro"><img class="image"   src="${ pageContext.servletContext.contextPath }/resources/img/planty_logo.png"></a> 
-            </div>
-
-            <div class="navbar-right">
-                                   
-               <c:if test="${ empty sessionScope.loginMember }">
- 			 	<a href="${ pageContext.servletContext.contextPath }/login/login"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/img/my.png"></a></li>
-              	<a href="${ pageContext.servletContext.contextPath }/login/login"> <img class="icon" src="${ pageContext.servletContext.contextPath }/resources/img/cart.png"></a></li>
-               </c:if>
-               <c:if test="${ !empty sessionScope.loginMember }">
-			  	<a href="${ pageContext.servletContext.contextPath }/mypage"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/img/my.png"></a></li>
-              	<a href="${ pageContext.servletContext.contextPath }/cart"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/img/cart.png"></a></li>
-               </c:if>
-               
-                
-    
-            </div>
-     </div>            
-    </div> 
-</header>
+  <jsp:include page="../common/menubar.jsp"/>
 <body>
 	<div class="main-container">
 		<div id=loginimg class="main-wrap">

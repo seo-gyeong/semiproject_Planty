@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>failed</title>
+<title>error404</title>
 <style>
 	#imageArea{
 		width : 500px;
@@ -23,6 +23,6 @@
 	<div id="imageArea">
 		<img id="errorImage" src="${ pageContext.servletContext.contextPath }/resources/img/error.png">
 	</div>
-	<h1 align="center">${ requestScope.message }</h1>
+	<h1 align="center">페이지를 찾을 수 없어요</h1>
 </body>
 </html>

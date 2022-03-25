@@ -17,7 +17,7 @@ public class loginServlet extends HttpServlet {
 	/* 로그인 버튼 클릭 시 get요청이 들어오기 때문에 로그인 하는 form으로 포워딩 해주는 역할 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("/WEB-INF/views/login/login.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/login/loginForm.jsp").forward(request, response);
 		
 	}
 	
