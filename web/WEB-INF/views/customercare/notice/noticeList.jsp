@@ -73,14 +73,12 @@
                             <td>${ n.title }</td>
                             <td>${ n.createDate }</td>
 
-
                     </tbody>
-                    </c:forEach>
-                    
-
+                    </c:forEach>                   
                 </table>
-                <div class="search_area">
-                    <form>
+                
+                <div class="search_area" action="${ pageContext.servletContext.contextPath }/notice/list" method="get">
+                    <form action="${ pageContext.servletContext.contextPath }/notice/list" method="get">
 
                         <select id="searchCondition" name="searchCondition">
                             <option value="title">제목</option>
@@ -89,8 +87,8 @@
 
                         <span class="input_area">
                             <input type="search" name="searchValue">
-                            <button type="button" class="btn btn-secondary">검색</button>
-                            <button type="button" class="btn btn-secondary">작성하기</button>
+                            <button type="submit" class="btn btn-secondary">검색</button>
+                           <button id="noticeInsert" type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/notice/insert'">작성하기</button>
                         </span>
 
 
