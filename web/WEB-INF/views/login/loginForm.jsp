@@ -19,7 +19,7 @@
 	<div class="main-container">
 		<div id=loginimg class="main-wrap">
 		
-		<form method="POST" class="login-input-section-wrap">
+		<form method="POST" action="${ pageContext.servletContext.contextPath }/member/login" class="login-input-section-wrap">
             <div class="login-title1">
                 <h2 class="login-title2">LOG IN</h2>
             </div>
