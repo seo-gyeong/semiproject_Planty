@@ -12,7 +12,7 @@
   <nav class="sb-topnav navbar navbar-expand navbar-light bg-light">
     <!-- Navbar Brand-->
     <div class="planty_logo">
-      <img src="planty_logo.png">
+      <img src="${ pageContext.servletContext.contextPath }/resources/images/planty_logo.png">
     </div>
 
   </nav>

@@ -61,7 +61,7 @@
 </style>
 </head>
 <body>
-	<jsp:include page="../common/menubar.jsp" />
+	<jsp:include page="../../common/admin-menubar.jsp" />
 	<div class="outer">
 		<div class="wrap">
 			<div class="notice_area">
@@ -70,7 +70,7 @@
 				</div>
 				<div class="notice_content">
 					<div class="subject">
-						<span> 글번호 : ${ notice.no } </span> <span> 작성일 : ${ notice.createdDate }
+						<span> 글번호 : ${ notice.no } </span> <span> 작성일 : ${ notice.createDate }
 						</span>
 					</div>
 					<div>
@@ -82,13 +82,13 @@
 						<h4>
 							<span class="title_span">&nbsp;</span> 내용
 						</h4>
-						<pre class="content">${ notice.body }</pre>
+						<pre class="content">${ notice.content}</pre>
 					</div>
 					<div class="btn_area">
 						<button type="button" id="listBtn"
-							onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'">목록으로</button>
+							onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'">목록</button>
 						<!-- admin -->
-						<c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }">
+						<!-- <c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }"> -->
 							<button type="button" onclick="updateNoticeView(${ notice.no })">수정하기</button>
 							<button type="button" onclick="deleteNotice()">삭제하기</button>
 							<!-- form 태그를 post 방식으로 제출 -->
@@ -106,7 +106,7 @@
 								}
 							}
 						</script>
-						</c:if>
+						<%-- </c:if> --%>
 					</div>
 				</div>
 			</div>
