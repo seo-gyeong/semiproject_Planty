@@ -19,6 +19,16 @@ public class NoticeSelectListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		List<NoticeDTO> noticeList = new NoticeService().selectAllNoticeList();
+		
+		System.out.println(noticeList);
+		
+		String path = "";
+		if(noticeList != null) {
+			path = "/WEB-INF/views/customercare/notice/noticeList.jsp";
+			request.setAttribute("noticeList", noticeList);
+		} 
+		
+		request.getRequestDispatcher(path).forward(request, response);
 	}
 
 }
