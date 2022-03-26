@@ -75,7 +75,7 @@ public class AuthenticationFilter implements Filter {
 			if(permitURIList.get("allPermitList").contains(intent)) {
 				chain.doFilter(request, response);
 			} else {
-				request.setAttribute("message", "로그인이 필요한 서비스 입니다.");
+				request.setAttribute("message", "로그인이 필요한 서비스 입니다");
 				request.getRequestDispatcher("/WEB-INF/views/common/failed.jsp").forward(hrequest, response);
 			}
 		}
@@ -94,7 +94,7 @@ public class AuthenticationFilter implements Filter {
 		adminPermitList.add("/notice/delete");
 		
 		memberPermitList.add("/user/modify");
-		memberPermitList.add("/member/modifyPassword");
+		memberPermitList.add("/user/modifyPwd");
 		memberPermitList.add("/member/remove");
 		memberPermitList.add("/notice/list");
 		memberPermitList.add("/notice/detail");
@@ -108,7 +108,8 @@ public class AuthenticationFilter implements Filter {
 		allPermitList.add("/user/idCheck");
 		allPermitList.add("/user/regist");
 		allPermitList.add("/user/regist2");		
-//		allPermitList.add("/user/modify");		
+		allPermitList.add("/user/modify");
+		allPermitList.add("/user/modifyPwd");
 		allPermitList.add("/user/login");
 		allPermitList.add("/user/logout");
 		
