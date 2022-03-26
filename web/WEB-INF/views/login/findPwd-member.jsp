@@ -36,32 +36,27 @@
         
               <div class="type2">
                 <div  class="login-input-wrap">   
-                    <input placeholder="아이디" id="user" type="text" class="input"><br>
-                </div>
-
-            <div class="type2">
-                <div  class="login-input-wrap">   
-                    <input placeholder="이름" id="user" type="text" class="input"><br>
+                    <input name="id" placeholder="아이디" id="user" type="text" class="input"><br>
                 </div>
               
             <div class="type3">
                 <div class="login-input-wrap"> 
-                    <input  placeholder="이메일" id="pass" type="text" class="input2" data-type="password"><br>
+                    <input name="email"  placeholder="이메일" id="pass" type="text" class="input2" data-type="password"><br>
                 </div>
-                <button type="button" onclick="">인증번호 전송</button>
+                <button type="button" >인증번호 전송</button>
             </div>
                 
 
             <div class="type3">
                  <div class="login-input-wrap"> 
-                     <input  placeholder="인증번호" id="user" type="text" class="input"><br>
+                     <input name="checknum" readonly="readonly" placeholder="인증번호" id="user" type="text" class="input"><br>
                  </div>
-                 <button type="button" onclick="">확인</button>
+                 <button type="button" >확인</button>
             </div>
            
               </div>     
               <div class="login-button-wrap">
-				<button type="button" onclick="location.href='change.html'"> 확인 </button>
+				<button type="button" > 확인 </button>
 			</div>
     
             <div class="empty">

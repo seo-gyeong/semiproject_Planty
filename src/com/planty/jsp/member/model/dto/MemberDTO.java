@@ -15,11 +15,12 @@ package com.planty.jsp.member.model.dto;
 		private String textYn;
 		private Date enrollDate;
 		private String name;
+		private String role;
 		
 		public MemberDTO() {}
 
 		public MemberDTO(String id, int authNo, String pwd, String address, String addrDetail, String zipcode, String phone,
-				String email, String textYn, Date enrollDate, String name) {
+				String email, String textYn, Date enrollDate, String name, String role) {
 			super();
 			this.id = id;
 			this.authNo = authNo;
@@ -32,6 +33,7 @@ package com.planty.jsp.member.model.dto;
 			this.textYn = textYn;
 			this.enrollDate = enrollDate;
 			this.name = name;
+			this.role = role;
 		}
 
 		public String getId() {
@@ -121,12 +123,19 @@ package com.planty.jsp.member.model.dto;
 		public void setName(String name) {
 			this.name = name;
 		}
+		public String getRole() {
+			return role;
+		}
+
+		public void setRole(String role) {
+			this.role = role;
+		}
 
 		@Override
 		public String toString() {
 			return "UserDTO [id=" + id + ", authNo=" + authNo + ", pwd=" + pwd + ", address=" + address + ", addrDetail="
 					+ addrDetail + ", zipcode=" + zipcode + ", phone=" + phone + ", email=" + email + ", textYn=" + textYn
-					+ ", enrollDate=" + enrollDate + ", name=" + name + "]";
+					+ ", enrollDate=" + enrollDate + ", name=" + name + ", role=" + role + "]";
 		}
 
 		

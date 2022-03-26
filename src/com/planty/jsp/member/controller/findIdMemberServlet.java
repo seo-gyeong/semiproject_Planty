@@ -1,6 +1,7 @@
 package com.planty.jsp.member.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -14,15 +15,37 @@ import com.planty.jsp.member.model.service.MemberService;
 @WebServlet("/member/findidmember")
 public class findIdMemberServlet extends HttpServlet {
 	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/views/login/findId-member.jsp").forward(request, response);
+		}
+
+		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String memberName = request.getParameter("name");
+		String memberCeoName = request.getParameter("ceoName");
 		String memberEmail = request.getParameter("email");
 		
-		MemberService service = new MemberService();
-		MemberDTO member = service.findId(memberName,memberEmail);
+		System.out.println("memberName : " + memberName);
+		System.out.println("memberCeoName : " + memberCeoName);
+		System.out.println("memberEmail : " + memberEmail);
 		
-		System.out.println("member : " + member);
+		MemberDTO requestMember = new MemberDTO();
+		requestMember.setName(memberName);
+		requestMember.setCeoName(memberCeoName);
+		requestMember.setEmail(memberEmail);
+	
+		MemberService memberService = new MemberService();
+		
+		MemberDTO findId = memberService.findId(requestMember);
+		System.out.println(findId);
+		
+		if(findId!= null) {
+			request.setAttribute("findId", findId);
+			request.getRequestDispatcher("/WEB-INF/views/login/result-Id.jsp").forward(request, response);
+		} else {
+			request.setAttribute("message", "실패ㅠ");
+			request.getRequestDispatcher("/WEB-INF/views/login/findId-member.jsp").forward(request, response);
+		}
 		
 	}
+
 }

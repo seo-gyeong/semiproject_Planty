@@ -7,9 +7,6 @@ import com.planty.jsp.member.model.dao.MemberDAO;
 import com.planty.jsp.member.model.dto.MemberDTO;
 import static com.planty.jsp.common.mybatis.Template.getSqlSession;
 
-
-import java.sql.Connection;
-
 public class MemberService {
 	
 	/* 의존 관계에 있는 객체가 불변을 유지할 수 있도록 final 필드로 선언한다. */
@@ -49,6 +46,19 @@ public class MemberService {
 		return loginMember;
 		
 	}
+
+	public MemberDTO findId (MemberDTO requestMember) {
+		SqlSession session = getSqlSession();
+		MemberDTO findId = null;
+		
+		findId = memberDAO.findId (session, requestMember);
+		
+		session.close();
+		
+		return findId;
+		
+	}
+	
 		public int modifyPassword(MemberDTO requestMember, String memberPwd) {
 		
 		SqlSession session = getSqlSession();
@@ -75,9 +85,17 @@ public class MemberService {
 		return result;
 	}
 
-		public MemberDTO findId(String memberName, String memberEmail) {
-			// TODO Auto-generated method stub
-			return null;
+		public MemberDTO findPwd(MemberDTO requestMember) {
+			SqlSession session = getSqlSession();
+			MemberDTO findPwd = null;
+			
+			findPwd = memberDAO.findPwd (session, requestMember);
+			
+			session.close();
+
+			return findPwd;
 		}
+
+
 
 }

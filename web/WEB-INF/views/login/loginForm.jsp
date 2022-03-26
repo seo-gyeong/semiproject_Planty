@@ -37,7 +37,7 @@
                     <a href="${ pageContext.servletContext.contextPath }/member/findidmember">아이디 찾기</a> | <a href="${ pageContext.servletContext.contextPath }/member/findpwdmember">비밀번호 찾기</a> | <a href="">회원가입</a></p> 
             </div>
 
-               <a href="#"> <img class="log1" src=""${ pageContext.servletContext.contextPath }/cart"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/img/카카오톡.png"></a></li>
+                 <a href="#"> <img class="log1"  src="${ pageContext.servletContext.contextPath }/resources/img/카카오톡.png"></a>
 
             <div class="empty">
              <br>

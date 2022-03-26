@@ -43,7 +43,18 @@ public class loginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginMember", loginMember);
 			
+			System.out.println(loginMember.getAuthNo());
+			
+			if(loginMember.getAuthNo() == 3) {
+			response.sendRedirect(request.getContextPath() + "/admin/관리자 주소");
+			
+			} else if (loginMember.getAuthNo() == 2) {	
+			response.sendRedirect(request.getContextPath() + "/partner/판매자 주소");
+			}
+			
+			} else {
 			response.sendRedirect(request.getContextPath());
+			}
 		} else {
 			request.setAttribute("message", "로그인 실패!");
 			request.getRequestDispatcher("/WEB-INF/views/common/failed.jsp").forward(request, response);

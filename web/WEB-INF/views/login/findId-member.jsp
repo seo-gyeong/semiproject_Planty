@@ -27,8 +27,8 @@
                 <div class="dropdown" id="selectbox">
                 <button class="btn btn-secondary dropdown-toggle" style="margin-bottom: 10px; font-size: 14px; background-color:#4C5B5D ;" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">회원유형</button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                    <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" onclick=" ">개인회원</button></li>
-                    <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" onclick=" ">법인사업자 회원</button></li>
+                  <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/login/findId-memeber'">개인회원</button></li>
+                  <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/login/findId-partner'">법인사업자 회원</button></li>
                 </ul>
               </div>
             </div>

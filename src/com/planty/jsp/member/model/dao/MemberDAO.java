@@ -21,14 +21,20 @@ public class MemberDAO {
 	}
 	
 	public MemberDTO findId(SqlSession session, MemberDTO requestMember) {
-		
-		return session.selectOne("MemberDAO.findId", requestMember);
+		return session.selectOne("MemberDAO.findId", requestMember );
 	}
+
 
 	public int updateMemberPassword(SqlSession session, MemberDTO requestMember) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+
+	public MemberDTO findPwd(SqlSession session, MemberDTO requestMember) {
+		return session.selectOne("MemberDAO.findId", requestMember );
+		}
+
+
 
 
 }

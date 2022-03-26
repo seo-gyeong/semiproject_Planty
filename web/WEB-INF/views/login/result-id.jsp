@@ -26,7 +26,7 @@
             </div>
             <div class="result">
                 <h2>회원님의 아이디는 </h2>
-                <h1>"${member}"</h1>
+                <h1>"${ findId }"</h1>
                 <h2> 입니다.</h2>
             </div>
            

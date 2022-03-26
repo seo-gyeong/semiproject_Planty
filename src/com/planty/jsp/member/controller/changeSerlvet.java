@@ -26,12 +26,15 @@ public class changeSerlvet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		MemberDTO loginUser = (MemberDTO) request.getSession().getAttribute("changepwd");
-		String id = loginUser.getId();
+		MemberDTO findpwd = (MemberDTO) request.getSession().getAttribute("changePwd");
+		String memberId = request.getParameter("memberId");
+		int memberRegNo = request.getParameter("memberRegNo");
+		String memberEmail = request.getParameter("memberEmail");
+		int EmailCheck = request.getParameter("EmailCheck");
 		String checkPwd = request.getParameter("checkPwd"); 
 		
 		MemberDTO requestMember = new MemberDTO();
-		requestMember.setId(id);
+		requestMember.setId(memberId);
 		requestMember.setPwd(checkPwd);
 		
 		String memberPwd = request.getParameter("memberPwd"); 
