@@ -30,7 +30,7 @@
 				<input id="pwd" placeholder="비밀번호" type="password" required="required"></input>
 			</div>
             <div class="login-button-wrap">
-				<button id="login" type="submit" onclick="">로그인 하기</button>
+				<button id="login" type="submit">로그인 하기</button>
 			</div>
             <div class="Easy-sgin-in-wrap">
                 <p class="forget-msg">
@@ -48,7 +48,7 @@
 
 		</div>
 	</div>
-       
+    <script src="${ pageContext.servletContext.contextPath }/resources/js/rememberId.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 <footer>

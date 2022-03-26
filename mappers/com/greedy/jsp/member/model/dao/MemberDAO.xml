@@ -35,8 +35,6 @@
 			AUTH_NO,
 			PWD,
 			ADDRESS	,
-			ADDR_DETAIL,
-			ZIPCODE,
 			PHONE,
 			EMAIL,
 			TEXT_YN,
