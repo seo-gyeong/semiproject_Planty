@@ -1,4 +1,4 @@
-package com.greedy.jsp.common.filter;
+package com.planty.jsp.common.filter;
 
 import java.io.IOException;
 
@@ -11,7 +11,7 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-import com.greedy.jsp.common.wrapper.EncryptRequestWrapper;
+import com.planty.jsp.common.wrapper.EncryptRequestWrapper;
 
 /* member 서비스인 경우에만 암호화 처리 할 수 있도록 한다. */
 @WebFilter("/member/*")

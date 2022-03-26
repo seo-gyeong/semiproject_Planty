@@ -1,4 +1,4 @@
-package com.greedy.jsp.common.filter;
+package com.planty.jsp.common.filter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.greedy.jsp.member.model.dto.MemberDTO;
+import com.planty.jsp.member.model.dto.MemberDTO;
 
 @WebFilter(urlPatterns = {"/notice/*", "/member/*", "/board/*", "/thumbnail/*"})
 public class AuthenticationFilter implements Filter {
