@@ -1,4 +1,4 @@
-package com.planty.jsp.common.filter;
+package com.greedy.jsp.common.filter;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.planty.jsp.member.model.dto.MemberDTO;
+import com.greedy.jsp.member.model.dto.MemberDTO;
 
 @WebFilter(urlPatterns = {"/notice/*", "/member/*", "/board/*", "/thumbnail/*"})
 public class AuthenticationFilter implements Filter {
@@ -39,30 +39,42 @@ public class AuthenticationFilter implements Filter {
 		MemberDTO loginMember = (MemberDTO) requestSession.getAttribute("loginMember");
 		
 		boolean isAuthorized = false;
-        if(loginMember != null) {
-
-            boolean isPermitAdmin = permitURIList.get("adminPermitList").contains(intent);
-            boolean isPermitMember = permitURIList.get("memberPermitList").contains(intent);
-            boolean isPermitPartner = permitURIList.get("partnerPermitList").contains(intent);
-
-            boolean isPermitAll = permitURIList.get("allPermitList").contains(intent);
-            if(loginMember.getAuthNo() == 3) {
-
-                if(isPermitAdmin  isPermitMember  isPermitPartner  isPermitAll) {
-                    isAuthorized = true;
-                }
-
-            } else if(loginMember.getAuthNo() == 1) {
-
-                if((isPermitMember  isPermitAll) && !isPermitAdmin  && !isPermitPartner) {
-                    isAuthorized = true;
-                }
-
-            } else if(loginMember.getAuthNo() == 2) {
-                if((isPermitPartner || isPermitAll) && !isPermitAdmin && !isPermitMember) {
-                    isAuthorized = true;
-                }
-            }
+		if(loginMember != null) {
+			
+			boolean isPermitAdmin = permitURIList.get("adminPermitList").contains(intent);
+			boolean isPermitMember = permitURIList.get("memberPermitList").contains(intent);
+			boolean isPermitAll = permitURIList.get("allPermitList").contains(intent);
+			if("ADMIN".equals(loginMember.getRole())) {
+				
+				if(isPermitAdmin || isPermitMember || isPermitAll) {
+					isAuthorized = true;
+				}
+				
+			} else if("MEMBER".equals(loginMember.getRole())) {
+				
+				if((isPermitMember || isPermitAll) && !isPermitAdmin) {
+					isAuthorized = true;
+				}
+				
+			}
+			
+			if(isAuthorized) {
+				chain.doFilter(request, response);
+			} else {
+				((HttpServletResponse) response).sendError(403);
+			}
+			
+		} else {
+			
+			if(permitURIList.get("allPermitList").contains(intent)) {
+				chain.doFilter(request, response);
+			} else {
+				request.setAttribute("message", "로그인이 필요한 서비스 입니다.");
+				request.getRequestDispatcher("/WEB-INF/views/common/failed.jsp").forward(hrequest, response);
+			}
+		}
+		
+	}
 
 	public void init(FilterConfig fConfig) throws ServletException {
 		

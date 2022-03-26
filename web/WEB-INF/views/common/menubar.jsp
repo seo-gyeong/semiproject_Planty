@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -49,8 +50,8 @@
             
               <div>
                 <c:if test="${ empty sessionScope.loginMember }">
- 			 	<a href="${ pageContext.servletContext.contextPath }/login/login"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/img/my.png"></a></li>
-              	<a href="${ pageContext.servletContext.contextPath }/login/login"> <img class="icon" src="${ pageContext.servletContext.contextPath }/resources/img/cart.png"></a></li>
+ 			 	<a href="${ pageContext.servletContext.contextPath }/member/login"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/img/my.png"></a></li>
+              	<a href="${ pageContext.servletContext.contextPath }/member/login"> <img class="icon" src="${ pageContext.servletContext.contextPath }/resources/img/cart.png"></a></li>
                </c:if>
                
                <c:if test="${ !empty sessionScope.loginMember }">

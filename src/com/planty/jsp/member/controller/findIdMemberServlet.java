@@ -7,13 +7,22 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.planty.jsp.member.model.dto.MemberDTO;
+import com.planty.jsp.member.model.service.MemberService;
+
 
 @WebServlet("/member/findidmember")
 public class findIdMemberServlet extends HttpServlet {
 	
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("/WEB-INF/views/login/findid-member.jsp").forward(request, response);
+		String memberName = request.getParameter("name");
+		String memberEmail = request.getParameter("email");
+		
+		MemberService service = new MemberService();
+		MemberDTO member = service.findId(memberName,memberEmail);
+		
+		System.out.println("member : " + member);
 		
 	}
 }

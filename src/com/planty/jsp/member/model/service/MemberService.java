@@ -75,4 +75,9 @@ public class MemberService {
 		return result;
 	}
 
+		public MemberDTO findId(String memberName, String memberEmail) {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
 }

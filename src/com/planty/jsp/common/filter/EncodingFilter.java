@@ -1,4 +1,4 @@
-package com.planty.jsp.common.filter;
+package com.greedy.jsp.common.filter;
 
 import java.io.IOException;
 
