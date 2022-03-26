@@ -25,23 +25,23 @@ public class changeSerlvet extends HttpServlet {
 
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		UserDTO findpwd = (UserDTO) request.getSession().getAttribute("changePwd");
-		String checkPwd = request.getParameter("checkPwd"); 
-	
 		
+		UserDTO loginUser = (UserDTO) request.getSession().getAttribute("loginMember");
+		String changePwd = request.getParameter("memberPwd"); 
+
 		UserDTO requestMember = new UserDTO();
-		requestMember.setPwd(checkPwd);
+		requestMember.setPwd(changePwd);
 		
+		System.out.println("memberController requestMember : " + requestMember);
 		
-		String memberPwd = request.getParameter("memberPwd"); 
-
-		int result = new MemberService().modifyPassword(requestMember, memberPwd);
-
+		String changepwd  = request.getParameter("memberPwd"); 
+		
+		int result = new MemberService().modifyPassword(requestMember, changePwd);
+		
 		String page = "";
 		
 		if(result > 0) {
-			page = "/WEB-INF/views/common/success.jsp";
+			page = "/WEB-INF/views/common/result-pwd.jsp";
 			request.setAttribute("successCode", "updateMemberPassword");
 		} else {
 			page = "/WEB-INF/views/common/failed.jsp";

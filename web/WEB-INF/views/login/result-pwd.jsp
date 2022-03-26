@@ -25,9 +25,7 @@
                 <h2 class="login-title2">비밀번호 찾기</h2>
             </div>
             <div class="result">
-                <h2>회원님의 비밀번호는 </h2>
-                <h1>"${member}"</h1>
-                <h2> 입니다.</h2>
+                <h2>비밀번호가 변경되었습니다.</h2>
             </div>
            
             <div class="result-btn">
