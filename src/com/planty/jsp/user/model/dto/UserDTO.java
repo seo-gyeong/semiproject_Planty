@@ -12,14 +12,14 @@ public class UserDTO implements java.io.Serializable {
 	private String zipcode;
 	private String phone;
 	private String email;
-	private char textYn;
+	private String textYn;
 	private Date enrollDate;
 	private String name;
 	
 	public UserDTO() {}
 
 	public UserDTO(String id, int authNo, String pwd, String address, String addrDetail, String zipcode, String phone,
-			String email, char textYn, Date enrollDate, String name) {
+			String email, String textYn, Date enrollDate, String name) {
 		super();
 		this.id = id;
 		this.authNo = authNo;
@@ -98,11 +98,11 @@ public class UserDTO implements java.io.Serializable {
 		this.email = email;
 	}
 
-	public char getTextYn() {
+	public String getTextYn() {
 		return textYn;
 	}
 
-	public void setTextYn(char textYn) {
+	public void setTextYn(String textYn) {
 		this.textYn = textYn;
 	}
 
