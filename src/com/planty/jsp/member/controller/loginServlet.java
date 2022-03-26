@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.planty.jsp.member.model.dto.MemberDTO;
+import com.planty.jsp.member.model.dto.UserDTO;
 import com.planty.jsp.member.model.service.MemberService;
 
 
@@ -30,13 +30,13 @@ public class loginServlet extends HttpServlet {
 		System.out.println("id : " + memberId);
 		System.out.println("pwd : " + memberPwd);
 		
-		MemberDTO requestMember = new MemberDTO();
+		UserDTO requestMember = new UserDTO();
 		requestMember.setId(memberId);
 		requestMember.setPwd(memberPwd);
 		
 		MemberService memberService = new MemberService();
 		
-		MemberDTO loginMember = memberService.loginCheck(requestMember);
+		UserDTO loginMember = memberService.loginCheck(requestMember);
 		System.out.println(loginMember);
 		
 		if(loginMember != null) {

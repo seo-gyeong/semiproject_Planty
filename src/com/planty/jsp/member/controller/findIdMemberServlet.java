@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.planty.jsp.member.model.dto.MemberDTO;
+import com.planty.jsp.member.model.dto.UserDTO;
 import com.planty.jsp.member.model.service.MemberService;
 
 
@@ -28,14 +28,14 @@ public class findIdMemberServlet extends HttpServlet {
 		System.out.println("memberCeoName : " + memberCeoName);
 		System.out.println("memberEmail : " + memberEmail);
 		
-		MemberDTO requestMember = new MemberDTO();
+		UserDTO requestMember = new UserDTO();
 		requestMember.setName(memberName);
 		requestMember.setCeoName(memberCeoName);
 		requestMember.setEmail(memberEmail);
 	
 		MemberService memberService = new MemberService();
 		
-		MemberDTO findId = memberService.findId(requestMember);
+		UserDTO findId = memberService.findId(requestMember);
 		System.out.println(findId);
 		
 		if(findId!= null) {

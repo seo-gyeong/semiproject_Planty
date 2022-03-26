@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.planty.jsp.member.model.dto.MemberDTO;
+import com.planty.jsp.member.model.dto.UserDTO;
 import com.planty.jsp.member.model.service.MemberService;
 
 /**
@@ -32,7 +32,7 @@ public class findPwdMemberServlet extends HttpServlet {
 		System.out.println("EmailCheck : " + EmailCheck);
 		
 		
-		MemberDTO requestMember = new MemberDTO();
+		UserDTO requestMember = new UserDTO();
 		requestMember.setId(memberId);
 		requestMember.setRegNo(memberRegNo);
 		requestMember.setEmail(memberEmail);
@@ -40,7 +40,7 @@ public class findPwdMemberServlet extends HttpServlet {
 	    
 		MemberService memberService = new MemberService();
 		
-		MemberDTO findPwd = memberService.findPwd(requestMember);
+		UserDTO findPwd = memberService.findPwd(requestMember);
 		System.out.println(findPwd);
 		
 		if(findPwd!= null) {

@@ -4,7 +4,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.planty.jsp.member.model.dao.MemberDAO;
-import com.planty.jsp.member.model.dto.MemberDTO;
+import com.planty.jsp.member.model.dto.UserDTO;
 import static com.planty.jsp.common.mybatis.Template.getSqlSession;
 
 public class MemberService {
@@ -27,10 +27,10 @@ public class MemberService {
 		return result;
 	}
 	
-	public MemberDTO loginCheck(MemberDTO requestMember) {
+	public UserDTO loginCheck(UserDTO requestMember) {
 		
 		SqlSession session = getSqlSession();
-		MemberDTO loginMember = null;
+		UserDTO loginMember = null;
 		
 		String encPwd = memberDAO.selectEncryptedPwd(session, requestMember);
 		
@@ -47,9 +47,9 @@ public class MemberService {
 		
 	}
 
-	public MemberDTO findId (MemberDTO requestMember) {
+	public UserDTO findId (UserDTO requestMember) {
 		SqlSession session = getSqlSession();
-		MemberDTO findId = null;
+		UserDTO findId = null;
 		
 		findId = memberDAO.findId (session, requestMember);
 		
@@ -59,7 +59,7 @@ public class MemberService {
 		
 	}
 	
-		public int modifyPassword(MemberDTO requestMember, String memberPwd) {
+		public int modifyPassword(UserDTO requestMember, String memberPwd) {
 		
 		SqlSession session = getSqlSession();
 		int result = 0;
@@ -85,9 +85,9 @@ public class MemberService {
 		return result;
 	}
 
-		public MemberDTO findPwd(MemberDTO requestMember) {
+		public UserDTO findPwd(UserDTO requestMember) {
 			SqlSession session = getSqlSession();
-			MemberDTO findPwd = null;
+			UserDTO findPwd = null;
 			
 			findPwd = memberDAO.findPwd (session, requestMember);
 			

@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.planty.jsp.member.model.dto.MemberDTO;
+import com.planty.jsp.member.model.dto.UserDTO;
 import com.planty.jsp.member.model.service.MemberService;
 
 /**
@@ -26,14 +26,14 @@ public class changeSerlvet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		MemberDTO findpwd = (MemberDTO) request.getSession().getAttribute("changePwd");
+		UserDTO findpwd = (UserDTO) request.getSession().getAttribute("changePwd");
 		String memberId = request.getParameter("memberId");
 		int memberRegNo = request.getParameter("memberRegNo");
 		String memberEmail = request.getParameter("memberEmail");
 		int EmailCheck = request.getParameter("EmailCheck");
 		String checkPwd = request.getParameter("checkPwd"); 
 		
-		MemberDTO requestMember = new MemberDTO();
+		UserDTO requestMember = new UserDTO();
 		requestMember.setId(memberId);
 		requestMember.setPwd(checkPwd);
 		

@@ -2,16 +2,16 @@ package com.planty.jsp.member.model.dao;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.planty.jsp.member.model.dto.MemberDTO;
+import com.planty.jsp.member.model.dto.UserDTO;
 
 public class MemberDAO {
 
-	public String selectEncryptedPwd(SqlSession session, MemberDTO requestMember) {
+	public String selectEncryptedPwd(SqlSession session, UserDTO requestMember) {
 		
 		return session.selectOne("MemberDAO.selectEncryptedPwd", requestMember);
 	}
 
-	public MemberDTO selectLoginMember(SqlSession session, MemberDTO requestMember) {
+	public UserDTO selectLoginMember(SqlSession session, UserDTO requestMember) {
 		
 		return session.selectOne("MemberDAO.selectLoginMember", requestMember);
 	}
@@ -20,17 +20,17 @@ public class MemberDAO {
 		return session.selectOne("MemberDAO.memberIdCheck", memberId);
 	}
 	
-	public MemberDTO findId(SqlSession session, MemberDTO requestMember) {
+	public UserDTO findId(SqlSession session, UserDTO requestMember) {
 		return session.selectOne("MemberDAO.findId", requestMember );
 	}
 
 
-	public int updateMemberPassword(SqlSession session, MemberDTO requestMember) {
+	public int updateMemberPassword(SqlSession session, UserDTO requestMember) {
 		// TODO Auto-generated method stub
 		return 0;
 	}
 
-	public MemberDTO findPwd(SqlSession session, MemberDTO requestMember) {
+	public UserDTO findPwd(SqlSession session, UserDTO requestMember) {
 		return session.selectOne("MemberDAO.findId", requestMember );
 		}
 
