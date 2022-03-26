@@ -2,7 +2,7 @@ package com.planty.jsp.member.model.dto;
 
 	import java.sql.Date;
 
-	public class MemberDTO implements java.io.Serializable {
+	public class UserDTO implements java.io.Serializable {
 		
 		private String id;
 		private int authNo;
@@ -18,9 +18,9 @@ package com.planty.jsp.member.model.dto;
 		private String role;
 		
 		
-		public MemberDTO() {}
+		public UserDTO() {}
 
-		public MemberDTO(String id, int authNo, String pwd, String address, String addrDetail, String zipcode, String phone,
+		public UserDTO(String id, int authNo, String pwd, String address, String addrDetail, String zipcode, String phone,
 				String email, String textYn, Date enrollDate, String name, String role) {
 			super();
 			this.id = id;
