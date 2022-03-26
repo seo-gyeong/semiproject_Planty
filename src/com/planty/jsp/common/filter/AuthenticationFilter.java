@@ -17,9 +17,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.planty.jsp.member.model.dto.MemberDTO;
+import com.planty.jsp.user.model.dto.UserDTO;
 
-@WebFilter(urlPatterns = {"/notice/*", "/member/*", "/board/*", "/thumbnail/*"})
+
+
+@WebFilter(urlPatterns = {"/notice/*", "/user/*", "/board/*", "/thumbnail/*"})
 public class AuthenticationFilter implements Filter {
 	
 	Map<String, List<String>> permitURIList;
@@ -36,26 +38,32 @@ public class AuthenticationFilter implements Filter {
 		
 		/* 세션에 권한이 있는지 확인하여 허용된 url에만 접근 가능하도록 설정한다. */
 		HttpSession requestSession = hrequest.getSession();
-		MemberDTO loginMember = (MemberDTO) requestSession.getAttribute("loginMember");
+		UserDTO loginMember = (UserDTO) requestSession.getAttribute("loginMember");
 		
 		boolean isAuthorized = false;
 		if(loginMember != null) {
 			
 			boolean isPermitAdmin = permitURIList.get("adminPermitList").contains(intent);
 			boolean isPermitMember = permitURIList.get("memberPermitList").contains(intent);
+			boolean isPermitPartner = permitURIList.get("partnerPermitList").contains(intent);
+			
 			boolean isPermitAll = permitURIList.get("allPermitList").contains(intent);
-			if("ADMIN".equals(loginMember.getRole())) {
+			if(loginMember.getAuthNo() == 3) {
 				
-				if(isPermitAdmin || isPermitMember || isPermitAll) {
+				if(isPermitAdmin || isPermitMember || isPermitPartner || isPermitAll) {
 					isAuthorized = true;
 				}
 				
-			} else if("MEMBER".equals(loginMember.getRole())) {
+			} else if(loginMember.getAuthNo() == 1) {
 				
-				if((isPermitMember || isPermitAll) && !isPermitAdmin) {
+				if((isPermitMember || isPermitAll) && !isPermitAdmin  && !isPermitPartner) {
 					isAuthorized = true;
 				}
 				
+			} else if(loginMember.getAuthNo() == 2) {
+				if((isPermitPartner || isPermitAll) && !isPermitAdmin && !isPermitMember) {
+					isAuthorized = true;
+				}
 			}
 			
 			if(isAuthorized) {
@@ -69,7 +77,7 @@ public class AuthenticationFilter implements Filter {
 			if(permitURIList.get("allPermitList").contains(intent)) {
 				chain.doFilter(request, response);
 			} else {
-				request.setAttribute("message", "로그인이 필요한 서비스 입니다.");
+				request.setAttribute("message", "로그인이 필요한 서비스 입니다");
 				request.getRequestDispatcher("/WEB-INF/views/common/failed.jsp").forward(hrequest, response);
 			}
 		}
@@ -87,8 +95,8 @@ public class AuthenticationFilter implements Filter {
 		adminPermitList.add("/notice/update");
 		adminPermitList.add("/notice/delete");
 		
-		memberPermitList.add("/member/modify");
-		memberPermitList.add("/member/modifyPassword");
+		memberPermitList.add("/user/modify");
+		memberPermitList.add("/user/modifyPwd");
 		memberPermitList.add("/member/remove");
 		memberPermitList.add("/notice/list");
 		memberPermitList.add("/notice/detail");
@@ -99,10 +107,13 @@ public class AuthenticationFilter implements Filter {
 		memberPermitList.add("/thumbnail/insert");
 		memberPermitList.add("/thumbnail/detail");
 
-		allPermitList.add("/member/idCheck");
-		allPermitList.add("/member/regist");
-		allPermitList.add("/member/login");
-		allPermitList.add("/member/logout");
+		allPermitList.add("/user/idCheck");
+		allPermitList.add("/user/regist");
+		allPermitList.add("/user/regist2");		
+		allPermitList.add("/user/modify");
+		allPermitList.add("/user/modifyPwd");
+		allPermitList.add("/user/login");
+		allPermitList.add("/user/logout");
 		
 		permitURIList.put("adminPermitList", adminPermitList);
 		permitURIList.put("memberPermitList", memberPermitList);

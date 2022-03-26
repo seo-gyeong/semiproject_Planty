@@ -1,4 +1,4 @@
-package com.planty.jsp.member.controller;
+package com.planty.jsp.user.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -7,8 +7,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.planty.jsp.member.model.dto.UserDTO;
-import com.planty.jsp.member.model.service.MemberService;
+import com.planty.jsp.user.model.dto.UserDTO;
+import com.planty.jsp.user.model.service.UserService;
 
 /**
  * Servlet implementation class findPwdMemberServlet
@@ -38,7 +38,7 @@ public class findPwdMemberServlet extends HttpServlet {
 		requestMember.setEmail(memberEmail);
 		requestMember.setEmailCheck(EmailCheck);
 	    
-		MemberService memberService = new MemberService();
+		UserService memberService = new UserService();
 		
 		UserDTO findPwd = memberService.findPwd(requestMember);
 		System.out.println(findPwd);

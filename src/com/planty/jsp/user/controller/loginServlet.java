@@ -1,4 +1,4 @@
-package com.planty.jsp.member.controller;
+package com.planty.jsp.user.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,8 +8,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import com.planty.jsp.member.model.dto.UserDTO;
-import com.planty.jsp.member.model.service.MemberService;
+import com.planty.jsp.user.model.dto.UserDTO;
+import com.planty.jsp.user.model.service.UserService;
 
 
 @WebServlet("/member/login")
@@ -34,7 +34,7 @@ public class loginServlet extends HttpServlet {
 		requestMember.setId(memberId);
 		requestMember.setPwd(memberPwd);
 		
-		MemberService memberService = new MemberService();
+		UserService memberService = new UserService();
 		
 		UserDTO loginMember = memberService.loginCheck(requestMember);
 		System.out.println(loginMember);

@@ -1,4 +1,4 @@
-package com.planty.jsp.member.controller;
+package com.planty.jsp.user.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -8,13 +8,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * Servlet implementation class resultPwdServlet
+ * Servlet implementation class resultIdServlet
  */
-@WebServlet("/member/resultpwd")
-public class resultPwdServlet extends HttpServlet {
+@WebServlet("/member/resultid")
+public class resultIdServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.getRequestDispatcher("/WEB-INF/views/login/result-pwd.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/login/result-id.jsp").forward(request, response);
 		
 	}
 }

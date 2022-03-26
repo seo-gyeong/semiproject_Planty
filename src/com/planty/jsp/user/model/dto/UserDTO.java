@@ -1,4 +1,4 @@
-package com.planty.jsp.member.model.dto;
+package com.planty.jsp.user.model.dto;
 
 	import java.sql.Date;
 

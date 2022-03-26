@@ -1,10 +1,10 @@
-package com.planty.jsp.member.model.dao;
+package com.planty.jsp.user.model.dao;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.planty.jsp.member.model.dto.UserDTO;
+import com.planty.jsp.user.model.dto.UserDTO;
 
-public class MemberDAO {
+public class UserDAO {
 
 	public String selectEncryptedPwd(SqlSession session, UserDTO requestMember) {
 		

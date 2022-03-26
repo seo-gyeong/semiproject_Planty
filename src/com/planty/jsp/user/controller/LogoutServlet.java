@@ -1,4 +1,4 @@
-package com.planty.jsp.member.controller;
+package com.planty.jsp.user.controller;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
