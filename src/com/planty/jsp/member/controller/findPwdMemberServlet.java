@@ -44,7 +44,7 @@ public class findPwdMemberServlet extends HttpServlet {
 		System.out.println(findPwd);
 		
 		if(findPwd!= null) {
-			request.setAttribute("findId", findPwd);
+			request.setAttribute("findPwd", findPwd);
 			request.getRequestDispatcher("/WEB-INF/views/login/change.jsp").forward(request, response);
 		} else {
 			request.setAttribute("message", "실패ㅠ");

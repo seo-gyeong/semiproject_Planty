@@ -17,6 +17,7 @@ package com.planty.jsp.member.model.dto;
 		private String name;
 		private String role;
 		
+		
 		public MemberDTO() {}
 
 		public MemberDTO(String id, int authNo, String pwd, String address, String addrDetail, String zipcode, String phone,
