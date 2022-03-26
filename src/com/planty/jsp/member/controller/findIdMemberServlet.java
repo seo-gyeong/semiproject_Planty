@@ -30,7 +30,6 @@ public class findIdMemberServlet extends HttpServlet {
 		
 		UserDTO requestMember = new UserDTO();
 		requestMember.setName(memberName);
-		requestMember.setCeoName(memberCeoName);
 		requestMember.setEmail(memberEmail);
 	
 		MemberService memberService = new MemberService();

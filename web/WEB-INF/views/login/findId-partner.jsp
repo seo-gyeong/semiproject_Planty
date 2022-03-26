@@ -37,13 +37,13 @@
         
         <div class="type2">	
             <div class="login-input-wrap">
-            <input placeholder="법인명 " type="text"></input>
+            <input name="name" placeholder="법인명 " type="text"></input>
         </div>   
     </div> 
                   
         <div class="type2">	
             <div class="login-input-wrap">
-            <input placeholder="이메일 " type="text"></input>
+            <input name="email" placeholder="이메일 " type="text"></input>
         </div>        
 
     </div>

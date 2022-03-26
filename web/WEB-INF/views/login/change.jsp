@@ -19,7 +19,7 @@
 	<div class="main-container">
 		<div class="main-wrap">
 		
-		<form class="login-input-section-wrap">
+		<form class="login-input-section-wrap" method="post" onsubmit="return changePassword" action="${ pageContext.servletContext.contextPath }/member/change }">
             <div class="login-title1">
                 <h2 class="login-title2">비밀번호 변경</h2>
             </div>
@@ -27,7 +27,7 @@
 				<input name="changepwd" placeholder="변경할 비밀번호" type="text"></input>
 			</div>
 			<div class="login-input-wrap password-wrap">	
-				<input name="checkpwd" placeholder="비밀번호 확인" type="password"></input>
+				<input name="changepwd2" placeholder="비밀번호 확인" type="password"></input>
 			</div>
             <div class="login-button-wrap">
 				<button type="button" > 확인</button>

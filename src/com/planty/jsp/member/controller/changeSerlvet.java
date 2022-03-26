@@ -28,20 +28,28 @@ public class changeSerlvet extends HttpServlet {
 
 		UserDTO loginUser = (UserDTO ) request.getSession().getAttribute("loginMember");
 		String id = loginUser.getId();
-		String checkPwd = request.getParameter("checkPwd"); 
+		String memberId = loginUser.getId();
+		int memberRegNo = loginUser.getRegNo();
+		String memberEmail = loginUser.getEmail();
+		int EmailCheck = loginUser.getEmailCheck();
+		
 		
 		UserDTO  requestMember = new UserDTO ();
-		requestMember.setId(id);
+		requestMember.setId(memberId);
+		requestMember.setRegNo(memberRegNo);
+		requestMember.setEmail(memberEmail);
+		requestMember.setEmailCheck(EmailCheck);
 		requestMember.setPwd(checkPwd);
 		
 		String memberPwd = request.getParameter("Pwd"); 
 
-		int result = new MemberService().modifyPassword(requestMember, memberPwd);
+		int result = new MemberService().findPwd(requestMember, memberPwd);
 
 		String page = "";
 		
 		if(result > 0) {
-			page = "/WEB-INF/views/common/success.jsp";
+			request.setAttribute("findPwd", findPwd);
+			request.getRequestDispatcher("/WEB-INF/views/login/result-Pwd.jsp").forward(request, response);
 			request.setAttribute("successCode", "updateMemberPassword");
 		} else {
 			page = "/WEB-INF/views/common/failed.jsp";

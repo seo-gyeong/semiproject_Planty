@@ -37,18 +37,18 @@
         
             <div class="type2">
                 <div  class="login-input-wrap">   
-                    <input placeholder="아이디" id="user" type="text" class="input"><br>
+                    <input name="id" placeholder="아이디" id="user" type="text" class="input"><br>
                 </div>
               
                 <div class="type2">
                     <div class="login-input-wrap"> 
-                        <input  placeholder="법인등록번호" id="user" type="text" class="input"><br>
+                        <input name="regNo"  placeholder="법인등록번호" id="user" type="text" class="input"><br>
                     </div>
                </div>
 
             <div class="type2">
                 <div class="login-input-wrap"> 
-                    <input  placeholder="이메일" id="pass" type="text" class="input2" data-type="password"><br>
+                    <input name="email" placeholder="이메일" id="pass" type="text" class="input2" data-type="password"><br>
                 </div>
             </div>
                 
