@@ -34,9 +34,6 @@ public class UserDAO {
 		return session.selectOne("MemberDAO.findId", requestMember );
 		}
 
-	public int updateMember(SqlSession session, UserDTO requestMember) {
-		return session.update("MemberDAO.updateMember", requestMember);
-		}
 
 
 

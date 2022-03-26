@@ -22,11 +22,10 @@
 
 	
 	<select id="selectEncryptedPwd" resultType="java.lang.String">
-        SELECT /* com.planty.jsp.member.model.dao.MemberDAO#selectEncryptedPwd() */
+        SELECT 
                PWD
           FROM MEMBER 
-         WHERE TEXT_YN = ' Y'
-           AND ID = #{ id }
+         WHERE ID = #{ id }
 	</select>
 	
 	<select id="selectLoginMember" resultMap="memberResultMap">
@@ -41,36 +40,27 @@
 			ENROLL_DATE,
 			NAME
 		  FROM MEMBER 
-		 WHERE TEXT_YN = ' Y'
-           AND ID = #{ id }
+		 WHERE ID = #{ id }
 	</select>
 	
 	<select id="memberIdCheck" resultType="_int">
-		SELECT /* com.planty.jsp.member.model.dao#MemberDao#memberIdCheck() */
+		SELECT 
 		       COUNT(*)
 		  FROM MEMBER
 		 WHERE ID = #{ id }
 	</select>
 	
 	
-	<select id="findMemberId" resultType="memberResultMap">
-		SELECT /* com.planty.jsp.member.model.dao#findId() */
-				*
+	<select id="findId" resultType="memberResultMap">
+		SELECT 
+			   ID
 		 FROM MEMBER 
 		 WHERE NAME = #{name} 
 		 AND EMAIL = #{email}
 	</select>
 	
-	<select id="findPartnerId" resultType="memberResultMap">
-		SELECT /* com.planty.jsp.member.model.dao#findId() */
-				*
-		 FROM MEMBER 
-		 WHERE CEO_NAME = #{ceoName} 
-		 AND EMAIL = #{email}
-	</select>
 	
-	
-	<select id="findMemberPwd" resultType="memberResultMap">
+	<select id="findPwd" resultType="memberResultMap">
 		SELECT /* com.planty.jsp.member.model.dao#findPwd() */
 				*
 		 FROM MEMBER 
@@ -79,14 +69,6 @@
 		 AND EMAIL = #{email}
 	</select>
 	
-	<select id="findPartnerPwd" resultType="memberResultMap">
-		SELECT /* com.planty.jsp.member.model.dao#findPwd() */
-				*
-		 FROM MEMBER 
-		 WHERE ID = #{ id } 
-		 AND REG_NO = #{reqNo} 
-		 AND EMAIL = #{email}
-	</select>
 	
 	<update id="updateMemberPassword">
 		UPDATE /* com.planty.jsp.member.model.dao.MemberDAO#updateMemberPassword() */
