@@ -27,9 +27,9 @@
                 <div class="dropdown" id="selectbox">
                 <button class="btn btn-secondary dropdown-toggle" style="margin-bottom: 10px; font-size: 14px; background-color:#4C5B5D ;" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">회원유형</button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                  <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" onclick="location.href='find pwd-member.html'">개인회원</button></li>
-                  <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" onclick="location.href='find pwd-partner.html'">법인사업자 회원</button></li>
-                </ul>
+                 <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/login/findPwd-memeber'">개인회원</button></li>
+                  <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/login/findPwd-partner'">법인사업자 회원</button></li>
+              </ul>
               </div>
             </div>
            <div class="type1">
@@ -49,7 +49,7 @@
 
             <div class="type3">
                  <div class="login-input-wrap"> 
-                     <input name="checknum" readonly="readonly" placeholder="인증번호" id="user" type="text" class="input"><br>
+                     <input name="checknum"  placeholder="인증번호" id="user" type="text" class="input"><br>
                  </div>
                  <button type="button" >확인</button>
             </div>

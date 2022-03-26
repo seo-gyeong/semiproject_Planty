@@ -30,7 +30,7 @@
 				<input name="checkpwd" placeholder="비밀번호 확인" type="password"></input>
 			</div>
             <div class="login-button-wrap">
-				<button type="button" onclick="location.href='result-pwd.html'"> 확인</button>
+				<button type="button" > 확인</button>
 			</div>
         
          
