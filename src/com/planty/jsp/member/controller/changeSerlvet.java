@@ -26,34 +26,26 @@ public class changeSerlvet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		UserDTO loginUser = (UserDTO ) request.getSession().getAttribute("loginMember");
-		String id = loginUser.getId();
-		String memberId = loginUser.getId();
-		int memberRegNo = loginUser.getRegNo();
-		String memberEmail = loginUser.getEmail();
-		int EmailCheck = loginUser.getEmailCheck();
+		UserDTO findpwd = (UserDTO) request.getSession().getAttribute("changePwd");
+		String checkPwd = request.getParameter("checkPwd"); 
+	
 		
-		
-		UserDTO  requestMember = new UserDTO ();
-		requestMember.setId(memberId);
-		requestMember.setRegNo(memberRegNo);
-		requestMember.setEmail(memberEmail);
-		requestMember.setEmailCheck(EmailCheck);
+		UserDTO requestMember = new UserDTO();
 		requestMember.setPwd(checkPwd);
 		
-		String memberPwd = request.getParameter("Pwd"); 
+		
+		String memberPwd = request.getParameter("memberPwd"); 
 
-		int result = new MemberService().findPwd(requestMember, memberPwd);
+		int result = new MemberService().modifyPassword(requestMember, memberPwd);
 
 		String page = "";
 		
 		if(result > 0) {
-			request.setAttribute("findPwd", findPwd);
-			request.getRequestDispatcher("/WEB-INF/views/login/result-Pwd.jsp").forward(request, response);
+			page = "/WEB-INF/views/common/success.jsp";
 			request.setAttribute("successCode", "updateMemberPassword");
 		} else {
 			page = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "비밀번호 변경 실패!");
+			request.setAttribute("message", "회원 비밀번호 정보 수정 실패!");
 		}
 		
 		request.getRequestDispatcher(page).forward(request, response);

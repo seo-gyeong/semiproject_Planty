@@ -26,12 +26,16 @@ public class MemberDAO {
 
 
 	public int updateMemberPassword(SqlSession session, UserDTO requestMember) {
-		// TODO Auto-generated method stub
-		return 0;
+		return session.update("MemberDAO.updateMemberPassword", requestMember);
 	}
+
 
 	public UserDTO findPwd(SqlSession session, UserDTO requestMember) {
 		return session.selectOne("MemberDAO.findId", requestMember );
+		}
+
+	public int updateMember(SqlSession session, UserDTO requestMember) {
+		return session.update("MemberDAO.updateMember", requestMember);
 		}
 
 

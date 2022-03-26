@@ -59,31 +59,6 @@ public class MemberService {
 		
 	}
 	
-		public int modifyPassword(UserDTO requestMember, String memberPwd) {
-		
-		SqlSession session = getSqlSession();
-		int result = 0;
-		
-		String encPwd = memberDAO.selectEncryptedPwd(session, requestMember);
-		
-		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		/* 비밀번호 수정 요청한 원문 비밀번호와 저장되어있는 암호화된 비밀번호가 일치하는지 확인한다. */
-		if(passwordEncoder.matches(requestMember.getPwd(), encPwd)) {
-			/* 비밀번호가 일치하는 경우에만 새로 입력 된 비밀번호로 수정한다. */
-			requestMember.setPwd(memberPwd);
-			result = memberDAO.updateMemberPassword(session, requestMember);
-		}
-		
-		if(result > 0) {
-			session.commit();
-		} else {
-			session.rollback();
-		}
-		
-		session.close();
-		
-		return result;
-	}
 
 		public UserDTO findPwd(UserDTO requestMember) {
 			SqlSession session = getSqlSession();
@@ -96,6 +71,30 @@ public class MemberService {
 			return findPwd;
 		}
 
+		public int modifyPassword(UserDTO requestMember, String memberPwd) {
+			SqlSession session = getSqlSession();
+			int result = 0;
+			
+			String encPwd = memberDAO.selectEncryptedPwd(session, requestMember);
+			
+			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+			/* 비밀번호 수정 요청한 원문 비밀번호와 저장되어있는 암호화된 비밀번호가 일치하는지 확인한다. */
+			if(passwordEncoder.matches(requestMember.getPwd(), encPwd)) {
+				/* 비밀번호가 일치하는 경우에만 새로 입력 된 비밀번호로 수정한다. */
+				requestMember.setPwd(memberPwd);
+				result = memberDAO.updateMemberPassword(session, requestMember);
+			}
+			
+			if(result > 0) {
+				session.commit();
+			} else {
+				session.rollback();
+			}
+			
+			session.close();
+			
+			return result;
+		}
 
 
 }
