@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import com.planty.jsp.common.wrapper.EncryptRequestWrapper;
 
 /* member 서비스인 경우에만 암호화 처리 할 수 있도록 한다. */
-@WebFilter("/member/*")
+@WebFilter("/user/*")
 public class PasswordEncryptFilter implements Filter {
 
 	public void destroy() {}

@@ -90,6 +90,23 @@ public class UserService {
 		return changedUserInfo;
 	}
 
+
+
+	public int removeUser(String id) {
+		SqlSession session = getSqlSession();
+		
+		int result = userDAO.deleteUser(session, id);
+		if(result > 0) {
+			session.commit();	
+		} else {
+			session.rollback();
+		}
+		
+		session.close();
+		
+		return result;
+	}
+
 	
 
 }

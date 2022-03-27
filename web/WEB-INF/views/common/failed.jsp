@@ -8,14 +8,34 @@
 <style>
 	#imageArea{
 		width : 500px;
+		height : 300px;
 		margin : 100px auto;
 		display : flex;
 		justify-content : center;
 		align-items : center;
 	}
 	#imageArea img {
-		width : 100%;
+		width : auto;
+		height : 100%;
 	}
+	
+	h1 {
+		margin: -80px;
+	}
+	
+	#bttmArea {
+		margin : 100px;
+		display : flex;
+		justify-content : center;
+		align-items : center;
+	}
+	
+	#error-bttm {
+		width : 700px;
+		height: 113px;
+	
+	}
+
 </style>
 
     <meta charset="UTF-8">
@@ -108,8 +128,12 @@
     </header>
 	
 	<div id="imageArea">
-		<img id="errorImage" src="${ pageContext.servletContext.contextPath }/resources/image/error.png" alt="error">
+		<img id="errorImage" src="${ pageContext.servletContext.contextPath }/resources/image/error-cloud.png" alt="error">
 	</div>
 	<h1 align="center">${ requestScope.message }</h1>
+	<div id="bttmArea">
+		<img id="error-bttm" src="${ pageContext.servletContext.contextPath }/resources/image/error-bttm.png" alt="error">
+	</div>
+
 </body>
 </html>

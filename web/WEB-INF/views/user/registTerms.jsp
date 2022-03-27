@@ -78,15 +78,15 @@
                     <span class="input-chk first-sp">
                         <input type="checkbox" id="termsService" name="chk-all" onclick="selectAll(this);" class="chk">
                         <!-- [D] ie7/8에서 checked일때 label에 클래스 on추가해주세요. -->
-                        <label for="chk-all"><span class="chk-all-txt">이용약관, 개인정보 수집 및 이용, 쇼핑 정보 수신(선택)에 모두
+                        <label for="termsService"><span class="chk-all-txt">이용약관, 개인정보 수집 및 이용, 쇼핑 정보 수신(선택)에 모두
                                 동의합니다.</span></label>
                     </span>
                 </ul>
                 <ul class="terms_bx_list">
                     <li class="terms_bx">
                         <span class="input_chk">
-                            <input type="checkbox" id="termsService" name="chk-all" class="chk">
-                            <label for="termsService">이용약관 동의 <span class="ncsary">(필수)</span> </label>
+                            <input type="checkbox" id="terms" name="chk-all" class="chk">
+                            <label for="terms">이용약관 동의 <span class="ncsary">(필수)</span> </label>
                         </span>
                         <div class="terms_box" tabindex="0" id="divService">
                             <!-- 플랜티몰 이용약관 동의 -->
@@ -331,8 +331,8 @@
                     </li>
                     <li class="terms_bx">
                         <span class="input_chk">
-                            <input type="checkbox" id="termsService" name="chk-all" class="chk">
-                            <label for="termsService">개인정보 수집동의 <span class="ncsary">(필수)</span> </label>
+                            <input type="checkbox" id="terms-private" name="chk-all" class="chk">
+                            <label for="terms-private">개인정보 수집 및 이용 동의 <span class="ncsary">(필수)</span> </label>
                         </span>
                         <div class="terms_box" tabindex="0" id="divService">
                             <!-- 개인정보 수집동의 -->
@@ -380,7 +380,7 @@
                         <span class="input_chk">
                             <input type="checkbox" id="textYn" name="textYn" value="Y" class="chk">
                             <input type="hidden" id="textYn-hidden" name="textYn" value="N" class="text_yn">
-                            <label for="termsService">쇼핑 정보 수신 동의 (선택) </label>
+                            <label for="textYn">쇼핑 정보 수신 동의 (선택) </label>
                         </span>
                         <div class="terms_box" tabindex="0" id="divService">
                             <!-- 쇼핑 정보 수신 동의 -->
@@ -451,7 +451,8 @@
                  location.href = "cart.html";
              }
          }
-                           
+        
+        <!-- 전체 동의 체크박스 함수 -->
         function selectAll(selectAll)  {
         	const checkboxes = document.querySelectorAll('.chk');
             checkboxes.forEach((checkbox) => {checkbox.checked = selectAll.checked;
