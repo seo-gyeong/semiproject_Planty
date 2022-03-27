@@ -26,7 +26,7 @@ public class UserModifyPwdServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		UserDTO loginUser = (UserDTO) request.getSession().getAttribute("loginMember");
-//		
+		
 		String id = loginUser.getId();
 		
 		String checkPwd = request.getParameter("checkPwd"); 

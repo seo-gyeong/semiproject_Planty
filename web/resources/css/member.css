@@ -161,6 +161,7 @@ flex-basis: 50%;
   margin: 0 auto 0 auto;
 }
 
+
 #join-form input[type="checkbox"]{
   width: 15px;
   height: 15px;
@@ -178,9 +179,7 @@ flex-basis: 50%;
     padding-bottom: 20px;
 }
 
-.chk-all-txt {
 
-}
 
 .ncsary {
   color: #249698;
@@ -330,13 +329,13 @@ flex-basis: 50%;
 
 #join-form2 {
 	width: 700px;
-  margin-left: 70px;
+  	margin-left: 130px;
 	padding: 10px 0 0 100px;
 }
 
 #join-form3 {
 	width: 700px;
-  margin-left: 130px;
+  	margin-left: 130px;
 	padding: 10px 0 0 100px;
 }
 

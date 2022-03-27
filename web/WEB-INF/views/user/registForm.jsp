@@ -140,11 +140,11 @@
                 <button class="join-btn join-btn-style" id="idCheck" type="button">중복확인</button>
 
                 <div class="form-name">비밀번호</div>
-                <span class="input_area"><input type="password" maxlength="30" name="pwd" required
-                        placeholder="영문,숫자,특수문자 조합 30자 이내"></span>
+                <span class="input_area"><input type="password" maxlength="30" name="pwd" required id="pwd"
+                        placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~30자" onchange="check_pw()"></span>
 
                 <div class="form-name">비밀번호 확인</div>
-                <span class="input_area"><input type="password" maxlength="30" name="pwd2" required></span>
+                <span class="input_area"><input type="password" maxlength="30" name="pwd2" id="pwd2" onchange="check_pw()" required></span>&nbsp;<span id="check"></span>
                 <label id="pwdResult"></label>
 
                 <div class="form-name">이름</div>
@@ -284,6 +284,30 @@
                 location.href = "cart.html";
             }
         }
+        
+        <!-- password 체크 -->
+        function check_pw(){
+        	 
+            var pwd = document.getElementById('pwd').value;
+            var check_SC = 0;
+ 
+            if(pwd.length < 8 || pwd.length>30){
+                window.alert('비밀번호는 8글자 이상, 30글자 이하만 이용 가능합니다.');
+                document.getElementById('pwd').value='';
+            }
+            
+            if(document.getElementById('pwd').value !='' && document.getElementById('pwd2').value!=''){
+                if(document.getElementById('pwd').value==document.getElementById('pwd2').value){
+                    document.getElementById('check').innerHTML='비밀번호가 일치합니다.'
+                    document.getElementById('check').style.color='blue';
+                }
+                else{
+                    document.getElementById('check').innerHTML='비밀번호가 일치하지 않습니다.';
+                    document.getElementById('check').style.color='red';
+                }
+            }
+        }
+        
     </script>
 
 

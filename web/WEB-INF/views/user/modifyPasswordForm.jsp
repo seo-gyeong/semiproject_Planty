@@ -22,7 +22,7 @@
 	
 	#updatePwdForm {
 		width : 300px;
-		margin:auto;
+		margin: 40px auto 0 auto;
 	}
 	
 	.input_area {
@@ -66,7 +66,7 @@
 	<div class="outer">
 	<br>
 	<h1>비밀번호 변경</h1>
-	<br>
+	
 	<form id="updatePwdForm" action="${ pageContext.servletContext.contextPath }/user/modifyPwd"
 	method="post" onsubmit="return checkPassword();">
 				<h4>현재 비밀번호</h4>
@@ -75,7 +75,7 @@
 				</span>
 				<h4>변경할 비밀번호</h4>
 				<span class="input_area">
-				<input type="password" name="pwd" id="memberPwd" maxlength="30" plcaeholder="영문,숫자,특수문자 조합 30자 이내">
+				<input type="password" name="pwd" id="memberPwd" maxlength="30" plcaeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~30자">
 				</span>
 				<h4>변경할 비밀번호 확인</h4>
 				<span class="input_area">

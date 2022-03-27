@@ -72,13 +72,13 @@
             </div>
         </div>
         <script>
-                function mypage() {
+        function mypage() {
             let signIn = ""
             if (signIn == "") {
                 alert("해당 페이지는 로그인 후 사용하실 수 있습니다.");
-                location.href = "LOG IN.html";
+                location.href = "${ pageContext.servletContext.contextPath }/user/login";
             } else {
-                location.href = "mypage.html";
+                location.href = "${ pageContext.servletContext.contextPath }/mypage/intro";
             }
         }
 
@@ -200,8 +200,8 @@
 
         // 탈퇴하기 버튼 이벤트 핸들러 function
         function confirmRemove() {
-            if (confirm("정말로 탈퇴하시겠습니까?")) {
-                location.href = "${ pageContext.servletContext.contextPath }/member/remove";
+            if (confirm("정말로 탈퇴하시겠습니까?<br> '확인' 버튼 클릭후 취소할 수 없습니다.")) {
+                location.href = "${ pageContext.servletContext.contextPath }/user/remove";
             }
         }
     </script>
