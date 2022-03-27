@@ -50,7 +50,7 @@
 </div>
         
             <div class="login-button-wrap">
-				<button type="button" >아이디 찾기</button>
+				<button name="findId" type="button" >아이디 찾기</button>
 			</div>
     
             <div class="empty">

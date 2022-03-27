@@ -30,8 +30,8 @@ public class UserDAO {
 	}
 
 
-	public UserDTO findPwd(SqlSession session, UserDTO requestMember) {
-		return session.selectOne("MemberDAO.findId", requestMember );
+	public UserDTO findPwd(SqlSession session, String memberId) {
+		return session.selectOne("MemberDAO.findPwd", memberId );
 		}
 
 

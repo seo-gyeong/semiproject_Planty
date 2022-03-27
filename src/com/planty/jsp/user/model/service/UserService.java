@@ -60,18 +60,6 @@ public class UserService {
 		
 	}
 	
-
-		public UserDTO findPwd(UserDTO requestMember) {
-			SqlSession session = getSqlSession();
-			UserDTO findPwd = null;
-			
-			findPwd = UserDAO.findPwd (session, requestMember);
-			
-			session.close();
-
-			return findPwd;
-		}
-
 		public int modifyPassword(UserDTO requestMember, String memberPwd) {
 			SqlSession session = getSqlSession();
 			int result = 0;
@@ -96,6 +84,19 @@ public class UserService {
 			
 			return result;
 		}
+
+		public UserDTO findPwd(String memberId)  {
+			SqlSession session = getSqlSession();
+			UserDTO findPwd = null;
+			
+			findPwd = UserDAO.findPwd (session, memberId);
+			
+			session.close();
+
+			return findPwd;
+		}
+
+
 
 
 }

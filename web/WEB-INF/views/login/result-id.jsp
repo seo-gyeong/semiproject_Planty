@@ -33,8 +33,8 @@
             </div>
            
             <div class="result-btn">
-                <button type="button" class="btn btn-primary" onclick="location.href='LOG IN.html'">로그인페이지</button>
-                <button type="button" class="btn btn-primary" onclick="location.href='ABOUT US.html'">메인페이지</button>
+                <button type="button" class="btn btn-primary" href='${ pageContext.servletContext.contextPath }/member/login'>로그인페이지</button>
+                <button type="button" class="btn btn-primary" href='${ pageContext.servletContext.contextPath }/member/aboutus'>메인페이지</button>
             </div>
            
             <div class="empty">

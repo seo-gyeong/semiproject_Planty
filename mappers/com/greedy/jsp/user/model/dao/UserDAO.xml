@@ -61,21 +61,19 @@
 	
 	
 	<select id="findPwd" resultType="memberResultMap">
-		SELECT /* com.planty.jsp.member.model.dao#findPwd() */
+		SELECT 
 				*
 		 FROM MEMBER 
 		 WHERE ID = #{ id } 
-		 AND  NAME = #{name} 
 		 AND EMAIL = #{email}
 	</select>
 	
 	
 	<update id="updateMemberPassword">
-		UPDATE /* com.planty.jsp.member.model.dao.MemberDAO#updateMemberPassword() */
+		UPDATE 
 		       MEMBER
 		   SET PWD = #{ pwd }
-		 WHERE TEXT_YN = 'Y'
-		   AND ID = #{ id }
+		 WHERE ID = #{ id }
 	</update>
 
 

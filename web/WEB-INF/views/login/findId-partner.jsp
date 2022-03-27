@@ -52,7 +52,7 @@
 </div>
         
             <div class="login-button-wrap">
-				<button type="button" onclick="location.href='result-id.html'">아이디 찾기</button>
+				<button name="findId" type="button" onclick="location.href='result-id.html'">아이디 찾기</button>
 			</div>
     
             <div class="empty">

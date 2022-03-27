@@ -18,15 +18,14 @@ public class findIdMemberServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/login/findId-member.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/login/findId-partner.jsp").forward(request, response);
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String memberName = request.getParameter("name");
-		String memberCeoName = request.getParameter("ceoName");
 		String memberEmail = request.getParameter("email");
 		
 		System.out.println("memberName : " + memberName);
-		System.out.println("memberCeoName : " + memberCeoName);
 		System.out.println("memberEmail : " + memberEmail);
 		
 		UserDTO requestMember = new UserDTO();

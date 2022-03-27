@@ -45,20 +45,11 @@
                 <div class="login-input-wrap"> 
                     <input name="email"  placeholder="이메일" id="pass" type="text" class="input2" data-type="password"><br>
                 </div>
-                <button type="button" >인증번호 전송</button>
             </div>
-                
-
-            <div class="type3">
-                 <div class="login-input-wrap"> 
-                     <input name="checknum"  placeholder="인증번호" id="user" type="text" class="input"><br>
-                 </div>
-                 <button type="button" >확인</button>
-            </div>
-           
+ 
               </div>     
               <div class="login-button-wrap">
-				<button type="button" > 확인 </button>
+				<button name="findPwd" type="button" > 확인 </button>
 			</div>
     
             <div class="empty">

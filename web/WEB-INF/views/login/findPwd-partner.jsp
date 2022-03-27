@@ -57,7 +57,7 @@
            
               </div>     
               <div class="login-button-wrap">
-				<button type="button" onclick="location.href='change.html'"> 확인 </button>
+				<button name="findPwd" type="button"> 확인 </button>
 			</div>
     
             <div class="empty">
