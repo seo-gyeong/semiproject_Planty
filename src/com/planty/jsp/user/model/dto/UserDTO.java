@@ -16,6 +16,9 @@ package com.planty.jsp.user.model.dto;
 		private Date enrollDate;
 		private String name;
 		private String role;
+		private String ceoName;
+		private String regNo;
+		private String approval;
 		
 		
 		public UserDTO() {}

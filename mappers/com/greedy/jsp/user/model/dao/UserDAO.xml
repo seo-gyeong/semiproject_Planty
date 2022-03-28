@@ -29,7 +29,7 @@
 	</select>
 	
 	<select id="selectLoginMember" resultMap="memberResultMap">
-		SELECT /* com.planty.jsp.member.model.dao.MemberDAO#selectLoginMember() */
+		SELECT
 			ID,
 			AUTH_NO,
 			PWD,
