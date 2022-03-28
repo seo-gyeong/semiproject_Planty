@@ -5,19 +5,18 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.planty.jsp.user.model.dao.UserDAO;
 import com.planty.jsp.user.model.dto.UserDTO;
-import com.planty.jsp.user.model.service.UserService;
+
 import static com.planty.jsp.common.mybatis.Template.getSqlSession;
 
 public class UserService {
-	
+
 	private final UserDAO userDAO;
-	
+		
 	public UserService() {
 		userDAO = new UserDAO();
 	}
-	
-	
-	public int registUser(UserDTO requestUser) {
+ 
+	public int registUser(UserDTO requestUser) { 
 		
 		SqlSession session = getSqlSession();
 		
@@ -26,25 +25,24 @@ public class UserService {
 			session.commit();
 		} else {
 			session.rollback();
-		}
-		
-		session.close();
-		
+    }
+     session.close();
+	
 		return result;
 	}
-	
-	public int userIdCheck(String id) {
+  
+  public int userIdCheck(String id) { 
 		SqlSession session = getSqlSession();
 		
 		int result = userDAO.userIdCheck(session, id);
-		
+    
 		session.close();
 	
 		return result;
-	}
+	}                                  
+  
+  public UserDTO loginCheck(UserDTO requestUser) { 
 	
-	public UserDTO loginCheck(UserDTO requestUser) {
-		
 		SqlSession session = getSqlSession();
 		UserDTO loginUser = null;
 		
@@ -55,15 +53,16 @@ public class UserService {
 		if(passwordEncoder.matches(requestUser.getPwd(), encPwd)) {
 			/* 비밀번호가 일치하는 경우에만 회원 정보를 조회해온다. */
 			loginUser = userDAO.selectLoginUser(session, requestUser);
-		}
-		
-		session.close();
-		
+      	
+    }
+     session.close();
+	
 		return loginUser;
-		
 	}
+     
 
 	public UserDTO findId (UserDTO requestUser) {
+
 		SqlSession session = getSqlSession();
 		UserDTO findId = null;
 		
@@ -111,6 +110,7 @@ public class UserService {
 		return result;
 	}
 
+                                               
 	public UserDTO modifyUser(UserDTO requestUser) {
 		SqlSession session = getSqlSession();
 		UserDTO changedUserInfo = null;
@@ -127,6 +127,7 @@ public class UserService {
 		
 		return changedUserInfo;
 	}
+
 	public int removeUser(String id) {
 		SqlSession session = getSqlSession();
 		
