@@ -110,7 +110,7 @@ public class findPwdMemberServlet extends HttpServlet {
 	                }
 	                HttpSession saveKey = request.getSession();
 	                saveKey.setAttribute("AuthenticationKey", AuthenticationKey);
-	                //패스워드 바꿀때 뭘 바꿀지 조건에 들어가는 id
+	             
 	                request.setAttribute("id", memberId);
 	                request.getRequestDispatcher("/views/login/change.jsp").forward(request, response);
 	    }
