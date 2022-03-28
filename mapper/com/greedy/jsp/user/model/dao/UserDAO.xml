@@ -3,7 +3,7 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserDAO">
-	<resultMap type="com.planty.jsp.user.model.dto.UserDTO" id="memberResultMap">
+	<resultMap type="com.planty.jsp.user.model.dto.UserDTO" id="userResultMap">
 		<id property="id" column="ID"/>
 		<result property="no" column="AUTH_NO"/>
 		<result property="pwd" column="PWD"/>
@@ -130,7 +130,7 @@
 	</delete>	
 	
 	
-		<select id="findId" resultType="memberResultMap">
+		<select id="findId" resultType="userResultMap">
 		SELECT 
 			   ID
 		 FROM MEMBER 
@@ -140,7 +140,7 @@
 	</select>
 	
 	
-	<select id="findPwd" resultType="memberResultMap">
+	<select id="findPwd" resultType="userResultMap">
 		SELECT 
 				*
 		 FROM MEMBER 
