@@ -59,6 +59,9 @@
 
 </head>
 <body>
+<<<<<<< sg
+
+=======
 	 	<!-- header -->
     <header class="menu1">
         <div class="back">
@@ -127,6 +130,7 @@
     	</script>
     </header>
 	
+>>>>>>> master
 	<div id="imageArea">
 		<img id="errorImage" src="${ pageContext.servletContext.contextPath }/resources/image/error-cloud.png" alt="error">
 	</div>

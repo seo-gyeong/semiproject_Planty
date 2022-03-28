@@ -1,7 +1,6 @@
 package com.planty.jsp.customercare.notice.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,25 +11,28 @@ import javax.servlet.http.HttpServletResponse;
 import com.planty.jsp.customercare.notice.model.dto.NoticeDTO;
 import com.planty.jsp.customercare.notice.model.service.NoticeService;
 
+@WebServlet("/notice/detail")
+public class NoticeSelectDetailServlet extends HttpServlet {
 
-@WebServlet("/notice/list")
-public class NoticeSelectListServlet extends HttpServlet {
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<NoticeDTO> noticeList = new NoticeService().selectAllNoticeList();
+		int no = Integer.parseInt(request.getParameter("no"));
 		
-		System.out.println(noticeList);
+		NoticeService noticeService = new NoticeService();
+		NoticeDTO noticeDetail = noticeService.selectNoticeDetail(no);
+		
+		System.out.println("noticeDetail : " + noticeDetail);
 		
 		String path = "";
-		if(noticeList != null) {
-			path = "/WEB-INF/views/customercare/notice/noticeList.jsp";
-			request.setAttribute("noticeList", noticeList);
-		} 
+		if(noticeDetail != null) {
+			path = "/WEB-INF/views/notice/noticeDetail.jsp";
+			request.setAttribute("notice", noticeDetail);
+		} else {
+			path = "/WEB-INF/views/common/failed.jsp";
+			request.setAttribute("message", "공지사항 상세 보기 조회에 실패하였습니다.");
+		}
 		
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 
-	
-	
 }
