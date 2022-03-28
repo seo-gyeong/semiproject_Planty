@@ -20,7 +20,7 @@
 	<div class="main-container">
 		<div class="main-wrap">
 		
-		<form class="login-input-section-wrap" method="post"  action="${ pageContext.servletContext.contextPath }/user/change }">
+		<form class="login-input-section-wrap" method="post"  action="${ pageContext.servletContext.contextPath }/user/change">
             <div class="login-title1">
                 <h2 class="login-title2">비밀번호 변경</h2>
             </div>

@@ -43,19 +43,19 @@
 
             </div>
             <div class="navbar-center">
-                   <a href="${ pageContext.servletContext.contextPath }/main/intro"><img class="image"   src="${ pageContext.servletContext.contextPath }/resources/img/planty_logo.png"></a> 
+                   <a href="${ pageContext.servletContext.contextPath }/main/intro"><img class="image"   src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png"></a> 
             </div>
 
             <div class="navbar-right">
             
               <div>
                 <c:if test="${ empty sessionScope.loginMember }">
- 			 	<a href="${ pageContext.servletContext.contextPath }/member/login"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/my.png"></a></li>
-              	<a href="${ pageContext.servletContext.contextPath }/member/login"> <img class="icon" src="${ pageContext.servletContext.contextPath }/resources/image/cart.png"></a></li>
+ 			 	<a href="${ pageContext.servletContext.contextPath }/user/login"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/my.png"></a></li>
+              	<a href="${ pageContext.servletContext.contextPath }/user/login"> <img class="icon" src="${ pageContext.servletContext.contextPath }/resources/image/cart.png"></a></li>
                </c:if>
                
                <c:if test="${ !empty sessionScope.loginMember }">
-                <a href="${ pageContext.servletContext.contextPath }/member/logout"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/logout.png"></a></li>
+                <a href="${ pageContext.servletContext.contextPath }/user/logout"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/logout.png"></a></li>
 			  	<a href="${ pageContext.servletContext.contextPath }/mypage"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/my.png"></a></li>
               	<a href="${ pageContext.servletContext.contextPath }/cart"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/cart.png"></a></li>
                </c:if>
