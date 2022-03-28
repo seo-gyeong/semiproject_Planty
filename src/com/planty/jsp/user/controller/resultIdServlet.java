@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class resultIdServlet
  */
-@WebServlet("/member/resultid")
+@WebServlet("/user/resultid")
 public class resultIdServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		

@@ -33,5 +33,3 @@ public class EncodingFilter implements Filter {
 		encodingType = fConfig.getInitParameter("encoding-type");
 	}
 
-}
-
