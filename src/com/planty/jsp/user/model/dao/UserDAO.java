@@ -5,12 +5,13 @@ import org.apache.ibatis.session.SqlSession;
 import com.planty.jsp.user.model.dto.UserDTO;
 
 public class UserDAO {
+	
 
 //	User table 신규 회원 insert용 메소드
 	public int insertUser(SqlSession session, UserDTO requestUser) {
 		return session.insert("UserDAO.insertUser", requestUser);
 	}
-	
+  
 //	암호화 처리된 비밀번호 조회용 메소드(로그인 확인용)
 	public String selectEncryptedPwd(SqlSession session, UserDTO requestUser) {
 		return session.selectOne("UserDAO.selectEnryptedPwd", requestUser);
@@ -25,7 +26,6 @@ public class UserDAO {
 	public int userIdCheck(SqlSession session, String id) {
 		return session.selectOne("UserDAO.userIdCheck", id);
 	}
-
 	
 //	회원 정보 수정용 메소드
 	public int updateUser(SqlSession session, UserDTO requestUser) {
@@ -47,14 +47,14 @@ public class UserDAO {
 	}
   
 // 아이디 찾기 메소드  
-	public UserDTO findId(SqlSession session, UserDTO requestMember) {
-		return session.selectOne("UserDAO.findId", requestMember );
+	public UserDTO findId(SqlSession session, UserDTO requestUser) {
+		return session.selectOne("UserDAO.findId", requestUser );
 	}
 
 // 비밀번호 찾기 메소드  
 	public UserDTO findPwd(SqlSession session, String id) {
 		return session.selectOne("UserDAO.findPwd", id );
-		}	
+	}	
 	
 }
 

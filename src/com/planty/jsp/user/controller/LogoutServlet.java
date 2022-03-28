@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class LogoutServlet
  */
-@WebServlet("/member/logout")
+@WebServlet("/user/logout")
 public class LogoutServlet extends HttpServlet {
 
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

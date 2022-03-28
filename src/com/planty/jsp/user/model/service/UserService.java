@@ -11,14 +11,12 @@ import static com.planty.jsp.common.mybatis.Template.getSqlSession;
 public class UserService {
 
 	private final UserDAO userDAO;
-	
+		
 	public UserService() {
 		userDAO = new UserDAO();
 	}
-	
-	
-	
-	public int registUser(UserDTO requestUser) {
+ 
+	public int registUser(UserDTO requestUser) { 
 		
 		SqlSession session = getSqlSession();
 		
@@ -27,45 +25,66 @@ public class UserService {
 			session.commit();
 		} else {
 			session.rollback();
-		}
-		
-		session.close();
-		
-		return result;
-	}
-
-	public int userIdCheck(String id) {
-		SqlSession session = getSqlSession();
-		
-		int result = userDAO.userIdCheck(session, id);
-		
-		session.close();
+    }
+     session.close();
 	
 		return result;
 	}
+  
+  public int userIdCheck(String id) { 
+		SqlSession session = getSqlSession();
+		
+		int result = userDAO.userIdCheck(session, id);
+    }
+     session.close();
+	
+		return result;
+	}                                  
+  
+  public UserDTO loginCheck(UserDTO requestUser) { 
+	
+		SqlSession session = getSqlSession();
+		UserDTO loginUser = null;
+		
+		String encPwd = userDAO.selectEncryptedPwd(session, requestUser);
+		
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		/* 로그인 요청한 원문 비밀번호화 저장되어있는 암호화된 비밀번호가 일치하는지 확인한다. */
+		if(passwordEncoder.matches(requestUser.getPwd(), encPwd)) {
+			/* 비밀번호가 일치하는 경우에만 회원 정보를 조회해온다. */
+			loginUser = userDAO.selectLoginUser(session, requestUser);
+      	
+    }
+     session.close();
+	
+		return loginUser;
+	}
+     
 
+	public UserDTO findId (UserDTO requestUser) {
 
-	public UserDTO findId (UserDTO requestMember) {
 		SqlSession session = getSqlSession();
 		UserDTO findId = null;
 		
-		findId = UserDAO.findId (session, requestMember);
+		findId = userDAO.findId (session, requestUser);
 		
 		session.close();
 		
 		return findId;
-}
-		public UserDTO findPwd(String memberId)  {
-			SqlSession session = getSqlSession();
-			UserDTO findPwd = null;
-			
-			findPwd = UserDAO.findPwd (session, memberId);
-			
-			session.close();
+		
+	}
+	
+	public UserDTO findPwd(String id)  {
+		SqlSession session = getSqlSession();
+		UserDTO findPwd = null;
+		
+		findPwd = userDAO.findPwd (session,id);
+		
+		session.close();
 
-			return findPwd;
-		}
-
+		return findPwd;
+	}
+	
 	public int modifyPwd(UserDTO requestUser, String pwd) {
 		SqlSession session = getSqlSession();
 		int result = 0;
@@ -91,7 +110,7 @@ public class UserService {
 		return result;
 	}
 
-
+                                               
 	public UserDTO modifyUser(UserDTO requestUser) {
 		SqlSession session = getSqlSession();
 		UserDTO changedUserInfo = null;
@@ -109,8 +128,6 @@ public class UserService {
 		return changedUserInfo;
 	}
 
-
-
 	public int removeUser(String id) {
 		SqlSession session = getSqlSession();
 		
@@ -125,8 +142,6 @@ public class UserService {
 		
 		return result;
 	}
-
-	
 
 }
 

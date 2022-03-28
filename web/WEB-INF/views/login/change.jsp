@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CHANGE</title>
-    <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/img/favi.png" />
+    <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/favi.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -20,7 +20,7 @@
 	<div class="main-container">
 		<div class="main-wrap">
 		
-		<form class="login-input-section-wrap" method="post" onsubmit="return changePassword" action="${ pageContext.servletContext.contextPath }/member/change }">
+		<form class="login-input-section-wrap" method="post"  action="${ pageContext.servletContext.contextPath }/user/change }">
             <div class="login-title1">
                 <h2 class="login-title2">비밀번호 변경</h2>
             </div>
