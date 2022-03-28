@@ -60,7 +60,7 @@ public class UserService {
 		
 	}
 	
-		public int modifyPassword(UserDTO requestMember, String memberPwd) {
+		public int modifyPassword(UserDTO requestMember, String changePwd) {
 			SqlSession session = getSqlSession();
 			int result = 0;
 			
@@ -70,7 +70,7 @@ public class UserService {
 			/* 비밀번호 수정 요청한 원문 비밀번호와 저장되어있는 암호화된 비밀번호가 일치하는지 확인한다. */
 			if(passwordEncoder.matches(requestMember.getPwd(), encPwd)) {
 				/* 비밀번호가 일치하는 경우에만 새로 입력 된 비밀번호로 수정한다. */
-				requestMember.setPwd(memberPwd);
+				requestMember.setPwd(changePwd);
 				result = UserDAO.updateMemberPassword(session, requestMember);
 			}
 			
