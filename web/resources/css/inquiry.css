@@ -425,8 +425,7 @@ caption {
      -ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */ 
 }
 
-.product {
-    
+.product { 
     padding-left: 50px;
 }
 
@@ -552,6 +551,95 @@ caption {
 /* my-page-coupon.html */
 .cou-table tbody tr {
     height: 60px;
+}
+
+
+
+/* ------------------------------------------------------------- */
+/* review.html */
+
+
+.rev-title {
+    margin : 0 auto 0 auto;
+}
+
+.rev-thumb {
+    display: block; 
+    overflow: hidden; 
+    height: 114px; 
+    width: 114px; 
+    padding: 7px 7px 7px 7px;
+}
+
+.rev-thumb img { 
+    display: block; /* Otherwise it keeps some space around baseline */ 
+    min-width: 100%; /* Scale up to fill container width */
+    min-height: 100%; /* Scale up to fill container height */ 
+    -ms-interpolation-mode: bicubic; /* Scaled images look a bit better in IE now */ 
+}
+
+/* ------------------ 리뷰 보드 -------------------------- */
+
+#toc-content {
+    display: none;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 50px 0px 70px 0px;
+    border-top: 1px solid #e5e5e5;
+}
+.board_list {
+    width: 80%;
+    margin: 0 auto 180px auto;
+}
+
+.board_list>ul {
+    border-top: 1px solid #e5e5e5;
+	line-height: 50px;
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+}
+
+.board_list>ul.last {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.board_list li {
+    display: flex;
+	justify-content: space-around;
+    align-items: center;
+	list-style: none;
+	text-align: center;
+}
+
+.board_header {
+	color: #4C5B5D;
+	font-weight: bold;
+}
+
+.board_list .rev-img {
+	width: 125px;
+}
+
+.board_list .rev-score {
+	width: 200px;
+}
+
+.board_list .rev-title {
+	width: auto;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.board_list .date {
+	width: 150px;
 }
 
 
