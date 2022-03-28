@@ -15,19 +15,21 @@
 			let movePath = "";
 			
 			switch(successCode){
-				case "insertMember" : 
+				case "terms" :
+					movePath = "${ pageContext.servletContext.contextPath }/user/regist2";
+				case "insertUser" : 
 					successMessage = "회원 가입에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }";
 					break;
-				case "updateMember" : 
+				case "updateUser" : 
 					successMessage = "회원 정보 변경에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/member/modify";
 					break;
-				case "updateMemberPassword" : 
+				case "updateUserPassword" : 
 					successMessage = "회원 비밀번호 변경에 성공하셨습니다!";
 					window.close();
 					break;
-				case "deleteMember" : 
+				case "deleteUser" : 
 					successMessage = "회원 탈퇴에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }";
 					break;
