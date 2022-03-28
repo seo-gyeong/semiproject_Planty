@@ -5,7 +5,7 @@ import org.apache.ibatis.session.SqlSession;
 import com.planty.jsp.user.model.dto.UserDTO;
 
 public class UserDAO {
-	
+
 //	User table 신규 회원 insert용 메소드
 	public int insertUser(SqlSession session, UserDTO requestUser) {
 		return session.insert("UserDAO.insertUser", requestUser);
@@ -45,6 +45,16 @@ public class UserDAO {
 	public int deleteUser(SqlSession session, String id) {
 		return session.delete("UserDAO.deleteUser", id);
 	}
-	
+  
+// 아이디 찾기 메소드  
+	public UserDTO findId(SqlSession session, UserDTO requestMember) {
+		return session.selectOne("UserDAO.findId", requestMember );
+	}
+
+// 비밀번호 찾기 메소드  
+	public UserDTO findPwd(SqlSession session, String id) {
+		return session.selectOne("UserDAO.findPwd", id );
+		}	
 	
 }
+

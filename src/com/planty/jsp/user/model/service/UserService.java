@@ -1,12 +1,12 @@
 package com.planty.jsp.user.model.service;
 
-import static com.planty.jsp.common.mybatis.Template.getSqlSession;
-
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import com.planty.jsp.user.model.dao.UserDAO;
 import com.planty.jsp.user.model.dto.UserDTO;
+
+import static com.planty.jsp.common.mybatis.Template.getSqlSession;
 
 public class UserService {
 
@@ -45,6 +45,26 @@ public class UserService {
 	}
 
 
+	public UserDTO findId (UserDTO requestMember) {
+		SqlSession session = getSqlSession();
+		UserDTO findId = null;
+		
+		findId = UserDAO.findId (session, requestMember);
+		
+		session.close();
+		
+		return findId;
+}
+		public UserDTO findPwd(String memberId)  {
+			SqlSession session = getSqlSession();
+			UserDTO findPwd = null;
+			
+			findPwd = UserDAO.findPwd (session, memberId);
+			
+			session.close();
+
+			return findPwd;
+		}
 
 	public int modifyPwd(UserDTO requestUser, String pwd) {
 		SqlSession session = getSqlSession();
@@ -70,7 +90,6 @@ public class UserService {
 		
 		return result;
 	}
-
 
 
 	public UserDTO modifyUser(UserDTO requestUser) {
@@ -110,3 +129,4 @@ public class UserService {
 	
 
 }
+

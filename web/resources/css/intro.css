@@ -13,7 +13,7 @@ img {
     max-width: 100%;
 }
 
-/* header ---------------------------------------------- */
+/* header */
 
 /* 로고 크기 및 여백 */
 .logo {
@@ -22,6 +22,7 @@ img {
     margin-top : 60px;
 }
 
+
 /* 콘텐츠의 최대 출력 너비 설정 */
 .wrapper {
     margin : 0 auto;
@@ -29,10 +30,10 @@ img {
 }
 
 
-/* intr ----------------------------------------- */
 
-
+/* intr */
 /* 큰 배경 이미지 */
+
 .back{
     background-size: cover;
     background-position: center top;
@@ -44,10 +45,4 @@ img {
     min-height: 100vh;
 
 }
-
-
-
-
-
-
 
