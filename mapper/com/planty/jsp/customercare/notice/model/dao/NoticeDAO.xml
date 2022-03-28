@@ -22,7 +22,7 @@
              , CONTENT
              , CREATE_DATE    
          FROM NOTICE
-        WHERE A.NOTICE_STATUS = 'Y'
+        WHERE NOTICE_STATUS = 'N'
         ORDER BY NOTICE_NO DESC
 	</select>
 	
