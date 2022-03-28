@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOGIN</title>
-    <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/img/favi.png" />
+    <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/favi.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,25 +21,25 @@
 	<div class="main-container">
 		<div id=loginimg class="main-wrap">
 		
-		<form method="POST" action="${ pageContext.servletContext.contextPath }/member/login" class="login-input-section-wrap">
+		<form method="POST" action="${ pageContext.servletContext.contextPath }/user/login" class="login-input-section-wrap">
             <div class="login-title1">
                 <h2 class="login-title2">LOG IN</h2>
             </div>
 			<div class="login-input-wrap">	
-				<input id="id" placeholder="회원 아이디" type="text"></input>
+				<input name="id" id="id" placeholder="회원 아이디" type="text"></input>
 			</div>
 			<div class="login-input-wrap password-wrap">	
-				<input id="pwd" placeholder="비밀번호" type="password" required="required"></input>
+				<input name="pwd" id="pwd" placeholder="비밀번호" type="password" required="required"></input>
 			</div>
             <div class="login-button-wrap">
-				<button id="login" type="submit">로그인 하기</button>
+				<button name="login" id="login" type="submit">로그인 하기</button>
 			</div>
             <div class="Easy-sgin-in-wrap">
                 <p class="forget-msg">
-                    <a href="${ pageContext.servletContext.contextPath }/member/findidmember">아이디 찾기</a> | <a href="${ pageContext.servletContext.contextPath }/member/findpwdmember">비밀번호 찾기</a> | <a href="">회원가입</a></p> 
+                    <a href="${ pageContext.servletContext.contextPath }/login/findId-member.jsp">아이디 찾기</a> | <a href="${ pageContext.servletContext.contextPath }/login/findPwd-member.jsp">비밀번호 찾기</a> | <a href="">회원가입</a></p> 
             </div>
 			 <div onclick="kakaoLogin();">
-			  <a id="kakao-login-btn" href="javascript:void(0)"> <img class="log1"  src="${ pageContext.servletContext.contextPath }/resources/img/카카오톡.png"></a>
+			  <a id="kakao-login-btn" href="javascript:void(0)"> <img class="log1"  src="${ pageContext.servletContext.contextPath }/resources/image/카카오톡.png"></a>
 			 </div>
 			 
 			<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
@@ -85,8 +85,8 @@
         <span>주소: 서울특별시 플랜구 식물동 159-2 | 사업자등록번호: 151-15-15151 | 통신판매: 2022-서울강남-0000 | 호스팅제공자: (주)식물샵</span><br/>
     </p>
     <nav>
-        <a href="${ pageContext.servletContext.contextPath }/main/policy">이용약관</a> |
-        <a href="${ pageContext.servletContext.contextPath }/main/policy">개인정보처리방침</a>
+        <a href="${ pageContext.servletContext.contextPath }/main/policy.jsp">이용약관</a> |
+        <a href="${ pageContext.servletContext.contextPath }/main/policy.jsp">개인정보처리방침</a>
     </nav>
 </footer>
 </html>

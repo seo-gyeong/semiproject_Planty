@@ -23,8 +23,8 @@ import com.planty.jsp.user.model.service.UserService;
 /**
  * Servlet implementation class findPwdMemberServlet
  */
-@WebServlet("/member/findpwdmember")
-public class findPwdMemberServlet extends HttpServlet {
+@WebServlet("/user/findpwduser")
+public class findPwdUserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -33,15 +33,15 @@ public class findPwdMemberServlet extends HttpServlet {
 		}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String memberId = request.getParameter("memberId");
+		String id = request.getParameter("id");
 		String regNo = request.getParameter("regNo");
-		String memberEmail = request.getParameter("memberEmail");
+		String email = request.getParameter("email");
 		
-		UserDTO m = new UserService().findPwd(memberId);
-	        if( m ==null || !m.getEmail().equals(memberEmail))
+		UserDTO m = new UserService().findPwd(id);
+	        if( m ==null || !m.getEmail().equals(email))
 	        {
 	            request.setAttribute("msg", "아이디나 이메일 정보가 맞지 않습니다");
-	            request.setAttribute("loc", "/member/finpwdmember");
+	            request.setAttribute("loc", "/member/finpwduser");
 	            request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 	            return;
 	        }
@@ -111,7 +111,7 @@ public class findPwdMemberServlet extends HttpServlet {
 	                HttpSession saveKey = request.getSession();
 	                saveKey.setAttribute("AuthenticationKey", AuthenticationKey);
 	             
-	                request.setAttribute("id", memberId);
+	                request.setAttribute("id", id);
 	                request.getRequestDispatcher("/views/login/change.jsp").forward(request, response);
 	    }
 }

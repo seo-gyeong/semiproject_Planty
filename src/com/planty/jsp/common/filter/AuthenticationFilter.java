@@ -1,4 +1,3 @@
-
 package com.planty.jsp.common.filter;
 
 import java.io.IOException;
@@ -121,4 +120,3 @@ public class AuthenticationFilter implements Filter {
 	}
 
 }
-

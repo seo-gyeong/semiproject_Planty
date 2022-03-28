@@ -12,7 +12,7 @@ import com.planty.jsp.user.model.dto.UserDTO;
 import com.planty.jsp.user.model.service.UserService;
 
 
-@WebServlet("/member/login")
+@WebServlet("/user/login")
 public class loginServlet extends HttpServlet {
 	/* 로그인 버튼 클릭 시 get요청이 들어오기 때문에 로그인 하는 form으로 포워딩 해주는 역할 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -24,31 +24,31 @@ public class loginServlet extends HttpServlet {
 	/* 로그인 폼을 작성 후 post 요청을 할 경우 처리하는 역할 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String memberId = request.getParameter("id");
-		String memberPwd = request.getParameter("pwd");
+		String id = request.getParameter("id");
+		String pwd = request.getParameter("pwd");
 		
-		System.out.println("id : " + memberId);
-		System.out.println("pwd : " + memberPwd);
+		System.out.println("id : " + id);
+		System.out.println("pwd : " + pwd);
 		
-		UserDTO requestMember = new UserDTO();
-		requestMember.setId(memberId);
-		requestMember.setPwd(memberPwd);
+		UserDTO requestUser = new UserDTO();
+		requestUser.setId(id);
+		requestUser.setPwd(pwd);
 		
-		UserService memberService = new UserService();
+		UserService userService = new UserService();
 		
-		UserDTO loginMember = memberService.loginCheck(requestMember);
-		System.out.println(loginMember);
+		UserDTO loginUser = userService.loginCheck(requestUser);
+		System.out.println(loginUser);
 		
-		if(loginMember != null) {
+		if(loginUser!= null) {
 			HttpSession session = request.getSession();
-			session.setAttribute("loginMember", loginMember);
+			session.setAttribute("loginUser", loginUser);
 			
-			System.out.println(loginMember.getAuthNo());
+			System.out.println(loginUser.getAuthNo());
 			
-			if(loginMember.getAuthNo() == 3) {
+			if(loginUser.getAuthNo() == 3) {
 				response.sendRedirect(request.getContextPath() + "/admin/관리자 주소");
 				
-				} else if (loginMember.getAuthNo() == 2) {	
+				} else if (loginUser.getAuthNo() == 2) {	
 				response.sendRedirect(request.getContextPath() + "/partner/판매자 주소");
 				}
 				
