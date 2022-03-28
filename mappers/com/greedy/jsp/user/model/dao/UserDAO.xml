@@ -59,6 +59,7 @@
 		 FROM MEMBER 
 		 WHERE NAME = #{name} 
 		 AND EMAIL = #{email}
+
 	</select>
 	
 	
@@ -68,6 +69,10 @@
 		 FROM MEMBER 
 		 WHERE ID = #{ id } 
 		 AND EMAIL = #{email}
+		<if test="regNo != null and regNo != ''">
+			AND REG_NO = #{ regNo }
+		</if>
+		 
 	</select>
 	
 	
