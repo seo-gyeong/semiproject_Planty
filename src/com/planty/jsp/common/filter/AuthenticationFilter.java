@@ -19,8 +19,6 @@ import javax.servlet.http.HttpSession;
 
 import com.planty.jsp.user.model.dto.UserDTO;
 
-
-
 @WebFilter(urlPatterns = {"/notice/*", "/user/*", "/board/*", "/thumbnail/*"})
 public class AuthenticationFilter implements Filter {
 	

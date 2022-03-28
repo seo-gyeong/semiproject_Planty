@@ -13,8 +13,8 @@ import com.planty.jsp.user.model.service.UserService;
 
 
 
-@WebServlet("/member/findidmember")
-public class findIdMemberServlet extends HttpServlet {
+@WebServlet("/user/findiduser")
+public class findIdUserServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/login/findId-member.jsp").forward(request, response);
@@ -22,19 +22,19 @@ public class findIdMemberServlet extends HttpServlet {
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String memberName = request.getParameter("name");
-		String memberEmail = request.getParameter("email");
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
 		
-		System.out.println("memberName : " + memberName);
-		System.out.println("memberEmail : " + memberEmail);
+		System.out.println("name : " + name);
+		System.out.println("email : " + email);
 		
-		UserDTO requestMember = new UserDTO();
-		requestMember.setName(memberName);
-		requestMember.setEmail(memberEmail);
+		UserDTO requestUser = new UserDTO();
+		requestUser.setName(name);
+		requestUser.setEmail(email);
 	
-		UserService memberService = new UserService();
+		UserService userService = new UserService();
 		
-		UserDTO findId = memberService.findId(requestMember);
+		UserDTO findId = userService.findId(requestUser);
 		System.out.println(findId);
 		
 		if(findId!= null) {
