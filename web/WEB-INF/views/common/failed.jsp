@@ -19,7 +19,7 @@
 </style>
 </head>
 <body>
-	<jsp:include page="../common/menubar.jsp"/>
+	<%-- <jsp:include page="../common/menubar.jsp"/> --%>
 	<div id="imageArea">
 		<img id="errorImage" src="${ pageContext.servletContext.contextPath }/resources/images/error.png">
 	</div>
