@@ -20,7 +20,7 @@
             <div class="navbar-left">
 
                 <div class="dropdown">
-                    <a href="${ pageContext.servletContext.contextPath }/main/aboutus.jsp"  class="dropbtn">ABOUT US</a>
+                    <a href="${ pageContext.servletContext.contextPath }/main/aboutus"  class="dropbtn">ABOUT US</a>
                   </div>
       
                 <div class="dropdown">

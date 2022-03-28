@@ -22,7 +22,7 @@
       
     <header class="header wrapper">
 
-        <h1><a href="${ pageContext.servletContext.contextPath }/main/aboutus.jsp"><img class="logo" src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png" alt="home"></a></h1>
+        <h1><a href="${ pageContext.servletContext.contextPath }/main/aboutus"><img class="logo" src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png" alt="home"></a></h1>
 
     </header>
 </div>

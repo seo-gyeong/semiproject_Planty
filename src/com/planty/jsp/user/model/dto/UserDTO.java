@@ -2,9 +2,8 @@ package com.planty.jsp.user.model.dto;
 
 	import java.sql.Date;
 
-	public class UserDTO implements java.io.Serializable {
-		private static final long serialVersionUID = 1L;
-		
+	public class UserDTO  {
+
 		private String id;
 		private int authNo;
 		private String pwd;
@@ -16,7 +15,6 @@ package com.planty.jsp.user.model.dto;
 		private String textYn;
 		private Date enrollDate;
 		private String name;
-		private String role;
 		private String ceoName;
 		private String regNo;
 		private String approval;
@@ -25,7 +23,7 @@ package com.planty.jsp.user.model.dto;
 		public UserDTO() {}
 
 		public UserDTO(String id, int authNo, String pwd, String address, String addrDetail, String zipcode, String phone,
-				String email, String textYn, Date enrollDate, String name, String role, String ceoName,String regNo,String approval) {
+				String email, String textYn, Date enrollDate, String name, String ceoName,String regNo,String approval) {
 			super();
 			this.id = id;
 			this.authNo = authNo;
@@ -38,7 +36,6 @@ package com.planty.jsp.user.model.dto;
 			this.textYn = textYn;
 			this.enrollDate = enrollDate;
 			this.name = name;
-			this.role = role;
 			this.ceoName = ceoName;
 			this.regNo = regNo;
 			this.approval = approval;
@@ -131,14 +128,7 @@ package com.planty.jsp.user.model.dto;
 		public void setName(String name) {
 			this.name = name;
 		}
-		public String getRole() {
-			return role;
-		}
 
-		public void setRole(String role) {
-			this.role = role;
-		}
-		
 		public String getCeoName() {
 			return ceoName;
 		}
@@ -167,9 +157,11 @@ package com.planty.jsp.user.model.dto;
 		public String toString() {
 			return "UserDTO [id=" + id + ", authNo=" + authNo + ", pwd=" + pwd + ", address=" + address
 					+ ", addrDetail=" + addrDetail + ", zipcode=" + zipcode + ", phone=" + phone + ", email=" + email
-					+ ", textYn=" + textYn + ", enrollDate=" + enrollDate + ", name=" + name + ", role=" + role
-					+ ", ceoName=" + ceoName + ", regNo=" + regNo + ", approval=" + approval + "]";
+					+ ", textYn=" + textYn + ", enrollDate=" + enrollDate + ", name=" + name + ", ceoName=" + ceoName
+					+ ", regNo=" + regNo + ", approval=" + approval + "]";
 		}
+
+	
 	
 		}
 
