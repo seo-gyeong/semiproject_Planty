@@ -9,8 +9,8 @@
 			<dataSource type="POOLED">
 				<property name="driver" value="net.sf.log4jdbc.DriverSpy"/>
 				<property name="url" value="jdbc:log4jdbc:oracle:thin:@127.0.0.1:1521:xe"/>
-				<property name="username" value="C##PLANTY"/>
-				<property name="password" value="PLANTY"/>
+				<property name="username" value="PLANTY"/>
+				<property name="password" value="Taekyung9988"/>
 			</dataSource>
 		</environment>
 	</environments>
