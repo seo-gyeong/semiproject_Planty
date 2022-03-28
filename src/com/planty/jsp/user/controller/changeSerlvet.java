@@ -18,6 +18,10 @@ import com.planty.jsp.user.model.service.UserService;
 public class changeSerlvet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/views/login/change.jsp").forward(request, response);
+		}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 	
 	        String AuthenticationKey = (String)request.getSession().getAttribute("AuthenticationKey");
 	        String AuthenticationUser = request.getParameter("AuthenticationUser");

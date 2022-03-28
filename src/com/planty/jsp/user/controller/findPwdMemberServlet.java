@@ -26,7 +26,13 @@ import com.planty.jsp.user.model.service.UserService;
 @WebServlet("/member/findpwdmember")
 public class findPwdMemberServlet extends HttpServlet {
 	
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		request.getRequestDispatcher("/WEB-INF/views/login/findPwd-member.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/login/findPwd-partner.jsp").forward(request, response);
+		}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String memberId = request.getParameter("memberId");
 		String regNo = request.getParameter("regNo");
 		String memberEmail = request.getParameter("memberEmail");
@@ -35,7 +41,7 @@ public class findPwdMemberServlet extends HttpServlet {
 	        if( m ==null || !m.getEmail().equals(memberEmail))
 	        {
 	            request.setAttribute("msg", "아이디나 이메일 정보가 맞지 않습니다");
-	            request.setAttribute("loc", "/member/findPwd");
+	            request.setAttribute("loc", "/member/finpwdmember");
 	            request.getRequestDispatcher("/views/common/msg.jsp").forward(request, response);
 	            return;
 	        }
