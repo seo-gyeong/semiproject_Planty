@@ -74,7 +74,7 @@
 </style>
 </head>
 <body>
-	<jsp:include page="../common/menubar.jsp" />
+	<jsp:include page="../../common/admin-menubar.jsp" />
 
 	<div class="outer">
 		<div class="wrap">
@@ -100,9 +100,14 @@
 						</div>
 						<div class="btn_area">
 							<button type="button"
-								onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'">목록으로</button>
-							<button type="submit">작성하기</button>
+								onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'">목록</button>
+							<button type="submit" id=regist>등록</button>
 						</div>
+							<script>
+							function regist() {
+										NoticeDTO 
+								}
+							</script>
 					</form>
 				</div>
 			</div>
