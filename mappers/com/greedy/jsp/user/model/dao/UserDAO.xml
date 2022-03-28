@@ -15,7 +15,9 @@
 		<result property="email" column="EMAIL"/>
 		<result property="status" column="TEXT_YN"/>
 		<result property="enrollDate" column="ENROLL_DATE"/>
+		<result property="ceoName" column="CEO_NAME"/>
 		<result property="reqNo" column="REQ_NO"/>
+		<result property="approval" column="APPROVAL"/>
 		
 		
 	</resultMap>
