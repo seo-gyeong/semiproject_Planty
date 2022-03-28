@@ -25,8 +25,8 @@ import com.planty.jsp.user.model.service.UserService;
  */
 @WebServlet("/member/findpwdmember")
 public class findPwdMemberServlet extends HttpServlet {
-	
-	
+	private static final long serialVersionUID = 1L;
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/login/findPwd-member.jsp").forward(request, response);
 		request.getRequestDispatcher("/WEB-INF/views/login/findPwd-partner.jsp").forward(request, response);

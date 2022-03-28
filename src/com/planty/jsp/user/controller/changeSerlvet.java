@@ -35,12 +35,12 @@ public class changeSerlvet extends HttpServlet {
 	        }
 	    	
 	        UserDTO loginUser = (UserDTO) request.getSession().getAttribute("loginMember");
-			String changePwd = request.getParameter("memberPwd"); 
+			String email = request.getParameter("email"); 
+	        String changePwd = request.getParameter("checknum"); 
 
 			UserDTO requestMember = new UserDTO();
+			requestMember.setEmail(email);
 			requestMember.setPwd(changePwd);
-			
-			System.out.println("memberController requestMember : " + requestMember);
 			
 			String changepwd  = request.getParameter("memberPwd"); 
 			
