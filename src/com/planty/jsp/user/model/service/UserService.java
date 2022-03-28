@@ -35,8 +35,8 @@ public class UserService {
 		SqlSession session = getSqlSession();
 		
 		int result = userDAO.userIdCheck(session, id);
-    
-		session.close();
+		
+    session.close();
 	
 		return result;
 	}                                  
@@ -144,3 +144,4 @@ public class UserService {
 	}
 
 }
+
