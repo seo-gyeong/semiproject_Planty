@@ -16,7 +16,7 @@
     <nav class="sb-topnav navbar navbar-expand navbar-light bg-light">
         <!-- Navbar Brand-->
         <div class="planty_logo">
-            <img src="${ pageContext.servletContext.contextPath }/resources/images/planty_logo.png">
+            <img src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png">
         </div>
     </nav>
     <div id="layoutSidenav">
@@ -88,7 +88,7 @@
                         <span class="input_area">
                             <input type="search" name="searchValue">
                             <button type="submit" class="btn btn-secondary">검색</button>
-                           <button id="noticeInsert" type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/notice/insert'">작성하기</button>
+                           <button id="noticeInsert"class="btn btn-secondary"  type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/notice/insert'">작성하기</button>
                         </span>
 
 
