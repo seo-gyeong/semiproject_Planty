@@ -105,14 +105,7 @@ public class AuthenticationFilter implements Filter {
 		memberPermitList.add("/thumbnail/list");
 		memberPermitList.add("/thumbnail/insert");
 		memberPermitList.add("/thumbnail/detail");
-		memberPermitList.add("/user/change");
-		memberPermitList.add("/user/findiduser");
-		memberPermitList.add("/user/findpwduser");
-		memberPermitList.add("/user/logout");
-		memberPermitList.add("/user/resultid");
-		memberPermitList.add("/user/resultpwd");
 		
-
 		allPermitList.add("/user/idCheck");
 		allPermitList.add("/user/regist");
 		allPermitList.add("/user/regist2");		
@@ -120,6 +113,11 @@ public class AuthenticationFilter implements Filter {
 		allPermitList.add("/user/modifyPwd");
 		allPermitList.add("/user/login");
 		allPermitList.add("/user/logout");
+		allPermitList.add("/user/change");
+		allPermitList.add("/user/findiduser");
+		allPermitList.add("/user/findpwduser");
+		allPermitList.add("/user/resultid");
+		allPermitList.add("/user/resultpwd");
 		
 		permitURIList.put("adminPermitList", adminPermitList);
 		permitURIList.put("memberPermitList", memberPermitList);
