@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ</title>
-    <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/img/favi.png" />
+    <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/favi.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -106,8 +106,8 @@
         <span>주소: 서울특별시 플랜구 식물동 159-2 | 사업자등록번호: 151-15-15151 | 통신판매: 2022-서울강남-0000 | 호스팅제공자: (주)식물샵</span><br/>
     </p>
     <nav>
-        <a href="${ pageContext.servletContext.contextPath }/main/policy">이용약관</a> |
-        <a href="${ pageContext.servletContext.contextPath }/main/policy">개인정보처리방침</a>
+        <a href="${ pageContext.servletContext.contextPath }/main/policy.jsp">이용약관</a> |
+        <a href="${ pageContext.servletContext.contextPath }/main/policy.jsp">개인정보처리방침</a>
     </nav>
 </footer>
 </html>

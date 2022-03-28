@@ -20,7 +20,7 @@
             <div class="navbar-left">
 
                 <div class="dropdown">
-                    <a href="${ pageContext.servletContext.contextPath }/main/aboutus"  class="dropbtn">ABOUT US</a>
+                    <a href="${ pageContext.servletContext.contextPath }/main/aboutus.jsp"  class="dropbtn">ABOUT US</a>
                   </div>
       
                 <div class="dropdown">
@@ -43,7 +43,7 @@
 
             </div>
             <div class="navbar-center">
-                   <a href="${ pageContext.servletContext.contextPath }/main/intro"><img class="image"   src="${ pageContext.servletContext.contextPath }/resources/img/planty_logo.png"></a> 
+                   <a href="${ pageContext.servletContext.contextPath }/main/intro"><img class="image"   src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png"></a> 
             </div>
 
             <div class="navbar-right">
