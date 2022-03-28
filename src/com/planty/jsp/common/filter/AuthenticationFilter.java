@@ -1,4 +1,3 @@
-
 package com.planty.jsp.common.filter;
 
 import java.io.IOException;
@@ -20,7 +19,7 @@ import javax.servlet.http.HttpSession;
 
 import com.planty.jsp.user.model.dto.UserDTO;
 
-@WebFilter(urlPatterns = {"/notice/*", "/user/*", "/board/*", "/thumbnail/*"})
+@WebFilter(urlPatterns = {"/notice/*", "/user/*", "/review/*","/board/*", "/thumbnail/*"})
 public class AuthenticationFilter implements Filter {
 	
 	Map<String, List<String>> permitURIList;
@@ -97,11 +96,7 @@ public class AuthenticationFilter implements Filter {
 		memberPermitList.add("/user/modify");
 		memberPermitList.add("/user/modifyPwd");
 		memberPermitList.add("/member/remove");
-		memberPermitList.add("/notice/list");
-		memberPermitList.add("/notice/detail");
-		memberPermitList.add("/board/list");
 		memberPermitList.add("/board/insert");
-		memberPermitList.add("/board/search");
 		memberPermitList.add("/thumbnail/list");
 		memberPermitList.add("/thumbnail/insert");
 		memberPermitList.add("/thumbnail/detail");
@@ -113,6 +108,10 @@ public class AuthenticationFilter implements Filter {
 		allPermitList.add("/user/modifyPwd");
 		allPermitList.add("/user/login");
 		allPermitList.add("/user/logout");
+		allPermitList.add("/board/list");
+		allPermitList.add("/board/search");
+		allPermitList.add("/notice/list");
+		allPermitList.add("/notice/detail");
 		
 		permitURIList.put("adminPermitList", adminPermitList);
 		permitURIList.put("memberPermitList", memberPermitList);
@@ -121,4 +120,3 @@ public class AuthenticationFilter implements Filter {
 	}
 
 }
-
