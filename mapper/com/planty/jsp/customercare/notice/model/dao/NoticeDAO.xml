@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="NoticeDAO">
 	
-	<resultMap type="com.planty.jsp.admin.notice.model.dto.NoticeDTO" id="noticeResultMap">
+	<resultMap type="com.planty.jsp.customercare.notice.model.dto.NoticeDTO" id="noticeResultMap">
 		<id property="no" column="NOTICE_NO"/>
 		<result property="title" column="TITLE"/>
 		<result property="content" column="CONTENT"/>
