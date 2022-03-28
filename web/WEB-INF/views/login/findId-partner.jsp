@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>findIdPartner</title>
-    <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/img/favi.png" />
+    <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/favi.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,8 +30,8 @@
                 <div class="dropdown" id="selectbox">
                 <button class="btn btn-secondary dropdown-toggle" style="margin-bottom: 10px; font-size: 14px; background-color:#4C5B5D ;" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">회원유형</button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                  <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/login/findId-memeber'">개인회원</button></li>
-                  <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/login/findId-partner'">법인사업자 회원</button></li>
+                  <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/login/findId-member.jsp'">개인회원</button></li>
+                  <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/login/findId-partner.jsp'">법인사업자 회원</button></li>
                 </ul>
               </div>
             </div>
@@ -52,7 +52,7 @@
 </div>
         
             <div class="login-button-wrap">
-				<button name="findId" type="button" onclick="location.href='result-id.html'">아이디 찾기</button>
+				<button name="findId" type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/user/resultid'">아이디 찾기</button>
 			</div>
     
             <div class="empty">
@@ -73,8 +73,8 @@
         <span>주소: 서울특별시 플랜구 식물동 159-2 | 사업자등록번호: 151-15-15151 | 통신판매: 2022-서울강남-0000 | 호스팅제공자: (주)식물샵</span><br/>
     </p>
     <nav>
-        <a href="${ pageContext.servletContext.contextPath }/main/policy">이용약관</a> |
-        <a href="${ pageContext.servletContext.contextPath }/main/policy">개인정보처리방침</a>
+        <a href="${ pageContext.servletContext.contextPath }/main/policy.jsp">이용약관</a> |
+        <a href="${ pageContext.servletContext.contextPath }/main/policy.jsp">개인정보처리방침</a>
     </nav>
 </footer>
 </html>
