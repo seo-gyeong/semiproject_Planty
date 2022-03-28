@@ -1,3 +1,4 @@
+
 package com.planty.jsp.common.filter;
 
 import java.io.IOException;
@@ -18,8 +19,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.planty.jsp.user.model.dto.UserDTO;
-
-
 
 @WebFilter(urlPatterns = {"/notice/*", "/user/*", "/board/*", "/thumbnail/*"})
 public class AuthenticationFilter implements Filter {
@@ -122,3 +121,4 @@ public class AuthenticationFilter implements Filter {
 	}
 
 }
+

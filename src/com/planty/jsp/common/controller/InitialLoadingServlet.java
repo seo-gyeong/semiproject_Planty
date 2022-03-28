@@ -6,7 +6,6 @@ import javax.servlet.http.HttpServlet;
 
 import com.planty.jsp.common.config.ConfigLocation;
 
-
 @WebServlet(urlPatterns = {}, loadOnStartup = 1)
 public class InitialLoadingServlet extends HttpServlet {
 	

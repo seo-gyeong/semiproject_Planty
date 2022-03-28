@@ -15,6 +15,7 @@ img {
 
 /* header */
 
+/* 로고 크기 및 여백 */
 .logo {
     position: relative;
     width: 130px;
@@ -22,14 +23,16 @@ img {
 }
 
 
+/* 콘텐츠의 최대 출력 너비 설정 */
 .wrapper {
     margin : 0 auto;
     padding : 0 4%;
 }
 
 
-/* intr */
 
+/* intr */
+/* 큰 배경 이미지 */
 
 .back{
     background-size: cover;
@@ -38,7 +41,7 @@ img {
 }
 
 #intr{
-    background-image: url("../img/photo-1508502726440-477c94bc369e.jpeg");
+    background-image: url("../image/photo-1508502726440-477c94bc369e.jpeg");
     min-height: 100vh;
 
 }
