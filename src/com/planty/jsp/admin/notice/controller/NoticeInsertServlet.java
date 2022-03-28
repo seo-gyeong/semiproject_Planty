@@ -1,4 +1,4 @@
-package com.planty.jsp.customercare.notice.controller;
+package com.planty.jsp.admin.notice.controller;
 
 import java.io.IOException;
 
@@ -8,15 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.planty.jsp.customercare.notice.model.dto.NoticeDTO;
-import com.planty.jsp.customercare.notice.model.service.NoticeService;
+import com.planty.jsp.admin.notice.model.dto.NoticeDTO;
+import com.planty.jsp.admin.notice.model.service.NoticeService;
 
 @WebServlet("/notice/insert")
 public class NoticeInsertServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String path = "/WEB-INF/views/customercare/notice/insertForm.jsp";
+		String path = "/WEB-INF/views/admin/notice/insertForm.jsp";
 		
 		request.getRequestDispatcher(path).forward(request, response);
 	}

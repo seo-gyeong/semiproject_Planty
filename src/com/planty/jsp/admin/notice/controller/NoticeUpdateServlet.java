@@ -1,4 +1,4 @@
-package com.greedy.jsp.notice.controller;
+package com.planty.jsp.admin.notice.controller;
 
 import java.io.IOException;
 
@@ -8,9 +8,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.greedy.jsp.member.model.dto.MemberDTO;
-import com.greedy.jsp.notice.model.dto.NoticeDTO;
-import com.greedy.jsp.notice.model.service.NoticeService;
+import com.planty.jsp.admin.notice.model.dto.NoticeDTO;
+import com.planty.jsp.admin.notice.model.service.NoticeService;
 
 @WebServlet("/notice/update")
 public class NoticeUpdateServlet extends HttpServlet {
@@ -39,12 +38,12 @@ public class NoticeUpdateServlet extends HttpServlet {
 		
 		int no = Integer.parseInt(request.getParameter("no"));
 		String title = request.getParameter("title");
-		String body = request.getParameter("body");
+		String content = request.getParameter("content");
 		
 		NoticeDTO updateNotice = new NoticeDTO();
 		updateNotice.setNo(no);
 		updateNotice.setTitle(title);
-		updateNotice.setBody(body);
+		updateNotice.setContent(content);
 		
 		NoticeService noticeService = new NoticeService();
 		int result = noticeService.updateNotice(updateNotice);

@@ -100,10 +100,9 @@
 						</div>
 						<div class="btn_area">
 							<button type="button"
-								onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'">목록</button>
-							<button type="submit" id=regist>등록</button>
+								onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'">목록으로</button>
+							<button type="submit">작성하기</button>
 						</div>
-							
 					</form>
 				</div>
 			</div>

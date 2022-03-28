@@ -1,4 +1,4 @@
-package com.planty.jsp.customercare.notice.controller;
+package com.planty.jsp.admin.notice.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.planty.jsp.customercare.notice.model.dto.NoticeDTO;
-import com.planty.jsp.customercare.notice.model.service.NoticeService;
+import com.planty.jsp.admin.notice.model.dto.NoticeDTO;
+import com.planty.jsp.admin.notice.model.service.NoticeService;
 
 
 @WebServlet("/notice/list")
@@ -24,7 +24,7 @@ public class NoticeSelectListServlet extends HttpServlet {
 		
 		String path = "";
 		if(noticeList != null) {
-			path = "/WEB-INF/views/customercare/notice/noticeList.jsp";
+			path = "/WEB-INF/views/admin/notice/noticeList.jsp";
 			request.setAttribute("noticeList", noticeList);
 		} 
 		

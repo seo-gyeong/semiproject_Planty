@@ -1,10 +1,10 @@
-package com.planty.jsp.customercare.notice.model.dao;
+package com.planty.jsp.admin.notice.model.dao;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.planty.jsp.customercare.notice.model.dto.NoticeDTO;
+import com.planty.jsp.admin.notice.model.dto.NoticeDTO;
 
 public class NoticeDAO {
 

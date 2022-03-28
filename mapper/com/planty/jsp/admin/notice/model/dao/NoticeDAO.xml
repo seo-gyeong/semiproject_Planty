@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="NoticeDAO">
 	
-	<resultMap type="com.planty.jsp.customercare.notice.model.dto.NoticeDTO" id="noticeResultMap">
+	<resultMap type="com.planty.jsp.admin.notice.model.dto.NoticeDTO" id="noticeResultMap">
 		<id property="no" column="NOTICE_NO"/>
 		<result property="title" column="TITLE"/>
 		<result property="content" column="CONTENT"/>
@@ -22,29 +22,29 @@
              , CONTENT
              , CREATE_DATE    
          FROM NOTICE
+        WHERE A.NOTICE_STATUS = 'Y'
         ORDER BY NOTICE_NO DESC
 	</select>
 	
 	<insert id="insertNotice">
-        INSERT /* com.greedy.jsp.notice.model.dao.NoticeDAO#insertNotice() */
+        INSERT 
           INTO NOTICE 
         (
           NOTICE_NO
         , TITLE
         , CONTENT
-        , DATE
-        
+        , CREATE_DATE      
         )
         VALUES
         (
           SEQ_NOTICE_NO.NEXTVAL
         , #{ title }
         , #{ content }
-        , (SELECT SYSDATE FROM DUALL;)
+        , SYSDATE
         )
 	</insert>
 	
-	<update id="incrementNoticeCount">
+	<update id="incrementNoticeCount" >
         UPDATE /* com.greedy.jsp.notice.model.dao.NoticeDAO#incrementNoticeCount() */
                NOTICE A
            SET A.NOTICE_COUNT = (SELECT B.NOTICE_COUNT

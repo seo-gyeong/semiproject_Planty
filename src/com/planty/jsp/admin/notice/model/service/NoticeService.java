@@ -1,4 +1,4 @@
-package com.planty.jsp.customercare.notice.model.service;
+package com.planty.jsp.admin.notice.model.service;
 
 import static com.planty.jsp.common.mybatis.Template.getSqlSession;
 
@@ -6,8 +6,8 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.planty.jsp.customercare.notice.model.dao.NoticeDAO;
-import com.planty.jsp.customercare.notice.model.dto.NoticeDTO;
+import com.planty.jsp.admin.notice.model.dao.NoticeDAO;
+import com.planty.jsp.admin.notice.model.dto.NoticeDTO;
 
 public class NoticeService {
 	

@@ -1,4 +1,4 @@
-package com.planty.jsp.customercare.notice.model.dto;
+package com.planty.jsp.admin.notice.model.dto;
 
 import java.util.Date;
 
