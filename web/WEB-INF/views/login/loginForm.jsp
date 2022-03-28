@@ -36,7 +36,7 @@
 			</div>
             <div class="Easy-sgin-in-wrap">
                 <p class="forget-msg">
-                    <a href="${ pageContext.servletContext.contextPath }/login/findiduser">아이디 찾기</a> | <a href="${ pageContext.servletContext.contextPath }/login/findpwdmember">비밀번호 찾기</a> | <a href="">회원가입</a></p> 
+                    <a href="${ pageContext.servletContext.contextPath }/user/findiduser">아이디 찾기</a> | <a href="${ pageContext.servletContext.contextPath }/user/findpwduser">비밀번호 찾기</a> | <a href="">회원가입</a></p> 
             </div>
 			 <div onclick="kakaoLogin();">
 			  <a id="kakao-login-btn" href="javascript:void(0)"> <img class="log1"  src="${ pageContext.servletContext.contextPath }/resources/image/카카오톡.png"></a>

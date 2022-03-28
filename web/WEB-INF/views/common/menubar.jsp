@@ -50,12 +50,12 @@
             
               <div>
                 <c:if test="${ empty sessionScope.loginMember }">
- 			 	<a href="${ pageContext.servletContext.contextPath }/member/login"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/my.png"></a></li>
-              	<a href="${ pageContext.servletContext.contextPath }/member/login"> <img class="icon" src="${ pageContext.servletContext.contextPath }/resources/image/cart.png"></a></li>
+ 			 	<a href="${ pageContext.servletContext.contextPath }/user/login"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/my.png"></a></li>
+              	<a href="${ pageContext.servletContext.contextPath }/user/login"> <img class="icon" src="${ pageContext.servletContext.contextPath }/resources/image/cart.png"></a></li>
                </c:if>
                
                <c:if test="${ !empty sessionScope.loginMember }">
-                <a href="${ pageContext.servletContext.contextPath }/member/logout"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/logout.png"></a></li>
+                <a href="${ pageContext.servletContext.contextPath }/user/logout"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/logout.png"></a></li>
 			  	<a href="${ pageContext.servletContext.contextPath }/mypage"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/my.png"></a></li>
               	<a href="${ pageContext.servletContext.contextPath }/cart"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/cart.png"></a></li>
                </c:if>

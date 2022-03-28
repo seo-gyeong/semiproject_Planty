@@ -105,6 +105,13 @@ public class AuthenticationFilter implements Filter {
 		memberPermitList.add("/thumbnail/list");
 		memberPermitList.add("/thumbnail/insert");
 		memberPermitList.add("/thumbnail/detail");
+		memberPermitList.add("/user/change");
+		memberPermitList.add("/user/findiduser");
+		memberPermitList.add("/user/findpwduser");
+		memberPermitList.add("/user/logout");
+		memberPermitList.add("/user/resultid");
+		memberPermitList.add("/user/resultpwd");
+		
 
 		allPermitList.add("/user/idCheck");
 		allPermitList.add("/user/regist");
