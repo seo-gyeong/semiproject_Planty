@@ -24,7 +24,7 @@ import com.planty.jsp.user.model.service.UserService;
  * Servlet implementation class findPwdMemberServlet
  */
 @WebServlet("/user/findpwduser")
-public class findPwdUserServlet extends HttpServlet {
+public class FindPwdServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -48,8 +48,8 @@ public class findPwdUserServlet extends HttpServlet {
 	        
 	                //mail server 설정
 	                String host = "smtp.naver.com";
-	                String user = "ks87071"; //자신의 네이버 계정
-	                String password = "kk52484588";//자신의 네이버 패스워드
+	                String user = ""; //자신의 네이버 계정
+	                String password = "";//자신의 네이버 패스워드
 	                
 	                //메일 받을 주소
 	                String to_email = m.getEmail();
@@ -115,3 +115,4 @@ public class findPwdUserServlet extends HttpServlet {
 	                request.getRequestDispatcher("/views/login/change.jsp").forward(request, response);
 	    }
 }
+

@@ -145,6 +145,7 @@ public class UserService {
 		return result;
 	}
 
+
 	public List<UserDTO> selectAllUserList() {
 		
 		SqlSession session = getSqlSession();
@@ -158,3 +159,5 @@ public class UserService {
 
 }
 
+
+}

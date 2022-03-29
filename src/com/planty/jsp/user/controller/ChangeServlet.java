@@ -15,7 +15,7 @@ import com.planty.jsp.user.model.service.UserService;
  * Servlet implementation class changeSerlvet
  */
 @WebServlet("/user/change")
-public class changeSerlvet extends HttpServlet {
+public class ChangeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/login/change.jsp").forward(request, response);
@@ -44,7 +44,7 @@ public class changeSerlvet extends HttpServlet {
 			
 			String changepwd  = request.getParameter("Pwd"); 
 			
-			int result = new UserService().modifyPassword(requestUser, changePwd);
+			int result = new UserService().modifyPwd(requestUser, changePwd);
 			
 			String page = "";
 			

@@ -99,7 +99,7 @@ flex-basis: 50%;
 .navbar-right div{
   place-content: center;
   margin-top: 110px;
-  display: inline-block;
+  display: flex;
   list-style: none;
   margin-left: 40px; 
 }
