@@ -123,4 +123,17 @@
 		DELETE FROM MEMBER
 		 WHERE ID = #{ id }
 	</delete>	
+	
+	<!-- 회원 조회(관리자) -->
+	<select id="selectAllUserList" resultMap="userResultMap">
+	SELECT
+			AUTH_NO
+		  , ID
+		  , NAME
+		  , EMAIL
+		  , PHONE
+      FROM MEMBER
+      
+	
+	</select>
 </mapper>

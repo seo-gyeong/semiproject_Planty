@@ -8,6 +8,8 @@ import com.planty.jsp.user.model.dto.UserDTO;
 
 import static com.planty.jsp.common.mybatis.Template.getSqlSession;
 
+import java.util.List;
+
 public class UserService {
 
 	private final UserDAO userDAO;
@@ -141,6 +143,17 @@ public class UserService {
 		session.close();
 		
 		return result;
+	}
+
+	public List<UserDTO> selectAllUserList() {
+		
+		SqlSession session = getSqlSession();
+		
+		List<UserDTO> userList = userDAO.selectAllUserList(session);
+		
+		session.close();
+		
+		return userList;
 	}
 
 }

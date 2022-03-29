@@ -52,7 +52,7 @@
 		outline:none;
 	}
 
-	.title_span {
+/* 	.title_span {
 		background-color : #282A35; 
 	}
 	
@@ -69,7 +69,7 @@
 	.btn_area {
 		text-align:center;
 		border-top : 1px solid #282A35;
-		padding : 30px;
+		padding : 30px; */
 	}
 </style>
 </head>
@@ -85,29 +85,25 @@
 				<div class="notice_content">
 					<form action="${ pageContext.servletContext.contextPath }/notice/insert" method="post">
 						<div class="content">
-							<h4>
-								<span class="title_span">&nbsp;</span> 제목
-							</h4>
-							<span class="input_area"> <input type="text" name="title"
-								required>
-							</span>
-
-							<h4>
-								<span class="title_span">&nbsp;</span> 내용
-							</h4>
-							<textarea class="textarea" rows="20" cols="100" name="body"
-								required></textarea>
+							
+							<br>
+							<div class="mb-3">
+								<label for="exampleFormControlInput1" class="form-label">제목</label> 
+								<input type="text" class="form-control" id="exampleFormControlInput1" >
+							</div>
+							<div class="mb-3">
+								<label for="exampleFormControlTextarea1" class="form-label">내용</label>
+								<textarea class="form-control" id="exampleFormControlTextarea1"
+									rows="15"></textarea>
+							</div>
 						</div>
-						<div class="btn_area">
-							<button type="button"
+						<div>
+							<button type="button" class="btn btn-secondary"
 								onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'">목록</button>
-							<button type="submit" id=regist>등록</button>
+							<button type="submit" id=regist class="btn btn-secondary">등록</button>
+						
 						</div>
-							<script>
-							function regist() {
-										NoticeDTO 
-								}
-							</script>
+							
 					</form>
 				</div>
 			</div>
