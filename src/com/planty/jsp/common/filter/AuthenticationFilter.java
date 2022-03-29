@@ -113,11 +113,17 @@ public class AuthenticationFilter implements Filter {
 		allPermitList.add("/user/modifyPwd");
 		allPermitList.add("/user/login");
 		allPermitList.add("/user/logout");
+		allPermitList.add("/user/findiduser");
+		allPermitList.add("/user/findpwduser");
+		allPermitList.add("/user/change");
+		allPermitList.add("/user/resultid");
+		allPermitList.add("/user/resultpwd");
+		
 		
 		permitURIList.put("adminPermitList", adminPermitList);
 		permitURIList.put("memberPermitList", memberPermitList);
 		permitURIList.put("allPermitList", allPermitList);
-		
+
 	}
 
 }

@@ -16,7 +16,7 @@ public class UserDAO {
   
 //	암호화 처리된 비밀번호 조회용 메소드(로그인 확인용)
 	public String selectEncryptedPwd(SqlSession session, UserDTO requestUser) {
-		return session.selectOne("UserDAO.selectEnryptedPwd", requestUser);
+		return session.selectOne("UserDAO.selectEncryptedPwd", requestUser);
 	}
 	
 //	패스워드 일치시 회원 정보 조회용 메소드
