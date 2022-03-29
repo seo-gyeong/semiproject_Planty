@@ -37,7 +37,10 @@ public class NoticeInsertServlet extends HttpServlet {
 		if(result > 0) {
 			path = "/WEB-INF/views/common/success.jsp";
 			request.setAttribute("successCode", "insertNotice");
-		} 
+		} else {
+			path = "/WEB-INF/views/common/failed.jsp";
+			request.setAttribute("message", "공지사항 등록에 실패하셨습니다.");
+		}
 		
 		request.getRequestDispatcher(path).forward(request, response);
 		

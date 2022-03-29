@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="NoticeDAO">
+<mapper namespace="com.planty.jsp.customercare.notice.model.dao.NoticeDAO">
 	
 	<resultMap type="com.planty.jsp.customercare.notice.model.dto.NoticeDTO" id="noticeResultMap">
 		<id property="no" column="NOTICE_NO"/>
@@ -45,8 +45,8 @@
 	</insert>
 	
 	<update id="incrementNoticeCount" >
-        UPDATE /* com.greedy.jsp.notice.model.dao.NoticeDAO#incrementNoticeCount() */
-               NOTICE A
+        UPDATE 
+               NOTICE
            SET A.NOTICE_COUNT = (SELECT B.NOTICE_COUNT
                                    FROM NOTICE B
                                   WHERE B.NOTICE_NO = #{ no }
@@ -55,19 +55,19 @@
 	</update>
 	
 	<select id="selectNoticeDetail" resultMap="noticeResultMap">
-        SELECT /* com.greedy.jsp.notice.model.dao.NoticeDAO#selectNoticeDetail() */
+        SELECT 
                NOTICE_NO
              , TITLE
              , CONTENT
              , NOTICE_COUNT
-             , DATE             
+             , CREATE_DATE             
           FROM NOTICE 
-         WHERE NOTICE_STATUS = 'Y'
+         WHERE NOTICE_STATUS = 'N'
            AND NOTICE_NO = #{ no }
 	</select>
 	
 	<update id="updateNotice">
-		UPDATE /* com.greedy.jsp.notice.model.dao.NoticeDAO#updateNotice() */
+		UPDATE 
 		       NOTICE
 		   SET TITLE = #{ title }
 		     , BODY = #{ content }
@@ -75,9 +75,9 @@
 	</update>
 	
 	<update id="deleteNotice">
-		UPDATE /* com.greedy.jsp.notice.model.dao.NoticeDAO#deleteNotice() */
-		       TBL_NOTICE
-		   SET NOTICE_STATUS = 'N'
+		UPDATE 
+		       NOTICE
+		   SET NOTICE_STATUS = 'Y'
 		 WHERE NOTICE_NO = #{ no }
 	</update>
 </mapper>
