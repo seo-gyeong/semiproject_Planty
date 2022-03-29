@@ -5,15 +5,15 @@
 <mapper namespace="UserDAO">
 	<resultMap type="com.planty.jsp.user.model.dto.UserDTO" id="userResultMap">
 		<id property="id" column="ID"/>
-		<result property="no" column="AUTH_NO"/>
+		<result property="authNo" column="AUTH_NO"/>
 		<result property="pwd" column="PWD"/>
 		<result property="address" column="ADDRESS"/>
-		<result property="addressDetail" column="ADDRESS_DETAIL"/>
+		<result property="addrDetail" column="ADDRESS_DETAIL"/>
 		<result property="zipcode" column="ZIPCODE"/>
 		<result property="name" column="NAME"/>
 		<result property="phone" column="PHONE"/>
 		<result property="email" column="EMAIL"/>
-		<result property="status" column="TEXT_YN"/>
+		<result property="textYn" column="TEXT_YN"/>
 		<result property="enrollDate" column="ENROLL_DATE"/>
 		<result property="ceoName" column="CEO_NAME"/>
 		<result property="reqNo" column="REQ_NO"/>
@@ -140,9 +140,9 @@
 		  , PHONE
       FROM MEMBER
       
+		</select>
 	
-	
-		<select id="findId" resultType="userResultMap">
+		<select id="findId" resultMap="userResultMap">
 		SELECT 
 			   ID
 		 FROM MEMBER 
@@ -152,7 +152,7 @@
 	</select>
 	
 	
-	<select id="findPwd" resultType="userResultMap">
+	<select id="findPwd" resultMap="userResultMap">
 		SELECT 
 				*
 		 FROM MEMBER 
@@ -161,6 +161,6 @@
 		<if test="regNo != null and regNo != ''">
 			AND REG_NO = #{ regNo }
 		</if>
-
 	</select>
+	
 </mapper>

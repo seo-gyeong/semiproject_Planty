@@ -18,7 +18,7 @@ public class FindIdServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/login/findId-member.jsp").forward(request, response);
-		request.getRequestDispatcher("/WEB-INF/views/login/findId-partner.jsp").forward(request, response);
+
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,7 +39,7 @@ public class FindIdServlet extends HttpServlet {
 		
 		if(findId!= null) {
 			request.setAttribute("findId", findId);
-			request.getRequestDispatcher("/WEB-INF/views/login/result-Id.jsp").forward(request, response);
+			request.getRequestDispatcher("/WEB-INF/views/login/result-id.jsp").forward(request, response);
 		} else {
 			request.setAttribute("message", "실패ㅠ");
 			request.getRequestDispatcher("/WEB-INF/views/login/findId-member.jsp").forward(request, response);
