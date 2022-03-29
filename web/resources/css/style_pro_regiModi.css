@@ -1,0 +1,261 @@
+*{ margin: 0; padding: 0; }
+li { list-style: none; }
+a {text-decoration: none; }
+img { border: 0; }
+html,body{ height: 100%; }
+
+/* 상단바 ---------------------------------------------------------------*/
+#main_header{
+    height: 200px;
+    position: relative;
+}
+
+.logo{
+    padding-left: 50px;
+    padding-top: 50px;
+    width: 200px;
+    height: 160px;
+}
+
+/* 왼쪽메뉴 ---------------------------------------------------------------*/
+#wrap {
+    overflow: hidden;
+}
+
+#wrap > #main_lnb {
+    float: left;
+    width: 300px;
+    /* background: #0995; */
+}
+
+#main_lnb > h4 > a {
+    display: block;
+    height: 50px;
+    margin-top: 20px;
+    margin-bottom: 50px;
+    color: black;
+    font-weight: bolder;  
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+}
+
+#main_lnb > ul {
+    padding: 0;
+}
+
+#main_lnb > ul > li {
+    text-align: center;
+    margin-top: 10px;
+}
+
+#main_lnb > ul > li > a {
+    display: relative;
+    height: 50px;
+    line-height: 70px;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    color: black;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+#main_lnb > ul > li > .submenu {
+    padding: 0;
+}
+
+#main_lnb > ul > li > .submenu a {
+    display: block;
+    color: black;    
+    font-family: 'Noto Sans KR', sans-serif;
+    padding: 5px;
+}
+
+#main_lnb .menu1 .submenu .current {
+    color: #249798; 
+}
+
+#main_lnb > ul > li > .submenu a:hover {
+    color: #249798;    
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.menu2 .submenu {
+    display: none;
+}
+
+.menu2:hover > .submenu {
+    display: block;
+}
+
+/* 내용 ---------------------------------------------------------------*/
+#wrap > #content_wrap {
+    float: right;
+    width: 100%;
+    margin-right: -300px;
+    background: #ffffff;
+}
+
+#wrap > #content_wrap > #content{
+    padding-right: 200px;
+    min-height: 800px;
+    width: 1420px;
+}
+
+#content {
+    background: white;    
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+article{
+    padding: 10px;
+}
+
+/* 테이블 ---------------------------------------------------------------*/
+.cate-title {
+    font-weight: bold;
+    font-size: x-large;
+}
+
+.table {
+    vertical-align: middle;
+}
+
+/* 테이블제목 */
+.table thead tr th {
+    font-weight: bolder;
+}
+
+/* 테이블내용 */
+.table tbody th {
+    font-weight: lighter;
+    width: 250px;
+}
+
+.table tbody td form {
+    text-align: center;
+}
+
+.table tbody img {
+    height: 150px;
+    width: auto;
+}
+
+.table tbody tr td div {
+    display: flex;    
+}
+
+/* 썸네일박스 */
+.img-thumbnail {
+	min-width: 200px
+}
+
+
+/* 사진파일선택 */
+#img_upload{
+    width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+
+#img_upload + label {
+    border: 1px solid #d3d3d3;
+    background-color: #fff;
+    border-radius: 0.1rem;
+    padding: 0 22.5px 0 22.5px;
+    font-size: 15px;
+    box-shadow: 1px 2px 3px 0px #f2f2f2;
+    outline: none;
+    cursor: pointer;
+}
+
+/* 카테고리 */
+.form-select {
+    margin-right: 5px;
+    border: 1px solid #d3d3d3;
+    box-shadow: none !important;     
+    text-align: center;
+    width: 200px;
+}
+
+.form-select:focus {
+    border: 1px solid #249798;
+    box-shadow: none !important;
+}
+
+/* 내용 입력칸 */
+.form-control {
+    text-align: center;
+    width: 513px;
+    height: 25px;    
+    border: 1px solid #d3d3d3;
+    box-shadow: none !important; 
+}
+
+.form-control:focus {
+    border: 1px solid #249798;
+    box-shadow: none !important;
+}
+
+#qna .answer {
+    justify-content: center;
+    color: red;
+}
+
+/* 수정/등록하기버튼 */
+.btn-modify  {
+    border: 1px solid #d3d3d3;
+    background-color: #fff;
+    border-radius: 0.1rem;
+    padding: 0 12.5px 0 12.5px;
+    font-size: 15px;
+    box-shadow: 1px 2px 3px 0px #f2f2f2;
+    outline: none;
+    cursor: pointer;
+    margin-left: 666.5px;
+}
+
+.btn-modify a {
+    color: #000;
+}
+
+
+
+/* 푸터 ---------------------------------------------------------------*/
+footer {
+    text-align: center;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    border-top: solid 0.5px #4C5B5D ;;
+    padding-top: 30px;
+    color: #4C5B5D;
+    font-size: 15px;
+}
+
+footer a {
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 20px 10px 20px;
+    color: #4C5B5D; font-size: 11px;
+}
+
+footer a:visited {
+    color: #4C5B5D;
+}
+
+footer p {
+    margin-top: 0; 
+    margin-bottom: 0;   
+}
+
+footer p span {
+    font-size: 5px;
+    display: inline-block;
+    margin-left: 20px;
+}
+footer nav a {
+    font-size: 5px;
+}
