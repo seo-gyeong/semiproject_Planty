@@ -46,7 +46,7 @@
 	
 	<update id="incrementNoticeCount" >
         UPDATE 
-               NOTICE
+               NOTICE A
            SET A.NOTICE_COUNT = (SELECT B.NOTICE_COUNT
                                    FROM NOTICE B
                                   WHERE B.NOTICE_NO = #{ no }
@@ -70,7 +70,7 @@
 		UPDATE 
 		       NOTICE
 		   SET TITLE = #{ title }
-		     , BODY = #{ content }
+		     , CONTENT = #{ content }
 		 WHERE NOTICE_NO = #{ no }
 	</update>
 	
