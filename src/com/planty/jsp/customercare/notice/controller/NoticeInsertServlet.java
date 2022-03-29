@@ -29,6 +29,7 @@ public class NoticeInsertServlet extends HttpServlet {
 		NoticeDTO newNotice = new NoticeDTO();
 		newNotice.setTitle(title);
 		newNotice.setContent(content);
+		newNotice.setId("test");  //로그인된 아이디로 변경
 		
 		NoticeService noticeService = new NoticeService();
 		int result = noticeService.insertNotice(newNotice);
