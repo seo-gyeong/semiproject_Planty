@@ -20,24 +20,16 @@
 <div class="main-container">
 		<div class="main-wrap">
 		
-		<form class="login-input-section-wrap">
+		<form class="login-input-section-wrap"  method="POST" action="${ pageContext.servletContext.contextPath }/user/findiduser">
             <div class="login-title1">
                 <h2 class="login-title2">아이디 찾기</h2>
             </div>
-            <div class="type" >
-                <div class="dropdown" id="selectbox">
-                <button class="btn btn-secondary dropdown-toggle" style="margin-bottom: 10px; font-size: 14px; background-color:#4C5B5D ;" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">회원유형</button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                  <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" href="${ pageContext.servletContext.contextPath }/login/findId-member.jsp">개인회원</button></li>
-                  <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" href="${ pageContext.servletContext.contextPath }/login/findId-partner.jsp">법인사업자 회원</button></li>
-                </ul>
-              </div>
-            </div>
+      
            <div class="type1">
         
         <div class="type2">	
             <div class="login-input-wrap">
-            <input name="name" placeholder="이름 " type="text"></input>
+            <input name="name" placeholder="이름/법인명" type="text"></input>
         </div>   
     </div> 
                   
@@ -50,7 +42,7 @@
 </div>
         
             <div class="login-button-wrap">
-				<button name="findId" type="button"  onclick="location.href='${ pageContext.servletContext.contextPath }/user/findiduser'">아이디 찾기</button>
+				<button name="findId" type="submit" >아이디 찾기</button>
 			</div>
     
             <div class="empty">

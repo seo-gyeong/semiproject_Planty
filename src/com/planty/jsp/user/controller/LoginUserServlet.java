@@ -1,6 +1,7 @@
 package com.planty.jsp.user.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -16,7 +17,6 @@ import com.planty.jsp.user.model.service.UserService;
 public class LoginUserServlet extends HttpServlet {
 	/* 로그인 버튼 클릭 시 get요청이 들어오기 때문에 로그인 하는 form으로 포워딩 해주는 역할 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		request.getRequestDispatcher("/WEB-INF/views/login/loginForm.jsp").forward(request, response);
 		
 	}
@@ -39,6 +39,7 @@ public class LoginUserServlet extends HttpServlet {
 		UserDTO loginUser = userService.loginCheck(requestUser);
 		System.out.println(loginUser);
 		
+		
 		if(loginUser!= null) {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
@@ -49,16 +50,15 @@ public class LoginUserServlet extends HttpServlet {
 				response.sendRedirect(request.getContextPath() + "/admin/관리자 주소");
 				
 				} else if (loginUser.getAuthNo() == 2) {	
-				response.sendRedirect(request.getContextPath() + "/partner/판매자 주소");
-				}
+				response.sendRedirect(request.getContextPath() + "/product/regist");
 				
 				} else {
-				response.sendRedirect(request.getContextPath());
+				response.sendRedirect(request.getContextPath() + "/main/aboutus");
 				}
-		
+			}else {	
 			request.setAttribute("message", "로그인 실패!");
 			request.getRequestDispatcher("/WEB-INF/views/common/failed.jsp").forward(request, response);
 		}
 		
 	}
-
+}
