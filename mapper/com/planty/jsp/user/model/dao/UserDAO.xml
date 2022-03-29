@@ -140,7 +140,7 @@
 		  , PHONE
       FROM MEMBER
       
-	
+	</select>
 	
 		<select id="findId" resultType="userResultMap">
 		SELECT 
