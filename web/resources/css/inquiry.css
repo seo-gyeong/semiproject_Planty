@@ -642,7 +642,43 @@ caption {
 	width: 150px;
 }
 
+/* --------------------------------------------- */
+/* review-insert.html */
+#rv-content {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+    margin: 20px 0 20px 0;
+    row-gap: 5px;    
+}
 
+.rv-title {
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+#rv-img {
+    display: grid;
+    grid-template-columns: repeat(1,minmax(260px,100%));
+    margin: 0 0 20px;
+    row-gap: 5px;    
+}
+
+.rv-img-input {
+    font-size: 0.9em;
+    padding-left: 15px;
+}
+
+.textarea {
+	resize: none;
+	overflow: hidden;
+    border: solid 1px #dadada;
+    padding: 10px 10px 10px 10px;
+}
+
+.textarea:focus {
+	outline: none;
+}
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 /* 여기서부터 복붙!!!!!!! */

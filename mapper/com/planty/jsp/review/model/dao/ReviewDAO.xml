@@ -48,8 +48,9 @@
 	</resultMap>
 	
 	<resultMap type="com.planty.jsp.order.model.dto.OrderDTO" id="orderResultMap">
-		<id property="id" column="ID"/>
-		<result property="authNo" column="AUTH_NO"/>
+		<id property="proNo" column="PRO_NO"/>
+		<id property="ordNo" column="ORD_NO"/>
+		<result property="amount" column="AMOUNT"/>
 		
 	</resultMap>
 	
@@ -129,9 +130,8 @@
 	</insert>
 	
 	
-	<select id="selectOneReview" resultMap="thumbnailBoardResultMap">
-        SELECT /* com.planty.jsp.board.model.dao.BoardDAO#selectOneThumbnailBoard() */
-               A.REVIEW_NO
+	<select id="selectOneReview" resultMap="reviewResultMap">
+        SELECT A.REVIEW_NO
              , A.ID
              , A.SCORE
              , A.TITLE

@@ -43,22 +43,12 @@ public class loginServlet extends HttpServlet {
 			HttpSession session = request.getSession();
 			session.setAttribute("loginUser", loginUser);
 			
-			System.out.println(loginUser.getAuthNo());
-			
-			if(loginUser.getAuthNo() == 3) {
-				response.sendRedirect(request.getContextPath() + "/admin/관리자 주소");
-				
-				} else if (loginUser.getAuthNo() == 2) {	
-				response.sendRedirect(request.getContextPath() + "/partner/판매자 주소");
-				}
-				
-				} else {
-				response.sendRedirect(request.getContextPath());
-				}
-		
-			request.setAttribute("message", "로그인 실패!");
-			request.getRequestDispatcher("/WEB-INF/views/common/failed.jsp").forward(request, response);
+			response.sendRedirect(request.getContextPath());
+		} else {
+		request.setAttribute("message", "로그인 실패!");
+		request.getRequestDispatcher("/WEB-INF/views/common/failed.jsp").forward(request, response);
 		}
 		
-	}
+	}	
 
+}

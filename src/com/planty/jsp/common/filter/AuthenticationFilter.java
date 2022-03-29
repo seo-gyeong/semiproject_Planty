@@ -19,7 +19,7 @@ import javax.servlet.http.HttpSession;
 
 import com.planty.jsp.user.model.dto.UserDTO;
 
-@WebFilter(urlPatterns = {"/notice/*", "/user/*", "/board/*", "/thumbnail/*"})
+@WebFilter(urlPatterns = {"/notice/*", "/user/*", "/review/*","/board/*", "/thumbnail/*"})
 public class AuthenticationFilter implements Filter {
 	
 	Map<String, List<String>> permitURIList;
@@ -89,22 +89,30 @@ public class AuthenticationFilter implements Filter {
 		List<String> memberPermitList = new ArrayList<>();
 		List<String> allPermitList = new ArrayList<>();
 		
+//		-----관리자 허용 리스트-----
+//		서경 추가
 		adminPermitList.add("/notice/insert");
 		adminPermitList.add("/notice/update");
 		adminPermitList.add("/notice/delete");
 		
+		
+//		-----멤버 허용 리스트-----
+//		아름 추가
 		memberPermitList.add("/user/modify");
 		memberPermitList.add("/user/modifyPwd");
-		memberPermitList.add("/member/remove");
-		memberPermitList.add("/notice/list");
-		memberPermitList.add("/notice/detail");
-		memberPermitList.add("/board/list");
+		memberPermitList.add("/user/remove");
 		memberPermitList.add("/board/insert");
-		memberPermitList.add("/board/search");
 		memberPermitList.add("/thumbnail/list");
 		memberPermitList.add("/thumbnail/insert");
 		memberPermitList.add("/thumbnail/detail");
+//		서경 추가
+//		태경 추가
+//		윤호 추가
+//		혜진 추가
+		
 
+//		-----전체 허용 리스트-----
+//		전체 허용 리스트 - 아름 추가
 		allPermitList.add("/user/idCheck");
 		allPermitList.add("/user/regist");
 		allPermitList.add("/user/regist2");		
@@ -112,6 +120,23 @@ public class AuthenticationFilter implements Filter {
 		allPermitList.add("/user/modifyPwd");
 		allPermitList.add("/user/login");
 		allPermitList.add("/user/logout");
+		allPermitList.add("/board/list");
+		allPermitList.add("/board/search");
+		allPermitList.add("/review/list");
+		allPermitList.add("/review/insert");
+//		전체 허용 리스트 - 서경 추가
+		allPermitList.add("/notice/list");
+		allPermitList.add("/notice/detail");
+//		전체 허용 리스트 - 태경 추가
+		allPermitList.add("/main/aboutus");
+		allPermitList.add("/main/faq");
+		allPermitList.add("/main/intro");
+		allPermitList.add("/main/policy");
+		allPermitList.add("/user/login");
+		allPermitList.add("/user/findiduser");
+		allPermitList.add("/user/resultid");
+//		윤호 추가
+//		혜진 추가
 		
 		permitURIList.put("adminPermitList", adminPermitList);
 		permitURIList.put("memberPermitList", memberPermitList);
