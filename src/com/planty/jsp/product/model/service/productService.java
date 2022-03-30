@@ -1,4 +1,4 @@
-package com.planty.jsp.board.model.service;
+package com.planty.jsp.product.model.service;
 
 import static com.planty.jsp.common.mybatis.Template.getSqlSession;
 
@@ -8,28 +8,28 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.planty.jsp.board.model.dao.BoardDAO;
-import com.planty.jsp.board.model.dto.AttachmentDTO;
-import com.planty.jsp.board.model.dto.BoardDTO;
 import com.planty.jsp.common.paging.Pagenation;
 import com.planty.jsp.common.paging.SelectCriteria;
+import com.planty.jsp.product.model.dao.ProductDAO;
+import com.planty.jsp.product.model.dto.ProductDTO;
+import com.planty.jsp.product.model.dto.ProductImgDTO;
 
-public class BoardService {
+public class productService {
 	
-	private final BoardDAO boardDAO;
+	private final ProductDAO productDAO;
 	
-	public BoardService() {
-		boardDAO = new BoardDAO();
+	public ProductService() {
+		productDAO = new ProductDAO();
 	}
 	
 	
 	/* 게시물 전체 조회용 메소드 */
-	public Map<String, Object> selectBoardList(int pageNo, Map<String, String> searchMap) {
+	public Map<String, Object> selectProductList(int pageNo, Map<String, String> searchMap) {
 		
 		SqlSession session = getSqlSession();
 		
-		int totalCount = boardDAO.selectTotalCount(session, searchMap);
-		System.out.println("totalBoardCount : " + totalCount);
+		int totalCount = productDAO.selectTotalCount(session, searchMap);
+		System.out.println("totalProductCount : " + totalCount);
 		
 		/* 한 페이지에 보여 줄 게시물 수 */
 		int limit = 10;		
@@ -47,10 +47,10 @@ public class BoardService {
 		
 		System.out.println(selectCriteria);
 		
-		List<BoardDTO> boardList = boardDAO.selectBoardList(session, selectCriteria);
+		List<ProductDTO> productList = productDAO.selectProductList(session, selectCriteria);
 		
 		Map<String, Object> returnMap = new HashMap<>();
-		returnMap.put("boardList", boardList);
+		returnMap.put("productList", productList);
 		returnMap.put("selectCriteria", selectCriteria);
 		
 		session.close();
@@ -59,11 +59,11 @@ public class BoardService {
 	}
 	
 	/* 신규 게시물 등록용 메소드 */
-	public int insertBoard(BoardDTO newBoard) {
+	public int insertProduct(ProductDTO newProduct) {
 		
 		SqlSession session = getSqlSession();
 		
-		int result = boardDAO.insertBoard(session, newBoard);
+		int result = ProductDAO.insertProduct(session, newProduct);
 		
 		if(result > 0) {
 			session.commit();
@@ -77,13 +77,13 @@ public class BoardService {
 	}
 	
 	/* 썸네일 게시판 조회용 메소드 */
-	public List<BoardDTO> selectThumbnailList() {
+	public List<ProductDTO> selectThumbnailList() {
 		
 		/* Connection 생성 */
 		SqlSession session = getSqlSession();
 		
 		/* List 조회 */
-		List<BoardDTO> thumbnailList = boardDAO.selectThumbnailList(session);
+		List<ProductDTO> thumbnailList = productDAO.selectThumbnailList(session);
 		
 		/* Connection 닫기 */
 		session.close();
@@ -92,7 +92,7 @@ public class BoardService {
 		return thumbnailList;
 	}
 	
-	public int insertThumbnail(BoardDTO thumbnail) {
+	public int insertThumbnail(ProductDTO thumbnail) {
 		
 		/* Connection 생성 */
 		SqlSession session = getSqlSession();
@@ -100,27 +100,27 @@ public class BoardService {
 		/* 최종적으로 반환할 result 선언 */
 		int result = 0;
 		
-		/* 먼저 board 테이블부터 thumbnail 내용부터 insert 한다. */
-		int boardResult = boardDAO.insertThumbnailContent(session, thumbnail);
+		//* 먼저 product 테이블부터 thumbnail 내용부터 insert 한다. */
+		int productResult = productDAO.insertProductContent(session, thumbnail);
 		
-		System.out.println("boardResult : " + thumbnail);
+		System.out.println("productResult : " + thumbnail);
 	
-		/* Attachment 리스트를 불러온다. */
-		List<AttachmentDTO> fileList = thumbnail.getAttachmentList();
+		//* img 리스트를 불러온다. */
+		List<ProductImgDTO> fileList = thumbnail.getImgList();
 		
-		/* fileList에 boardNo값을 넣는다. */
+		/* fileList에 productNo값을 넣는다. */
 		for(int i = 0; i < fileList.size(); i++) {
-			fileList.get(i).setRefBoardNo(thumbnail.getNo());
+			fileList.get(i).setProNo(thumbnail.getProNo());
 		}
 		
 		/* Attachment 테이블에 list size만큼 insert 한다. */
 		int attachmentResult = 0;
 		for(int i = 0; i < fileList.size(); i++) {
-			attachmentResult += boardDAO.insertAttachment(session, fileList.get(i));
+			attachmentResult += productDAO.insertAttachment(session, fileList.get(i));
 		}
 		
 		/* 모든 결과가 성공이면 트랜젝션을 완료한다. */
-		if(boardResult > 0 && attachmentResult == fileList.size()) {
+		if(productResult > 0 && attachmentResult == fileList.size()) {
 			session.commit();
 			result = 1;
 		} else {
@@ -134,16 +134,16 @@ public class BoardService {
 		return result;
 	}
 
-	public BoardDTO selectOneThumbnailBoard(int no) {
+	public ProductDTO selectOneThumbnailProduct(int no) {
 		
 		SqlSession session = getSqlSession();
 		
-		BoardDTO thumbnail= null;
+		ProductDTO thumbnail= null;
 		
-		int result = boardDAO.incrementBoardCount(session, no);
+		int result = productDAO.incrementProductCount(session, no);
 		
 		if(result > 0) {
-			thumbnail = boardDAO.selectOneThumbnailBoard(session, no);
+			thumbnail = productDAO.selectOneThumbnailProduct(session, no);
 			
 			if(thumbnail != null) {
 				session.commit();

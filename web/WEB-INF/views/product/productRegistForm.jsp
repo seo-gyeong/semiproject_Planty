@@ -36,7 +36,8 @@
         <!-- 내용 -->
     	<div id="content_wrap">
 	        <div id="content">
-	        <form id="modifyForm" name="modifyForm" action="${ pageContext.servletContext.contextPath }/product/regist" method="post" encType="multipart/form-data">
+	        <form id="modifyForm" name="modifyForm" action="${ pageContext.servletContext.contextPath }/product/regist" method="post" 
+	        encType="multipart/form-data">
 	            <div class="cate-title" >
                 <div class="col">
                     <p>상품 등록</p>

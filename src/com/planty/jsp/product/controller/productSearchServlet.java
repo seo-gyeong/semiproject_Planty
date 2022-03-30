@@ -28,7 +28,7 @@ public class productSearchServlet extends HttpServlet {
 		String path = "";
 		if(productList != null) {
 			path = "/WEB-INF/views/product/productSerach.jsp";
-			request.setAttribute("productList", productList);
+			request.setAttribute("ProductDAO", selectAllProductList);
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "게시판 조회 실패!");
