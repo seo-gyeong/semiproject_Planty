@@ -14,7 +14,7 @@ import com.planty.jsp.product.model.dao.ProductDAO;
 import com.planty.jsp.product.model.dto.ProductDTO;
 import com.planty.jsp.product.model.dto.ProductImgDTO;
 
-public class productService {
+public class ProductService {
 	
 	private final ProductDAO productDAO;
 	
