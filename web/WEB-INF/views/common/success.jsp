@@ -31,7 +31,7 @@
 					break;
 				case "deleteUser" : 
 					successMessage = "회원 탈퇴에 성공하셨습니다!";
-					movePath = "${ pageContext.servletContext.contextPath }";
+					movePath = "${ pageContext.servletContext.contextPath }/main/aboutus";
 					break;
 				case "insertNotice" : 
 					successMessage = "공지사항 등록에 성공하셨습니다!";
