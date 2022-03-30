@@ -121,7 +121,7 @@
 				<div class="navbar-left">
 
 					<div class="dropdown">
-						<a href="../page/ABOUT US.html" class="dropbtn">ABOUT US</a>
+						<a href="${ pageContext.servletContext.contextPath }/main/aboutus" class="dropbtn">ABOUT US</a>
 					</div>
 
 					<div class="dropdown">
@@ -135,13 +135,13 @@
 					<div class="dropdown">
 						<button class="dropbtn">CUSTOMER</button>
 						<div class="dropdown-content">
-							<a href="#">NOTICE</a> <a href="../page/FAQ.html">FAQ</a>
+							<a href="#">NOTICE</a> <a href="${ pageContext.servletContext.contextPath }/main/faq">FAQ</a>
 						</div>
 					</div>
 
 				</div>
 				<div class="navbar-center">
-					<a href="../page/ABOUT US.html"><img class="image"
+					<a href="${ pageContext.servletContext.contextPath }/main/aboutus"><img class="image"
 						src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png"></a>
 				</div>
 
@@ -205,7 +205,7 @@
 					<!-- thumbnail할땐 이거 반드시 작성 -->
 					<div id="rv-content">
 						<div class="rv-title">주문 상품</div>
-						<div>${ review.order }</div>
+						<div>${ product.productName }</div>
 						<div class="rv-title">상품 만족도</div>
 						<div class="input_area score-area">
 							<label name="score"></label> <select name="score">

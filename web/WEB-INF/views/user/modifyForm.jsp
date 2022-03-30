@@ -112,27 +112,27 @@
                 onclick="openPopup('${ pageContext.servletContext.contextPath }/user/modifyPwd', 'modifyPwd', 500, 500);">비밀번호 변경</button></span>
 
                 <div class="form-name">이름</div>
-                <span class="input_area"><input type="text" maxlength="10" name="name" value="${ loginMember.pwd }"
+                <span class="input_area"><input type="text" maxlength="10" name="name" value="${ loginUser.pwd }"
                         required></span>
 
                 <div class="form-name">연락처</div>
-                <span class="input_area"><input type="tel" maxlength="13" name="phone" value="${ loginMember.phone }"
+                <span class="input_area"><input type="tel" maxlength="13" name="phone" value="${ loginUser.phone }"
                         placeholder="예) 010-1234-5678" required></span>
 
                 <div class="form-name">이메일</div>
-                <span class="input_area"><input type="email" name="email" value="${ loginMember.email }"
+                <span class="input_area"><input type="email" name="email" value="${ loginUser.email }"
                         placeholder="예) planty@naver.com" required></span>
 
                 <div class="form-name">우편번호</div>
                 <span class="input_area"><input type="text" id="member_post" name="zipcode" class="postcodify_postcode5"
-                        value="${ loginMember.zipcode }" readonly></span>
+                        value="${ loginUser.zipcode }" readonly></span>
                 <button class="join-btn join-btn-style" id="postcodify_search_button" type="button" onclick="findAddr();">검색</button>
                 <div class="form-name">도로명주소</div>
                 <span class="input_area"><input type="text" id="member_addr" name="address" class="postcodify_address"
-                        value="${ loginMember.address }" readonly></span>
+                        value="${ loginUser.address }" readonly></span>
                 <div class="form-name">상세주소</div>
                 <span class="input_area"><input type="text" name="addrDetail" class="postcodify_details"
-                        value="${ loginMember.addrDetail }" required></span>
+                        value="${ loginUser.addrDetail }" required></span>
                 <div class="btnArea">
                     <button class="join-btn-style" id="joinBtn" type="submit">수정하기</button>
                     <button class="del-btn-style" type="submit" onclick="confirmRemove();">탈퇴하기</button>

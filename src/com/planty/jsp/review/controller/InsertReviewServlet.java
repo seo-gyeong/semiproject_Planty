@@ -35,11 +35,17 @@ public class InsertReviewServlet extends HttpServlet {
 		request.getRequestDispatcher(path).forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
-	 *      response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+//		productList??? 불러오기....
+		//		ReviewService ReviewService = new ReviewService();
+//
+//		List<ReviewDTO> reviewList = ReviewService.selectReviewList();
+//
+//		for (ReviewDTO review : reviewList) {
+//			System.out.println(review);
+//		}
+
 		if (ServletFileUpload.isMultipartContent(request)) {
 
 			String rootLocation = getServletContext().getRealPath("/");
@@ -171,7 +177,7 @@ public class InsertReviewServlet extends HttpServlet {
 				review.setScore(Integer.parseInt(parameter.get("score")));
 				review.setTitle(parameter.get("title"));
 				review.setContent(parameter.get("content"));
-				review.setId(((UserDTO)request.getSession().getAttribute("loginUser")).getId());
+				review.setId(((UserDTO) request.getSession().getAttribute("loginUser")).getId());
 
 				review.setAttachmentList(new ArrayList<AttachmentDTO>());
 				List<AttachmentDTO> list = review.getAttachmentList();
