@@ -22,7 +22,7 @@ public class ReviewList extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		String id = request.getParameter("id");
+		String id = ((UserDTO)request.getSession().getAttribute("loginUser")).getId();
 		
 		ReviewService ReviewService = new ReviewService();
 		
