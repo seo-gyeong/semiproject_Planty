@@ -53,6 +53,11 @@
 					successMessage = "리뷰 등록에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/review/list";
 					break;
+			
+				case "changePwd" : 
+					successMessage = "비밀번호 변경에 성공하셨습니다!";
+					movePath = "${ pageContext.servletContext.contextPath }/user/login";
+					break;
 			}
 
 			alert(successMessage);

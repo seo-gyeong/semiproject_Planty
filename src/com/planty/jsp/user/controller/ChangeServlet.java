@@ -37,8 +37,8 @@ public class ChangeServlet extends HttpServlet {
 		String page = "";
 		
 		if(result > 0) {
-			page = "/WEB-INF/views/login/result-pwd.jsp";
-			request.setAttribute("successCode", "updateUserPassword");
+			page = "/WEB-INF/views/common/success.jsp";
+			request.setAttribute("successCode", "changePwd");
 		} else {
 			page = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "비밀번호 변경 실패!");
