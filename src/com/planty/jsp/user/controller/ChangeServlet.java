@@ -16,23 +16,25 @@ import com.planty.jsp.user.model.service.UserService;
 public class ChangeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		
 		request.getRequestDispatcher("/WEB-INF/views/login/change.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		
 		UserDTO findPwd = (UserDTO) request.getSession().getAttribute("findPwd");
-		String pwd = request.getParameter("pwd"); 
-		String id = findPwd.getPwd();
+		String id = findPwd.getId();
+		String pwd = findPwd.getPwd();
 		
 		UserDTO requestUser = new UserDTO();
-		requestUser.setPwd(pwd);
+		requestUser.setId (id);
+		requestUser.setPwd (pwd);
 		
-		String pwd = request.getParameter("pwd"); 
+		String changepwd = request.getParameter("changepwd"); 
 
-		
-		int result = new UserService().changePwd(requestUser, pwd);
+		int result = new UserService().changePwd(requestUser,changepwd);
 
 		String page = "";
 		

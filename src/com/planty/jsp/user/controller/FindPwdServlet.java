@@ -38,7 +38,7 @@ public class FindPwdServlet extends HttpServlet {
 		System.out.println("email : " + email);
 		
 		UserDTO requestUser = new UserDTO();
-		requestUser.setName(id);
+		requestUser.setId(id);
 		requestUser.setEmail(email);
 		
 		UserService userService = new UserService();

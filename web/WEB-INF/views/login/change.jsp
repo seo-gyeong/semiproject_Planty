@@ -24,11 +24,6 @@
             <div class="login-title1">
                 <h2 class="login-title2">비밀번호 변경</h2>
             </div>
-             <div>
-                 <div class="login-input-wrap"> 
-                     <input name="checknum"  placeholder="인증번호" id="user" type="text" class="input"><br>
-                 </div>
-            </div>
 			<div class="login-input-wrap">	
 				<input name="changepwd" placeholder="변경할 비밀번호" type="text"></input>
 			</div>

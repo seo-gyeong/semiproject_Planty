@@ -134,7 +134,9 @@ public class AuthenticationFilter implements Filter {
 		allPermitList.add("/main/policy");
 		allPermitList.add("/user/login");
 		allPermitList.add("/user/findiduser");
+		allPermitList.add("/user/findpwduser");
 		allPermitList.add("/user/resultid");
+		allPermitList.add("/user/change");
 //		윤호 추가
 //		혜진 추가
 		

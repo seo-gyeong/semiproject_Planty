@@ -75,8 +75,9 @@ public class UserService {
 	
 	public String findPwd(UserDTO requestUser)  {
 		SqlSession session = getSqlSession();
+		String findPwd = null;
 		
-		String findPwd = userDAO.findPwd (session, requestUser);
+		findPwd = userDAO.findPwd (session, requestUser);
 		
 		session.close();
 
@@ -153,7 +154,7 @@ public class UserService {
 		return userList;
 	}
 
-	public int changePwd(UserDTO requestUser, String pwd) {
+	public int changePwd(UserDTO requestUser,String changepwd) {
 		SqlSession session = getSqlSession();
 		int result = 0;
 		
@@ -163,7 +164,7 @@ public class UserService {
 		/* 비밀번호 수정 요청한 원문 비밀번호와 저장되어있는 암호화된 비밀번호가 일치하는지 확인한다. */
 		if(passwordEncoder.matches(requestUser.getPwd(), encPwd)) {
 			/* 비밀번호가 일치하는 경우에만 새로 입력 된 비밀번호로 수정한다. */
-			requestUser.setPwd(pwd);
+			requestUser.setPwd(changepwd);
 			result = userDAO.updatePwd(session, requestUser);
 		}
 		
