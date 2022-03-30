@@ -34,7 +34,7 @@ public class FindIdServlet extends HttpServlet {
 	
 		UserService userService = new UserService();
 		
-		UserDTO findId = userService.findId(requestUser);
+		String findId = userService.findId(requestUser);
 		System.out.println(findId);
 		
 		if(findId!= null) {

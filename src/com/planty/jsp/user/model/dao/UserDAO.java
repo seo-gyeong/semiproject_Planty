@@ -49,7 +49,7 @@ public class UserDAO {
 	}
   
 // 아이디 찾기 메소드  
-	public UserDTO findId(SqlSession session, UserDTO requestUser) {
+	public String findId(SqlSession session, UserDTO requestUser) {
 		return session.selectOne("UserDAO.findId", requestUser );
 	}
 

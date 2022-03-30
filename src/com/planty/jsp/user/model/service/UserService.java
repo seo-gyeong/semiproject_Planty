@@ -61,12 +61,12 @@ public class UserService {
 	}
      
 
-	public UserDTO findId (UserDTO requestUser) {
+	public String findId (UserDTO requestUser) {
 
 		SqlSession session = getSqlSession();
-		UserDTO findId = null;
 		
-		findId = userDAO.findId (session, requestUser);
+		
+		String findId = userDAO.findId (session, requestUser);
 		
 		session.close();
 		
