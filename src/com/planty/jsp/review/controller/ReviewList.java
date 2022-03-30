@@ -1,7 +1,9 @@
 package com.planty.jsp.review.controller;
 
 import java.io.IOException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -25,6 +27,15 @@ public class ReviewList extends HttpServlet {
 		for(ReviewDTO review : reviewList) {
 			System.out.println(review);
 		}
+		
+		
+		Map ratingOptions = new HashMap();
+		ratingOptions.put(1, "★");
+		ratingOptions.put(2, "★★");
+		ratingOptions.put(3, "★★★");
+		ratingOptions.put(4, "★★★★");
+		ratingOptions.put(5, "★★★★★");
+		request.setAttribute("ratingOptions", ratingOptions);
 		
 		String path = "";
 		if(reviewList != null) {

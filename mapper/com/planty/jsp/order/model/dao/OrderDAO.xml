@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="OrderDAO">
+	<resultMap type="com.planty.jsp.order.model.dto.OrderDTO" id="orderResultMap">
+		<id property="proNo" column="PRO_NO"/>
+		<id property="ordNo" column="ORD_NO"/>
+		<result property="amount" column="AMOUNT"/>
+		
+	</resultMap>
+</mapper>

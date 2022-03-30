@@ -1,29 +1,27 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UserDAO">
 	<resultMap type="com.planty.jsp.user.model.dto.UserDTO" id="userResultMap">
 		<id property="id" column="ID"/>
-		<result property="authNo" column="AUTH_NO"/>
+		<result property="no" column="AUTH_NO"/>
 		<result property="pwd" column="PWD"/>
 		<result property="address" column="ADDRESS"/>
-		<result property="addrDetail" column="ADDRESS_DETAIL"/>
+		<result property="addressDetail" column="ADDRESS_DETAIL"/>
 		<result property="zipcode" column="ZIPCODE"/>
 		<result property="name" column="NAME"/>
 		<result property="phone" column="PHONE"/>
 		<result property="email" column="EMAIL"/>
-		<result property="textYn" column="TEXT_YN"/>
+		<result property="status" column="TEXT_YN"/>
 		<result property="enrollDate" column="ENROLL_DATE"/>
-		<result property="name" column="NAME"/>
 		<result property="ceoName" column="CEO_NAME"/>
 		<result property="reqNo" column="REQ_NO"/>
-		<result property="approval" column="APPROVAL"/>	
-	
+		<result property="approval" column="APPROVAL"/>		
+		
 	</resultMap>
-		
-		
-	<!-- 일반회원 회원 가입 -->
+	
+<!-- 일반회원 회원 가입 -->
 	<insert id="insertUser" parameterType="com.planty.jsp.user.model.dto.UserDTO">
         INSERT /* com.planty.jsp.user.model.dao.UserDAO#insertUser() */
           INTO MEMBER 
@@ -130,20 +128,8 @@
 		 WHERE ID = #{ id }
 	</delete>	
 	
-
-	<!-- 회원 조회(관리자) -->
-	<select id="selectAllUserList" resultMap="userResultMap">
-	SELECT
-			AUTH_NO
-		  , ID
-		  , NAME
-		  , EMAIL
-		  , PHONE
-      FROM MEMBER
-      
-		</select>
 	
-		<select id="findId" resultMap="userResultMap">
+		<select id="findId" resultType="userResultMap">
 		SELECT 
 			   ID
 		 FROM MEMBER 
@@ -153,12 +139,16 @@
 	</select>
 	
 	
-	<select id="findPwd" resultMap="userResultMap">
+	<select id="findPwd" resultType="userResultMap">
 		SELECT 
-			 pwd
+				*
 		 FROM MEMBER 
 		 WHERE ID = #{ id } 
 		 AND EMAIL = #{email}
+		<if test="regNo != null and regNo != ''">
+			AND REG_NO = #{ regNo }
+		</if>
+		 
 	</select>
-	
 </mapper>
+
