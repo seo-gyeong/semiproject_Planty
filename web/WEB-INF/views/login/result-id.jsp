@@ -34,7 +34,7 @@
            
             <div class="result-btn">
                 <button type="button" class="btn btn-primary" onclick = "location.href ='${ pageContext.servletContext.contextPath }/user/login'">로그인페이지</button>
-                <button type="button" class="btn btn-primary" onclick = "location.href ='${ pageContext.servletContext.contextPath }}/main/aboutus'">메인페이지</button>
+                <button type="button" class="btn btn-primary" onclick = "location.href ='${ pageContext.servletContext.contextPath }/main/aboutus'">메인페이지</button>
             </div>
            
             <div class="empty">

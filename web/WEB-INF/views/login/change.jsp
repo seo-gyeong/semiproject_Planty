@@ -36,7 +36,7 @@
 				<input name="changepwd2" placeholder="비밀번호 확인" type="password"></input>
 			</div>
             <div class="login-button-wrap">
-				<button type="button" > 확인</button>
+				<button type="submit" > 확인</button>
 			</div>
         
          

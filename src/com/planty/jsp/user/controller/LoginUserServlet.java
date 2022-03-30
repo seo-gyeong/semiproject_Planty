@@ -24,6 +24,8 @@ public class LoginUserServlet extends HttpServlet {
 	/* 로그인 폼을 작성 후 post 요청을 할 경우 처리하는 역할 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		UserDTO findPwd = (UserDTO) request.getSession().getAttribute(" findPwd");
+		
 		String id = request.getParameter("id");
 		String pwd = request.getParameter("pwd");
 		

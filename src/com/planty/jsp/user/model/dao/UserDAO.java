@@ -54,15 +54,17 @@ public class UserDAO {
 	}
 
 // 비밀번호 찾기 메소드  
-	public UserDTO findPwd(SqlSession session, String id) {
-		return session.selectOne("UserDAO.findPwd", id );
+	public UserDTO findPwd(SqlSession session, UserDTO requestUser) {
+		return session.selectOne("UserDAO.findPwd", requestUser);
 	}
 
 // 회원 조회(관리자) 메소드
 	public List<UserDTO> selectAllUserList(SqlSession session) {
 		
 		return session.selectList("UserDAO.selectAllUserList");
-	}	
+	}
+
+
 	
 }
 

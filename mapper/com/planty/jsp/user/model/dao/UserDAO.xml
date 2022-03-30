@@ -18,6 +18,7 @@
 		<result property="ceoName" column="CEO_NAME"/>
 		<result property="reqNo" column="REQ_NO"/>
 		<result property="approval" column="APPROVAL"/>
+
 	
 	</resultMap>
 		
@@ -154,13 +155,10 @@
 	
 	<select id="findPwd" resultMap="userResultMap">
 		SELECT 
-				*
+			 pwd
 		 FROM MEMBER 
 		 WHERE ID = #{ id } 
 		 AND EMAIL = #{email}
-		<if test="regNo != null and regNo != ''">
-			AND REG_NO = #{ regNo }
-		</if>
 	</select>
 	
 </mapper>

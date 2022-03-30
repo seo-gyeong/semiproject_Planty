@@ -74,11 +74,11 @@ public class UserService {
 		
 	}
 	
-	public UserDTO findPwd(String id)  {
+	public UserDTO findPwd(UserDTO requestUser)  {
 		SqlSession session = getSqlSession();
 		UserDTO findPwd = null;
 		
-		findPwd = userDAO.findPwd (session,id);
+		findPwd = userDAO.findPwd (session,requestUser);
 		
 		session.close();
 
