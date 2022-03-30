@@ -31,4 +31,9 @@ public class ReviewService {
 		return reviewList;
 	}
 
+	public int insertReview(ReviewDTO review) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

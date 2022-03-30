@@ -18,7 +18,6 @@ public class findIdUserServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/login/findId-member.jsp").forward(request, response);
-		request.getRequestDispatcher("/WEB-INF/views/login/findId-partner.jsp").forward(request, response);
 		}
 
 		protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

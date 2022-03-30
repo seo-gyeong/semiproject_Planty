@@ -134,7 +134,7 @@
             <div class="my-status">
                 <div class="coupon-status">
                     <div>쿠폰</div>
-                    <button class="myButton" type="submit" formaction="${ pageContext.servletContext.contextPath }/mypage/coupon">조회</button>        
+                    <a href="${ pageContext.servletContext.contextPath }/mypage/coupon" class="myButton">조회</a>        
                 </div>
                 <div class="order-sum">
                     <div class="sum1">총주문</div>

@@ -15,6 +15,9 @@
 		<result property="textYn" column="TEXT_YN"/>
 		<result property="enrollDate" column="ENROLL_DATE"/>
 		<result property="name" column="NAME"/>
+		<result property="ceoName" column="CEO_NAME"/>
+		<result property="reqNo" column="REQ_NO"/>
+		<result property="approval" column="APPROVAL"/>	
 	</resultMap>
 
 	<!-- 일반회원 회원 가입 -->

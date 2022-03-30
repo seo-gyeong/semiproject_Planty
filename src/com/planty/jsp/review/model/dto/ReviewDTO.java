@@ -1,33 +1,43 @@
 package com.planty.jsp.review.model.dto;
 
 import java.sql.Date;
+import java.util.List;
+
+import com.planty.jsp.order.model.dto.OrderDTO;
+import com.planty.jsp.user.model.dto.UserDTO;
 
 public class ReviewDTO {
 	
 	private int reviewNo;
 	private int ordNo;
+	private OrderDTO order;
 	private String id;
+	private UserDTO member;
 	private int score;
 	private String title;
 	private String content;
 	private Date date;
 	private Date editDate;
 	private String delYn;
+	private List<AttachmentDTO> attachmentList;
 	
 	public ReviewDTO() {}
 
-	public ReviewDTO(int reviewNo, int ordNo, String id, int score, String title, String content, Date date,
-			Date editDate, String delYn) {
+	public ReviewDTO(int reviewNo, int ordNo, OrderDTO order, String id, UserDTO member, int score, String title,
+			String content, Date date, Date editDate, String delYn, List<AttachmentDTO> attachmentList) {
 		super();
 		this.reviewNo = reviewNo;
 		this.ordNo = ordNo;
+		this.order = order;
 		this.id = id;
+		this.member = member;
 		this.score = score;
 		this.title = title;
 		this.content = content;
 		this.date = date;
 		this.editDate = editDate;
 		this.delYn = delYn;
+		this.attachmentList = attachmentList;
 	}
 
 	public int getReviewNo() {
@@ -46,12 +56,28 @@ public class ReviewDTO {
 		this.ordNo = ordNo;
 	}
 
+	public OrderDTO getOrder() {
+		return order;
+	}
+
+	public void setOrder(OrderDTO order) {
+		this.order = order;
+	}
+
 	public String getId() {
 		return id;
 	}
 
 	public void setId(String id) {
 		this.id = id;
+	}
+
+	public UserDTO getMember() {
+		return member;
+	}
+
+	public void setMember(UserDTO member) {
+		this.member = member;
 	}
 
 	public int getScore() {
@@ -102,12 +128,22 @@ public class ReviewDTO {
 		this.delYn = delYn;
 	}
 
+	public List<AttachmentDTO> getAttachmentList() {
+		return attachmentList;
+	}
+
+	public void setAttachmentList(List<AttachmentDTO> attachmentList) {
+		this.attachmentList = attachmentList;
+	}
+
 	@Override
 	public String toString() {
-		return "ReviewDTO [reviewNo=" + reviewNo + ", ordNo=" + ordNo + ", id=" + id + ", score=" + score + ", title="
-				+ title + ", content=" + content + ", date=" + date + ", editDate=" + editDate + ", delYn=" + delYn
-				+ "]";
+		return "ReviewDTO [reviewNo=" + reviewNo + ", ordNo=" + ordNo + ", order=" + order + ", id=" + id + ", member="
+				+ member + ", score=" + score + ", title=" + title + ", content=" + content + ", date=" + date
+				+ ", editDate=" + editDate + ", delYn=" + delYn + ", attachmentList=" + attachmentList + "]";
 	}
+
+	
 	
 	
 

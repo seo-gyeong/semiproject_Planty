@@ -17,8 +17,7 @@
 		<result property="enrollDate" column="ENROLL_DATE"/>
 		<result property="ceoName" column="CEO_NAME"/>
 		<result property="reqNo" column="REQ_NO"/>
-		<result property="approval" column="APPROVAL"/>
-		
+		<result property="approval" column="APPROVAL"/>		
 		
 	</resultMap>
 	

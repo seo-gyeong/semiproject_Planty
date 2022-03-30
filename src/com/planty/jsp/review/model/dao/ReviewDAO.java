@@ -11,10 +11,7 @@ import com.planty.jsp.review.model.dto.ReviewDTO;
 
 
 public class ReviewDAO {
-	public int selectTotalCount(SqlSession session, Map<String, String> searchMap) {
 
-		return session.selectOne("ReviewDAO.selectTotalCount", searchMap);
-	}
 
 	/* 리뷰 목록 조회용 메소드 */
 	public List<ReviewDTO> selectReviewList(SqlSession session) {
@@ -40,10 +37,6 @@ public class ReviewDAO {
 		return session.insert("ReviewDAO.insertAttachment", file);
 	}
 
-	public int incrementReviewCount(SqlSession session, int no) {
-
-		return session.update("ReviewDAO.incrementReviewCount", no);
-	}
 
 	public ReviewDTO selectOneReview(SqlSession session, int no) {
 
