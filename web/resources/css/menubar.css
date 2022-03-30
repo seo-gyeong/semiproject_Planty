@@ -1,8 +1,7 @@
 @charset "UTF-8";
 
 *{
-  font-family: 'Roboto', sans-serif;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Roboto', sans-serif, 'Noto Sans KR', sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -32,7 +31,6 @@ flex-basis: 50%;
 /* left */
 
 .dropbtn {
-  background-color: #fff;
   margin-left: 15px;
   margin-top: 110px;
   place-content: center;
@@ -54,6 +52,8 @@ flex-basis: 50%;
 }
 
 .dropdown-content {
+  box-shadow : 5px 5px 10px 0 #C4C4C4 ;
+  background-color: #fff;
   width:130px;
   display:none;
   position: absolute;

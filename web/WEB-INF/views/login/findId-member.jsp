@@ -29,20 +29,20 @@
         
         <div class="type2">	
             <div class="login-input-wrap">
-            <input name="name" placeholder="이름/법인명" type="text"></input>
+            <input name="name" id="name placeholder="이름/법인명" type="text" required="required"></input>
         </div>   
     </div> 
                   
         <div class="type2">	
             <div class="login-input-wrap">
-            <input name="email" placeholder="이메일 " type="text"></input>
+            <input name="email" id="email"  placeholder="이메일 " type="text" required="required"></input>
         </div>        
 
     </div>
 </div>
         
             <div class="login-button-wrap">
-				<button name="findId" type="submit" >아이디 찾기</button>
+				<button name="findId" id="findId" type="submit" >아이디 찾기</button>
 			</div>
     
             <div class="empty">
@@ -52,8 +52,7 @@
 
 		</div>
 	</div>
-       
-  
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
 <footer>

@@ -21,12 +21,12 @@
 	<div class="main-container">
 		<div id=loginimg class="main-wrap">
 		
-		<form method="POST" action="${ pageContext.servletContext.contextPath }/user/login" class="login-input-section-wrap">
+		<form method="POST" action="${ pageContext.servletContext.contextPath }/user/login" class="login-input-section-wrap" onsubmit="return login()">
             <div class="login-title1">
                 <h2 class="login-title2">LOG IN</h2>
             </div>
 			<div class="login-input-wrap">	
-				<input name="id" id="id" placeholder="회원 아이디" type="text"></input>
+				<input name="id" id="id" placeholder="회원 아이디" type="text" required="required"></input>
 			</div>
 			<div class="login-input-wrap password-wrap">	
 				<input name="pwd" id="pwd" placeholder="비밀번호" type="password" required="required"></input>
@@ -72,10 +72,11 @@
             </div>
         
 		</form>
-	  
+	   
 		</div>
 	</div>
-	
+	<script>
+		
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
