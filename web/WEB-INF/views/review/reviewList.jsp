@@ -270,7 +270,7 @@
                 <tbody>
                     <tr>
                         <td class="no">
-                            <a href="" class="line">220314001</a>
+                            <a href="" class="line">${ review.orderNo }</a>
                         </td>
                         <td class="date">
                             <p>
@@ -287,7 +287,8 @@
                         </td>
                         <td class="product left">
                             <p>
-                                <a class="pro-name" href="">잉글리쉬 라벤더</a>
+                                <a class="pro-name" href="">잉글리쉬 라벤더
+                                ${ product.pro_name }</a>
                             </p>
                             <!-- <p class="option">
                                     옵션:<a class="option" href=""></a>
