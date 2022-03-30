@@ -153,9 +153,9 @@
 	</select>
 	
 	
-	<select id="findPwd" resultMap="userResultMap">
+	<select id="findPwd" resultType="string">
 		SELECT 
-			 pwd
+			 PWD
 		 FROM MEMBER 
 		 WHERE ID = #{ id } 
 		 AND EMAIL = #{email}

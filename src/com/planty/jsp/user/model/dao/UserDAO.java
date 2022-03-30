@@ -54,7 +54,7 @@ public class UserDAO {
 	}
 
 // 비밀번호 찾기 메소드  
-	public UserDTO findPwd(SqlSession session, UserDTO requestUser) {
+	public String  findPwd(SqlSession session, UserDTO requestUser) {
 		return session.selectOne("UserDAO.findPwd", requestUser);
 	}
 
