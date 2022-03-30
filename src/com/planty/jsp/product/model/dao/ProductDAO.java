@@ -1,6 +1,7 @@
 package com.planty.jsp.product.model.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
@@ -10,41 +11,59 @@ import com.planty.jsp.product.model.dto.ProductImgDTO;
 
 public class ProductDAO {
 	
-		// 상품 조회(판매자) 메소드
-//		public List<ProductDTO> selectAllUserList(SqlSession session) {
+//	 상품 조회(판매자) 메소드
+		public int selectTotalCount(SqlSession session, Map<String, String> searchMap) {
+			
+			return session.selectOne("BoardDAO.selectTotalCount", searchMap);
+		}
+
+//		public List<ProductDTO> selectProductList(SqlSession session) {
 //			
-//			return session.selectList("ProcuctDAO.selectAllProductList");
+//			return session.selectList("ProcuctDAO.selectProductList");
 //						
 //		}
+//			
+		public static int insertProduct(SqlSession session, ProductDTO newProduct) {
+			
+			return session.insert("BoardDAO.insertProduct", newProduct);
+		}
 		
 		
-		/* 썸네일 제목과 내용 insert용 메소드 */
-		public int insertThumbnailContent(SqlSession session, ProductDTO thumbnail) {
+		/* 상품 목록 조회용 메소드 */
+		public List<ProductDTO> selectAllProductlList(SqlSession session) {
+			
+			return session.selectList("ProductDAO.selectAllProductlList");
+		}
+			
+		
+		/* 상품 제목과 내용 insert용 메소드 */
+		public int insertProductContent(SqlSession session, ProductDTO thumbnail) {
 			
 			return session.insert("ProductDAO.insertProductContent", thumbnail);
 		}
-	
+		
 
 		/* Attachment 테이블에 insert */
-		public int insertAttachment(SqlSession session, ProductImgDTO file) {
+		public int insertProductImg(SqlSession session, ProductImgDTO file) {
 			
-			return session.insert("ProductDAO.insertAttachment", file);
+			return session.insert("ProductDAO.insertProductImg", file);
 		}
 		
-		public int incrementBoardCount(SqlSession session, int no) {
+		public int incrementProductCount(SqlSession session, int no) {
 			
-			return session.update("ProductDAO.incrementBoardCount", no);
+			return session.update("ProductDAO.incrementProductCount", no);
 		}
 
-		public ProductDTO selectOneThumbnailBoard(SqlSession session, int no) {
+		public ProductDTO selectOneThumbnailProduct(SqlSession session, int no) {
 			
-			return session.selectOne("ProductDAO.selectOneThumbnailBoard", no);
+			return session.selectOne("ProductDAO.selectOneThumbnailProduct", no);
 		}
 
+		
 
-		public int insertProductContent(SqlSession session, ProductDTO thumbnail) {
-			// TODO Auto-generated method stub
-			return 0;
-		}
+		
+
+
+		
 	
 }
