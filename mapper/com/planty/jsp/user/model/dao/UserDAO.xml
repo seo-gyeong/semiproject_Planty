@@ -8,15 +8,21 @@
 		<result property="authNo" column="AUTH_NO"/>
 		<result property="pwd" column="PWD"/>
 		<result property="address" column="ADDRESS"/>
-		<result property="addrDetail" column="ADDR_DETAIL"/>
+		<result property="addrDetail" column="ADDRESS_DETAIL"/>
 		<result property="zipcode" column="ZIPCODE"/>
+		<result property="name" column="NAME"/>
 		<result property="phone" column="PHONE"/>
 		<result property="email" column="EMAIL"/>
 		<result property="textYn" column="TEXT_YN"/>
 		<result property="enrollDate" column="ENROLL_DATE"/>
 		<result property="name" column="NAME"/>
+		<result property="ceoName" column="CEO_NAME"/>
+		<result property="reqNo" column="REQ_NO"/>
+		<result property="approval" column="APPROVAL"/>	
+	
 	</resultMap>
-
+		
+		
 	<!-- 일반회원 회원 가입 -->
 	<insert id="insertUser" parameterType="com.planty.jsp.user.model.dto.UserDTO">
         INSERT /* com.planty.jsp.user.model.dao.UserDAO#insertUser() */
@@ -124,6 +130,7 @@
 		 WHERE ID = #{ id }
 	</delete>	
 	
+
 	<!-- 회원 조회(관리자) -->
 	<select id="selectAllUserList" resultMap="userResultMap">
 	SELECT
@@ -134,6 +141,27 @@
 		  , PHONE
       FROM MEMBER
       
+		</select>
 	
+		<select id="findId" resultMap="userResultMap">
+		SELECT 
+			   ID
+		 FROM MEMBER 
+		 WHERE NAME = #{name} 
+		 AND EMAIL = #{email}
+
 	</select>
+	
+	
+	<select id="findPwd" resultMap="userResultMap">
+		SELECT 
+				*
+		 FROM MEMBER 
+		 WHERE ID = #{ id } 
+		 AND EMAIL = #{email}
+		<if test="regNo != null and regNo != ''">
+			AND REG_NO = #{ regNo }
+		</if>
+	</select>
+	
 </mapper>
