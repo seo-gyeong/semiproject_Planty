@@ -16,22 +16,28 @@ import com.planty.jsp.user.model.service.UserService;
 public class ChangeServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.getRequestDispatcher("/WEB-INF/views/login/loginForm.jsp").forward(request, response);
+		request.getRequestDispatcher("/WEB-INF/views/login/change.jsp").forward(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		
+		UserDTO findPwd = (UserDTO) request.getSession().getAttribute("findPwd");
+		String pwd = request.getParameter("pwd"); 
+		String id = findPwd.getPwd();
+		
+		UserDTO requestUser = new UserDTO();
+		requestUser.setPwd(pwd);
+		
 		String pwd = request.getParameter("pwd"); 
 
 		
-		UserDTO requestUser = new UserDTO();
-		requestUser.setPwd(checkPwd);
-		
-		int result = new UserService().modifyPwd(requestUser, pwd);
+		int result = new UserService().changePwd(requestUser, pwd);
 
 		String page = "";
 		
 		if(result > 0) {
-			page = "/WEB-INF/views/common/success.jsp";
+			page = "/WEB-INF/views/login/result-pwd.jsp";
 			request.setAttribute("successCode", "updateUserPassword");
 		} else {
 			page = "/WEB-INF/views/common/failed.jsp";
