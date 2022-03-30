@@ -24,17 +24,14 @@ import com.planty.jsp.user.model.service.UserService;
  * Servlet implementation class findPwdMemberServlet
  */
 @WebServlet("/user/findpwduser")
-public class findPwdUserServlet extends HttpServlet {
-	private static final long serialVersionUID = 1L;
+public class FindPwdServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getRequestDispatcher("/WEB-INF/views/login/findPwd-member.jsp").forward(request, response);
-		request.getRequestDispatcher("/WEB-INF/views/login/findPwd-partner.jsp").forward(request, response);
 		}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String id = request.getParameter("id");
-		String regNo = request.getParameter("regNo");
 		String email = request.getParameter("email");
 		
 		UserDTO m = new UserService().findPwd(id);
@@ -115,3 +112,4 @@ public class findPwdUserServlet extends HttpServlet {
 	                request.getRequestDispatcher("/views/login/change.jsp").forward(request, response);
 	    }
 }
+

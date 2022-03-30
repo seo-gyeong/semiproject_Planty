@@ -11,13 +11,13 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class LogoutServlet
  */
 @WebServlet("/user/logout")
-public class LogoutServlet extends HttpServlet {
+public class LogoutUserServlet extends HttpServlet {
 
 		protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 			
 			request.getSession().invalidate();
 			
-			response.sendRedirect(request.getContextPath());
+			response.sendRedirect(request.getContextPath() + "/main/aboutus");
 			
 		}
 

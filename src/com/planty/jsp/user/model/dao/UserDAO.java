@@ -1,5 +1,7 @@
 package com.planty.jsp.user.model.dao;
 
+import java.util.List;
+
 import org.apache.ibatis.session.SqlSession;
 
 import com.planty.jsp.user.model.dto.UserDTO;
@@ -14,7 +16,7 @@ public class UserDAO {
   
 //	암호화 처리된 비밀번호 조회용 메소드(로그인 확인용)
 	public String selectEncryptedPwd(SqlSession session, UserDTO requestUser) {
-		return session.selectOne("UserDAO.selectEnryptedPwd", requestUser);
+		return session.selectOne("UserDAO.selectEncryptedPwd", requestUser);
 	}
 	
 //	패스워드 일치시 회원 정보 조회용 메소드
@@ -54,6 +56,12 @@ public class UserDAO {
 // 비밀번호 찾기 메소드  
 	public UserDTO findPwd(SqlSession session, String id) {
 		return session.selectOne("UserDAO.findPwd", id );
+	}
+
+// 회원 조회(관리자) 메소드
+	public List<UserDTO> selectAllUserList(SqlSession session) {
+		
+		return session.selectList("UserDAO.selectAllUserList");
 	}	
 	
 }
