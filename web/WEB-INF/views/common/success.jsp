@@ -23,7 +23,7 @@
 					break;
 				case "updateUser" : 
 					successMessage = "회원 정보 변경에 성공하셨습니다!";
-					movePath = "${ pageContext.servletContext.contextPath }/member/modify";
+					movePath = "${ pageContext.servletContext.contextPath }/user/modify";
 					break;
 				case "updateUserPassword" : 
 					successMessage = "회원 비밀번호 변경에 성공하셨습니다!";

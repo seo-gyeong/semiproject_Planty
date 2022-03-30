@@ -164,7 +164,7 @@
                     <div id="int-title">상품 Q&A</div>
                     <div id="int-subtt">상품 문의 조회</div>
                 </button>
-                <button class="int-menu int5" type="submit" formaction="${ pageContext.servletContext.contextPath }/mypage/review">
+                <button class="int-menu int5" type="submit" formaction="${ pageContext.servletContext.contextPath }/review/list">
                     <div id="int-title">REVIEW</div>
                     <div id="int-subtt">리뷰 조회</div>
                 </button>

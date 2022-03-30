@@ -120,7 +120,7 @@
 
 	<!-- content -->
 	<div class="order-page wrapper">
-		
+		<input type="hidden" name="id" value="${ loginUser.id }">
 		<!-- ------ 리뷰 조회 섹션 ------- -->
 		<div class="order-list">
 			<div class="board_list">

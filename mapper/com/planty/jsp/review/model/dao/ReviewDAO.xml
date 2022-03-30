@@ -88,7 +88,6 @@
 	
 	<select id="selectReviewList" resultMap="reviewResultMap">
         SELECT A.REVIEW_NO
-             , A.ID
              , A.SCORE
              , A.TITLE
              , A.CONTENT
@@ -101,6 +100,7 @@
           FROM REVIEW A
           JOIN ATTACHMENT B ON (A.REVIEW_NO = B.REVIEW_NO)
          WHERE B.FILE_TYPE = 'THUM'
+           AND A.ID = #{ id }
          ORDER BY A.REVIEW_NO DESC
 	</select>
 	

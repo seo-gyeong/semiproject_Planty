@@ -101,10 +101,10 @@
     <div class="join-form2 wrapper">
 
         <div class="form-join">
-            <form id="join-form3" action="${ pageContext.servletContext.contextPath }/member/modify" method="post">
+            <form id="join-form3" action="${ pageContext.servletContext.contextPath }/user/modify" method="post">
 
                 <div class="form-name">아이디</div>
-                <span class="input_area"><input type="text" maxlength="20" name="id" value="${ loginMember.id }" readonly
+                <span class="input_area"><input type="text" maxlength="20" name="id" value="${ loginUser.id }" readonly
                         placeholder="영문,숫자 조합 20자 이내"></span>
 
                 <div class="form-name">비밀번호</div>
@@ -112,8 +112,8 @@
                 onclick="openPopup('${ pageContext.servletContext.contextPath }/user/modifyPwd', 'modifyPwd', 500, 500);">비밀번호 변경</button></span>
 
                 <div class="form-name">이름</div>
-                <span class="input_area"><input type="text" maxlength="10" name="name" value="${ loginUser.pwd }"
-                        required></span>
+                <span class="input_area"><input type="text" maxlength="10" name="name" value="${ loginUser.name }"
+                        readonly></span>
 
                 <div class="form-name">연락처</div>
                 <span class="input_area"><input type="tel" maxlength="13" name="phone" value="${ loginUser.phone }"
@@ -171,15 +171,6 @@
     </script>
     
     <script>
-        function checkOnlyOne(element) {
-
-            const checkboxes = document.getElementsByName("member-type");
-            checkboxes.forEach((cb) => {
-                cb.checked = false;
-            })
-
-            element.checked = true;
-        }
 
         // 사용자 입력 값 유효성 검사
         function validate() {
@@ -209,12 +200,12 @@
     <div class="quickmenu">
         <ul>
             <li id="quickmenu"><a style="color: white;">퀵메뉴</a></li>
-            <li><a href="my-page-order.html">주문조회</a></li>
-            <li><a href="my-page-wish.html">찜한상품</a></li>
-            <li><a href="JOIN-modify.html">회원정보</a></li>
-            <li><a href="my-page-qna.html">상품문의</a></li>
-            <li><a href="my-page-review.html">리뷰조회</a></li>
-            <li><a href="my-page-coupon.html">쿠폰조회</a></li>
+            <li><a href="${ pageContext.servletContext.contextPath }/mypage/order">주문조회</a></li>
+            <li><a href="${ pageContext.servletContext.contextPath }/mypage/wish">찜한상품</a></li>
+            <li><a href="${ pageContext.servletContext.contextPath }/user/modify">회원정보</a></li>
+            <li><a href="${ pageContext.servletContext.contextPath }/mypage/qna">상품문의</a></li>
+            <li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰조회</a></li>
+            <li><a href="${ pageContext.servletContext.contextPath }/myapge/coupon">쿠폰조회</a></li>
         </ul>
     </div>
     <script>
