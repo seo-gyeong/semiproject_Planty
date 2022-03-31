@@ -7,12 +7,13 @@
 <title>공지사항 작성</title>
 <style>
 	.outer {
-		width : 800px;
+		width : 1000px;
 		margin : auto;
 	}
+	
 	.wrap {
-		width : 780px;
-		margin : 100px auto;
+		width : 900px;
+		margin-left : 150px;
 	}
 	
 	.notice_title {
@@ -52,7 +53,7 @@
 		outline:none;
 	}
 
-/* 	.title_span {
+/*  	.title_span {
 		background-color : #282A35; 
 	}
 	
@@ -63,14 +64,14 @@
 		color:white;
 		background:#282A35;
 		margin : 5px;
-		cursor : pointer;
+		cursor : pointer; */
 	}
 	
-	.btn_area {
+	/* #noticelist {
 		text-align:center;
 		border-top : 1px solid #282A35;
-		padding : 30px; */
-	}
+		padding : 30px; 
+	} */
 </style>
 </head>
 <body>
@@ -98,10 +99,10 @@
 									rows="15"></textarea>
 							</div>
 						</div>
-						<div>
+						<div >
 							<button type="button" class="btn btn-secondary"
 								onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'">목록</button>
-							<button type="submit" id="regist" class="btn btn-secondary">등록</button>
+							<button type="submit" class="btn btn-secondary">등록</button>
 						
 						</div>
 							

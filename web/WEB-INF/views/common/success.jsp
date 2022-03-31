@@ -34,15 +34,15 @@
 					movePath = "${ pageContext.servletContext.contextPath }";
 					break;
 				case "insertNotice" : 
-					successMessage = "공지사항 등록에 성공하셨습니다!";
+					successMessage = "공지사항이 등록되었습니다.";
 					movePath = "${ pageContext.servletContext.contextPath }/notice/list";
 					break;
 				case "updateNotice" : 
-					successMessage = "공지사항 수정에 성공하셨습니다!";
+					successMessage = "공지사항이 수정되었습니다.";
 					movePath = "${ pageContext.servletContext.contextPath }/notice/detail?no=${ no }";
 					break;
 				case "deleteNotice" : 
-					successMessage = "공지사항 삭제에 성공하셨습니다!";
+					successMessage = "공지사항이 삭제되었습니다.";
 					movePath = "${ pageContext.servletContext.contextPath }/notice/list";
 					break;
 				case "insertBoard" : 

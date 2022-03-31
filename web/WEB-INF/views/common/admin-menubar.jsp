@@ -22,20 +22,14 @@
         <div class="sb-sidenav-menu">
           <div class="nav">
             <div class="sb-sidenav-menu-heading">ADMIN PAGE</div>
-            <a class="nav-link collapsed" href="#">
+            <a class="nav-link collapsed" href="${ pageContext.servletContext.contextPath }/admin/userlist">
               회원관리
             </a>
             <a class="nav-link collapsed" href="#">
               쿠폰
             </a>
             <a class="nav-link collapsed" href="#">
-              매출
-            </a>
-            <a class="nav-link collapsed" href="#">
-              리뷰
-            </a>
-            <a class="nav-link collapsed" href="#">
-              고객센터
+              공지사항
             </a>
 
           </div>

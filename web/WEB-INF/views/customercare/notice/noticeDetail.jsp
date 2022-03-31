@@ -8,14 +8,14 @@
 <title>공지사항 상세</title>
 <style>
 .outer {
-	width: 800px;
-	margin: auto;
-}
-
-.wrap {
-	width: 780px;
-	margin: 100px auto;
-}
+		width : 1000px;
+		margin : auto;
+	}
+	
+	.wrap {
+		width : 900px;
+		margin-left : 150px;
+	}
 
 .notice_title {
 	border-bottom: 1px solid #282A35;
@@ -66,6 +66,7 @@
 		<div class="wrap">
 			<div class="notice_area">
 				<div class="notice_title">
+					<br><br>
 					<h1>공지사항</h1>
 				</div>
 				<div class="notice_content">
