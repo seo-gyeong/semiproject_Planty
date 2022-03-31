@@ -190,6 +190,17 @@
 				</form>
 			</div>
 		</div>
+		<div class="quickmenu">
+			<ul>
+				<li id="quickmenu"><a href="${ pageContext.servletContext.contextPath }/mypage/intro" style="color: white;">퀵메뉴</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/order">주문조회</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/wish">찜한상품</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/user/modify">회원정보</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/qna">상품문의</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰조회</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/coupon">쿠폰조회</a></li>
+			</ul>
+		</div>
 		<footer>
 			<p>
 				<span>상호: PLANTY | 대표: 김플랜 | 개인정보관리책임자: 김플랜 | 전화:

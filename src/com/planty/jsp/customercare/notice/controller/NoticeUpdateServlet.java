@@ -23,12 +23,9 @@ public class NoticeUpdateServlet extends HttpServlet {
 		
 		String path = "";
 		if(notice != null) {
-			path = "/WEB-INF/views/notice/updateForm.jsp";
+			path = "/WEB-INF/views/customercare/notice/updateForm.jsp";
 			request.setAttribute("notice", notice);
-		} else {
-			path = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "공지사항 수정용 조회하기 실패!");
-		}
+		} 
 		
 		request.getRequestDispatcher(path).forward(request, response);
 		

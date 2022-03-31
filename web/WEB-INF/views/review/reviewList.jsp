@@ -93,9 +93,9 @@
 									<c:forEach items="${ review.attachmentList }"
 										var="attachment">
 										<div class="photoList">
-											<%-- <img
-												src="${ pageContext.servletContext.contextPath }${ review.attachmentList.savePath }${ review.attachmentList.savedName }">
-											<p>${ attachmentList.orgName }</p> --%>
+											<img
+												src="${ pageContext.servletContext.contextPath }${ attachment.savePath }${ attachment.savedName }">
+											<p>${ attachment.orgName }</p>
 										</div>
 									</c:forEach>
 								</div>
@@ -123,7 +123,7 @@
 
 		<div class="quickmenu">
 			<ul>
-				<li id="quickmenu"><a style="color: white;">퀵메뉴</a></li>
+				<li id="quickmenu"><a href="${ pageContext.servletContext.contextPath }/mypage/intro" style="color: white;">퀵메뉴</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/mypage/order">주문조회</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/mypage/wish">찜한상품</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/user/modify">회원정보</a></li>
@@ -135,7 +135,57 @@
 		<br>
 		<br>
 
-	<jsp:include page="../order/orderView.jsp" />
+	<!-- ------미작성 리뷰 조회 섹션 ------- -->
+
+    <div class="title-ar">미작성 리뷰 조회</div>
+
+        <div class="board_list">
+            <ul class="board_header">
+                <li class="ord-no">주문번호</li>
+                <li class="ord-date">주문일자</li>
+                <li class="ord-img">이미지</li>
+                <li class="ord-info">상품정보</li>
+                <li class="ord-sum">주문금액(수량)</li>
+                <li class="ord-selection">선택</li>
+            </ul>
+
+            <div class="board_list">
+              <c:forEach var="order" items="${ orderList }">
+                <ul class="board_ul">
+                    <li class="ord-no">
+                        <a href="" class="line">${ order.ordNo }</a>
+                    </li>
+                    <li class="ord-date">
+                        ${ order.orderDetail.ordDate }
+                    </li>
+                    <li class="ord-img">
+                        <div class="thumb">
+                            <a href=""> <%-- <img
+                                    src="${ pageContext.servletContext.contextPath }${ order.attachmentList[0].thumPath }"
+                                    alt="product_thumbnail" width="100%" height="100%"> --%>
+                            </a>
+                        </div>
+                    </li>
+                    <li class="ord-info left">
+                        <div class="pro-name">${ order.product.pro_name }</div>
+                    </li>
+                    <li class="ord-sum">
+                        <div class="amount">${ order.product.pro_price }</div>
+                        <div class="number">${ order.amount }</div>
+                    </li>
+                    <li class="ord-selection rev-option2">
+                        <div>
+                            <form method="get" action="${ pageContext.servletContext.contextPath }/review/insert">
+                                <button type="submit" class="order-btn">작성</button>
+                            </form>
+                        </div>
+                    </li>
+
+
+                </ul>
+               </c:forEach>
+            </div>
+        </div>
 
 
 		<footer>

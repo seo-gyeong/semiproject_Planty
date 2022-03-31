@@ -71,7 +71,7 @@
 				</div>
 				<div class="item item4">
 					배송완료<br>
-					<div class="order-num">0</div>
+					<div class="order-num">2</div>
 				</div>
 			</div>
 			<br>
@@ -84,7 +84,7 @@
 				</div>
 				<div class="order-sum">
 					<div class="sum1">총주문</div>
-					<span class="right"> 원</span>
+					<span class="right">원</span>
 				</div>
 
 			</div>
@@ -130,7 +130,7 @@
 		</form>
 		<div class="quickmenu">
 			<ul>
-				<li id="quickmenu"><a style="color: white;">퀵메뉴</a></li>
+				<li id="quickmenu"><a href="${ pageContext.servletContext.contextPath }/mypage/intro" style="color: white;">퀵메뉴</a></li>
 				<li><a
 					href="${ pageContext.servletContext.contextPath }/mypage/order">주문조회</a></li>
 				<li><a

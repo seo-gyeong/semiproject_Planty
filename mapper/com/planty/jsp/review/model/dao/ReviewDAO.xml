@@ -80,8 +80,7 @@
 		<result property="ordDelivery" column="ORD_DELIVERY"/>
 		<result property="ordDevNo" column="ORD_DEV_NO"/>
 		
-		<association property="order" resultMap="orderResultMap"/>
-		<association property="member" resultMap="userResultMap"/>
+		
 	</resultMap>
 	
 	

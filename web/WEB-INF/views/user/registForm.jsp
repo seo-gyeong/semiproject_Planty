@@ -109,7 +109,7 @@
 				<div class="form-name">비밀번호</div>
 				<span class="input_area"><input type="password"
 					maxlength="30" name="pwd" required id="pwd"
-					placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~30자"
+					placeholder="영문 대소문자/숫자/특수문자 8자~30자"
 					onchange="check_pw()"></span>
 
 				<div class="form-name">비밀번호 확인</div>

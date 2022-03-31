@@ -7,10 +7,8 @@ import com.planty.jsp.user.model.dto.UserDTO;
 public class OrderDetailDTO {
 	
 	private int ordNo;
-	private OrderDTO order;
 	
 	private String id;
-	private UserDTO member;
 	
 	private String recName;
 	private String recAddress;
@@ -25,12 +23,10 @@ public class OrderDetailDTO {
 	
 	public OrderDetailDTO() {}
 
-	public OrderDetailDTO(int ordNo, OrderDTO order, String id, String recName, String recAddress, String recPhone,
-			int recZipCode, String recReq, int ordPrice, Date ordDate, String ordState, String ordDelivery,
-			String ordDevNo) {
+	public OrderDetailDTO(int ordNo, String id, String recName, String recAddress, String recPhone, int recZipCode,
+			String recReq, int ordPrice, Date ordDate, String ordState, String ordDelivery, String ordDevNo) {
 		super();
 		this.ordNo = ordNo;
-		this.order = order;
 		this.id = id;
 		this.recName = recName;
 		this.recAddress = recAddress;
@@ -50,14 +46,6 @@ public class OrderDetailDTO {
 
 	public void setOrdNo(int ordNo) {
 		this.ordNo = ordNo;
-	}
-
-	public OrderDTO getOrder() {
-		return order;
-	}
-
-	public void setOrder(OrderDTO order) {
-		this.order = order;
 	}
 
 	public String getId() {
@@ -150,14 +138,13 @@ public class OrderDetailDTO {
 
 	@Override
 	public String toString() {
-		return "OrderDetailDTO [ordNo=" + ordNo + ", order=" + order + ", id=" + id + ", recName=" + recName
-				+ ", recAddress=" + recAddress + ", recPhone=" + recPhone + ", recZipCode=" + recZipCode + ", recReq="
-				+ recReq + ", ordPrice=" + ordPrice + ", ordDate=" + ordDate + ", ordState=" + ordState
-				+ ", ordDelivery=" + ordDelivery + ", ordDevNo=" + ordDevNo + "]";
+		return "OrderDetailDTO [ordNo=" + ordNo + ", id=" + id + ", recName=" + recName + ", recAddress=" + recAddress
+				+ ", recPhone=" + recPhone + ", recZipCode=" + recZipCode + ", recReq=" + recReq + ", ordPrice="
+				+ ordPrice + ", ordDate=" + ordDate + ", ordState=" + ordState + ", ordDelivery=" + ordDelivery
+				+ ", ordDevNo=" + ordDevNo + "]";
 	}
 
 	
-
 	
 	
 	

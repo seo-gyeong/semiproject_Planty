@@ -3,6 +3,12 @@
   PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+	<settings>
+
+        <setting name="jdbcTypeForNull" value="NULL"/>
+
+    </settings>
+
 	<environments default="dev">
 		<environment id="dev">
 			<transactionManager type="JDBC"/>
@@ -19,7 +25,7 @@
 	<mapper resource="com/planty/jsp/user/model/dao/UserDAO.xml"/>
    	<mapper resource="com/planty/jsp/customercare/notice/model/dao/NoticeDAO.xml"/>
    	<mapper resource="com/planty/jsp/review/model/dao/ReviewDAO.xml"/>
-   	
+   	<mapper resource="com/planty/jsp/order/model/dao/OrderDAO.xml"/>
 </mappers>
 	
 	

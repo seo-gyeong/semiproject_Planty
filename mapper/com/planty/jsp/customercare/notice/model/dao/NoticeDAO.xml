@@ -33,19 +33,19 @@
           NOTICE_NO
         , TITLE
         , CONTENT
-        , CREATE_DATE      
+        , ID   
         )
         VALUES
         (
           SEQ_NOTICE_NO.NEXTVAL
         , #{ title }
         , #{ content }
-        , SYSDATE
+        , #{ id }
         )
 	</insert>
 	
 	<update id="incrementNoticeCount" >
-        UPDATE /* com.greedy.jsp.notice.model.dao.NoticeDAO#incrementNoticeCount() */
+        UPDATE 
                NOTICE A
            SET A.NOTICE_COUNT = (SELECT B.NOTICE_COUNT
                                    FROM NOTICE B
@@ -55,29 +55,29 @@
 	</update>
 	
 	<select id="selectNoticeDetail" resultMap="noticeResultMap">
-        SELECT /* com.greedy.jsp.notice.model.dao.NoticeDAO#selectNoticeDetail() */
+        SELECT 
                NOTICE_NO
              , TITLE
              , CONTENT
              , NOTICE_COUNT
-             , DATE             
+             , CREATE_DATE             
           FROM NOTICE 
-         WHERE NOTICE_STATUS = 'Y'
+         WHERE NOTICE_STATUS = 'N'
            AND NOTICE_NO = #{ no }
 	</select>
 	
 	<update id="updateNotice">
-		UPDATE /* com.greedy.jsp.notice.model.dao.NoticeDAO#updateNotice() */
+		UPDATE 
 		       NOTICE
 		   SET TITLE = #{ title }
-		     , BODY = #{ content }
+		     , CONTENT = #{ content }
 		 WHERE NOTICE_NO = #{ no }
 	</update>
 	
 	<update id="deleteNotice">
-		UPDATE /* com.greedy.jsp.notice.model.dao.NoticeDAO#deleteNotice() */
-		       TBL_NOTICE
-		   SET NOTICE_STATUS = 'N'
+		UPDATE 
+		       NOTICE
+		   SET NOTICE_STATUS = 'Y'
 		 WHERE NOTICE_NO = #{ no }
 	</update>
 </mapper>
