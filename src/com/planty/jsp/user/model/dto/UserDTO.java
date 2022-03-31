@@ -2,6 +2,7 @@ package com.planty.jsp.user.model.dto;
 
 	import java.sql.Date;
 
+
 	public class UserDTO {
 		
 		private String id;
@@ -27,6 +28,7 @@ package com.planty.jsp.user.model.dto;
 		public UserDTO(String id, int authNo, String pwd, String address, String addrDetail, String zipcode,
 				String phone, String email, String textYn, Date enrollDate, String name, String ceoName, String regNo,
 				String approval, AuthDTO auth) {
+
 			super();
 			this.id = id;
 			this.authNo = authNo;
@@ -155,7 +157,6 @@ package com.planty.jsp.user.model.dto;
 			this.name = name;
 		}
 
-
 		public String getCeoName() {
 			return ceoName;
 		}
@@ -202,6 +203,7 @@ package com.planty.jsp.user.model.dto;
 					+ ", addrDetail=" + addrDetail + ", zipcode=" + zipcode + ", phone=" + phone + ", email=" + email
 					+ ", textYn=" + textYn + ", enrollDate=" + enrollDate + ", name=" + name + ", ceoName=" + ceoName
 					+ ", regNo=" + regNo + ", approval=" + approval + ", auth=" + auth + "]";
+
 		}
 
 

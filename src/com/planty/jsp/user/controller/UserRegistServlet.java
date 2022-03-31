@@ -49,7 +49,6 @@ public class UserRegistServlet extends HttpServlet {
 		requestUser.setName(name);
 	
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		System.out.println("비밀번호가 pass01인지 확인 : " + passwordEncoder.matches("12345", pwd));
 		
 		System.out.println("userController requestUser : " + requestUser);
 		

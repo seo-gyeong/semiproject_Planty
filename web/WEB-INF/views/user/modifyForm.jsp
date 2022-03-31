@@ -1,151 +1,104 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- css -->
-    <link href="${ pageContext.servletContext.contextPath }/resources/css/member.css" rel="stylesheet" type="text/css">
-    <!-- bootstrap -->
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
+<!-- css -->
+<link
+	href="${ pageContext.servletContext.contextPath }/resources/css/member.css"
+	rel="stylesheet" type="text/css">
+<!-- bootstrap -->
 
-    <!-- Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <!-- noto sans KR-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;700&display=swap" rel="stylesheet">
+<!-- Roboto -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+	rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- noto sans KR-->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;700&display=swap"
+	rel="stylesheet">
 
-    <title>회원정보 수정</title>
+<title>회원정보 수정</title>
 </head>
 
 <body>
- 	<!-- header -->
-    <header class="menu1">
-        <div class="back">
-            <div class="nav-bar">
-                <div class="navbar-left">
-    
-                    <div class="dropdown">
-                        <a href="../page/ABOUT US.html" class="dropbtn">ABOUT US</a>
-                    </div>
-    
-                    <div class="dropdown">
-                        <button class="dropbtn">SHOP</button>
-                        <div class="dropdown-content">
-                            <a href="#">ALL</a>
-                            <a href="#">FUNCTION</a>
-                            <a href="#">PLACE</a>
-                            <a href="#">FOR ANIMALS</a>
-                        </div>
-                    </div>
-    
-                    <div class="dropdown">
-                        <button class="dropbtn">CUSTOMER</button>
-                        <div class="dropdown-content">
-                            <a href="#">NOTICE</a>
-                            <a href="../page/FAQ.html">FAQ</a>
-                        </div>
-                    </div>
-    
-                </div>
-                <div class="navbar-center">
-                    <a href="../page/ABOUT US.html"><img class="image" src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png"></a>
-                </div>
-    
-                <div class="navbar-right">
-                    <ul>
-                        <li><a href="${ pageContext.servletContext.contextPath }/user/regist"> <img class="icon" onClick="mypage_check();"
-                                    src="${ pageContext.servletContext.contextPath }/resources/image/my.png"></a></li>
-                        <li><a href="${ pageContext.servletContext.contextPath }/user/regist"> <img class="icon" onClick="mypage_check();"
-                                    src="${ pageContext.servletContext.contextPath }/resources/image/cart.png"></a></li>
-                    </ul>
-                    
-    
-                </div>
-            </div>
-        </div>
-        <script>
-        function mypage() {
-            let signIn = ""
-            if (signIn == "") {
-                alert("해당 페이지는 로그인 후 사용하실 수 있습니다.");
-                location.href = "${ pageContext.servletContext.contextPath }/user/login";
-            } else {
-                location.href = "${ pageContext.servletContext.contextPath }/mypage/intro";
-            }
-        }
+	<!-- header -->
+	<jsp:include page="../common/menubar.jsp" />
 
-        function cart() {
-            let signIn = ""
-            if (signIn == "") {
-                alert("해당 페이지는 로그인 후 사용하실 수 있습니다.");
-                location.href = "LOG IN.html";
-            } else {
-                location.href = "cart.html";
-            }
-        }
-    	</script>
-    </header>
+	<!-- content -->
+	<div class="title-ar">회원 정보 수정</div>
+	<div class="join-form2 wrapper">
 
-    <!-- content -->
-    <div class="title-ar">
-        회원 정보 수정
-    </div>
-    <div class="join-form2 wrapper">
+		<div class="form-join">
+			<form id="join-form3"
+				action="${ pageContext.servletContext.contextPath }/user/modify"
+				method="post">
 
-        <div class="form-join">
-            <form id="join-form3" action="${ pageContext.servletContext.contextPath }/member/modify" method="post">
+				<div class="form-name">아이디</div>
+				<span class="input_area"><input type="text" maxlength="20"
+					name="id" value="${ loginUser.id }" readonly
+					placeholder="영문,숫자 조합 20자 이내"></span>
 
-                <div class="form-name">아이디</div>
-                <span class="input_area"><input type="text" maxlength="20" name="id" value="${ loginMember.id }" readonly
-                        placeholder="영문,숫자 조합 20자 이내"></span>
+				<div class="form-name">비밀번호</div>
+				<span><button class="btn-pwd-connect" id="pwd-connect"
+						type="button"
+						onclick="openPopup('${ pageContext.servletContext.contextPath }/user/modifyPwd', 'modifyPwd', 500, 500);">비밀번호
+						변경</button></span>
 
-                <div class="form-name">비밀번호</div>
-                <span><button class="btn-pwd-connect" id="pwd-connect" type="button"
-                onclick="openPopup('${ pageContext.servletContext.contextPath }/user/modifyPwd', 'modifyPwd', 500, 500);">비밀번호 변경</button></span>
+				<div class="form-name">이름</div>
+				<span class="input_area"><input type="text" maxlength="10"
+					name="name" value="${ loginUser.name }" readonly></span>
 
-                <div class="form-name">이름</div>
-                <span class="input_area"><input type="text" maxlength="10" name="name" value="${ loginMember.pwd }"
-                        required></span>
+				<div class="form-name">연락처</div>
+				<span class="input_area"><input type="tel" maxlength="13"
+					name="phone" value="${ loginUser.phone }"
+					placeholder="예) 010-1234-5678" required></span>
 
-                <div class="form-name">연락처</div>
-                <span class="input_area"><input type="tel" maxlength="13" name="phone" value="${ loginMember.phone }"
-                        placeholder="예) 010-1234-5678" required></span>
+				<div class="form-name">이메일</div>
+				<span class="input_area"><input type="email" name="email"
+					value="${ loginUser.email }" placeholder="예) planty@naver.com"
+					required></span>
 
-                <div class="form-name">이메일</div>
-                <span class="input_area"><input type="email" name="email" value="${ loginMember.email }"
-                        placeholder="예) planty@naver.com" required></span>
-
-                <div class="form-name">우편번호</div>
-                <span class="input_area"><input type="text" id="member_post" name="zipcode" class="postcodify_postcode5"
-                        value="${ loginMember.zipcode }" readonly></span>
-                <button class="join-btn join-btn-style" id="postcodify_search_button" type="button" onclick="findAddr();">검색</button>
-                <div class="form-name">도로명주소</div>
-                <span class="input_area"><input type="text" id="member_addr" name="address" class="postcodify_address"
-                        value="${ loginMember.address }" readonly></span>
-                <div class="form-name">상세주소</div>
-                <span class="input_area"><input type="text" name="addrDetail" class="postcodify_details"
-                        value="${ loginMember.addrDetail }" required></span>
-                <div class="btnArea">
-                    <button class="join-btn-style" id="joinBtn" type="submit">수정하기</button>
-                    <button class="del-btn-style" type="submit" onclick="confirmRemove();">탈퇴하기</button>
-                </div>
-            </form>
+				<div class="form-name">우편번호</div>
+				<span class="input_area"><input type="text" id="member_post"
+					name="zipcode" class="postcodify_postcode5"
+					value="${ loginUser.zipcode }" readonly></span>
+				<button class="join-btn join-btn-style"
+					id="postcodify_search_button" type="button" onclick="findAddr();">검색</button>
+				<div class="form-name">도로명주소</div>
+				<span class="input_area"><input type="text" id="member_addr"
+					name="address" class="postcodify_address"
+					value="${ loginUser.address }" readonly></span>
+				<div class="form-name">상세주소</div>
+				<span class="input_area"><input type="text" name="addrDetail"
+					class="postcodify_details" value="${ loginUser.addrDetail }"
+					required></span>
+				<div class="btnArea">
+					<button class="join-btn-style" id="joinBtn" type="submit">수정하기</button>
+					<button class="del-btn-style" type="button"
+						onclick="confirmRemove();">탈퇴하기</button>
+				</div>
+			</form>
 
 
-        </div>
+		</div>
 
-    </div>
-    
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script>
+	</div>
+
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
         function findAddr(){
             new daum.Postcode({
                 oncomplete: function(data) {
@@ -169,17 +122,8 @@
             }).open();
         }
     </script>
-    
-    <script>
-        function checkOnlyOne(element) {
 
-            const checkboxes = document.getElementsByName("member-type");
-            checkboxes.forEach((cb) => {
-                cb.checked = false;
-            })
-
-            element.checked = true;
-        }
+	<script>
 
         // 사용자 입력 값 유효성 검사
         function validate() {
@@ -200,44 +144,43 @@
 
         // 탈퇴하기 버튼 이벤트 핸들러 function
         function confirmRemove() {
-            if (confirm("정말로 탈퇴하시겠습니까?<br> '확인' 버튼 클릭후 취소할 수 없습니다.")) {
+            if (confirm("정말로 탈퇴하시겠습니까? '확인' 버튼 클릭후 취소할 수 없습니다.")) {
                 location.href = "${ pageContext.servletContext.contextPath }/user/remove";
             }
         }
     </script>
 
-    <div class="quickmenu">
-        <ul>
-            <li id="quickmenu"><a style="color: white;">퀵메뉴</a></li>
-            <li><a href="my-page-order.html">주문조회</a></li>
-            <li><a href="my-page-wish.html">찜한상품</a></li>
-            <li><a href="JOIN-modify.html">회원정보</a></li>
-            <li><a href="my-page-qna.html">상품문의</a></li>
-            <li><a href="my-page-review.html">리뷰조회</a></li>
-            <li><a href="my-page-coupon.html">쿠폰조회</a></li>
-        </ul>
-    </div>
-    <script>
-    //     $(document).ready(function(){
-    //     var currentPosition = parseInt($(".quickmenu").css("top"));
+	<div class="quickmenu">
+		<ul>
+			<li id="quickmenu"><a style="color: white;">퀵메뉴</a></li>
+			<li><a
+				href="${ pageContext.servletContext.contextPath }/mypage/order">주문조회</a></li>
+			<li><a
+				href="${ pageContext.servletContext.contextPath }/mypage/wish">찜한상품</a></li>
+			<li><a
+				href="${ pageContext.servletContext.contextPath }/user/modify">회원정보</a></li>
+			<li><a
+				href="${ pageContext.servletContext.contextPath }/mypage/qna">상품문의</a></li>
+			<li><a
+				href="${ pageContext.servletContext.contextPath }/review/list">리뷰조회</a></li>
+			<li><a
+				href="${ pageContext.servletContext.contextPath }/myapge/coupon">쿠폰조회</a></li>
+		</ul>
+	</div>
 
-    //     $(window).scroll(function() {
-    //         var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
-    //         $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
-    //     });
-    // });
-    </script>
-    <!-- footer -->
-    <footer>
-        <p>
-            <span>상호: PLANTY | 대표: 김플랜 | 개인정보관리책임자: 김플랜 | 전화: 070-1234-5678 | 이메일: planty00@naver.com</span><br />
-            <span>주소: 서울특별시 플랜구 식물동 159-2 | 사업자등록번호: 151-15-15151 | 통신판매: 2022-서울강남-0000 | 호스팅제공자: (주)식물샵</span><br />
-        </p>
-        <nav>
-            <a href='../page/policy.html'>이용약관</a> |
-            <a href='../page/policy.html'>개인정보처리방침</a>
-        </nav>
-    </footer>
+	<!-- footer -->
+	<footer>
+		<p>
+			<span>상호: PLANTY | 대표: 김플랜 | 개인정보관리책임자: 김플랜 | 전화:
+				070-1234-5678 | 이메일: planty00@naver.com</span><br /> <span>주소:
+				서울특별시 플랜구 식물동 159-2 | 사업자등록번호: 151-15-15151 | 통신판매: 2022-서울강남-0000 |
+				호스팅제공자: (주)식물샵</span><br />
+		</p>
+		<nav>
+			<a href='../page/policy.html'>이용약관</a> | <a
+				href='../page/policy.html'>개인정보처리방침</a>
+		</nav>
+	</footer>
 </body>
 
 </html>

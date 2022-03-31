@@ -374,7 +374,7 @@ a:hover, a:active { text-decoration: none; }
     line-height: 0.8em;
     width: 100%;
     border-spacing: 0;
-    margin:0 auto 100px auto;
+    margin:0 auto 50px auto;
     text-align: center;
     border-top: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;;
@@ -537,6 +537,11 @@ caption {
     padding: 30px;
 }
 
+.rev-option2 {
+	margin: 0 auto 0 auto;
+    padding: 30px;
+}
+
 .rev-tt {
     text-decoration: none;
     color: #4C5B5D;
@@ -591,11 +596,11 @@ caption {
     justify-content: center;
     text-align: center;
     padding: 50px 0px 70px 0px;
-    border-top: 1px solid #e5e5e5;
+   
 }
 .board_list {
-    width: 80%;
-    margin: 0 auto 180px auto;
+    width: 100%;
+    margin : 0 0 50px;    
 }
 
 .board_list>ul {
@@ -606,7 +611,7 @@ caption {
 	list-style: none;
 }
 
-.board_list>ul.last {
+.board_ul {
 	border-bottom: 1px solid #e5e5e5;
 }
 
@@ -627,8 +632,14 @@ caption {
 	width: 125px;
 }
 
+.board_list .rev-proinfo {
+	width: 200px;
+	text-align:center;
+}
+
 .board_list .rev-score {
 	width: 200px;
+	text-align:center;
 }
 
 .board_list .rev-title {
@@ -642,7 +653,104 @@ caption {
 	width: 150px;
 }
 
+.line {
+	border-bottom: 1px solid #e5e5e5;
+}
 
+/* --------------------------------------------- */
+/* review-insert.html */
+#rv-content {
+    display: grid;
+    grid-template-columns: 20% 80%;
+    align-items: center;
+    margin: 20px 0 20px 0;
+    row-gap: 5px;    
+}
+
+.rv-title {
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+#rv-img {
+    display: grid;
+    grid-template-columns: repeat(1,minmax(260px,100%));
+    margin: 0 0 20px;
+    row-gap: 5px;    
+}
+
+.rv-img-input {
+    font-size: 0.9em;
+    padding-left: 15px;
+}
+
+.textarea {
+	resize: none;
+	overflow: hidden;
+    border: solid 1px #dadada;
+    padding: 10px 10px 10px 10px;
+}
+
+.textarea:focus {
+	outline: none;
+}
+
+/* ------------------------------------ */
+/* orderView.jsp */
+
+.board_list2 {
+    width: 100%;
+    margin: 0 auto 0 auto;
+}
+
+.board_list2>ul {
+    border-top: 1px solid #e5e5e5;
+	line-height: 50px;
+	display: flex;
+	justify-content: space-around;
+	list-style: none;
+}
+
+.board_ul {
+	border-bottom: 1px solid #e5e5e5;
+}
+
+.board_list2 li {
+    display: flex;
+	justify-content: space-around;
+    align-items: center;
+	list-style: none;
+	text-align: center;
+}
+
+.board_header {
+	color: #4C5B5D;
+	font-weight: bold;
+}
+
+
+.board_list2 .ord-no {
+    width : 125px;
+}
+
+.board_list2 .ord-date {
+    width : 125px;
+}
+
+.board_list2 .ord-img {
+    width : 100px;
+}
+
+.board_list2 .ord-info {
+    width : auto;
+}
+
+.board_list2 .ord-sum {
+    width : 135px;
+}
+
+.board_list2 .ord-selection {
+    width : 150px;
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 /* 여기서부터 복붙!!!!!!! */

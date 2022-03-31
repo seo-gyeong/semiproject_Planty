@@ -42,27 +42,25 @@ public class UserService {
 	
 		return result;
 	}                                  
-  
-  public UserDTO loginCheck(UserDTO requestUser) { 
-	
+
+  public UserDTO loginCheck(UserDTO requestUser) {
 		SqlSession session = getSqlSession();
 		UserDTO loginUser = null;
 		
 		String encPwd = userDAO.selectEncryptedPwd(session, requestUser);
 		
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-		/* 로그인 요청한 원문 비밀번호화 저장되어있는 암호화된 비밀번호가 일치하는지 확인한다. */
+		
 		if(passwordEncoder.matches(requestUser.getPwd(), encPwd)) {
-			/* 비밀번호가 일치하는 경우에만 회원 정보를 조회해온다. */
 			loginUser = userDAO.selectLoginUser(session, requestUser);
-      	
-    }
-     session.close();
-	
+		}
+		
+		session.close();
+		
 		return loginUser;
 	}
      
-
+  
 	public UserDTO findId (UserDTO requestUser) {
 
 		SqlSession session = getSqlSession();
@@ -145,6 +143,7 @@ public class UserService {
 		return result;
 	}
 
+
 	public List<UserDTO> selectAllUserList() {
 		
 		SqlSession session = getSqlSession();
@@ -157,4 +156,5 @@ public class UserService {
 	}
 
 }
+
 

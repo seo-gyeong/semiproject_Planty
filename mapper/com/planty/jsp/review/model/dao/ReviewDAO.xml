@@ -6,11 +6,12 @@
 	
 	<resultMap type="com.planty.jsp.review.model.dto.ReviewDTO" id="reviewResultMap">
 		<id property="reviewNo" column="REVIEW_NO"/>
-		<result property="orderNo" column="ORD_NO"/>
+		<result property="ordNo" column="ORD_NO"/>
 		<result property="id" column="ID"/>
 		<result property="title" column="TITLE"/>
+		<result property="score" column="SCORE"/>
 		<result property="content" column="CONTENT"/>
-		<result property="date" column="DATE"/>
+		<result property="date" column="MADE_DATE"/>
 		<result property="editDate" column="EDIT_DATE"/>
 		<result property="delYn" column="DEL_YN"/>
 		
@@ -29,7 +30,6 @@
 		<result property="fileType" column="FILE_TYPE"/>
 		<result property="thumPath" column="THUM_PATH"/>
 		
-		<association property="review" resultMap="reviewResultMap"/>
 	</resultMap>
 
 	
@@ -48,48 +48,86 @@
 	</resultMap>
 	
 	<resultMap type="com.planty.jsp.order.model.dto.OrderDTO" id="orderResultMap">
-		<id property="id" column="ID"/>
-		<result property="authNo" column="AUTH_NO"/>
+		<id property="proNo" column="PRO_NO"/>
+		<id property="ordNo" column="ORD_NO"/>
+		<result property="amount" column="AMOUNT"/>
 		
+		<association property="product" resultMap="productResultMap"/>
+		<association property="orderDetail" resultMap="orderDetailResultMap"/>
+	</resultMap>
+	
+	<resultMap type="com.planty.jsp.product.model.dto.ProductDTO" id="productResultMap">
+		<id property="pro_no" column="PRO_NO"/>
+		<result property="cate_no" column="CATE_NO"/>
+		<result property="par_id" column="ID"/>
+		<result property="pro_name" column="PRO_NAME"/>
+		<result property="pro_price" column="PRO_PRICE"/>
+		<result property="pro_content" column="PRO_CONTENT"/>
+
+	</resultMap>
+	
+	<resultMap type="com.planty.jsp.order.model.dto.OrderDetailDTO" id="orderDetailResultMap">
+		<id property="ordNo" column="ORD_NO"/>
+		<result property="id" column="ID"/>
+		<result property="recName" column="REC_NAME"/>
+		<result property="recAddress" column="REC_ADDRESS"/>
+		<result property="recPhone" column="REC_PHONE"/>
+		<result property="recZipcode" column="REC_ZIPCODE"/>
+		<result property="recReq" column="REC_REQ"/>
+		<result property="ordPrice" column="ORD_PRICE"/>
+		<result property="ordDate" column="ORD_DATE"/>
+		<result property="ordState" column="ORD_STATE"/>
+		<result property="ordDelivery" column="ORD_DELIVERY"/>
+		<result property="ordDevNo" column="ORD_DEV_NO"/>
+		
+		<association property="order" resultMap="orderResultMap"/>
+		<association property="member" resultMap="userResultMap"/>
 	</resultMap>
 	
 	
+	
 	<select id="selectReviewList" resultMap="reviewResultMap">
-        SELECT /* com.planty.jsp.board.model.dao.BoardDAO#selectReviewList() */
-               A.REVIEW_NO
-             , A.ID
+        SELECT A.REVIEW_NO
+        	 , A.ORD_NO
+        	 , A.ID
              , A.SCORE
              , A.TITLE
              , A.CONTENT
-             , A.DATE
-             , B.ATTACH_NO
+             , A.MADE_DATE
+             , B.ATTACHMENT_NO
              , B.ORG_NAME
              , B.SAVED_NAME
              , B.SAVE_PATH
              , B.THUM_PATH
+             , D.PRO_NAME
+             , E.ORD_DATE
           FROM REVIEW A
           JOIN ATTACHMENT B ON (A.REVIEW_NO = B.REVIEW_NO)
+          JOIN ORDER_P C ON (A.ORD_NO = C.ORD_NO)
+          JOIN PRODUCT D ON (C.PRO_NO = D.PRO_NO)
+          JOIN ORDER_DETAIL E ON (C.ORD_NO = E.ORD_NO)
          WHERE B.FILE_TYPE = 'THUM'
+           AND A.ID = #{ id }
          ORDER BY A.REVIEW_NO DESC
 	</select>
 	
-	<insert id="insertThumbnailContent" >
+	<insert id="insertReview" >
         INSERT /* com.planty.jsp.board.model.dao.reviewDAO#insertThumbnailContent() */
           INTO REVIEW
         (
           REVIEW_NO
-        , ORDER_NO
+        , ORD_NO
         , ID
         , SCORE
         , TITLE
         , CONTENT
-        , DATE
+        , MADE_DATE
         , DEL_YN
         )
         VALUES 
         (
           SEQ_REVIEW_NO.NEXTVAL
-        , 202204010123   <!-- OrderDTO랑 합치면 수정!! -->
+        , 22040102   <!-- OrderDTO랑 합치면 수정!! -->
         , #{ id }
         , #{ score }
         , #{ title }
@@ -129,16 +167,14 @@
 	</insert>
 	
 	
-	<select id="selectOneReview" resultMap="thumbnailBoardResultMap">
-        SELECT /* com.planty.jsp.board.model.dao.BoardDAO#selectOneThumbnailBoard() */
-               A.REVIEW_NO
+	<select id="selectOneReview" resultMap="reviewResultMap">
+        SELECT A.REVIEW_NO
              , A.ID
              , A.SCORE
              , A.TITLE
              , A.CONTENT
-             , A.DATE
+             , A.MADE_DATE
              , A.EDIT_DATE
-             , A.CREATED_DATE
              , A.DEL_YN
              , B.ATTACHMENT_NO
              , B.ORG_NAME
@@ -148,6 +184,6 @@
              , B.THUM_PATH
           FROM REVIEW A
           JOIN ATTACHMENT B ON (A.REVIEW_NO = B.REVIEW_NO)
-         WHERE A.BOARD_NO = #{ no }
+         WHERE A.REVIEW_NO = #{ no }
 	</select>
 </mapper>

@@ -8,7 +8,7 @@
 		<result property="authNo" column="AUTH_NO"/>
 		<result property="pwd" column="PWD"/>
 		<result property="address" column="ADDRESS"/>
-		<result property="addrDetail" column="ADDRESS_DETAIL"/>
+		<result property="addrDetail" column="ADDR_DETAIL"/>
 		<result property="zipcode" column="ZIPCODE"/>
 		<result property="name" column="NAME"/>
 		<result property="phone" column="PHONE"/>
@@ -103,15 +103,13 @@
 		     , ZIPCODE = #{ zipcode }
 		     , PHONE = #{ phone }
 		     , EMAIL = #{ email }
-		     , TEXT_YN = #{ textYn }
 		 WHERE ID = #{ id }
 	</update>
 	
 	<select id="selectChangedInfo" resultMap="userResultMap">
 		SELECT /* com.planty.jsp.user.model.dao.UserDAO#selectChangedUserInfo() */
-			   ID
+		       ID
 	         , AUTH_NO
-	         , PWD
 	         , ADDRESS
 	         , ADDR_DETAIL
 	         , ZIPCODE

@@ -2,10 +2,10 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>리뷰 조회</title>
 <meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -21,7 +21,6 @@
 	href="${ pageContext.servletContext.contextPath }/resources/css/inquiry.css"
 	rel="stylesheet" type="text/css">
 <!-- bootstrap -->
-
 <!-- Roboto -->
 <link
 	href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
@@ -43,77 +42,9 @@
 </head>
 <body>
 	<!-- header -->
-	<header class="menu1">
-		<div class="back">
-			<div class="nav-bar">
-				<div class="navbar-left">
+	<jsp:include page="../common/menubar.jsp" />
 
-					<div class="dropdown">
-						<a href="../page/ABOUT US.html" class="dropbtn">ABOUT US</a>
-					</div>
-
-					<div class="dropdown">
-						<button class="dropbtn">SHOP</button>
-						<div class="dropdown-content">
-							<a href="#">ALL</a> <a href="#">FUNCTION</a> <a href="#">PLACE</a>
-							<a href="#">FOR ANIMALS</a>
-						</div>
-					</div>
-
-					<div class="dropdown">
-						<button class="dropbtn">CUSTOMER</button>
-						<div class="dropdown-content">
-							<a href="#">NOTICE</a> <a href="../page/FAQ.html">FAQ</a>
-						</div>
-					</div>
-
-				</div>
-				<div class="navbar-center">
-					<a href="../page/ABOUT US.html"><img class="image"
-						src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png"></a>
-				</div>
-
-				<div class="navbar-right">
-					<ul>
-						<li><a
-							href="${ pageContext.servletContext.contextPath }/user/regist">
-								<img class="icon" onClick="mypage_check();"
-								src="${ pageContext.servletContext.contextPath }/resources/image/my.png">
-						</a></li>
-						<li><a
-							href="${ pageContext.servletContext.contextPath }/user/regist">
-								<img class="icon" onClick="mypage_check();"
-								src="${ pageContext.servletContext.contextPath }/resources/image/cart.png">
-						</a></li>
-					</ul>
-
-
-				</div>
-			</div>
-		</div>
-		<script>
-			function mypage() {
-				let signIn = ""
-				if (signIn == "") {
-					alert("해당 페이지는 로그인 후 사용하실 수 있습니다.");
-					location.href = "LOG IN.html";
-				} else {
-					location.href = "mypage.html";
-				}
-			}
-
-			function cart() {
-				let signIn = ""
-				if (signIn == "") {
-					alert("해당 페이지는 로그인 후 사용하실 수 있습니다.");
-					location.href = "LOG IN.html";
-				} else {
-					location.href = "cart.html";
-				}
-			}
-		</script>
-	</header>
-	<div class="title-ar">상품 하단 리뷰 조회</div>
+	<div class="title-ar">리뷰 조회</div>
 	<div class="subtitle">
 		<p></p>
 	</div>
@@ -121,84 +52,91 @@
 	<!-- content -->
 	<div class="order-page wrapper">
 
+		<!-- ------ 리뷰 조회 섹션 ------- -->
 		<div class="order-list">
 			<div class="board_list">
 				<ul class="board_header">
 					<li class="rev-img">리뷰이미지</li>
+					<li class="rev-proinfo">상품정보</li>
 					<li class="rev-score">별점</li>
 					<li class="rev-title">제목</li>
 					<li class="date">작성일</li>
 				</ul>
-
-				<c:forEach var="review" items="${ reviewList }">
-					<ul class="board_ul" id="toc-toggle" onclick="openCloseToc()">
-						<li class="rev-img">
-							<div class="rev-thumb">
-								<a href="#"> <img
-									src="${ pageContext.servletContext.contextPath }${ thumbnail.attachmentList[0].thumbnailPath }"
-									alt="review_thumb" width="100%" height="100%"
-									class="thumb-ctrl">
-								</a>
+					<c:forEach var="review" items="${ reviewList }">
+						<ul class="board_ul" id="toc-toggle" onclick="openCloseToc(this);">
+							<li class="rev-img">
+								<div class="rev-thumb">
+									<a href="#"> <img
+										src="${ pageContext.servletContext.contextPath }${ review.attachmentList[0].thumPath }"
+										alt="review_thumb" width="100%" height="100%"
+										class="thumb-ctrl">
+									</a>
+								</div>
+							</li>
+							<li class="rev-proinfo">
+								<!-- <p>
+                                <a class="big-cate" href="">허브  ${ category.cate_a }</a>
+                            </p> -->
+								<p>
+									<a class="pro-name" href="">${ review.order.product.pro_name }</a>
+								</p>
+							</li>
+							<li class="rev-score">
+							<c:forEach var="score" begin="1"
+									end="${ review.score }">★</c:forEach></li>
+							<li class="rev-title">${ review.title }</li>
+							<li class="date">${ review.date }</li>
+						</ul>
+						<div class="toc-content" style="display:none;">
+							<div class="content">
+								<div class="image_area">
+									<c:forEach items="${ review.attachmentList }"
+										var="attachment">
+										<div class="photoList">
+											<%-- <img
+												src="${ pageContext.servletContext.contextPath }${ review.attachmentList.savePath }${ review.attachmentList.savedName }">
+											<p>${ attachmentList.orgName }</p> --%>
+										</div>
+									</c:forEach>
+								</div>
+								<div class="rev-content">${ review.content }</div>
 							</div>
-						</li>
-						<li class="rev-score">${ review.score }</li>
-						<li class="rev-title">${ review.title }</li>
-						<li class="date">${ review.date }</li>
-
-					</ul>
-					<div id="toc-content">
-						<div class="content">
-							<div class="image_area">
-								<c:forEach items="${ thumbnail.attachmentList }"
-									var="attachment">
-									<div class="photoList">
-										<img
-											src="${ pageContext.servletContext.contextPath }${ attachment.savePath }${ attachment.savedName }">
-										<p>${ attachment.originalName }</p>
-									</div>
-								</c:forEach>
-							</div>
-							<div class="rev-content">${ review.content }</div>
 						</div>
-					</div>
-				</c:forEach>
+					</c:forEach>
 			</div>
 
 		</div>
-
 		<script>
-			function openCloseToc() {
-				if (document.getElementById('toc-content').style.display === 'block') {
-					document.getElementById('toc-content').style.display = 'none';
+		function openCloseToc(elem) {
+				
+				if(elem.nextElementSibling.style.display == 'block'){
+					elem.nextElementSibling.style.display = 'none';
 				} else {
-					document.getElementById('toc-content').style.display = 'block';
+					elem.nextElementSibling.style.display = 'block';
 				}
+				
+			
 			}
+		
+		
 		</script>
-
-		<jsp:include page="../common/paging.jsp" />
 
 		<div class="quickmenu">
 			<ul>
 				<li id="quickmenu"><a style="color: white;">퀵메뉴</a></li>
-				<li><a href="my-page-order.html">주문조회</a></li>
-				<li><a href="my-page-wish.html">찜한상품</a></li>
-				<li><a href="JOIN-modify.html">회원정보</a></li>
-				<li><a href="my-page-qna.html">상품문의</a></li>
-				<li><a href="my-page-review.html">리뷰조회</a></li>
-				<li><a href="my-page-coupon.html">쿠폰조회</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/order">주문조회</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/wish">찜한상품</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/user/modify">회원정보</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/qna">상품문의</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰조회</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/coupon">쿠폰조회</a></li>
 			</ul>
 		</div>
-		<script>
-			//     $(document).ready(function(){
-			//     var currentPosition = parseInt($(".quickmenu").css("top"));
+		<br>
+		<br>
 
-			//     $(window).scroll(function() {
-			//         var position = $(window).scrollTop(); // 현재 스크롤바의 위치값을 반환합니다.
-			//         $(".quickmenu").stop().animate({"top":position+currentPosition+"px"},1000);
-			//     });
-			// });
-		</script>
+	<jsp:include page="../order/orderView.jsp" />
+
 
 		<footer>
 			<p>

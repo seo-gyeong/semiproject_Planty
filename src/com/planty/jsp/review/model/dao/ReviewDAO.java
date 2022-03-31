@@ -11,21 +11,18 @@ import com.planty.jsp.review.model.dto.ReviewDTO;
 
 
 public class ReviewDAO {
-	public int selectTotalCount(SqlSession session, Map<String, String> searchMap) {
 
-		return session.selectOne("ReviewDAO.selectTotalCount", searchMap);
-	}
 
 	/* 리뷰 목록 조회용 메소드 */
-	public List<ReviewDTO> selectReviewList(SqlSession session) {
+	public List<ReviewDTO> selectReviewList(SqlSession session, String id) {
 
-		return session.selectList("ReviewDAO.selectReviewList");
+		return session.selectList("ReviewDAO.selectReviewList", id);
 	}
 
-	public List<ReviewDTO> selectReviewList(SqlSession session, SelectCriteria selectCriteria) {
-
-		return session.selectList("ReviewDAO.selectReviewList", selectCriteria);
-	}
+//	public List<ReviewDTO> selectReviewList(SqlSession session, SelectCriteria selectCriteria) {
+//
+//		return session.selectList("ReviewDAO.selectReviewList", selectCriteria);
+//	}
 
 	
 	/* 썸네일 제목과 내용 insert용 메소드 */
@@ -40,10 +37,6 @@ public class ReviewDAO {
 		return session.insert("ReviewDAO.insertAttachment", file);
 	}
 
-	public int incrementReviewCount(SqlSession session, int no) {
-
-		return session.update("ReviewDAO.incrementReviewCount", no);
-	}
 
 	public ReviewDTO selectOneReview(SqlSession session, int no) {
 

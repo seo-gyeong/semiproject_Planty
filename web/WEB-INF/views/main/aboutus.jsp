@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABOUT US</title>
-    <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/img/favi.png" />
+    <link rel="icon" type="image/x-icon" href="${ pageContext.servletContext.contextPath }/resources/image/favi.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,7 +30,7 @@
     <div id='wrap'>
     	<section class="content wrapper">
             <div class="about1"> 
-                <img class="about-img" src="${ pageContext.servletContext.contextPath }/resources/img/about1.png" >
+                <img class="about-img" src="${ pageContext.servletContext.contextPath }/resources/image/about1.png" >
                 <div><h1 id="content-title">개성을 드러내는 건강한 방법!</h1>
                     <h1 id="content-subtitle">PLANTY</h1>
                 </div>
@@ -46,7 +46,7 @@
             </div>
 
             <div class="about2"> 
-                <img class="about-img" src="${ pageContext.servletContext.contextPath }/resources/img/about2.png" >
+                <img class="about-img" src="${ pageContext.servletContext.contextPath }/resources/image/about2.png" >
                 <div>
                     <h1 id="content-subtitle">트렌드, 세분화된 정보 </h1>
                 </div>
@@ -57,7 +57,7 @@
             </div>
           
             <div class="about3"> 
-                <img class="about-img" src="${ pageContext.servletContext.contextPath }/resources/img/about3.png" >
+                <img class="about-img" src="${ pageContext.servletContext.contextPath }/resources/image/about3.png" >
                 <div>
                     <h1 id="content-subtitle">반려동물의 안전을 고려한 제품 </h1>
                 </div>
