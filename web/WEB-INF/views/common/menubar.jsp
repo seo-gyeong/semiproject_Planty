@@ -52,7 +52,6 @@
 
  			 	<a href="${ pageContext.servletContext.contextPath }/user/login"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/my.png"></a></li>
               	<a href="${ pageContext.servletContext.contextPath }/user/login"> <img class="icon" src="${ pageContext.servletContext.contextPath }/resources/image/cart.png"></a></li>
-               </c:if>
                
                <c:if test="${ !empty sessionScope.loginUser }">
                 <a href="${ pageContext.servletContext.contextPath }/user/logout"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/logout.png"></a></li>
