@@ -45,8 +45,7 @@ public class FindPwdServlet extends HttpServlet {
 		
 		UserDTO user = userService.findUser(requestUser);
 		System.out.println(user);
-	    
-		
+	        
     
 		if(user != null) {
 			
@@ -54,7 +53,7 @@ public class FindPwdServlet extends HttpServlet {
 	            String mail_from =  "planty089@gmail.com";
 	            String mail_to =    email;
 	            String title =      "Planty 임시비밀번호 발송";
-	            String contents =   "임시비밀번호:";
+	            String contents =   "임시번호:";
 	 
 	            mail_from = new String(mail_from.getBytes("UTF-8"), "UTF-8");
 	            mail_to = new String(mail_to.getBytes("UTF-8"), "UTF-8");
@@ -69,25 +68,7 @@ public class FindPwdServlet extends HttpServlet {
 	            props.put("mail.smtp.socketFactory.fallback", "false");
 	            props.put("mail.smtp.auth", "true");
 	 
-	            StringBuffer temp = new StringBuffer();
-	    		Random rnd = new Random();
-	    		for (int i = 0; i < 10; i++) {
-	    			int rIndex = rnd.nextInt(3);
-	    			switch (rIndex) {
-	    			case 0:
-	    				// a-z
-	    				temp.append((char) ((int) (rnd.nextInt(26)) + 97));
-	    				break;
-	    			case 1:
-	    				// A-Z
-	    				temp.append((char) ((int) (rnd.nextInt(26)) + 65));
-	    				break;
-	    			case 2:
-	    				// 0-9
-	    				temp.append((rnd.nextInt(10)));
-	    				break;
-	    			}
-	    		}
+	   
 	            
 	            Authenticator auth = new SMTPAuthenticator();
 	 
