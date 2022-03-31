@@ -4,7 +4,7 @@ package com.planty.jsp.user.model.dto;
 
 
 	public class UserDTO {
-		
+		 
 		private String id;
 		private int authNo;
 		private String pwd;

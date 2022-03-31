@@ -102,7 +102,7 @@ public class NoticeService {
 			session.commit();
 		} else {
 			session.rollback();
-		}
+		} 
 		
 		session.close();
 		
