@@ -3,7 +3,6 @@ package com.planty.jsp.review.model.dto;
 public class AttachmentDTO {
 	private int attachNo;
 	private int reviewNo; //어떤 게시글에 올라간 파일인가요?
-	private ReviewDTO review;
 	private String orgName;
 	private String savedName;
 	private String savePath;

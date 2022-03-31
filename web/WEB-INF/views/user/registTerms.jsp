@@ -20,51 +20,7 @@
 </head>
 <body>
 	<!-- header -->
-    <header class="menu1">
-        <div class="back">
-            <div class="nav-bar">
-                <div class="navbar-left">
-    
-                    <div class="dropdown">
-                        <a href="../page/ABOUT US.html" class="dropbtn">ABOUT US</a>
-                    </div>
-    
-                    <div class="dropdown">
-                        <button class="dropbtn">SHOP</button>
-                        <div class="dropdown-content">
-                            <a href="#">ALL</a>
-                            <a href="#">FUNCTION</a>
-                            <a href="#">PLACE</a>
-                            <a href="#">FOR ANIMALS</a>
-                        </div>
-                    </div>
-    
-                    <div class="dropdown">
-                        <button class="dropbtn">CUSTOMER</button>
-                        <div class="dropdown-content">
-                            <a href="#">NOTICE</a>
-                            <a href="../page/FAQ.html">FAQ</a>
-                        </div>
-                    </div>
-    
-                </div>
-                <div class="navbar-center">
-                    <a href="../page/ABOUT US.html"><img class="image" src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png"></a>
-                </div>
-    
-                <div class="navbar-right">
-                    <ul>
-                        <li><a href="${ pageContext.servletContext.contextPath }/user/regist"> <img class="icon" onClick="mypage_check();"
-                                    src="${ pageContext.servletContext.contextPath }/resources/image/my.png"></a></li>
-                        <li><a href="${ pageContext.servletContext.contextPath }/user/regist"> <img class="icon" onClick="mypage_check();"
-                                    src="${ pageContext.servletContext.contextPath }/resources/image/cart.png"></a></li>
-                    </ul>
-                    
-    
-                </div>
-            </div>
-        </div>
-    </header>
+    <jsp:include page="../common/menubar.jsp"/>
 
 	<!-- content -->
     <div class="title-ar">
@@ -85,7 +41,7 @@
                 <ul class="terms_bx_list">
                     <li class="terms_bx">
                         <span class="input_chk">
-                            <input type="checkbox" id="terms" name="chk-all" class="chk">
+                            <input type="checkbox" id="terms" name="chk-all" class="chk" required>
                             <label for="terms">이용약관 동의 <span class="ncsary">(필수)</span> </label>
                         </span>
                         <div class="terms_box" tabindex="0" id="divService">
@@ -331,7 +287,7 @@
                     </li>
                     <li class="terms_bx">
                         <span class="input_chk">
-                            <input type="checkbox" id="terms-private" name="chk-all" class="chk">
+                            <input type="checkbox" id="terms-private" name="chk-all" class="chk" required>
                             <label for="terms-private">개인정보 수집 및 이용 동의 <span class="ncsary">(필수)</span> </label>
                         </span>
                         <div class="terms_box" tabindex="0" id="divService">
@@ -399,7 +355,7 @@
     
                 <div class="terms-btn">
                     <div id="right"><a href="${ pageContext.servletContext.contextPath }/main" class="return">취소</a></div>
-                    <div><button type="submit" class="ok">확인</button></div>
+                    <div><button type="submit" class="ok" id="nextBtn">확인</button></div>
                 </div>
             </form>
         </div>
@@ -407,16 +363,7 @@
 
 
     <!-- footer -->
-    <footer>
-        <p>
-            <span>상호: PLANTY | 대표: 김플랜 | 개인정보관리책임자: 김플랜 | 전화: 070-1234-5678 | 이메일: planty00@naver.com</span><br />
-            <span>주소: 서울특별시 플랜구 식물동 159-2 | 사업자등록번호: 151-15-15151 | 통신판매: 2022-서울강남-0000 | 호스팅제공자: (주)식물샵</span><br />
-        </p>
-        <nav>
-            <a href='../page/policy.html'>이용약관</a> |
-            <a href='../page/policy.html'>개인정보처리방침</a>
-        </nav>
-    </footer>
+   
 	
 	<script src="https://code.jquery.com/jquery-3.6.0.min.js"
      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="></script>
@@ -432,25 +379,6 @@
     	}
 
     	
-         function mypage() {
-             let signIn = ""
-             if (signIn == "") {
-                 alert("해당 페이지는 로그인 후 사용하실 수 있습니다.");
-                 location.href = "LOG IN.html";
-             } else {
-                 location.href = "mypage.html";
-             }
-         }
-
-         function cart() {
-             let signIn = ""
-             if (signIn == "") {
-                 alert("해당 페이지는 로그인 후 사용하실 수 있습니다.");
-                 location.href = "LOG IN.html";
-             } else {
-                 location.href = "cart.html";
-             }
-         }
         
         <!-- 전체 동의 체크박스 함수 -->
         function selectAll(selectAll)  {
@@ -458,7 +386,36 @@
             checkboxes.forEach((checkbox) => {checkbox.checked = selectAll.checked;
             });
         };
+        
+        <!-- 필수 약관 확인 스크립트 -->
+        const termsCheckbox = (event) => {
+         	  event.preventDefault();
+         	  const agreement1 = document.getElementById("#terms");
+         	  const agreement2 = document.getElementById("#terms-private");
+         	 
+         	  if (!agreement1.checked) {
+         	    window.alert("이용약관 이용동의는 필수입니다.");
+         	  } else if (!agreement2.checked) {
+         	    window.alert("개인정보의 수집 및 이용동의는 필수입니다.");
+         	  } else {
+         	    signupAnimate();
+         	  }
+         	};
+
+
     </script>
+    
+    
+    <footer>
+    <p>
+        <span>상호: PLANTY | 대표: 김플랜 | 개인정보관리책임자: 김플랜 | 전화: 070-1234-5678 | 이메일: planty00@naver.com</span><br/>
+        <span>주소: 서울특별시 플랜구 식물동 159-2 | 사업자등록번호: 151-15-15151 | 통신판매: 2022-서울강남-0000 | 호스팅제공자: (주)식물샵</span><br/>
+    </p>
+    <nav>
+        <a href="${ pageContext.servletContext.contextPath }/main/policy.jsp">이용약관</a> |
+        <a href="${ pageContext.servletContext.contextPath }/main/policy.jsp">개인정보처리방침</a>
+    </nav>
+</footer>
 	
 
 </body>

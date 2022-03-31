@@ -7,6 +7,7 @@ public class OrderDTO {
 	private int proNo;
 	private ProductDTO product;
 	private int ordNo;
+	private OrderDetailDTO orderDetail;
 	private int amount;
 	
 	

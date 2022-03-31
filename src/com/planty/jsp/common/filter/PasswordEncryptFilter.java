@@ -1,4 +1,3 @@
-
 package com.planty.jsp.common.filter;
 
 import java.io.IOException;
@@ -47,4 +46,3 @@ public class PasswordEncryptFilter implements Filter {
 	public void init(FilterConfig fConfig) throws ServletException {}
 
 }
-
