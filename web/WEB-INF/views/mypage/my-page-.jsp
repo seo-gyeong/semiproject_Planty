@@ -158,20 +158,7 @@
 
 		<pre>
         </pre>
-		<footer>
-			<p>
-				<span>상호: PLANTY | 대표: 김플랜 | 개인정보관리책임자: 김플랜 | 전화:
-					070-1234-5678 | 이메일: planty00@naver.com</span><br /> <span>주소:
-					서울특별시 플랜구 식물동 159-2 | 사업자등록번호: 151-15-15151 | 통신판매: 2022-서울강남-0000
-					| 호스팅제공자: (주)식물샵</span><br />
-			</p>
-			<nav>
-				<a
-					href="${ pageContext.servletContext.contextPath }/main/policy.jsp">이용약관</a>
-				| <a
-					href="${ pageContext.servletContext.contextPath }/main/policy.jsp">개인정보처리방침</a>
-			</nav>
-		</footer>
+ <jsp:include page="../common/footer.jsp"/>
 
 	</div>
 </body>
