@@ -178,6 +178,16 @@ public class UserService {
 		
 		return result;
 	}
+
+	public UserDTO findUser(UserDTO requestUser) {
+		SqlSession session = getSqlSession();
+		
+		UserDTO findUser = userDAO.findUser(session,requestUser);
+		
+		session.close();
+		
+		return findUser;
+	}
 }
 
 

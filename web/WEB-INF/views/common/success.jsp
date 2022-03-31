@@ -54,8 +54,8 @@
 					movePath = "${ pageContext.servletContext.contextPath }/review/list";
 					break;
 			
-				case "changePwd" : 
-					successMessage = "비밀번호 변경에 성공하셨습니다!";
+				case "findUser" : 
+					successMessage = "임시비밀번호 발송에 성공하셨습니다! 이메일을 확인해주세요.";
 					movePath = "${ pageContext.servletContext.contextPath }/user/login";
 					break;
 			}

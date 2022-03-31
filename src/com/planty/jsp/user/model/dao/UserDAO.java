@@ -64,6 +64,11 @@ public class UserDAO {
 		return session.selectList("UserDAO.selectAllUserList");
 	}
 
+	public UserDTO findUser(SqlSession session, UserDTO requestUser) {
+
+		return session.selectOne("UserDAO.findUser",requestUser);
+	}
+
 
 }
 

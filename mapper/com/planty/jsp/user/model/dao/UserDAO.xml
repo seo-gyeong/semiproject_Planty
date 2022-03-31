@@ -153,19 +153,24 @@
 	</select>
 	
 	
-	<select id="findPwd" resultType="string">
+	<select id="findUser" resultMap="userResultMap">
 		SELECT 
-			 PWD
+			   ID
+	         , AUTH_NO
+	         , PWD
+	         , ADDRESS
+	         , ADDR_DETAIL
+	         , ZIPCODE
+	         , PHONE
+	         , EMAIL
+	         , TEXT_YN
+	         , ENROLL_DATE
+	         , NAME
 		 FROM MEMBER 
 		 WHERE ID = #{ id } 
 		 AND EMAIL = #{email}
 	</select>
 	
-	<update id="changePwd">
-	UPDATE 
-		 MEMBER 
-	 SET PWD = #{ pwd }
-	 WHERE PWD = #{ pwd } 
-	</update>
+
 	
 </mapper>

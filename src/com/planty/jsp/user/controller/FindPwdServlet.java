@@ -5,7 +5,7 @@ import java.util.Properties;
 import java.util.Random;
 
 import javax.mail.Message;
-import javax.mail.PasswordAuthentication;
+import javax.mail.Authenticator;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
@@ -43,16 +43,78 @@ public class FindPwdServlet extends HttpServlet {
 		
 		UserService userService = new UserService();
 		
-		String findPwd = userService.findPwd(requestUser);
-		System.out.println(findPwd);
-	        
-	       
-		if(findPwd!= null) {
-			request.setAttribute("findPwd", findPwd);
-			request.getRequestDispatcher("/WEB-INF/views/login/change.jsp").forward(request, response);
-		} else {
-			request.setAttribute("message", "실패ㅠ");
-			request.getRequestDispatcher("/WEB-INF/views/login/findPwd-member.jsp").forward(request, response);
+		UserDTO user = userService.findUser(requestUser);
+		System.out.println(user);
+	    
+		
+    
+		if(user != null) {
+			
+		 try {
+	            String mail_from =  "planty089@gmail.com";
+	            String mail_to =    email;
+	            String title =      "Planty 임시비밀번호 발송";
+	            String contents =   "임시비밀번호:";
+	 
+	            mail_from = new String(mail_from.getBytes("UTF-8"), "UTF-8");
+	            mail_to = new String(mail_to.getBytes("UTF-8"), "UTF-8");
+	 
+	            Properties props = new Properties();
+	            props.put("mail.transport.protocol", "smtp");
+	            props.put("mail.smtp.host", "smtp.gmail.com");
+	            props.put("mail.smtp.port", "465");
+	            props.put("mail.smtp.starttls.enable", "true");
+	            props.put("mail.smtp.socketFactory.port", "465");
+	            props.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+	            props.put("mail.smtp.socketFactory.fallback", "false");
+	            props.put("mail.smtp.auth", "true");
+	 
+	            StringBuffer temp = new StringBuffer();
+	    		Random rnd = new Random();
+	    		for (int i = 0; i < 10; i++) {
+	    			int rIndex = rnd.nextInt(3);
+	    			switch (rIndex) {
+	    			case 0:
+	    				// a-z
+	    				temp.append((char) ((int) (rnd.nextInt(26)) + 97));
+	    				break;
+	    			case 1:
+	    				// A-Z
+	    				temp.append((char) ((int) (rnd.nextInt(26)) + 65));
+	    				break;
+	    			case 2:
+	    				// 0-9
+	    				temp.append((rnd.nextInt(10)));
+	    				break;
+	    			}
+	    		}
+	            
+	            Authenticator auth = new SMTPAuthenticator();
+	 
+	            Session sess = Session.getDefaultInstance(props, auth);
+	 
+	            MimeMessage msg = new MimeMessage(sess);
+	 
+	            msg.setFrom(new InternetAddress(mail_from));
+	            msg.setRecipient(Message.RecipientType.TO, new InternetAddress(mail_to));
+	            msg.setSubject(title, "UTF-8");
+	            msg.setContent(contents, "text/html; charset=UTF-8");
+	            msg.setHeader("Content-type", "text/html; charset=UTF-8");
+	 
+	            Transport.send(msg);
+
+				
+				request.setAttribute("successCode", "findUser");
+				request.getRequestDispatcher("/WEB-INF/views/common/success.jsp").forward(request, response);
+	        } catch (Exception e) {
+	        	e.printStackTrace();
+	        	request.setAttribute("message", "이메일 발송 실패");
+				request.getRequestDispatcher("/WEB-INF/views/common/failed.jsp").forward(request, response);
+	        } 
+
+		}else {
+			request.setAttribute("message", "입력하신 id, email와 일치하는 게정이 없습니다.");
+			request.getRequestDispatcher("/WEB-INF/views/common/failed.jsp").forward(request, response);
 		}
 		
 	}
