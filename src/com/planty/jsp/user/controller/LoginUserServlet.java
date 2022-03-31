@@ -46,7 +46,7 @@ public class LoginUserServlet extends HttpServlet {
 			System.out.println(loginUser.getAuthNo());
 			
 			if(loginUser.getAuthNo() == 3) {
-				response.sendRedirect(request.getContextPath() + "/admin/관리자 주소");
+				response.sendRedirect(request.getContextPath() + "/notice/list");
 				
 				} else if (loginUser.getAuthNo() == 2) {	
 				response.sendRedirect(request.getContextPath() + "/product/regist");

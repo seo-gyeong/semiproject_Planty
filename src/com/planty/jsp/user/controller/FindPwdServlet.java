@@ -52,7 +52,7 @@ public class FindPwdServlet extends HttpServlet {
 		 try {
 	            String mail_from =  "planty089@gmail.com";
 	            String mail_to =    email;
-	            String title =      "Planty 임시비밀번호 발송";
+	            String title =      "Plan                                                                                                      ty 임시비밀번호 발송";
 	            String contents =   "임시번호:";
 	 
 	            mail_from = new String(mail_from.getBytes("UTF-8"), "UTF-8");
