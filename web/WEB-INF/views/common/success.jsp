@@ -23,7 +23,7 @@
 					break;
 				case "updateUser" : 
 					successMessage = "회원 정보 변경에 성공하셨습니다!";
-					movePath = "${ pageContext.servletContext.contextPath }/member/modify";
+					movePath = "${ pageContext.servletContext.contextPath }/user/modify";
 					break;
 				case "updateUserPassword" : 
 					successMessage = "회원 비밀번호 변경에 성공하셨습니다!";
@@ -31,18 +31,18 @@
 					break;
 				case "deleteUser" : 
 					successMessage = "회원 탈퇴에 성공하셨습니다!";
-					movePath = "${ pageContext.servletContext.contextPath }";
+					movePath = "${ pageContext.servletContext.contextPath }/main/aboutus";
 					break;
 				case "insertNotice" : 
-					successMessage = "공지사항 등록에 성공하셨습니다!";
+					successMessage = "공지사항이 등록되었습니다.";
 					movePath = "${ pageContext.servletContext.contextPath }/notice/list";
 					break;
 				case "updateNotice" : 
-					successMessage = "공지사항 수정에 성공하셨습니다!";
+					successMessage = "공지사항이 수정되었습니다.";
 					movePath = "${ pageContext.servletContext.contextPath }/notice/detail?no=${ no }";
 					break;
 				case "deleteNotice" : 
-					successMessage = "공지사항 삭제에 성공하셨습니다!";
+					successMessage = "공지사항이 삭제되었습니다.";
 					movePath = "${ pageContext.servletContext.contextPath }/notice/list";
 					break;
 				case "insertBoard" : 

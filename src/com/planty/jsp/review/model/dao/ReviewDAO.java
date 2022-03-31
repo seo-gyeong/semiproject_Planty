@@ -14,15 +14,15 @@ public class ReviewDAO {
 
 
 	/* 리뷰 목록 조회용 메소드 */
-	public List<ReviewDTO> selectReviewList(SqlSession session) {
+	public List<ReviewDTO> selectReviewList(SqlSession session, String id) {
 
-		return session.selectList("ReviewDAO.selectReviewList");
+		return session.selectList("ReviewDAO.selectReviewList", id);
 	}
 
-	public List<ReviewDTO> selectReviewList(SqlSession session, SelectCriteria selectCriteria) {
-
-		return session.selectList("ReviewDAO.selectReviewList", selectCriteria);
-	}
+//	public List<ReviewDTO> selectReviewList(SqlSession session, SelectCriteria selectCriteria) {
+//
+//		return session.selectList("ReviewDAO.selectReviewList", selectCriteria);
+//	}
 
 	
 	/* 썸네일 제목과 내용 insert용 메소드 */

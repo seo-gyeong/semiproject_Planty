@@ -115,76 +115,8 @@
 
 <body>
 	<!-- header -->
-	<header class="menu1">
-		<div class="back">
-			<div class="nav-bar">
-				<div class="navbar-left">
-
-					<div class="dropdown">
-						<a href="${ pageContext.servletContext.contextPath }/main/aboutus" class="dropbtn">ABOUT US</a>
-					</div>
-
-					<div class="dropdown">
-						<button class="dropbtn">SHOP</button>
-						<div class="dropdown-content">
-							<a href="#">ALL</a> <a href="#">FUNCTION</a> <a href="#">PLACE</a>
-							<a href="#">FOR ANIMALS</a>
-						</div>
-					</div>
-
-					<div class="dropdown">
-						<button class="dropbtn">CUSTOMER</button>
-						<div class="dropdown-content">
-							<a href="#">NOTICE</a> <a href="${ pageContext.servletContext.contextPath }/main/faq">FAQ</a>
-						</div>
-					</div>
-
-				</div>
-				<div class="navbar-center">
-					<a href="${ pageContext.servletContext.contextPath }/main/aboutus"><img class="image"
-						src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png"></a>
-				</div>
-
-				<div class="navbar-right">
-					<ul>
-						<li><a
-							href="${ pageContext.servletContext.contextPath }/user/regist">
-								<img class="icon" onClick="mypage_check();"
-								src="${ pageContext.servletContext.contextPath }/resources/image/my.png">
-						</a></li>
-						<li><a
-							href="${ pageContext.servletContext.contextPath }/user/regist">
-								<img class="icon" onClick="mypage_check();"
-								src="${ pageContext.servletContext.contextPath }/resources/image/cart.png">
-						</a></li>
-					</ul>
-
-
-				</div>
-			</div>
-		</div>
-		<script>
-			function mypage() {
-				let signIn = ""
-				if (signIn == "") {
-					alert("해당 페이지는 로그인 후 사용하실 수 있습니다.");
-					location.href = "LOG IN.html";
-				} else {
-					location.href = "mypage.html";
-				}
-			}
-
-			function cart() {
-				let signIn = ""
-				if (signIn == "") {
-					alert("해당 페이지는 로그인 후 사용하실 수 있습니다.");
-					location.href = "LOG IN.html";
-				} else {
-					location.href = "cart.html";
-				}
-			}
-		</script>
-	</header>
+	<jsp:include page="../common/menubar.jsp"/>
+	
 	<div class="title-ar">리뷰 작성</div>
 	<div class="subtitle">
 		<p></p>
@@ -205,11 +137,12 @@
 					<!-- thumbnail할땐 이거 반드시 작성 -->
 					<div id="rv-content">
 						<div class="rv-title">주문 상품</div>
-						<div>${ product.productName }</div>
+						<div>몬스테라</div>
 						<div class="rv-title">상품 만족도</div>
 						<div class="input_area score-area">
-							<label name="score"></label> <select name="score">
-								<option value="5">★★★★★</option>
+							<label name="score"></label>
+							<select name="score" id="score">
+								<option value="5" selected>★★★★★</option>
 								<option value="4">★★★★</option>
 								<option value="3">★★★</option>
 								<option value="2">★★</option>
@@ -242,8 +175,8 @@
 						<div class="image_area"></div>
 						<div class="rv-img-input">
 							<input type="file" name="contentImg1"
-								accept="image/gif,image/jpeg,image/png"> <input
-								type="file" name="contentImg2"
+								accept="image/gif,image/jpeg,image/png"> 
+							<input type="file" name="contentImg2"
 								accept="image/gif,image/jpeg,image/png">
 						</div>
 					</div>
@@ -256,6 +189,17 @@
 					</div>
 				</form>
 			</div>
+		</div>
+		<div class="quickmenu">
+			<ul>
+				<li id="quickmenu"><a href="${ pageContext.servletContext.contextPath }/mypage/intro" style="color: white;">마이페이지</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/order">주문조회</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/wish">찜한상품</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/user/modify">회원정보</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/qna">상품문의</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰조회</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/coupon">쿠폰조회</a></li>
+			</ul>
 		</div>
 		<footer>
 			<p>

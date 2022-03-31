@@ -7,17 +7,19 @@ public class OrderDTO {
 	private int proNo;
 	private ProductDTO product;
 	private int ordNo;
+	private OrderDetailDTO orderDetail;
 	private int amount;
 	
 	
 	public OrderDTO() {}
 
 
-	public OrderDTO(int proNo, ProductDTO product, int ordNo, int amount) {
+	public OrderDTO(int proNo, ProductDTO product, int ordNo, OrderDetailDTO orderDetail, int amount) {
 		super();
 		this.proNo = proNo;
 		this.product = product;
 		this.ordNo = ordNo;
+		this.orderDetail = orderDetail;
 		this.amount = amount;
 	}
 
@@ -52,6 +54,16 @@ public class OrderDTO {
 	}
 
 
+	public OrderDetailDTO getOrderDetail() {
+		return orderDetail;
+	}
+
+
+	public void setOrderDetail(OrderDetailDTO orderDetail) {
+		this.orderDetail = orderDetail;
+	}
+
+
 	public int getAmount() {
 		return amount;
 	}
@@ -64,8 +76,12 @@ public class OrderDTO {
 
 	@Override
 	public String toString() {
-		return "OrderDTO [proNo=" + proNo + ", product=" + product + ", ordNo=" + ordNo + ", amount=" + amount + "]";
+		return "OrderDTO [proNo=" + proNo + ", product=" + product + ", ordNo=" + ordNo + ", orderDetail=" + orderDetail
+				+ ", amount=" + amount + "]";
 	}
+
+
+	
 
 
 	

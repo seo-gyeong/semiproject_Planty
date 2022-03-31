@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
@@ -8,14 +8,14 @@
 <title>공지사항 수정</title>
 <style>
 .outer {
-	width: 800px;
-	margin: auto;
-}
-
-.wrap {
-	width: 780px;
-	margin: 100px auto;
-}
+		width : 1000px;
+		margin : auto;
+	}
+	
+	.wrap {
+		width : 900px;
+		margin-left : 150px;
+	}
 
 .notice_title {
 	border-bottom: 1px solid #282A35;
@@ -44,7 +44,7 @@
 }
 
 .input_area input {
-	width: 700px;
+	width: 800px;
 	height: 30px;
 	border: 0px;
 }
@@ -56,6 +56,7 @@
 .textarea {
 	resize: none;
 	border: solid 1px #dadada;
+	width: 830px;
 }
 
 .textarea:focus {
@@ -90,7 +91,8 @@
 		<div class="wrap">
 			<div class="notice_area">
 				<div class="notice_title">
-					<h1>공지사항 수정</h1>
+					<br><br>
+					<h4>공지사항 수정</h4>
 				</div>
 				<div class="notice_content">
 					<div class="subject">
@@ -106,7 +108,7 @@
 							<span class="input_area"> <input type="text" name="title"
 								value="${ notice.title }" required>
 							</span>
-
+							<br><br><br>
 							<h4>
 								<span class="title_span">&nbsp;</span> 내용
 							</h4>

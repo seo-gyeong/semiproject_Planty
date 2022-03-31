@@ -1,98 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- jquery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
-        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-    <!-- css -->
-    <link href="${ pageContext.servletContext.contextPath }/resources/css/member.css" rel="stylesheet" type="text/css">
-    <!-- bootstrap -->
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+	crossorigin="anonymous"></script>
+<!-- css -->
+<link
+	href="${ pageContext.servletContext.contextPath }/resources/css/member.css"
+	rel="stylesheet" type="text/css">
+<!-- bootstrap -->
 
-    <!-- Roboto -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <!-- noto sans KR-->
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;700&display=swap" rel="stylesheet">
+<!-- Roboto -->
+<link
+	href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+	rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<!-- noto sans KR-->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link
+	href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;700&display=swap"
+	rel="stylesheet">
 
-    <title>Planty🌿 회원가입</title>
+<title>Planty🌿 회원가입</title>
 </head>
 
 <body>
- 	<!-- header -->
-    <header class="menu1">
-        <div class="back">
-            <div class="nav-bar">
-                <div class="navbar-left">
-    
-                    <div class="dropdown">
-                        <a href="../page/ABOUT US.html" class="dropbtn">ABOUT US</a>
-                    </div>
-    
-                    <div class="dropdown">
-                        <button class="dropbtn">SHOP</button>
-                        <div class="dropdown-content">
-                            <a href="#">ALL</a>
-                            <a href="#">FUNCTION</a>
-                            <a href="#">PLACE</a>
-                            <a href="#">FOR ANIMALS</a>
-                        </div>
-                    </div>
-    
-                    <div class="dropdown">
-                        <button class="dropbtn">CUSTOMER</button>
-                        <div class="dropdown-content">
-                            <a href="#">NOTICE</a>
-                            <a href="../page/FAQ.html">FAQ</a>
-                        </div>
-                    </div>
-    
-                </div>
-                <div class="navbar-center">
-                    <a href="../page/ABOUT US.html"><img class="image" src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png"></a>
-                </div>
-    
-                <div class="navbar-right">
-                    <ul>
-                        <li><a href="${ pageContext.servletContext.contextPath }/user/regist"> <img class="icon" onClick="mypage_check();"
-                                    src="${ pageContext.servletContext.contextPath }/resources/image/my.png"></a></li>
-                        <li><a href="${ pageContext.servletContext.contextPath }/user/regist"> <img class="icon" onClick="mypage_check();"
-                                    src="${ pageContext.servletContext.contextPath }/resources/image/cart.png"></a></li>
-                    </ul>
-                    
-    
-                </div>
-            </div>
-        </div>
-    </header>
-    
-    <!-- content -->
-    <div class="title-ar">
-        회원 가입
-    </div>
-    <div class="join-form2 wrapper">
-        <form class="mem-type-form" method="get" action="">
-            <span id="mem-type">회원유형</span>
-            <label class="mem-slct"><input type="checkbox" name="member-type" value="1" checked
-                    onclick='checkOnlyOne(this); movePage("${ pageContext.servletContext.contextPath }/user/regist2");'>일반 회원</label>
-            <label class="mem-slct"><input type="checkbox" name="member-type" value="2"
-                    onclick='checkOnlyOne(this); movePage("JOIN-2partner.html");'>사업자 회원</label>
-        </form>
-        <div class="kakao-login">
-            <h3 class="sub-tt">간편 회원 가입</h3>
-            <p>카카오로 1초만에 회원가입하세요.</p>
-            <a class="btn-kakao" onclick="kakaoLogin('da1224c223577e5a09c518b3d79e51c8')">카카오 1초 회원가입</a>
-        </div>
+	<!-- header -->
+	<jsp:include page="../common/menubar.jsp" />
 
-        <!-- 카카오 스크립트 -->
-        <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
-        <script>
+	<!-- content -->
+	<div class="title-ar">회원 가입</div>
+	<div class="join-form2 wrapper">
+		<form class="mem-type-form" method="get" action="">
+			<span id="mem-type">회원유형</span> <label class="mem-slct"><input
+				type="checkbox" name="member-type" value="1" checked
+				onclick='checkOnlyOne(this); movePage("${ pageContext.servletContext.contextPath }/user/regist2");'>일반
+				회원</label> <label class="mem-slct"><input type="checkbox"
+				name="member-type" value="2"
+				onclick='checkOnlyOne(this); movePage("JOIN-2partner.html");'>사업자
+				회원</label>
+		</form>
+		<div class="kakao-login">
+			<h3 class="sub-tt">간편 회원 가입</h3>
+			<p>카카오로 1초만에 회원가입하세요.</p>
+			<a class="btn-kakao"
+				onclick="kakaoLogin('da1224c223577e5a09c518b3d79e51c8')">카카오 1초
+				회원가입</a>
+		</div>
+
+		<!-- 카카오 스크립트 -->
+		<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+		<script>
         Kakao.init('da1224c223577e5a09c518b3d79e51c8'); //발급받은 키 중 javascript키를 사용해준다.
         console.log(Kakao.isInitialized()); // sdk초기화여부판단
         //카카오로그인
@@ -130,53 +95,65 @@
             }
         }  
         </script>
-        <div class="form-join">
-            <form id="join-form2" action="${ pageContext.servletContext.contextPath }/user/regist2" method="post">
+		<div class="form-join">
+			<form id="join-form2"
+				action="${ pageContext.servletContext.contextPath }/user/regist2"
+				method="post">
 
 
-                <div class="form-name">아이디</div>
-                <span class="input_area"><input type="text" maxlength="20" name="id" required
-                        placeholder="영문,숫자 조합 20자 이내"></span>
-                <button class="join-btn join-btn-style" id="idCheck" type="button">중복확인</button>
+				<div class="form-name">아이디</div>
+				<span class="input_area"><input type="text" maxlength="20"
+					name="id" required placeholder="영문,숫자 조합 20자 이내"></span>
+				<button class="join-btn join-btn-style" id="idCheck" type="button">중복확인</button>
 
-                <div class="form-name">비밀번호</div>
-                <span class="input_area"><input type="password" maxlength="30" name="pwd" required id="pwd"
-                        placeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~30자" onchange="check_pw()"></span>
+				<div class="form-name">비밀번호</div>
+				<span class="input_area"><input type="password"
+					maxlength="30" name="pwd" required id="pwd"
+					placeholder="영문 대소문자/숫자/특수문자 8자~30자"
+					onchange="check_pw()"></span>
 
-                <div class="form-name">비밀번호 확인</div>
-                <span class="input_area"><input type="password" maxlength="30" name="pwd2" id="pwd2" onchange="check_pw()" required></span>&nbsp;<span id="check"></span>
-                <label id="pwdResult"></label>
+				<div class="form-name">비밀번호 확인</div>
+				<span class="input_area"><input type="password"
+					maxlength="30" name="pwd2" id="pwd2" onchange="check_pw()" required></span>&nbsp;<span
+					id="check"></span> <label id="pwdResult"></label>
 
-                <div class="form-name">이름</div>
-                <span class="input_area"><input type="text" maxlength="10" name="name" required></span>
+				<div class="form-name">이름</div>
+				<span class="input_area"><input type="text" maxlength="10"
+					name="name" required></span>
 
-                <div class="form-name">연락처</div>
-                <span class="input_area"><input type="tel" maxlength="13" name="phone"
-                        placeholder="예) 010-1234-5678" required></span>
+				<div class="form-name">연락처</div>
+				<span class="input_area"><input type="tel" maxlength="13"
+					name="phone" placeholder="예) 010-1234-5678" oninput="autoHyphen(this)" required></span>
 
-                <div class="form-name">이메일</div>
-                <span class="input_area"><input type="email" name="email" placeholder="예) planty@naver.com" required></span>
+				<div class="form-name">이메일</div>
+				<span class="input_area"><input type="email" name="email"
+					placeholder="예) planty@naver.com" required></span>
 
-                <div class="form-name">우편번호</div>
-                <span class="input_area"><input type="text" id="member_post" name="zipcode" class="postcodify_postcode5" readonly></span>
-                <button class="join-btn join-btn-style" id="postcodify_search_button" type="button" onclick="findAddr();">검색</button>
-                <div class="form-name">도로명주소</div>
-                <span class="input_area"><input type="text" id="member_addr" name="address" class="postcodify_address" readonly></span>
-                <div class="form-name">상세주소</div>
-                <span class="input_area"><input type="text" name="addrDetail" class="postcodify_details" required></span>
-                <input type="hidden" value="${ textYn }" name="textYn">
-                <div class="btnArea">
-                    <button class="join-btn-style" id="joinBtn" type="button">가입하기</button>
-                </div>
-            </form>
+				<div class="form-name">우편번호</div>
+				<span class="input_area"><input type="text" id="member_post"
+					name="zipcode" class="postcodify_postcode5" readonly></span>
+				<button class="join-btn join-btn-style"
+					id="postcodify_search_button" type="button" onclick="findAddr();">검색</button>
+				<div class="form-name">도로명주소</div>
+				<span class="input_area"><input type="text" id="member_addr"
+					name="address" class="postcodify_address" readonly></span>
+				<div class="form-name">상세주소</div>
+				<span class="input_area"><input type="text" name="addrDetail"
+					class="postcodify_details" required></span> <input type="hidden"
+					value="${ textYn }" name="textYn">
+				<div class="btnArea">
+					<button class="join-btn-style" id="joinBtn" type="button">가입하기</button>
+				</div>
+			</form>
 
 
-        </div>
+		</div>
 
-    </div>
+	</div>
 
-    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-    <script>
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
         function findAddr(){
             new daum.Postcode({
                 oncomplete: function(data) {
@@ -200,10 +177,18 @@
             }).open();
         }
     </script>
-    
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    
-    <script>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+
+	<script>
+	
+		// 전화번호 autoHyphen 삽입 
+		const autoHyphen = (target) => {
+                target.value = target.value
+                    .replace(/[^0-9]/, '')
+                    .replace(/^(\d{2,3})(\d{3,4})(\d{4})$/, `$1-$2-$3`);
+            }
+		
         function checkOnlyOne(element) {
 
             const checkboxes = document.getElementsByName("member-type");
@@ -213,6 +198,7 @@
 
             element.checked = true;
         }
+        
 
         function movePage(page) {
             window.document.location.href = page;
@@ -311,17 +297,17 @@
     </script>
 
 
-    <!-- footer -->
-    <footer>
-        <p>
-            <span>상호: PLANTY | 대표: 김플랜 | 개인정보관리책임자: 김플랜 | 전화: 070-1234-5678 | 이메일: planty00@naver.com</span><br />
-            <span>주소: 서울특별시 플랜구 식물동 159-2 | 사업자등록번호: 151-15-15151 | 통신판매: 2022-서울강남-0000 | 호스팅제공자: (주)식물샵</span><br />
-        </p>
-        <nav>
-            <a href='../page/policy.html'>이용약관</a> |
-            <a href='../page/policy.html'>개인정보처리방침</a>
-        </nav>
-    </footer>
+	<!-- footer -->
+	<footer>
+    <p>
+        <span>상호: PLANTY | 대표: 김플랜 | 개인정보관리책임자: 김플랜 | 전화: 070-1234-5678 | 이메일: planty00@naver.com</span><br/>
+        <span>주소: 서울특별시 플랜구 식물동 159-2 | 사업자등록번호: 151-15-15151 | 통신판매: 2022-서울강남-0000 | 호스팅제공자: (주)식물샵</span><br/>
+    </p>
+    <nav>
+        <a href="${ pageContext.servletContext.contextPath }/main/policy.jsp">이용약관</a> |
+        <a href="${ pageContext.servletContext.contextPath }/main/policy.jsp">개인정보처리방침</a>
+    </nav>
+</footer>
 </body>
 
 </html>

@@ -97,16 +97,16 @@ public class InsertReviewServlet extends HttpServlet {
 				/* 위에서 출력해본 모든 item들을 다 처리할 것이다. */
 				for (int i = 0; i < fileItems.size(); i++) {
 					FileItem item = fileItems.get(i);
-
+					/* 폼 데이터는 isFormField 속성이 true이고, 파일은 isFormField 속성이 false이다.*/
 					if (!item.isFormField()) {
 
 						/* 파일 데이터인 경우 */
+						/*
+						 * 파일의 사이즈가 0보다 커야 전송된 파일이 있다는 의미이다. 전송된 파일이 있는 경우에만 처리하고, 0인 경우에는 무시하도록 로직을
+						 * 작성한다.
+						 */
 						if (item.getSize() > 0) {
 
-							/*
-							 * 파일의 사이즈가 0보다 커야 전송된 파일이 있다는 의미이다. 전송된 파일이 있는 경우에만 처리하고, 0인 경우에는 무시하도록 로직을
-							 * 작성한다.
-							 */
 							String filedName = item.getFieldName();
 							String originFileName = item.getName();
 
@@ -194,7 +194,7 @@ public class InsertReviewServlet extends HttpServlet {
 					list.add(tempFileInfo);
 				}
 
-				System.out.println("thumbnail Review : " + review);
+				System.out.println("Review : " + review);
 
 				/* 서비스 메소드를 요청한다. */
 				int result = new ReviewService().insertReview(review);

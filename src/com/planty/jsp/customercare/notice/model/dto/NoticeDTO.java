@@ -1,6 +1,6 @@
 package com.planty.jsp.customercare.notice.model.dto;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class NoticeDTO {
 
@@ -9,7 +9,7 @@ public class NoticeDTO {
 	private String content;
 	private String id;
 	private int count;
-	private Date createDate;
+	private Date createDate; 
 	private Date editDate;
 	private String status;
 	

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <head>
     <meta charset="utf-8" />
@@ -28,21 +29,15 @@
           <div class="sb-sidenav-menu">
             <div class="nav">
               <div class="sb-sidenav-menu-heading">ADMIN PAGE</div>
-              <a class="nav-link collapsed" href="#">
-                회원관리
-              </a>
-              <a class="nav-link collapsed" href="#">
-                쿠폰
-              </a>
-              <a class="nav-link collapsed" href="#">
-                매출
-              </a>
-              <a class="nav-link collapsed" href="#">
-                리뷰
-              </a>
-              <a class="nav-link collapsed" href="#">
-                고객센터
-              </a>
+              <a class="nav-link collapsed" href="${ pageContext.servletContext.contextPath }/admin/userlist">
+              회원관리
+            </a>
+            <a class="nav-link collapsed" href="#">
+              쿠폰
+            </a>
+            <a class="nav-link collapsed" href="${ pageContext.servletContext.contextPath }/notice/list">
+              공지사항
+            </a>
   
             </div>
           </div>
@@ -71,26 +66,29 @@
               <tr>
                 <th scope="col"><input type="checkbox" name="nb[]" value="01">  회원유형</th>                
                 <th scope="col">아이디</th>
-                <th scope="col">이름</th>
+                <th scope="col">이름(업체명)</th>
                 <th scope="col">이메일</th>
                 <th scope="col">휴대폰번호</th>
               </tr>
             </thead>
             <tbody>
-            <c:forEach var="u" items="${ userList }">
+            
+            <c:forEach var="user" items="${ userList }" varStatus="status">
+            
+            
             <tr>
                 <td scope="row">
-                  <p><label><input type="checkbox" name="nb[]" value="01">  ${ u.authno }</label></p>
+                  <label><input type="checkbox" name="nb[]" value="01">  ${ user.auth.authName }</label>
                 </td>
-                <td>${ u.id }</td>
-                <td>${ u.name }</td>
-                <td>${ u.email }</td>
-                <td>${ u.phone }</td>
+                <td>${ user.id }</td>
+                <td>${ user.name }</td>
+                <td>${ user.email }</td>
+                <td>${ user.phone }</td>
             </tr>
+            
             </c:forEach>
-           
-                
-  
+            
+        
             </tbody>
           </table>
           <button type="button" class="btn btn-secondary">회원탈퇴</button>

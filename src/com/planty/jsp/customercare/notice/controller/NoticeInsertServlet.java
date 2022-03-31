@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.planty.jsp.customercare.notice.model.dto.NoticeDTO;
 import com.planty.jsp.customercare.notice.model.service.NoticeService;
-
+ 
 @WebServlet("/notice/insert")
 public class NoticeInsertServlet extends HttpServlet {
 
@@ -25,11 +25,12 @@ public class NoticeInsertServlet extends HttpServlet {
 		
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
+		String id = request.getParameter("id");
 		
 		NoticeDTO newNotice = new NoticeDTO();
 		newNotice.setTitle(title);
 		newNotice.setContent(content);
-		newNotice.setId("test");  //로그인된 아이디로 변경
+		newNotice.setId(id);  //로그인된 아이디로 변경
 		
 		NoticeService noticeService = new NoticeService();
 		int result = noticeService.insertNotice(newNotice);

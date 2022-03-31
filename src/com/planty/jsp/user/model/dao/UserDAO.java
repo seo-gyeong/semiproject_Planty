@@ -36,7 +36,7 @@ public class UserDAO {
 	
 //	회원 정보 수정 후 조회 메소드
 	public UserDTO selectChangedInfo(SqlSession session, String id) {
-		return session.selectOne("UserDAO.selectChangedUserInfo", id);
+		return session.selectOne("UserDAO.selectChangedInfo", id);
 	}
 //	비밀번호 수정용 메소드
 	public int updatePwd(SqlSession session, UserDTO requestUser) {
