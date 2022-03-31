@@ -186,10 +186,6 @@ package com.planty.jsp.user.model.dto;
 			this.approval = approval;
 		}
 
-<<<<<<< HEAD
-	
-		
-=======
 
 		public AuthDTO getAuth() {
 			return auth;
@@ -200,8 +196,6 @@ package com.planty.jsp.user.model.dto;
 			this.auth = auth;
 		}
 
-
->>>>>>> refs/heads/master
 		@Override
 		public String toString() {
 			return "UserDTO [id=" + id + ", authNo=" + authNo + ", pwd=" + pwd + ", address=" + address
