@@ -8,17 +8,6 @@
 		<id property="ordNo" column="ORD_NO"/>
 		<result property="amount" column="AMOUNT"/>
 		
-		<association property="product" resultMap="productResultMap"></association>
-		<association property="orderDetail" resultMap="orderDetailResultMap"/>
-	</resultMap>
-	
-	<resultMap type="com.planty.jsp.product.model.dto.ProductDTO" id="productResultMap">
-		<id property="pro_no" column="PRO_NO"/>
-		<result property="cate_no" column="CATE_NO"/>
-		<result property="par_id" column="ID"/>
-		<result property="pro_name" column="PRO_NAME"/>
-		<result property="pro_price" column="PRO_PRICE"/>
-		<result property="pro_content" column="PRO_CONTENT"/>
 	</resultMap>
 	
 	<resultMap type="com.planty.jsp.order.model.dto.OrderDetailDTO" id="orderDetailResultMap">
