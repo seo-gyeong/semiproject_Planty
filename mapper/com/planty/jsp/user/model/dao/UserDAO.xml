@@ -19,7 +19,7 @@
 		<result property="ceoName" column="CEO_NAME"/>
 		<result property="reqNo" column="REQ_NO"/>
 		<result property="approval" column="APPROVAL"/>	
-		
+		 
 		<association property="auth" resultMap="authResultMap"/>
 	
 	</resultMap>

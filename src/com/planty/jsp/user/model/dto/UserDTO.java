@@ -3,7 +3,7 @@ package com.planty.jsp.user.model.dto;
 	import java.sql.Date;
 
 	public class UserDTO {
-		
+		 
 		private String id;
 		private int authNo;
 		private String pwd;
