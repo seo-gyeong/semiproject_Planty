@@ -25,10 +25,9 @@ html,body{ height: 100%; }
 #wrap > #main_lnb {
     float: left;
     width: 300px;
-    /* background: #0995; */
 }
 
-#main_lnb > h4 > a {
+#main_lnb > h4 > a{
     display: block;
     height: 50px;
     margin-top: 20px;
@@ -70,7 +69,7 @@ html,body{ height: 100%; }
     padding: 5px;
 }
 
-#main_lnb .menu1 .submenu .current {
+#main_lnb .menu .submenu .current {
     color: #249798; 
 }
 
@@ -79,13 +78,6 @@ html,body{ height: 100%; }
     font-family: 'Noto Sans KR', sans-serif;
 }
 
-.menu2 .submenu {
-    display: none;
-}
-
-.menu2:hover > .submenu {
-    display: block;
-}
 
 /* 내용 ---------------------------------------------------------------*/
 #wrap > #content_wrap {

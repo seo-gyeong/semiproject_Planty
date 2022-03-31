@@ -16,6 +16,9 @@
 		<association property="category" resultMap="categoryResultMap"/>
 	</resultMap>
 
+
+
+
 	<insert id="insertProductContent" >
 	        INSERT /* com.planty.jsp.product.model.dao.ProductDAO#insertProductContent() */
 	          INTO PRODUCT 
@@ -69,6 +72,8 @@
         </if>
         )
 	</insert>
+		
+
 		
 		
 		

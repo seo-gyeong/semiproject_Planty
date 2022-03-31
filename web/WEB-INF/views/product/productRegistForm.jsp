@@ -11,7 +11,7 @@
     <!--  구글 웹폰트 -->
     <link href="https://fonts.googleapis.com/css2?family=Festive&family=Noto+Sans+KR&family=Roboto&display=swap" rel="stylesheet">
     <!--  외부 스타일 시트 -->
-    <link href="${ pageContext.servletContext.contextPath }/resources/css/style_pro_regiModi.css" rel="stylesheet" type="text/css" ></head>
+    <link href="${ pageContext.servletContext.contextPath }/resources/css/style_pro_regist.css" rel="stylesheet" type="text/css" ></head>
 
 <body>
     <header id="main_header">
@@ -21,15 +21,13 @@
     
     <div id="wrap">
         <nav id="main_lnb">
-            <h4><a href="${ pageContext.servletContext.contextPath }/partner/mypage">MY PAGE</a></h4>
+            <h4><a href="./mp_main.html">MY PAGE</a></h4>
             <ul>
                 <li class="menu"><a href="${ pageContext.servletContext.contextPath }/product/regist">상품 관리</a>
                     <ul class="submenu">
-                        <li><a href="${ pageContext.servletContext.contextPath }/product/regist">상품 등록</a></li>
-                        <li><a href="${ pageContext.servletContext.contextPath }/product/search">상품 조회</a></li>
+                        <li><a class="current" href="${ pageContext.servletContext.contextPath }/product/regist">상품 등록</a></li>
                     </ul>
                 </li>
-                <li class="menu"><a href="${ pageContext.servletContext.contextPath }/qna/list">Q&A 관리</a></li>
                 <li class="menu"><a href="./mp_qna_searchAll.html">Logout</a></li>
             </ul>
         </nav>

@@ -155,7 +155,7 @@ public class productRegistServlet extends HttpServlet {
 				System.out.println("parameter : " + parameter);
 				System.out.println("fileList : " + fileList);
 				
-				/* 서비스를 요청할 수 있도록 BoardDTO에 담는다. */
+				/* 서비스를 요청할 수 있도록 ProductDTO에 담는다. */
 				ProductDTO product = new ProductDTO();
 				product.setCateNo(Integer.parseInt(parameter.get("category")));
 				product.setProName(parameter.get("proName"));
