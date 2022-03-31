@@ -8,7 +8,7 @@
 		<result property="authNo" column="AUTH_NO"/>
 		<result property="pwd" column="PWD"/>
 		<result property="address" column="ADDRESS"/>
-		<result property="addrDetail" column="ADDRESS_DETAIL"/>
+		<result property="addrDetail" column="ADDR_DETAIL"/>
 		<result property="zipcode" column="ZIPCODE"/>
 		<result property="name" column="NAME"/>
 		<result property="phone" column="PHONE"/>
@@ -170,5 +170,5 @@
 	</select>
 	
 
-	
 </mapper>
+
