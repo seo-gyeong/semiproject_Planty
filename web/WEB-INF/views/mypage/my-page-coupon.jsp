@@ -26,72 +26,7 @@
 </head>
 <body>
        <!-- header -->
-    <header class="menu1">
-        <div class="back">
-            <div class="nav-bar">
-                <div class="navbar-left">
-    
-                    <div class="dropdown">
-                        <a href="../page/ABOUT US.html" class="dropbtn">ABOUT US</a>
-                    </div>
-    
-                    <div class="dropdown">
-                        <button class="dropbtn">SHOP</button>
-                        <div class="dropdown-content">
-                            <a href="#">ALL</a>
-                            <a href="#">FUNCTION</a>
-                            <a href="#">PLACE</a>
-                            <a href="#">FOR ANIMALS</a>
-                        </div>
-                    </div>
-    
-                    <div class="dropdown">
-                        <button class="dropbtn">CUSTOMER</button>
-                        <div class="dropdown-content">
-                            <a href="#">NOTICE</a>
-                            <a href="../page/FAQ.html">FAQ</a>
-                        </div>
-                    </div>
-    
-                </div>
-                <div class="navbar-center">
-                    <a href="../page/ABOUT US.html"><img class="image" src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png"></a>
-                </div>
-    
-                <div class="navbar-right">
-                    <ul>
-                        <li><a href="${ pageContext.servletContext.contextPath }/user/regist"> <img class="icon" onClick="mypage_check();"
-                                    src="${ pageContext.servletContext.contextPath }/resources/image/my.png"></a></li>
-                        <li><a href="${ pageContext.servletContext.contextPath }/user/regist"> <img class="icon" onClick="mypage_check();"
-                                    src="${ pageContext.servletContext.contextPath }/resources/image/cart.png"></a></li>
-                    </ul>
-                    
-    
-                </div>
-            </div>
-        </div>
-        <script>
-                function mypage() {
-            		let signIn = ""
-		            if (signIn == "") {
-		                alert("해당 페이지는 로그인 후 사용하실 수 있습니다.");
-		                location.href = "LOG IN.html";
-		            } else {
-		                location.href = "mypage.html";
-		            }
-		        }
-
-		        function cart() {
-		            let signIn = ""
-		            if (signIn == "") {
-		                alert("해당 페이지는 로그인 후 사용하실 수 있습니다.");
-		                location.href = "LOG IN.html";
-		            } else {
-		                location.href = "cart.html";
-		            }
-		        }
-    	</script>
-    </header>
+       <jsp:include page="../common/menubar.jsp"/>
 
             <div class="title-ar">
                 쿠폰 조회
@@ -179,16 +114,16 @@
             <jsp:include page="../common/paging.jsp"/>
 
             <div class="quickmenu">
-                <ul>
-                    <li id="quickmenu"><a style="color: white;">퀵메뉴</a></li>
-                    <li><a href="my-page-order.html">주문조회</a></li>
-                    <li><a href="my-page-wish.html">찜한상품</a></li>
-                    <li><a href="JOIN-modify.html">회원정보</a></li>
-                    <li><a href="my-page-qna.html">상품문의</a></li>
-                    <li><a href="my-page-review.html">리뷰조회</a></li>
-                    <li><a href="my-page-coupon.html">쿠폰조회</a></li>
-                  </ul>
-            </div>
+			<ul>
+				<li id="quickmenu"><a style="color: white;">퀵메뉴</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/order">주문조회</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/wish">찜한상품</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/user/modify">회원정보</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/qna">상품문의</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰조회</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/coupon">쿠폰조회</a></li>
+			</ul>
+		</div>
             <script>
             //     $(document).ready(function(){
             //     var currentPosition = parseInt($(".quickmenu").css("top"));

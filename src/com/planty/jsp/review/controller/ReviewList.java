@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.planty.jsp.review.model.dto.ReviewDTO;
 import com.planty.jsp.review.model.service.ReviewService;
+import com.planty.jsp.user.model.dto.UserDTO;
 
 
 @WebServlet("/review/list")
@@ -20,22 +21,18 @@ public class ReviewList extends HttpServlet {
 	
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		String id = ((UserDTO)request.getSession().getAttribute("loginUser")).getId();
+		
 		ReviewService ReviewService = new ReviewService();
 		
-		List<ReviewDTO> reviewList = ReviewService.selectReviewList();
+		List<ReviewDTO> reviewList = ReviewService.selectReviewList(id);
 		
 		for(ReviewDTO review : reviewList) {
 			System.out.println(review);
 		}
 		
 		
-		Map ratingOptions = new HashMap();
-		ratingOptions.put(1, "★");
-		ratingOptions.put(2, "★★");
-		ratingOptions.put(3, "★★★");
-		ratingOptions.put(4, "★★★★");
-		ratingOptions.put(5, "★★★★★");
-		request.setAttribute("ratingOptions", ratingOptions);
 		
 		String path = "";
 		if(reviewList != null) {
