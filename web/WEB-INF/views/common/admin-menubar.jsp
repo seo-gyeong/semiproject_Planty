@@ -28,7 +28,7 @@
             <a class="nav-link collapsed" href="#">
               쿠폰
             </a>
-            <a class="nav-link collapsed" href="#">
+            <a class="nav-link collapsed" href="${ pageContext.servletContext.contextPath }/notice/list">
               공지사항
             </a>
 
