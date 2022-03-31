@@ -1,6 +1,6 @@
 package com.planty.jsp.customercare.notice.model.dto;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class NoticeDTO {
 

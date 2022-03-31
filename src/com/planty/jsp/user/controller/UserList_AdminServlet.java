@@ -19,6 +19,7 @@ public class UserList_AdminServlet extends HttpServlet {
 		
 		List<UserDTO> userList = new UserService().selectAllUserList();
 		
+		System.out.println(userList);
 		String path = "";
 		if(userList != null) {
 			path = "/WEB-INF/views/user/userList_admin.jsp";
