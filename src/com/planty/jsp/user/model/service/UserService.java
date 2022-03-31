@@ -42,7 +42,7 @@ public class UserService {
 	
 		return result;
 	}                                  
-  
+
   public UserDTO loginCheck(UserDTO requestUser) {
 		SqlSession session = getSqlSession();
 		UserDTO loginUser = null;
@@ -60,7 +60,7 @@ public class UserService {
 		return loginUser;
 	}
      
-
+  
 	public String findId (UserDTO requestUser) {
 
 		SqlSession session = getSqlSession();

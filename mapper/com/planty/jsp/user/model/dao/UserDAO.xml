@@ -96,15 +96,13 @@
 		     , ZIPCODE = #{ zipcode }
 		     , PHONE = #{ phone }
 		     , EMAIL = #{ email }
-		     , TEXT_YN = #{ textYn }
 		 WHERE ID = #{ id }
 	</update>
 	
 	<select id="selectChangedInfo" resultMap="userResultMap">
 		SELECT /* com.planty.jsp.user.model.dao.UserDAO#selectChangedUserInfo() */
-			   ID
+		       ID
 	         , AUTH_NO
-	         , PWD
 	         , ADDRESS
 	         , ADDR_DETAIL
 	         , ZIPCODE

@@ -25,8 +25,7 @@ public class UserModifyServlet extends HttpServlet {
 	/* 정보 수정 폼을 작성 후 post 요청을 할 경우 처리하는 역할 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		//------------------------ 합친 다음 수정!!!!
-		String id = ((HttpSession)request.getSession().getAttribute("loginUser")).getId();
+		String id = request.getParameter("id");
 		String name = request.getParameter("name");
 		String phone = request.getParameter("phone");
 		String email = request.getParameter("email");
@@ -57,7 +56,7 @@ public class UserModifyServlet extends HttpServlet {
 			request.setAttribute("successCode", "updateUser");
 		} else {
 			page = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "회원 비밀번호 수정 실패!");
+			request.setAttribute("message", "회원 정보 수정 실패!");
 		}
 		
 		request.getRequestDispatcher(page).forward(request, response);

@@ -17,9 +17,9 @@ public class UserRemoveServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		UserDTO loginMember = (UserDTO)request.getSession().getAttribute("loginMember");
+		UserDTO loginUser = (UserDTO)request.getSession().getAttribute("loginUser");
 
-		String id = loginMember.getId();
+		String id = loginUser.getId();
 		
 		int result = new UserService().removeUser(id);
 		
