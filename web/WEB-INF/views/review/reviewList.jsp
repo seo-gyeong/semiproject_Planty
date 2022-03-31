@@ -122,7 +122,7 @@
 
 		<div class="quickmenu">
 			<ul>
-				<li id="quickmenu"><a href="${ pageContext.servletContext.contextPath }/mypage/intro" style="color: white;">퀵메뉴</a></li>
+				<li id="quickmenu"><a href="${ pageContext.servletContext.contextPath }/mypage/intro" style="color: white;">마이페이지</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/mypage/order">주문조회</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/mypage/wish">찜한상품</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/user/modify">회원정보</a></li>
@@ -135,14 +135,11 @@
 		<br>
 
 	<!-- ------미작성 리뷰 조회 섹션 ------- -->
-
- 	<div class="title-ar">미작성 리뷰 조회</div>
-
+	<div class="title-ar">미작성 리뷰 조회</div>
 	<table class="order-table" summary>
 		<colgroup>
 			<col style="width: 200px">
 			<col style="width: 200px">
-			<col style="width: 125px">
 			<col style="width: auto">
 			<col style="width: 135px">
 			<col style="width: 200px">
@@ -151,38 +148,28 @@
 			<tr>
 				<th scope="col">주문번호</th>
 				<th scope="col">주문일자</th>
-				<th scope="col">이미지</th>
 				<th scope="col">상품정보</th>
 				<th scope="col">주문금액(수량)</th>
 				<th scope="col">선택</th>
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="order" items="${ orderList }">
 				<tr>
-					<td class="no"><a href="" class="line">${ order.ordNo }</a></td>
+					<td class="no"><a href="" class="line">22040101</a></td>
 					<td class="date">
 						<p>
-						<p>${ order.orderDetail.ordDate }</p>
+						<p>2022-04-01</p>
 						</p>
-					</td>
-					<td>
-						<div class="rev-thumb">
-							<a href=""> <img
-								src="../mystyle/image/josephine-lityo-unsplash-lavender_proIMG.jpg"
-								alt="product_thumbnail" width="100%" height="100%">
-							</a>
-						</div>
 					</td>
 					<td class="product left">
 
 						<p>
-							<a class="pro-name" href="">${ order.product.pro_name }</a>
+							<a class="pro-name" href="">몬스테라</a>
 						</p>
 					</td>
 					<td>
-						<p class="amount">${ order.product.pro_price }원</p>
-						<p class="number">${ order.amount }개</p>
+						<p class="amount">34800원</p>
+						<p class="number">2개</p>
 					</td>
 					<td class="rev-option2">
 						<div>
@@ -194,10 +181,9 @@
 					</td>
 
 				</tr>
-			</c:forEach>
 		</tbody>
 	</table>
- 
+
 
 
 		<footer>

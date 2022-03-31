@@ -137,7 +137,7 @@
 					<!-- thumbnail할땐 이거 반드시 작성 -->
 					<div id="rv-content">
 						<div class="rv-title">주문 상품</div>
-						<div>${ product.productName }</div>
+						<div>몬스테라</div>
 						<div class="rv-title">상품 만족도</div>
 						<div class="input_area score-area">
 							<label name="score"></label>
@@ -175,8 +175,8 @@
 						<div class="image_area"></div>
 						<div class="rv-img-input">
 							<input type="file" name="contentImg1"
-								accept="image/gif,image/jpeg,image/png"> <input
-								type="file" name="contentImg2"
+								accept="image/gif,image/jpeg,image/png"> 
+							<input type="file" name="contentImg2"
 								accept="image/gif,image/jpeg,image/png">
 						</div>
 					</div>
@@ -192,7 +192,7 @@
 		</div>
 		<div class="quickmenu">
 			<ul>
-				<li id="quickmenu"><a href="${ pageContext.servletContext.contextPath }/mypage/intro" style="color: white;">퀵메뉴</a></li>
+				<li id="quickmenu"><a href="${ pageContext.servletContext.contextPath }/mypage/intro" style="color: white;">마이페이지</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/mypage/order">주문조회</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/mypage/wish">찜한상품</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/user/modify">회원정보</a></li>

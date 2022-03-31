@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .menu1{
     font-family: 'Roboto', sans-serif;
   }
@@ -662,9 +663,6 @@ caption {
 	border-bottom: 1px solid #e5e5e5;
 }
 
-.img_area {
-	
-}
 
 /* --------------------------------------------- */
 /* review-insert.html */

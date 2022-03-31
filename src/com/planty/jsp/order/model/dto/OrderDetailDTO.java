@@ -136,14 +136,6 @@ public class OrderDetailDTO {
 		this.ordDevNo = ordDevNo;
 	}
 
-	@Override
-	public String toString() {
-		return "OrderDetailDTO [ordNo=" + ordNo + ", id=" + id + ", recName=" + recName + ", recAddress=" + recAddress
-				+ ", recPhone=" + recPhone + ", recZipCode=" + recZipCode + ", recReq=" + recReq + ", ordPrice="
-				+ ordPrice + ", ordDate=" + ordDate + ", ordState=" + ordState + ", ordDelivery=" + ordDelivery
-				+ ", ordDevNo=" + ordDevNo + "]";
-	}
-
 	
 	
 	

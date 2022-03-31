@@ -96,6 +96,7 @@
              , B.ATTACHMENT_NO
              , B.ORG_NAME
              , B.SAVED_NAME
+             , B.FILE_TYPE
              , B.SAVE_PATH
              , B.THUM_PATH
              , D.PRO_NAME
@@ -105,9 +106,8 @@
           JOIN ORDER_P C ON (A.ORD_NO = C.ORD_NO)
           JOIN PRODUCT D ON (C.PRO_NO = D.PRO_NO)
           JOIN ORDER_DETAIL E ON (C.ORD_NO = E.ORD_NO)
-         WHERE B.FILE_TYPE = 'THUM'
-           AND A.ID = #{ id }
-         ORDER BY A.REVIEW_NO DESC
+         WHERE A.ID = #{ id }
+         ORDER BY A.REVIEW_NO DESC, B.FILE_TYPE DESC
 	</select>
 	
 	<insert id="insertReview" >

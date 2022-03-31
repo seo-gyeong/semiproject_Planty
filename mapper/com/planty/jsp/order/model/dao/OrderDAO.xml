@@ -46,6 +46,8 @@
              , B.PRO_NAME
              , B.PRO_PRICE
              , C.ORD_DATE
+             , C.ORD_STATE
+             , C.ORD_DELIVERY
           FROM ORDER_P A
           JOIN PRODUCT B ON (A.PRO_NO = B.PRO_NO)
           JOIN ORDER_DETAIL C ON (A.ORD_NO = C.ORD_NO)

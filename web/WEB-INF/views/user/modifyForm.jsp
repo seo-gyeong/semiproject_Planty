@@ -152,7 +152,7 @@
 
 	<div class="quickmenu">
 		<ul>
-			<li id="quickmenu"><a style="color: white;">퀵메뉴</a></li>
+			<li id="quickmenu"><a style="color: white;">마이페이지</a></li>
 			<li><a
 				href="${ pageContext.servletContext.contextPath }/mypage/order">주문조회</a></li>
 			<li><a

@@ -114,7 +114,7 @@
 
             <div class="quickmenu">
 			<ul>
-				<li id="quickmenu"><a href="${ pageContext.servletContext.contextPath }/mypage/intro" style="color: white;">퀵메뉴</a></li>
+				<li id="quickmenu"><a href="${ pageContext.servletContext.contextPath }/mypage/intro" style="color: white;">마이페이지</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/mypage/order">주문조회</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/mypage/wish">찜한상품</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/user/modify">회원정보</a></li>
