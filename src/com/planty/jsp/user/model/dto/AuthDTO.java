@@ -2,6 +2,7 @@ package com.planty.jsp.user.model.dto;
 
 public class AuthDTO {
 
+	
 	private int authNo;
 	private String authName;
 	

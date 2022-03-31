@@ -30,7 +30,7 @@
 	</resultMap>
 		
 		
-	<!-- 일반회원 회원 가입 -->
+	<!-- 일반회원 회원 가입-->
 	<insert id="insertUser" parameterType="com.planty.jsp.user.model.dto.UserDTO">
         INSERT /* com.planty.jsp.user.model.dao.UserDAO#insertUser() */
           INTO MEMBER 
