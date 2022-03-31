@@ -23,10 +23,7 @@
 	
 <mappers>
 	<mapper resource="com/planty/jsp/user/model/dao/UserDAO.xml"/>
-
-   	<mapper resource="com/planty/jsp/customercare/notice/model/dao/NoticeDAO.xml"/>
-   	<mapper resource="com/planty/jsp/review/model/dao/ReviewDAO.xml"/>
-    <mapper resource="com/planty/jsp/review/model/dao/ReviewDAO.xml"/>
+    	<mapper resource="com/planty/jsp/customercare/notice/model/dao/NoticeDAO.xml"/>
 </mappers>
 	
 	
