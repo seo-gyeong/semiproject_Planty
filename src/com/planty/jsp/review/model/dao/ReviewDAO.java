@@ -38,8 +38,8 @@ public class ReviewDAO {
 	}
 
 
-	public ReviewDTO selectOneReview(SqlSession session, int no) {
+	public ReviewDTO selectOneReview(SqlSession session, int pro_no) {
 
-		return session.selectOne("ReviewDAO.selectOneReview", no);
+		return session.selectOne("ReviewDAO.selectProductReview", pro_no);
 	}
 }

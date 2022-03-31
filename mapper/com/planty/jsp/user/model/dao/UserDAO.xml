@@ -10,7 +10,6 @@
 		<result property="address" column="ADDRESS"/>
 		<result property="addrDetail" column="ADDRESS_DETAIL"/>
 		<result property="zipcode" column="ZIPCODE"/>
-		<result property="name" column="NAME"/>
 		<result property="phone" column="PHONE"/>
 		<result property="email" column="EMAIL"/>
 		<result property="textYn" column="TEXT_YN"/>

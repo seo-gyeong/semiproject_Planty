@@ -28,6 +28,11 @@ public class CategoryDTO {
 	public void setCate_a(String cate_a) {
 		this.cate_a = cate_a;
 	}
+
+	@Override
+	public String toString() {
+		return "CategoryDTO [cate_no=" + cate_no + ", cate_a=" + cate_a + "]";
+	}
 	
 	
 	

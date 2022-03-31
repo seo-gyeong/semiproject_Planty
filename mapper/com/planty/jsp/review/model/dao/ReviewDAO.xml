@@ -179,4 +179,5 @@
           JOIN ATTACHMENT B ON (A.REVIEW_NO = B.REVIEW_NO)
          WHERE A.REVIEW_NO = #{ no }
 	</select>
+	
 </mapper>

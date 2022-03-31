@@ -68,6 +68,12 @@ public class AttachmentDTO {
 	public void setThum_file(String thum_file) {
 		this.thum_file = thum_file;
 	}
+
+	@Override
+	public String toString() {
+		return "AttachmentDTO [img_no=" + img_no + ", pro_no=" + pro_no + ", p_path=" + p_path + ", file_name="
+				+ file_name + ", ser_file=" + ser_file + ", thum_file=" + thum_file + "]";
+	}
 	
 	
 	
