@@ -111,7 +111,7 @@
 
             </div>
 
-            <jsp:include page="../common/paging.jsp"/>
+           
 
             <div class="quickmenu">
 			<ul>
