@@ -162,17 +162,18 @@ public class productRegistServlet extends HttpServlet {
 				product.setProName(parameter.get("proName"));
 				product.setProPrice(Integer.parseInt(parameter.get("proPrice")));
 //				product.setWriterMemberNo(((UserDTO) request.getSession().getAttribute("loginMember")).getNo());
-				product.setId("qwer123");								
+				product.setId("id");								
 				product.setImgList(new ArrayList<ProductImgDTO>());
+				
 				List<ProductImgDTO> list = product.getImgList();
 				for(int i = 0; i < fileList.size(); i++) {
 					Map<String, String> file = fileList.get(i);
 					
 					ProductImgDTO tempFileInfo = new ProductImgDTO();
-					tempFileInfo.setFileName(file.get("originFileName"));
-					tempFileInfo.setSerFile(file.get("savedFileName"));
-					tempFileInfo.setProPath(file.get("savePath"));
-					tempFileInfo.setThumFile(file.get("thumbnailPath"));
+					tempFileInfo.setFileName(file.get("proPath"));
+					tempFileInfo.setSerFile(file.get("fileName"));
+					tempFileInfo.setProPath(file.get("serFile"));
+					tempFileInfo.setThumFile(file.get("thumFile"));
 					
 					list.add(tempFileInfo);
 				}
