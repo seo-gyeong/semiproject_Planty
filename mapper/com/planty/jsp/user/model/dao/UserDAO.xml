@@ -19,7 +19,14 @@
 		<result property="ceoName" column="CEO_NAME"/>
 		<result property="reqNo" column="REQ_NO"/>
 		<result property="approval" column="APPROVAL"/>	
+		
+		<association property="auth" resultMap="authResultMap"/>
 	
+	</resultMap>
+	
+	<resultMap type="com.planty.jsp.user.model.dto.AuthDTO" id="authResultMap">
+		<id property="authNo" column="AUTH_NO"/>
+		<result property="authName" column="AUTH_NAME"/>
 	</resultMap>
 		
 		
@@ -132,16 +139,16 @@
 	<!-- 회원 조회(관리자) -->
 	<select id="selectAllUserList" resultMap="userResultMap">
 	SELECT
-			AUTH_NO
-		  , ID
-		  , NAME
-		  , EMAIL
-		  , PHONE
-      FROM MEMBER
-      
-		</select>
+			A.AUTH_NAME
+		  , M.ID
+		  , M.NAME
+		  , M.EMAIL
+		  , M.PHONE
+      FROM MEMBER M
+      JOIN AUTHORITY A ON (A.AUTH_NO = M.AUTH_NO)      
+	</select>
 	
-		<select id="findId" resultMap="userResultMap">
+	<select id="findId" resultMap="userResultMap">
 		SELECT 
 			   ID
 		 FROM MEMBER 
