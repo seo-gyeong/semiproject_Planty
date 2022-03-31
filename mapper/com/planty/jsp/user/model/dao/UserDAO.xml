@@ -141,7 +141,7 @@
       
 		</select>
 	
-		<select id="findId" resultMap="userResultMap">
+	<select id="findId" resultType="string">
 		SELECT 
 			   ID
 		 FROM MEMBER 
@@ -151,15 +151,24 @@
 	</select>
 	
 	
-	<select id="findPwd" resultMap="userResultMap">
+	<select id="findUser" resultMap="userResultMap">
 		SELECT 
-				*
+			   ID
+	         , AUTH_NO
+	         , PWD
+	         , ADDRESS
+	         , ADDR_DETAIL
+	         , ZIPCODE
+	         , PHONE
+	         , EMAIL
+	         , TEXT_YN
+	         , ENROLL_DATE
+	         , NAME
 		 FROM MEMBER 
 		 WHERE ID = #{ id } 
 		 AND EMAIL = #{email}
-		<if test="regNo != null and regNo != ''">
-			AND REG_NO = #{ regNo }
-		</if>
 	</select>
+	
+
 	
 </mapper>
