@@ -90,12 +90,11 @@
 						<div class="toc-content" style="display:none;">
 							<div class="content">
 								<div class="image_area">
-									<c:forEach items="${ review.attachmentList }"
-										var="attachment">
+									<c:forEach items="${ review.attachmentList }" var="attachment">
 										<div class="photoList">
-											<%-- <img
-												src="${ pageContext.servletContext.contextPath }${ review.attachmentList.savePath }${ review.attachmentList.savedName }">
-											<p>${ attachmentList.orgName }</p> --%>
+											<img
+												src="${ pageContext.servletContext.contextPath }${ attachment.savePath }${ attachment.savedName }">
+											<p>${ attachment.orgName }</p>
 										</div>
 									</c:forEach>
 								</div>
@@ -123,7 +122,7 @@
 
 		<div class="quickmenu">
 			<ul>
-				<li id="quickmenu"><a style="color: white;">퀵메뉴</a></li>
+				<li id="quickmenu"><a href="${ pageContext.servletContext.contextPath }/mypage/intro" style="color: white;">마이페이지</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/mypage/order">주문조회</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/mypage/wish">찜한상품</a></li>
 				<li><a href="${ pageContext.servletContext.contextPath }/user/modify">회원정보</a></li>
@@ -135,7 +134,56 @@
 		<br>
 		<br>
 
-	<jsp:include page="../order/orderView.jsp" />
+	<!-- ------미작성 리뷰 조회 섹션 ------- -->
+	<div class="title-ar">미작성 리뷰 조회</div>
+	<table class="order-table" summary>
+		<colgroup>
+			<col style="width: 200px">
+			<col style="width: 200px">
+			<col style="width: auto">
+			<col style="width: 135px">
+			<col style="width: 200px">
+		</colgroup>
+		<thead>
+			<tr>
+				<th scope="col">주문번호</th>
+				<th scope="col">주문일자</th>
+				<th scope="col">상품정보</th>
+				<th scope="col">주문금액(수량)</th>
+				<th scope="col">선택</th>
+			</tr>
+		</thead>
+		<tbody>
+				<tr>
+					<td class="no"><a href="" class="line">22040101</a></td>
+					<td class="date">
+						<p>
+						<p>2022-04-01</p>
+						</p>
+					</td>
+					<td class="product left">
+
+						<p>
+							<a class="pro-name" href="">몬스테라</a>
+						</p>
+					</td>
+					<td>
+						<p class="amount">34800원</p>
+						<p class="number">2개</p>
+					</td>
+					<td class="rev-option2">
+						<div>
+							<form method="get"
+								action="${ pageContext.servletContext.contextPath }/review/insert">
+								<button type="submit" class="order-btn">작성</button>
+							</form>
+						</div>
+					</td>
+
+				</tr>
+		</tbody>
+	</table>
+
 
 
 		<footer>

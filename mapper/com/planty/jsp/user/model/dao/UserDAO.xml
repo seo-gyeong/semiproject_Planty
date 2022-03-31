@@ -122,9 +122,8 @@
 		 WHERE ID = #{ id }
 	</select>
 	
-	<update id="updatePassword">
-		UPDATE /* com.planty.jsp.user.model.dao.UserDAO#updateUserPassword() */
-		       MEMBER
+	<update id="updatePwd">
+		UPDATE MEMBER
 		   SET PWD = #{ pwd }
 		 WHERE ID = #{ id }
 	</update>

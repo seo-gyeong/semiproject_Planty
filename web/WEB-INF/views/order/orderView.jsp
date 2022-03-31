@@ -43,57 +43,69 @@
 <body>
 
 
-    <!-- ------미작성 리뷰 조회 섹션 ------- -->
+	<!-- ------미작성 리뷰 조회 섹션 ------- -->
 
-    <div class="title-ar">미작성 리뷰 조회</div>
+	<div class="title-ar">미작성 리뷰 조회</div>
 
-        <div class="board_list">
-            <ul class="board_header">
-                <li class="ord-no">주문번호</li>
-                <li class="ord-date">주문일자</li>
-                <li class="ord-img">이미지</li>
-                <li class="ord-info">상품정보</li>
-                <li class="ord-sum">주문금액(수량)</li>
-                <li class="ord-selection">선택</li>
-            </ul>
+	<table class="order-table" summary>
+		<colgroup>
+			<col style="width: 200px">
+			<col style="width: 200px">
+			<col style="width: 125px">
+			<col style="width: auto">
+			<col style="width: 135px">
+			<col style="width: 200px">
+		</colgroup>
+		<thead>
+			<tr>
+				<th scope="col">주문번호</th>
+				<th scope="col">주문일자</th>
+				<th scope="col">이미지</th>
+				<th scope="col">상품정보</th>
+				<th scope="col">주문금액(수량)</th>
+				<th scope="col">선택</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="order" items="${ orderList }">
+				<tr>
+					<td class="no"><a href="" class="line">${ order.ordNo }</a></td>
+					<td class="date">
+						<p>
+						<p>${ order.orderDetail.ordDate }</p>
+						</p>
+					</td>
+					<td>
+						<div class="rev-thumb">
+							<a href=""> <img
+								src="../mystyle/image/josephine-lityo-unsplash-lavender_proIMG.jpg"
+								alt="product_thumbnail" width="100%" height="100%">
+							</a>
+						</div>
+					</td>
+					<td class="product left">
 
-            <div class="board_list">
-              <c:forEach var="order" items="${ orderList }">
-                <ul class="board_ul">
-                    <li class="ord-no">
-                        <a href="" class="line">${ order.ordNo }</a>
-                    </li>
-                    <li class="ord-date">
-                        ${ order.orderDetail.ordDate }
-                    </li>
-                    <li class="ord-img">
-                        <div class="thumb">
-                            <a href=""> <img
-                                    src="${ pageContext.servletContext.contextPath }${ order.attachmentList[0].thumPath }"
-                                    alt="product_thumbnail" width="100%" height="100%">
-                            </a>
-                        </div>
-                    </li>
-                    <li class="ord-info left">
-                        <div class="pro-name">${ order.product.pro_name }</div>
-                    </li>
-                    <li class="ord-sum">
-                        <div class="amount">${ order.product.pro_price }</div>
-                        <div class="number">${ order.amount }</div>
-                    </li>
-                    <li class="ord-selection rev-option2">
-                        <div>
-                            <form method="get" action="${ pageContext.servletContext.contextPath }/review/insert">
-                                <button type="submit" class="order-btn">작성</button>
-                            </form>
-                        </div>
-                    </li>
+						<p>
+							<a class="pro-name" href="">${ order.product.pro_name }</a>
+						</p>
+					</td>
+					<td>
+						<p class="amount">${ order.product.pro_price }원</p>
+						<p class="number">${ order.amount }개</p>
+					</td>
+					<td class="rev-option2">
+						<div>
+							<form method="get"
+								action="${ pageContext.servletContext.contextPath }/review/insert">
+								<button type="submit" class="order-btn">작성</button>
+							</form>
+						</div>
+					</td>
 
-
-                </ul>
-               </c:forEach>
-            </div>
-        </div>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
 
 
 

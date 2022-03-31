@@ -60,7 +60,7 @@
                
                <c:if test="${ !empty sessionScope.loginUser }">
                 <a href="${ pageContext.servletContext.contextPath }/user/logout"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/logout.png"></a></li>
-			  	<a href="${ pageContext.servletContext.contextPath }/mypage"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/my.png"></a></li>
+			  	<a href="${ pageContext.servletContext.contextPath }/mypage/intro"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/my.png"></a></li>
               	<a href="${ pageContext.servletContext.contextPath }/cart"> <img class="icon"  src="${ pageContext.servletContext.contextPath }/resources/image/cart.png"></a></li>
                </c:if>
                
