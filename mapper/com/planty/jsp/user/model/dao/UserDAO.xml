@@ -145,7 +145,8 @@
 		  , M.EMAIL
 		  , M.PHONE
       FROM MEMBER M
-      JOIN AUTHORITY A ON (A.AUTH_NO = M.AUTH_NO)      
+      JOIN AUTHORITY A ON (A.AUTH_NO = M.AUTH_NO)    
+     WHERE M.AUTH_NO != 3  
 	</select>
 	
 	<select id="findId" resultMap="userResultMap">
