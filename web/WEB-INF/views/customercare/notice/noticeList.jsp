@@ -8,13 +8,13 @@
 <title>공지사항</title>
 <style>
 	.outer {
-		width : 800px;
+		width : 1000px;
 		margin : auto;
 	}
 	
 	.wrap {
-		width : 780px;
-		margin : 100px auto;
+		width : 900px;
+		margin-left : 150px;
 	}
 	
 	ul, li {
@@ -49,7 +49,7 @@
 	}
 	
 	.notice_list .no {
-		width:100px;
+		width:30px;
 	}
 	
 	.notice_list .title {
@@ -99,7 +99,7 @@
 		outline:none;
 	}
 	
-	.search_area button {
+	/* .search_area button {
 		width : 100px;
 		height : 35px;
 		border : 0px;
@@ -107,7 +107,7 @@
 		background:#282A35;
 		margin : 5px;
 		cursor : pointer;
-	}
+	} */
 </style>
 </head>
 <body>
@@ -117,7 +117,8 @@
 	<div class="wrap">
 		<div class="notice_area">
 			<div class="notice_title">
-				<h1>공지사항</h1>
+				<br><br>
+				<h4>공지사항</h4>
 			</div>
 			<div class="notice_list">
 			<c:forEach var="n" items="${ noticeList }">
@@ -141,9 +142,9 @@
 				<span class="input_area">
 				<input type="search" name="searchValue">
 				</span>
-				<button type="submit">검색하기</button>
+				<button type="submit" class="btn btn-secondary">검색하기</button>
 				<%-- <c:if test="${ sessionScope.loginMember.role eq 'ADMIN' }"> --%>
-					<button id="noticeInsert" type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/notice/insert'">작성하기</button>
+				<button id="noticeInsert" class="btn btn-secondary" type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/notice/insert'">작성하기</button>
 				<%-- </c:if> --%>
 			</form>
 		</div>
