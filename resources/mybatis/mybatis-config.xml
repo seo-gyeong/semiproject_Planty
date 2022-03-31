@@ -20,7 +20,7 @@
 	</environments>
 	
 <mappers>
-	<mapper resource="com/planty/jsp/user/model/dao/UserDAO.xml"/>
+	
     <mapper resource="com/planty/jsp/customercare/notice/model/dao/NoticeDAO.xml"/>    	
     <mapper resource="com/planty/jsp/product/model/dao/ProductDAO.xml"/>
 </mappers>

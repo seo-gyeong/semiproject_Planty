@@ -2,14 +2,10 @@ package com.planty.jsp.product.model.service;
 
 import static com.planty.jsp.common.mybatis.Template.getSqlSession;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.planty.jsp.common.paging.Pagenation;
-import com.planty.jsp.common.paging.SelectCriteria;
 import com.planty.jsp.product.model.dao.ProductDAO;
 import com.planty.jsp.product.model.dto.ProductDTO;
 import com.planty.jsp.product.model.dto.ProductImgDTO;
@@ -63,10 +59,22 @@ public class ProductService {
 		
 		SqlSession session = getSqlSession();
 		
-		int result = ProductDAO.insertProduct(session, newProduct);
+		/* 최종 반환 값 */
+		int result = 0;
 		
-		if(result > 0) {
+		/* PRODUCT 테이블 INSERT */
+		int productResult = productDAO.insertProductContent(session, newProduct);
+		
+		int imgResult = 0;
+		/* PRO_IMG 테이블 INSERT */
+		for(ProductImgDTO img : newProduct.getImgList()) {
+			imgResult += productDAO.insertProductImg(session, img);
+		}
+		
+		
+		if(productResult > 0 && imgResult ==  newProduct.getImgList().size()) {
 			session.commit();
+			result = 1;
 		} else {
 			session.rollback();
 		}
@@ -76,7 +84,7 @@ public class ProductService {
 		return result;
 	}
 	
-	/* 썸네일 게시판 조회용 메소드 */
+	/* 게시판 조회용 메소드 */
 	public List<ProductDTO> selectProductlList() {
 		
 		/* Connection 생성 */
@@ -92,7 +100,7 @@ public class ProductService {
 		return productList;
 	}
 	
-	public int insertThumbnail(ProductDTO thumbnail) {
+	public int insertProduct(ProductDTO product) {
 		
 		/* Connection 생성 */
 		SqlSession session = getSqlSession();
@@ -101,26 +109,26 @@ public class ProductService {
 		int result = 0;
 		
 		//* 먼저 product 테이블부터 thumbnail 내용부터 insert 한다. */
-		int productResult = productDAO.insertProductContent(session, thumbnail);
+		int productResult = productDAO.insertProductContent(session, product);
 		
-		System.out.println("productResult : " + thumbnail);
+		System.out.println("productResult : " + product);
 	
 		//* img 리스트를 불러온다. */
-		List<ProductImgDTO> fileList = thumbnail.getImgList();
+		List<ProductImgDTO> fileList = product.getImgList();
 		
 		/* fileList에 productNo값을 넣는다. */
 		for(int i = 0; i < fileList.size(); i++) {
-			fileList.get(i).setProNo(thumbnail.getProNo());
+			fileList.get(i).setProNo(product.getProNo());
 		}
 		
 		/* Attachment 테이블에 list size만큼 insert 한다. */
-		int attachmentResult = 0;
+		int productImgResult = 0;
 		for(int i = 0; i < fileList.size(); i++) {
-			attachmentResult += productDAO.insertProductImg(session, fileList.get(i));
+			productImgResult += productDAO.insertProductImg(session, fileList.get(i));
 		}
 		
 		/* 모든 결과가 성공이면 트랜젝션을 완료한다. */
-		if(productResult > 0 && attachmentResult == fileList.size()) {
+		if(productImgResult > 0 && productImgResult == fileList.size()) {
 			session.commit();
 			result = 1;
 		} else {

@@ -9,29 +9,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.planty.jsp.board.model.dto.BoardDTO;
-import com.planty.jsp.board.model.service.BoardService;
+import com.planty.jsp.product.model.dto.ProductDTO;
+import com.planty.jsp.product.model.service.ProductService;
 
 @WebServlet("/product/search")
 public class productSearchServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		BoardService boardService = new BoardService();
+		ProductService productService = new ProductService();
 		
-		List<BoardDTO> productList = boardService.selectProductList();
+		List<ProductDTO> productList = productService.selectProductlList();
 		
-		for(BoardDTO board : productList) {
-			System.out.println(board);
+		for(ProductDTO product : productList) {
+			System.out.println(product);
 		}
 		
 		String path = "";
 		if(productList != null) {
 			path = "/WEB-INF/views/product/productSerach.jsp";
-			request.setAttribute("ProductDAO", selectAllProductList);
+			request.setAttribute("ProductDAO", productList);
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";
-			request.setAttribute("message", "게시판 조회 실패!");
+			request.setAttribute("message", "조회 실패!");
 		}
 		
 		request.getRequestDispatcher(path).forward(request, response);

@@ -18,10 +18,9 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
-import com.planty.jsp.board.model.dto.AttachmentDTO;
-import com.planty.jsp.board.model.service.BoardService;
 import com.planty.jsp.product.model.dto.ProductDTO;
 import com.planty.jsp.product.model.dto.ProductImgDTO;
+import com.planty.jsp.product.model.service.ProductService;
 import com.planty.jsp.user.model.dto.UserDTO;
 
 import net.coobird.thumbnailator.Thumbnails;
@@ -170,10 +169,10 @@ public class productRegistServlet extends HttpServlet {
 					Map<String, String> file = fileList.get(i);
 					
 					ProductImgDTO tempFileInfo = new ProductImgDTO();
-					tempFileInfo.setFileName(file.get("proPath"));
-					tempFileInfo.setSerFile(file.get("fileName"));
-					tempFileInfo.setProPath(file.get("serFile"));
-					tempFileInfo.setThumFile(file.get("thumFile"));
+					tempFileInfo.setFileName(file.get("originFileName"));
+					tempFileInfo.setSerFile(file.get("savedFileName"));
+					tempFileInfo.setProPath(file.get("savePath"));
+					tempFileInfo.setThumFile(file.get("thumbnailPath"));
 					
 					list.add(tempFileInfo);
 				}
@@ -181,19 +180,19 @@ public class productRegistServlet extends HttpServlet {
 				System.out.println("product : " + product);
 				
 				/* 서비스 메소드를 요청한다. */
-//				int result = new BoardService().insertThumbnail(thumbnail);
+				int result = new ProductService().insertProduct(product);
 				
 				/* 성공 실패 페이지를 구분하여 연결한다. */
-//				String path = "";
-//				if(result > 0) {
-//					path = "/WEB-INF/views/common/success.jsp";
-//					request.setAttribute("successCode", "insertThumbnail");
-//				} else {
-//					path = "/WEB-INF/views/common/failed.jsp";
-//					request.setAttribute("message", "썸네일 게시판 등록 실패!");
-//				}
-//				
-//				request.getRequestDispatcher(path).forward(request, response);
+				String path = "";
+				if(result > 0) {
+					path = "/WEB-INF/views/common/success.jsp";
+					request.setAttribute("successCode", "insertProduct");
+				} else {
+					path = "/WEB-INF/views/common/failed.jsp";
+					request.setAttribute("message", "썸네일 게시판 등록 실패!");
+				}
+				
+				request.getRequestDispatcher(path).forward(request, response);
 				
 			} catch (Exception e) {
 				//어떤 종류의 Exception이 발생 하더라도 실패 시 파일을 삭제해야 한다.

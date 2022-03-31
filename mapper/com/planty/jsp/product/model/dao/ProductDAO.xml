@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ProductDAO">
 	
-	<resultMap type="com.planty.jsp.board.model.dao.ProductDAO" id="selectAllProductList">
+	<resultMap type="com.planty.jsp.product.model.dao.ProductDAO" id="selectAllProductList">
 		<id property="proNo" column="PRO_NO"/>
 		<result property="cateNo" column="CATE_NO"/>
 		<result property="id" column="ID"/>
@@ -25,28 +25,26 @@
 	        , ID	        
 	        , PRO_NAME
 	        , PRO_PRICE
-	        , PRO_CONTENT
 	        )
 	        VALUES 
 	        (
 	          SEQ_PRO_NO.NEXTVAL
-	        , #{ proNo }
 	        , #{ cateNo }
 	        , #{ id }
 	        , #{ proName }
 	        , #{ proPrice }
-	        , #{ imgList }
 	        )
-	        <selectKey keyProperty="no" resultType="Integer" order="AFTER">
-	        	SELECT
-	        	       SEQ_PRO_NO.CURRVAL
-	        	  FROM DUAL
-	        </selectKey>
 		</insert>
 
 			
 		
-		<insert id="insertPrductImg">
+		<insert id="insertProductImg">
+		
+	        <selectKey keyProperty="proNo" resultType="Integer" order="BEFORE">
+	        	SELECT
+	        	       SEQ_PRO_NO.CURRVAL
+	        	  FROM DUAL
+	        </selectKey>
         INSERT /* com.planty.jsp.product.model.dao.ProductDAO#insertAttachment() */
           INTO PRO_IMG
         (
@@ -55,17 +53,20 @@
         , P_PATH
         , FILE_NAME
         , SER_FILE
+        <if test="thumFile != null">
         , THUM_FILE
+        </if>
         )
         VALUES 
         (
-          SEQ_ATTACHMENT_NO.NEXTVAL
-        , #{ imgNo }
+          SEQ_P_IMG_NO.NEXTVAL
         , #{ proNo }
         , #{ proPath }
         , #{ fileName }
         , #{ serFile }
+        <if test="thumFile != null">
         , #{ thumFile }
+        </if>
         )
 	</insert>
 		

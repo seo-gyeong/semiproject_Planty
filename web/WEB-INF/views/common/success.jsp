@@ -53,6 +53,10 @@
 					successMessage = "썸네일 게시판 등록에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/thumbnail/list";
 					break;
+				case "insertProduct" :
+				successMessage = "상품 등록에 성공하셨습니다!";
+				movePath = "${ pageContext.servletContext.contextPath }/product/search";
+				break;
 			}
 
 			alert(successMessage);
