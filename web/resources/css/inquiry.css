@@ -695,63 +695,6 @@ caption {
 	outline: none;
 }
 
-/* ------------------------------------ */
-/* orderView.jsp */
-
-.board_list2 {
-    width: 100%;
-    margin: 0 auto 0 auto;
-}
-
-.board_list2>ul {
-    border-top: 1px solid #e5e5e5;
-	line-height: 50px;
-	display: flex;
-	justify-content: space-around;
-	list-style: none;
-}
-
-.board_ul {
-	border-bottom: 1px solid #e5e5e5;
-}
-
-.board_list2 li {
-    display: flex;
-	justify-content: space-around;
-    align-items: center;
-	list-style: none;
-	text-align: center;
-}
-
-.board_header {
-	color: #4C5B5D;
-	font-weight: bold;
-}
-
-
-.board_list2 .ord-no {
-    width : 125px;
-}
-
-.board_list2 .ord-date {
-    width : 125px;
-}
-
-.board_list2 .ord-img {
-    width : 100px;
-}
-
-.board_list2 .ord-info {
-    width : auto;
-}
-
-.board_list2 .ord-sum {
-    width : 135px;
-}
-
-.board_list2 .ord-selection {
-    width : 150px;
-
 /* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 /* 여기서부터 복붙!!!!!!! */
 /* 태경님 구현하신 것 */
