@@ -75,11 +75,11 @@
 				</span>
 				<h4>변경할 비밀번호</h4>
 				<span class="input_area">
-				<input type="password" name="pwd" id="memberPwd" maxlength="30" plcaeholder="영문 대소문자/숫자/특수문자 중 2가지 이상 조합, 8자~30자">
+				<input type="password" onchange="check_pw()" name="pwd" id="pwd" maxlength="30" placeholder="영문 대소문자/숫자/특수문자 8자~30자">
 				</span>
 				<h4>변경할 비밀번호 확인</h4>
 				<span class="input_area">
-				<input type="password" name="pwd2" id="memberPwd2" maxlength="30">
+				<input type="password" onchange="check_pw()" name="pwd2" id="pwd2" maxlength="30">
 				</span>
 			<div class="btnArea">
 				<button id="updatePwdBtn">변경하기</button>
@@ -106,6 +106,30 @@
 			
 			return true;
 		}
+		
+		
+		 <!-- password 체크 -->
+	        function check_pw(){
+	        	 
+	            var pwd = document.getElementById('pwd').value;
+	            var check_SC = 0;
+	 
+	            if(pwd.length < 8 || pwd.length>30){
+	                window.alert('비밀번호는 8글자 이상, 30글자 이하만 이용 가능합니다.');
+	                document.getElementById('pwd').value='';
+	            }
+	            
+	            if(document.getElementById('pwd').value !='' && document.getElementById('pwd2').value!=''){
+	                if(document.getElementById('pwd').value==document.getElementById('pwd2').value){
+	                    document.getElementById('check').innerHTML='비밀번호가 일치합니다.'
+	                    document.getElementById('check').style.color='blue';
+	                }
+	                else{
+	                    document.getElementById('check').innerHTML='비밀번호가 일치하지 않습니다.';
+	                    document.getElementById('check').style.color='red';
+	                }
+	            }
+	        }
 	</script>
 	
 </body>

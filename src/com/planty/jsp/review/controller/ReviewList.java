@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.planty.jsp.order.model.dto.OrderDTO;
+import com.planty.jsp.order.model.service.OrderService;
 import com.planty.jsp.review.model.dto.ReviewDTO;
 import com.planty.jsp.review.model.service.ReviewService;
 import com.planty.jsp.user.model.dto.UserDTO;
@@ -32,12 +34,22 @@ public class ReviewList extends HttpServlet {
 			System.out.println(review);
 		}
 		
+		OrderService orderService = new OrderService();
+		
+		List<OrderDTO> orderList = orderService.selectOrderList(id);
+		
+		for(OrderDTO order : orderList) {
+			System.out.println(order);
+		}
+		
+		
 		
 		
 		String path = "";
 		if(reviewList != null) {
 			path = "/WEB-INF/views/review/reviewList.jsp";
 			request.setAttribute("reviewList", reviewList);
+			request.setAttribute("orderList", orderList);
 		} else {
 			path = "/WEB-INF/views/common/failed.jsp";
 			request.setAttribute("message", "리뷰 조회 실패!");

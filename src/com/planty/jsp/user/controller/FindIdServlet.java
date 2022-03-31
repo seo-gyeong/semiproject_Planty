@@ -13,7 +13,7 @@ import com.planty.jsp.user.model.service.UserService;
 
 
 
-@WebServlet("/user/findiduser")
+//@WebServlet("/user/findiduser")
 public class FindIdServlet extends HttpServlet {
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

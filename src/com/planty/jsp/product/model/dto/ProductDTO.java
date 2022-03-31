@@ -2,13 +2,15 @@ package com.planty.jsp.product.model.dto;
 
 import java.util.List;
 
-public class ProductDTO {
+import com.planty.jsp.user.model.dto.UserDTO;
+
+public class ProductDTO implements java.io.Serializable{
 	
 	private int pro_no;
 	private int cate_no;
 	private CategoryDTO category;
-	private String par_id;
-	private PartnerDTO partnerDTO;
+	private String id;
+	private UserDTO userDTO;
 	private String pro_name;
 	private String pro_price;
 	private String pro_content;
@@ -17,14 +19,14 @@ public class ProductDTO {
 	public ProductDTO() {
 	}
 
-	public ProductDTO(int pro_no, int cate_no, CategoryDTO category, String par_id, PartnerDTO partnerDTO,
-			String pro_name, String pro_price, String pro_content, List<AttachmentDTO> attachmentList) {
+	public ProductDTO(int pro_no, int cate_no, CategoryDTO category, String id, UserDTO userDTO, String pro_name,
+			String pro_price, String pro_content, List<AttachmentDTO> attachmentList) {
 		super();
 		this.pro_no = pro_no;
 		this.cate_no = cate_no;
 		this.category = category;
-		this.par_id = par_id;
-		this.partnerDTO = partnerDTO;
+		this.id = id;
+		this.userDTO = userDTO;
 		this.pro_name = pro_name;
 		this.pro_price = pro_price;
 		this.pro_content = pro_content;
@@ -55,20 +57,20 @@ public class ProductDTO {
 		this.category = category;
 	}
 
-	public String getPar_id() {
-		return par_id;
+	public String getId() {
+		return id;
 	}
 
-	public void setPar_id(String par_id) {
-		this.par_id = par_id;
+	public void setId(String id) {
+		this.id = id;
 	}
 
-	public PartnerDTO getPartnerDTO() {
-		return partnerDTO;
+	public UserDTO getUserDTO() {
+		return userDTO;
 	}
 
-	public void setPartnerDTO(PartnerDTO partnerDTO) {
-		this.partnerDTO = partnerDTO;
+	public void setUserDTO(UserDTO userDTO) {
+		this.userDTO = userDTO;
 	}
 
 	public String getPro_name() {
@@ -102,6 +104,21 @@ public class ProductDTO {
 	public void setAttachmentList(List<AttachmentDTO> attachmentList) {
 		this.attachmentList = attachmentList;
 	}
+
+	@Override
+	public String toString() {
+		return "ProductDTO [pro_no=" + pro_no + ", cate_no=" + cate_no + ", category=" + category + ", id=" + id
+				+ ", userDTO=" + userDTO + ", pro_name=" + pro_name + ", pro_price=" + pro_price + ", pro_content="
+				+ pro_content + ", attachmentList=" + attachmentList + "]";
+	}
+
+	
+
+
+
+	
+
+	
 
 	
 

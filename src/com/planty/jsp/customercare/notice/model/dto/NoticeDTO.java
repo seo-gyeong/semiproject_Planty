@@ -9,7 +9,7 @@ public class NoticeDTO {
 	private String content;
 	private String id;
 	private int count;
-	private Date createDate;
+	private Date createDate; 
 	private Date editDate;
 	private String status;
 	

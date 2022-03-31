@@ -91,6 +91,8 @@ public class AuthenticationFilter implements Filter {
 		adminPermitList.add("/notice/insert");
 		adminPermitList.add("/notice/update");
 		adminPermitList.add("/notice/delete");
+		adminPermitList.add("/notice/list");
+		adminPermitList.add("/admin/userlist");
 
 //		-----멤버 허용 리스트-----
 //		아름 추가
@@ -128,7 +130,7 @@ public class AuthenticationFilter implements Filter {
 		allPermitList.add("/user/findiduser");
 		allPermitList.add("/user/resultid");
 		allPermitList.add("/user/findpwduser");
-		allPermitList.add("/user/resultid");
+	
 //		윤호 추가
 //		혜진 추가
 

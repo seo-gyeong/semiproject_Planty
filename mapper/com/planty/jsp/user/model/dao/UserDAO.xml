@@ -10,7 +10,6 @@
 		<result property="address" column="ADDRESS"/>
 		<result property="addrDetail" column="ADDR_DETAIL"/>
 		<result property="zipcode" column="ZIPCODE"/>
-		<result property="name" column="NAME"/>
 		<result property="phone" column="PHONE"/>
 		<result property="email" column="EMAIL"/>
 		<result property="textYn" column="TEXT_YN"/>
@@ -19,7 +18,7 @@
 		<result property="ceoName" column="CEO_NAME"/>
 		<result property="reqNo" column="REQ_NO"/>
 		<result property="approval" column="APPROVAL"/>	
-		
+		 
 		<association property="auth" resultMap="authResultMap"/>
 	
 	</resultMap>
@@ -122,9 +121,8 @@
 		 WHERE ID = #{ id }
 	</select>
 	
-	<update id="updatePassword">
-		UPDATE /* com.planty.jsp.user.model.dao.UserDAO#updateUserPassword() */
-		       MEMBER
+	<update id="updatePwd">
+		UPDATE MEMBER
 		   SET PWD = #{ pwd }
 		 WHERE ID = #{ id }
 	</update>

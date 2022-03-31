@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .menu1{
     font-family: 'Roboto', sans-serif;
   }
@@ -234,7 +235,7 @@ a:hover, a:active { text-decoration: none; }
 }
 
 .sum1 {
-    padding-left: 10px;
+    padding-left: 114px;
 }
 .right {
     align-content: right;
@@ -598,6 +599,11 @@ caption {
     padding: 50px 0px 70px 0px;
    
 }
+
+.content img {
+	width : 100%;
+	
+}
 .board_list {
     width: 100%;
     margin : 0 0 50px;    
@@ -656,6 +662,7 @@ caption {
 .line {
 	border-bottom: 1px solid #e5e5e5;
 }
+
 
 /* --------------------------------------------- */
 /* review-insert.html */
@@ -751,6 +758,8 @@ caption {
 
 .board_list2 .ord-selection {
     width : 150px;
+}
+
 
 /* ---------------------------------------------------------------------------------------------------------------------------------------------- */
 /* 여기서부터 복붙!!!!!!! */

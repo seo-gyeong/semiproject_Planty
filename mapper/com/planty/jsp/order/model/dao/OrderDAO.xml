@@ -8,19 +8,6 @@
 		<id property="ordNo" column="ORD_NO"/>
 		<result property="amount" column="AMOUNT"/>
 		
-		<association property="product" resultMap="productResultMap"></association>
-		<association property="orderDetail" resultMap="orderDetailResultMap"/>
-		
-	</resultMap>
-	
-	<resultMap type="com.planty.jsp.product.model.dto.ProductDTO" id="productResultMap">
-		<id property="pro_no" column="PRO_NO"/>
-		<result property="cate_no" column="CATE_NO"/>
-		<result property="par_id" column="ID"/>
-		<result property="pro_name" column="PRO_NAME"/>
-		<result property="pro_price" column="PRO_PRICE"/>
-		<result property="pro_content" column="PRO_CONTENT"/>
-
 	</resultMap>
 	
 	<resultMap type="com.planty.jsp.order.model.dto.OrderDetailDTO" id="orderDetailResultMap">
@@ -37,32 +24,19 @@
 		<result property="ordDelivery" column="ORD_DELIVERY"/>
 		<result property="ordDevNo" column="ORD_DEV_NO"/>
 		
-		<association property="order" resultMap="orderResultMap"/>
-		<association property="member" resultMap="userResultMap"/>
 	</resultMap>
 	
-	<resultMap type="com.planty.jsp.user.model.dto.UserDTO" id="userResultMap">
-		<id property="id" column="ID"/>
-		<result property="authNo" column="AUTH_NO"/>
-		<result property="pwd" column="PWD"/>
-		<result property="address" column="ADDRESS"/>
-		<result property="addrDetail" column="ADDR_DETAIL"/>
-		<result property="zipcode" column="ZIPCODE"/>
-		<result property="phone" column="PHONE"/>
-		<result property="email" column="EMAIL"/>
-		<result property="textYn" column="TEXT_YN"/>
-		<result property="enrollDate" column="ENROLL_DATE"/>
-		<result property="name" column="NAME"/>
-	</resultMap>
 	
-	<select id="selectOrderList" resultMap="reviewResultMap">
+	
+	<select id="selectOrderList" resultMap="orderResultMap">
         SELECT A.PRO_NO
         	 , A.ORD_NO
         	 , A.AMOUNT
              , B.PRO_NAME
              , B.PRO_PRICE
              , C.ORD_DATE
-             , A.MADE_DATE
+             , C.ORD_STATE
+             , C.ORD_DELIVERY
           FROM ORDER_P A
           JOIN PRODUCT B ON (A.PRO_NO = B.PRO_NO)
           JOIN ORDER_DETAIL C ON (A.ORD_NO = C.ORD_NO)

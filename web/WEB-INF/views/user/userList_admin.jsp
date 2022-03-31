@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%> 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <head>
@@ -45,7 +45,7 @@
           <div class="sb-sidenav-footer">
             <div class="small">Logged in as:</div>
             관리자 
-            <button type="button" class="btn btn-light" id="logout_bt">Logout</button> 
+            <button type="button" onclick="location.href" class="btn btn-light" id="logout_bt">Logout</button> 
           </div>
           
         </nav>

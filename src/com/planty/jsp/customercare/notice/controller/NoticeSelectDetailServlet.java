@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.planty.jsp.customercare.notice.model.dto.NoticeDTO;
 import com.planty.jsp.customercare.notice.model.service.NoticeService;
 
-@WebServlet("/notice/detail")
+@WebServlet("/notice/detail") 
 public class NoticeSelectDetailServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
