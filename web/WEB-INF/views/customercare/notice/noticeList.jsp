@@ -118,7 +118,7 @@
 		<div class="notice_area">
 			<div class="notice_title">
 				<br><br>
-				<h1>공지사항</h1>
+				<h4>공지사항</h4>
 			</div>
 			<div class="notice_list">
 			<c:forEach var="n" items="${ noticeList }">

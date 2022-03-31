@@ -81,7 +81,7 @@
 		<div class="wrap">
 			<div class="notice_area">
 				<div class="notice_title">
-					<h1>공지사항 작성</h1>
+					<h4>공지사항 작성</h4>
 				</div>
 				<div class="notice_content">
 					<form action="${ pageContext.servletContext.contextPath }/notice/insert" method="post">
