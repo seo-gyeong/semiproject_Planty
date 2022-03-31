@@ -11,11 +11,12 @@ import javax.servlet.http.HttpServletResponse;
  * Servlet implementation class resultPwdServlet
  */
 @WebServlet("/user/resultpwd")
-public class resultPwdServlet extends HttpServlet {
+public class ResultUserPwdServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.getRequestDispatcher("/WEB-INF/views/login/result-pwd.jsp").forward(request, response);
 		
 	}
 }
+
 

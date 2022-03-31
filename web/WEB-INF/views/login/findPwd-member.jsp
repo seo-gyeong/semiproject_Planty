@@ -21,19 +21,11 @@
 	<div class="main-container">
 		<div class="main-wrap">
 		
-		<form class="login-input-section-wrap">
+		<form class="login-input-section-wrap" method="POST" action="${ pageContext.servletContext.contextPath }/user/findpwduser">
             <div class="login-title1">
                 <h2 class="login-title2">비밀번호 찾기</h2>
             </div>
-            <div class="type" >
-                <div class="dropdown" id="selectbox">
-                <button class="btn btn-secondary dropdown-toggle" style="margin-bottom: 10px; font-size: 14px; background-color:#4C5B5D ;" type="button" id="dropdownMenu2" data-bs-toggle="dropdown" aria-expanded="false">회원유형</button>
-                <ul class="dropdown-menu" aria-labelledby="dropdownMenu">
-                 <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/login/findPwd-memeber.jsp'">개인회원</button></li>
-                  <li><button class="dropdown-item" style="font-size: 12px; color:#4C5B5D; " type="button" onclick="location.href='${ pageContext.servletContext.contextPath }/login/findPwd-partner.jsp'">법인사업자 회원</button></li>
-              </ul>
-              </div>
-            </div>
+        
            <div class="type1">
         
               <div class="type2">
@@ -49,7 +41,7 @@
  
               </div>     
               <div class="login-button-wrap">
-				<button name="findPwd" type="button" > 확인 </button>
+				<button name="findPwd" type="submit" > 확인 </button>
 			</div>
     
             <div class="empty">
@@ -69,8 +61,8 @@
         <span>주소: 서울특별시 플랜구 식물동 159-2 | 사업자등록번호: 151-15-15151 | 통신판매: 2022-서울강남-0000 | 호스팅제공자: (주)식물샵</span><br/>
     </p>
     <nav>
-        <a href="${ pageContext.servletContext.contextPath }/main/policy.jsp">이용약관</a> |
-        <a href="${ pageContext.servletContext.contextPath }/main/policy.jsp">개인정보처리방침</a>
+        <a href="${ pageContext.servletContext.contextPath }/main/policy">이용약관</a> |
+        <a href="${ pageContext.servletContext.contextPath }/main/policy">개인정보처리방침</a>
     </nav>
 </footer>
 </html>
