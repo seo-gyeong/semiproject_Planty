@@ -38,7 +38,7 @@ public class AuthenticationFilter implements Filter {
 
 		/* 세션에 권한이 있는지 확인하여 허용된 url에만 접근 가능하도록 설정한다. */
 		HttpSession requestSession = hrequest.getSession();
-		UserDTO loginUser = (UserDTO) requestSession.getAttribute("loginUser");
+		UserDTO loginUser = (UserDTO)requestSession.getAttribute("loginUser");
 
 		boolean isAuthorized = false;
 		if (loginUser != null) {
@@ -100,6 +100,8 @@ public class AuthenticationFilter implements Filter {
 		memberPermitList.add("/user/remove");
 		memberPermitList.add("/mypage/intro");
 		memberPermitList.add("/mypage/coupon");
+		memberPermitList.add("/review/list");
+		memberPermitList.add("/review/insert");
 
 //		서경 추가
 //		태경 추가
@@ -111,12 +113,9 @@ public class AuthenticationFilter implements Filter {
 		allPermitList.add("/user/idCheck");
 		allPermitList.add("/user/regist");
 		allPermitList.add("/user/regist2");
-		allPermitList.add("/user/modify");
-		allPermitList.add("/user/modifyPwd");
 		allPermitList.add("/user/login");
 		allPermitList.add("/user/logout");
-		allPermitList.add("/review/list");
-		allPermitList.add("/review/insert");
+
 //		전체 허용 리스트 - 서경 추가
 		allPermitList.add("/notice/list");
 		allPermitList.add("/notice/detail");

@@ -140,7 +140,7 @@
 				<li><a
 					href="${ pageContext.servletContext.contextPath }/mypage/qna">상품문의</a></li>
 				<li><a
-					href="${ pageContext.servletContext.contextPath }/mypage/review">리뷰조회</a></li>
+					href="${ pageContext.servletContext.contextPath }/review/list">리뷰조회</a></li>
 				<li><a
 					href="${ pageContext.servletContext.contextPath }/mypage/coupon">쿠폰조회</a></li>
 			</ul>

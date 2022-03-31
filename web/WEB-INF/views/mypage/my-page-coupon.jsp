@@ -114,16 +114,16 @@
             <jsp:include page="../common/paging.jsp"/>
 
             <div class="quickmenu">
-                <ul>
-                    <li id="quickmenu"><a style="color: white;">퀵메뉴</a></li>
-                    <li><a href="my-page-order.html">주문조회</a></li>
-                    <li><a href="my-page-wish.html">찜한상품</a></li>
-                    <li><a href="JOIN-modify.html">회원정보</a></li>
-                    <li><a href="my-page-qna.html">상품문의</a></li>
-                    <li><a href="my-page-review.html">리뷰조회</a></li>
-                    <li><a href="my-page-coupon.html">쿠폰조회</a></li>
-                  </ul>
-            </div>
+			<ul>
+				<li id="quickmenu"><a style="color: white;">퀵메뉴</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/order">주문조회</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/wish">찜한상품</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/user/modify">회원정보</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/qna">상품문의</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/review/list">리뷰조회</a></li>
+				<li><a href="${ pageContext.servletContext.contextPath }/mypage/coupon">쿠폰조회</a></li>
+			</ul>
+		</div>
             <script>
             //     $(document).ready(function(){
             //     var currentPosition = parseInt($(".quickmenu").css("top"));

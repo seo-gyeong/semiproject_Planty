@@ -33,13 +33,6 @@ public class ReviewList extends HttpServlet {
 		}
 		
 		
-		Map ratingOptions = new HashMap();
-		ratingOptions.put(1, "★");
-		ratingOptions.put(2, "★★");
-		ratingOptions.put(3, "★★★");
-		ratingOptions.put(4, "★★★★");
-		ratingOptions.put(5, "★★★★★");
-		request.setAttribute("ratingOptions", ratingOptions);
 		
 		String path = "";
 		if(reviewList != null) {

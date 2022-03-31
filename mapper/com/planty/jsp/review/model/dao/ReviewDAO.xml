@@ -6,7 +6,7 @@
 	
 	<resultMap type="com.planty.jsp.review.model.dto.ReviewDTO" id="reviewResultMap">
 		<id property="reviewNo" column="REVIEW_NO"/>
-		<result property="orderNo" column="ORD_NO"/>
+		<result property="ordNo" column="ORD_NO"/>
 		<result property="id" column="ID"/>
 		<result property="title" column="TITLE"/>
 		<result property="score" column="SCORE"/>
@@ -30,7 +30,6 @@
 		<result property="fileType" column="FILE_TYPE"/>
 		<result property="thumPath" column="THUM_PATH"/>
 		
-		<association property="review" resultMap="reviewResultMap"/>
 	</resultMap>
 
 	
@@ -54,6 +53,7 @@
 		<result property="amount" column="AMOUNT"/>
 		
 		<association property="product" resultMap="productResultMap"/>
+		<association property="orderDetail" resultMap="orderDetailResultMap"/>
 	</resultMap>
 	
 	<resultMap type="com.planty.jsp.product.model.dto.ProductDTO" id="productResultMap">
@@ -88,6 +88,8 @@
 	
 	<select id="selectReviewList" resultMap="reviewResultMap">
         SELECT A.REVIEW_NO
+        	 , A.ORD_NO
+        	 , A.ID
              , A.SCORE
              , A.TITLE
              , A.CONTENT
@@ -97,19 +99,24 @@
              , B.SAVED_NAME
              , B.SAVE_PATH
              , B.THUM_PATH
+             , D.PRO_NAME
+             , E.ORD_DATE
           FROM REVIEW A
           JOIN ATTACHMENT B ON (A.REVIEW_NO = B.REVIEW_NO)
+          JOIN ORDER_P C ON (A.ORD_NO = C.ORD_NO)
+          JOIN PRODUCT D ON (C.PRO_NO = D.PRO_NO)
+          JOIN ORDER_DETAIL E ON (C.ORD_NO = E.ORD_NO)
          WHERE B.FILE_TYPE = 'THUM'
            AND A.ID = #{ id }
          ORDER BY A.REVIEW_NO DESC
 	</select>
 	
-	<insert id="insertThumbnailContent" >
+	<insert id="insertReview" >
         INSERT /* com.planty.jsp.board.model.dao.reviewDAO#insertThumbnailContent() */
           INTO REVIEW
         (
           REVIEW_NO
-        , ORDER_NO
+        , ORD_NO
         , ID
         , SCORE
         , TITLE
@@ -120,7 +127,7 @@
         VALUES 
         (
           SEQ_REVIEW_NO.NEXTVAL
-        , 202204010123   <!-- OrderDTO랑 합치면 수정!! -->
+        , 22040102   <!-- OrderDTO랑 합치면 수정!! -->
         , #{ id }
         , #{ score }
         , #{ title }

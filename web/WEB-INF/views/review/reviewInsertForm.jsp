@@ -140,8 +140,9 @@
 						<div>${ product.productName }</div>
 						<div class="rv-title">상품 만족도</div>
 						<div class="input_area score-area">
-							<label name="score"></label> <select name="score">
-								<option value="5">★★★★★</option>
+							<label name="score"></label>
+							<select name="score" id="score">
+								<option value="5" selected>★★★★★</option>
 								<option value="4">★★★★</option>
 								<option value="3">★★★</option>
 								<option value="2">★★</option>
