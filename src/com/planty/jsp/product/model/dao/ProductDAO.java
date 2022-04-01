@@ -5,46 +5,55 @@ import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.planty.jsp.common.paging.SelectCriteria;
 import com.planty.jsp.product.model.dto.ProductDTO;
-import com.planty.jsp.product.model.dto.QnaDTO;
-import com.planty.jsp.review.model.dto.ReviewDTO;
+import com.planty.jsp.product.model.dto.ProductImgDTO;
+
 
 public class ProductDAO {
 	
 
-	public List<ProductDTO> selectProductList(SqlSession session, SelectCriteria selectCriteria) {
+//			
+		public int insertProduct(SqlSession session, ProductDTO newProduct) {
+			
+			return session.insert("ProductDAO.insertProduct", newProduct);
+		}
 		
-		return session.selectList("ProductDAO.selectProductList", selectCriteria);
-	}
-
-	public int selectTotalCount(SqlSession session, Map<String, String> searchMap) {
-		// TODO Auto-generated method stub
-		return session.selectOne("ProductDAO.selectTotalCount", searchMap);
-	}
-
-	public ProductDTO selectOneProduct(SqlSession session, int pro_no) {
 		
-		return session.selectOne("ProductDAO.selectOneProduct", pro_no);
-	}
+		/* 상품 목록 조회용 메소드 */
+		public List<ProductDTO> selectAllProductlList(SqlSession session) {
+			
+			return session.selectList("ProductDAO.selectAllProductlList");
+		}
+			
+		
+		/* 상품 제목과 내용 insert용 메소드 */
+		public int insertProductContent(SqlSession session, ProductDTO thumbnail) {
+			
+			return session.insert("ProductDAO.insertProductContent", thumbnail);
+		}
+		
 
-	public List<ReviewDTO> selectProductReviewList(SqlSession session, int pro_no) {
-		// TODO Auto-generated method stub
-		return session.selectList("ProductDAO.selectProductReviewList", pro_no);
-	}
+		/* Attachment 테이블에 insert */
+		public int insertProductImg(SqlSession session, ProductImgDTO file) {
+			
+			return session.insert("ProductDAO.insertProductImg", file);
+		}
+		
+		public int incrementProductCount(SqlSession session, int no) {
+			
+			return session.update("ProductDAO.incrementProductCount", no);
+		}
 
-	public ReviewDTO selectReviewDetail(SqlSession session, int reviewNo) {
-		// TODO Auto-generated method stub
-		return session.selectOne("ProductDAO.selectReviewDetail", reviewNo);
-	}
+		public ProductDTO selectOneThumbnailProduct(SqlSession session, int no) {
+			
+			return session.selectOne("ProductDAO.selectOneThumbnailProduct", no);
+		}
 
-	public List<QnaDTO> selectProductQnaList(SqlSession session, int pro_no) {
-		// TODO Auto-generated method stub
-		return session.selectList("ProductDAO.selectProductQnaList", pro_no);
-	}
+		
 
-	public QnaDTO selectQnaDetail(SqlSession session, int q_no) {
-		// TODO Auto-generated method stub
-		return session.selectOne("ProductDAO.selectQnaDetail", q_no);
-	}
+		
+
+
+		
+	
 }

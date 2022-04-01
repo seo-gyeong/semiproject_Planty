@@ -2,129 +2,102 @@ package com.planty.jsp.product.model.dto;
 
 import java.util.List;
 
-import com.planty.jsp.user.model.dto.UserDTO;
-
-public class ProductDTO implements java.io.Serializable{
+public class ProductDTO {
 	
-	private int pro_no;
-	private int cate_no;
-	private CategoryDTO category;
+	
+	private int proNo;
+	private int cateNo;
 	private String id;
-	private UserDTO userDTO;
-	private String pro_name;
-	private String pro_price;
-	private String pro_content;
-	private List<AttachmentDTO> attachmentList;
+	private String proName;
+	private int proPrice;
+	private List <ProductImgDTO> imgList;
+	
+	
 	
 	public ProductDTO() {
-	}
-
-	public ProductDTO(int pro_no, int cate_no, CategoryDTO category, String id, UserDTO userDTO, String pro_name,
-			String pro_price, String pro_content, List<AttachmentDTO> attachmentList) {
 		super();
-		this.pro_no = pro_no;
-		this.cate_no = cate_no;
-		this.category = category;
+	}
+
+
+	public ProductDTO(int proNo, int cateNo, String id, String proName, int proPrice, List<ProductImgDTO> imgList) {
+		super();
+		this.proNo = proNo;
+		this.cateNo = cateNo;
 		this.id = id;
-		this.userDTO = userDTO;
-		this.pro_name = pro_name;
-		this.pro_price = pro_price;
-		this.pro_content = pro_content;
-		this.attachmentList = attachmentList;
+		this.proName = proName;
+		this.proPrice = proPrice;
+		this.imgList = imgList;
 	}
 
-	public int getPro_no() {
-		return pro_no;
+
+	public int getProNo() {
+		return proNo;
 	}
 
-	public void setPro_no(int pro_no) {
-		this.pro_no = pro_no;
+
+	public void setProNo(int proNo) {
+		this.proNo = proNo;
 	}
 
-	public int getCate_no() {
-		return cate_no;
+
+	public int getCateNo() {
+		return cateNo;
 	}
 
-	public void setCate_no(int cate_no) {
-		this.cate_no = cate_no;
+
+	public void setCateNo(int cateNo) {
+		this.cateNo = cateNo;
 	}
 
-	public CategoryDTO getCategory() {
-		return category;
-	}
-
-	public void setCategory(CategoryDTO category) {
-		this.category = category;
-	}
 
 	public String getId() {
 		return id;
 	}
 
+
 	public void setId(String id) {
 		this.id = id;
 	}
 
-	public UserDTO getUserDTO() {
-		return userDTO;
+
+	public String getProName() {
+		return proName;
 	}
 
-	public void setUserDTO(UserDTO userDTO) {
-		this.userDTO = userDTO;
+
+	public void setProName(String proName) {
+		this.proName = proName;
 	}
 
-	public String getPro_name() {
-		return pro_name;
+
+	public int getProPrice() {
+		return proPrice;
 	}
 
-	public void setPro_name(String pro_name) {
-		this.pro_name = pro_name;
+
+	public void setProPrice(int proPrice) {
+		this.proPrice = proPrice;
 	}
 
-	public String getPro_price() {
-		return pro_price;
+
+	public List<ProductImgDTO> getImgList() {
+		return imgList;
 	}
 
-	public void setPro_price(String pro_price) {
-		this.pro_price = pro_price;
+
+	public void setImgList(List<ProductImgDTO> imgList) {
+		this.imgList = imgList;
 	}
 
-	public String getPro_content() {
-		return pro_content;
-	}
-
-	public void setPro_content(String pro_content) {
-		this.pro_content = pro_content;
-	}
-
-	public List<AttachmentDTO> getAttachmentList() {
-		return attachmentList;
-	}
-
-	public void setAttachmentList(List<AttachmentDTO> attachmentList) {
-		this.attachmentList = attachmentList;
-	}
 
 	@Override
 	public String toString() {
-		return "ProductDTO [pro_no=" + pro_no + ", cate_no=" + cate_no + ", category=" + category + ", id=" + id
-				+ ", userDTO=" + userDTO + ", pro_name=" + pro_name + ", pro_price=" + pro_price + ", pro_content="
-				+ pro_content + ", attachmentList=" + attachmentList + "]";
-	}
-
-	
-
-
-
-	
-
-	
-
-	
-
+		return "ProductDTO [proNo=" + proNo + ", cateNo=" + cateNo + ", id=" + id + ", proName=" + proName
+				+ ", proPrice=" + proPrice + ", imgList=" + imgList + "]";
+	}	
 	
 	
 	
 	
-
+	
 }

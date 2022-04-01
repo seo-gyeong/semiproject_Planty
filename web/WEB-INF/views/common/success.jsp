@@ -53,7 +53,12 @@
 					successMessage = "리뷰 등록에 성공하셨습니다!";
 					movePath = "${ pageContext.servletContext.contextPath }/review/list";
 					break;
-			}
+				case "insertProduct" :
+					successMessage = "상품 등록에 성공하셨습니다!";
+					movePath = "${ pageContext.servletContext.contextPath }/product/search";
+					break;
+				}
+
 
 			alert(successMessage);
 			

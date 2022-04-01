@@ -1,279 +1,54 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="ProductDAO">
 	
-	<!-- 완성 -->
-	<resultMap type="com.planty.jsp.product.model.dto.ProductDTO" id="productResultMap">
-		<id property="pro_no" column="PRO_NO"/>
-		<result property="cate_no" column="CATE_NO"/>
-		<result property="id" column="ID"/>
-		<result property="pro_name" column="PRO_NAME"/>
-		<result property="pro_price" column="PRO_PRICE"/>
-		<result property="pro_content" column="PRO_CONTENT"/>
-		
-		<association property="userDTO" resultMap="userResultMap"/>
-		<association property="category" resultMap="categoryResultMap"/>
-		<association property="attachmentList" resultMap="attachmentResultMap"/>
-	</resultMap>
-
-	<resultMap type="com.planty.jsp.user.model.dto.UserDTO" id="userResultMap">
-		<id property="id" column="ID"/>
-		<result property="authNo" column="AUTH_NO"/>
-		<result property="pwd" column="PWD"/>
-		<result property="address" column="ADDRESS"/>
-		<result property="addrDetail" column="ADDR_DETAIL"/>
-		<result property="zipcode" column="ZIPCODE"/>
-		<result property="phone" column="PHONE"/>
-		<result property="email" column="EMAIL"/>
-		<result property="textYn" column="TEXT_YN"/>
-		<result property="name" column="NAME"/>
-		<result property="enrollDate" column="ENROLL_DATE"/>
-		<result property="ceoName" column="CEO_NAME"/>
-		<result property="reqNo" column="REQ_NO"/>
-		<result property="approval" column="APPROVAL"/>	
-	
-	</resultMap>
-	
-	<!-- 완료 -->
-	<resultMap type="com.planty.jsp.product.model.dto.CategoryDTO" id="categoryResultMap">
-		<id property="cate_no" column="CATE_NO"/>
-		<result property="cate_a" column="CATE_A"/>
-	</resultMap>
-	
-	<resultMap type="com.planty.jsp.product.model.dto.CategoryDTO" id="categoryResultMap2">
-		<id property="cate_no" column="CATE_NO"/>
-		<result property="cate_a" column="CATE"/>
-	</resultMap>
-	
-		<!-- writer 마무리 해야됨 -->
-	<resultMap type="com.planty.jsp.product.model.dto.ProductDTO" id="thumbnailProductResultMap">
-		<id property="pro_no" column="PRO_NO"/>
-		<result property="cate_no" column="CATE_NO"/>
-		<result property="par_id" column="ID"/>
-		<result property="pro_name" column="PRO_NAME"/>
-		<result property="pro_price" column="PRO_PRICE"/>
-		<result property="pro_content" column="PRO_CONTENT"/>
-		
-		<association property="userDTO" resultMap="userResultMap"/>
-		<association property="category" resultMap="categoryResultMap"/>
-		
-		<collection property="attachmentList" resultMap="attachmentResultMap"/>
-	</resultMap>
-	
-	
-	<!-- 완료 -->
-	<resultMap type="com.planty.jsp.product.model.dto.AttachmentDTO" id="attachmentResultMap">
-		<id property="img_no" column="IMG_NO"></id>
-		<result property="pro_no" column="PRO_NO"/>
-		<result property="p_path" column="P_PATH"/>
-		<result property="file_name" column="FILE_NAME"/>
-		<result property="ser_file" column="SER_FILE"/>
-		<result property="thum_file" column="THUM_FILE"/>
-	</resultMap>
-	
-	<resultMap type="com.planty.jsp.review.model.dto.AttachmentDTO" id="attachmentResultMap2">
-		<id property="attachNo" column="ATTACHMENT_NO"></id>
-		<result property="reviewNo" column="REVIEW_NO"/>
-		<result property="orgName" column="ORG_NAME"/>
-		<result property="savedName" column="SAVED_NAME"/>
-		<result property="savePath" column="SAVE_PATH"/>
-		<result property="fileType" column="FILE_TYPE"/>
-		<result property="thumPath" column="THUM_PATH"/>
-		
-		<association property="review" resultMap="reviewResultMap2"/>
-	</resultMap>
-	
-
-	<resultMap type="com.planty.jsp.review.model.dto.ReviewDTO" id="reviewResultMap2">
-		<id property="reviewNo" column="REVIEW_NO"/>
-		<result property="ordNo" column="ORD_NO"/>
-		<result property="id" column="ID"/>
-		<result property="title" column="TITLE"/>
-		<result property="score" column="SCORE"/>
-		<result property="content" column="CONTENT"/>
-		<result property="date" column="MADE_DATE"/>
-		<result property="editDate" column="EDIT_DATE"/>
-		<result property="delYn" column="DEL_YN"/>
-		
-		<association property="order" resultMap="orderResultMap"/>
-		<association property="member" resultMap="userResultMap"/>
-		
-		<association property="attachmentList" resultMap="attachmentResultMap2"/>
-	</resultMap>
-	
-	<resultMap type="com.planty.jsp.order.model.dto.OrderDTO" id="orderResultMap">
+	<resultMap type="com.planty.jsp.product.model.dao.ProductDAO" id="selectAllProductList">
 		<id property="proNo" column="PRO_NO"/>
-		<id property="ordNo" column="ORD_NO"/>
-		<result property="amount" column="AMOUNT"/>
-		
-		<association property="product" resultMap="productResultMap"/>
-	</resultMap>
-	
-	<resultMap type="com.planty.jsp.product.model.dto.QnaDTO" id="qnaResultMap">
-		<id property="q_no" column="Q_NO"/>
+		<result property="cateNo" column="CATE_NO"/>
 		<result property="id" column="ID"/>
-		<result property="pro_no" column="PRO_NO"/>
-		<result property="cate_no" column="CATE_NO"/>
-		<result property="q_title" column="Q_TITLE"/>
-		<result property="q_content" column="Q_CONTENT"/>
-		<result property="q_date" column="Q_DATE"/>
-		<result property="q_edit_date" column="Q_EDIT_DATE"/>
-		<result property="del_yn" column="DEL_YN"/>
-		<result property="answer" column="ANSWER"/>
-		<result property="q_yn" column="Q_YN"/>
-		<result property="a_date" column="A_DATE"/>
-		<result property="edit_date" column="EDIT_DATE"/>
-		<result property="a_del_yn" column="A_DEL_YN"/>
+		<result property="proName" column="PRO_NAME"/>
+		<result property="proPrice" column="PRO_PRICE"/>
+		<result property="imgList" column="PRO_CONTENT"/>
 		
-		<association property="product" resultMap="productResultMap"/>
-		<association property="user" resultMap="userResultMap"/>
-		<association property="category" resultMap="categoryResultMap2"/>
-	
+		<association property="writer" resultMap="memberResultMap"/>
+		<association property="category" resultMap="categoryResultMap"/>
 	</resultMap>
 
 
-	<select id="selectTotalCount" resultType="_int" parameterType="hashmap">
-        SELECT /* com.planty.jsp.product.model.dao.ProductDAO#selectTotalCount() */
-               COUNT(*)
-          FROM PRODUCT P
-    	<if test="searchCondition == 'category'">
-	      JOIN PRO_TYPE PT ON(P.CATE_NO = PT.CATE_NO)
-    	</if>
-    	<if test="searchCondition == 'writer'">
-	      JOIN MEMBER M ON(P.ID = M.ID)
-    	</if>
-    	<where>
-			<if test="searchCondition == 'category'">
-	           PT.CATE_A = #{ searchValue }
-			</if>
-			<if test="searchCondition == 'writer'">
-	           M.NAME LIKE '%' || #{ searchValue } || '%'	
-			</if>
-			<if test="searchCondition == 'title'">
-	           P.PRO_NAME LIKE '%' || #{ searchValue } || '%' 	
-			</if>
-			<if test="searchCondition == 'content'">
-	           P.PRO_CONTENT LIKE '%' || #{ searchValue } || '%' 	
-			</if>
-	       <!--  AND P.BOARD_STATUS = 'Y' -->
-    	</where>
-	</select>
-	
-	<select id="selectProductList" resultMap="productResultMap">
-         SELECT /* com.planty.jsp.product.model.dao.ProductDAO#selectBoardList() */
-               A.PRO_NO
-             , A.CATE_NO
-             , D.CATE_A
-             , A.ID
-             , E.NAME
-             , A.PRO_NAME
-             , A.PRO_PRICE
-             , A.PRO_CONTENT
-             , F.IMG_NO
-             , F.P_PATH
-             , F.FILE_NAME
-             , F.SER_FILE
-             , F.THUM_FILE
-          FROM (SELECT ROWNUM RNUM
-                     , B.PRO_NO
-                     , B.CATE_NO
-                     , B.ID
-                     , B.PRO_NAME
-                     , B.PRO_PRICE
-                     , B.PRO_CONTENT
-                  FROM (SELECT C.PRO_NO
-                             , C.CATE_NO
-                             , C.ID
-                             , C.PRO_NAME
-                             , C.PRO_PRICE
-                             , C.PRO_CONTENT
-                          FROM PRODUCT C
-                        <if test="searchCondition == 'category'">
-	      				  JOIN PRO_TYPE D ON(C.CATE_NO = D.CATE_NO)
-    					</if>
-    					<if test="searchCondition == 'writer'">
-	      				  JOIN MEMBER D ON(C.ID = D.ID)
-    					</if>
-    					<where>
-							<if test="searchCondition == 'category'">
-	           				   D.PRO_A = #{ searchValue }
-							</if>
-							<if test="searchCondition == 'writer'">
-	           				   D.NAME LIKE '%' || #{ searchValue } || '%'	
-							</if>
-							<if test="searchCondition == 'title'">
-	           				   C.PRO_NAME LIKE '%' || #{ searchValue } || '%' 	
-							</if>
-							<if test="searchCondition == 'content'">
-	           				   C.PRO_CONTENT LIKE '%' || #{ searchValue } || '%' 	
-							</if>
-    					</where>
-                         ORDER BY C.PRO_NO DESC
-                        ) B 
-                  <![CDATA[
-                  WHERE ROWNUM <= #{ endRow }
-                  ]]>
-               ) A
-          JOIN PRO_TYPE D ON (A.CATE_NO = D.CATE_NO)
-          JOIN MEMBER E ON(A.ID = E.ID)
-          JOIN PRO_IMG F ON(A.PRO_NO = F.PRO_NO)
-         WHERE A.RNUM >= #{ startRow }     
-         ORDER BY A.RNUM 
-	</select>
-	
-	
-	<select id="selectThumbnailList" resultMap="thumbnailProductResultMap">
-        SELECT /* com.plany.jsp.product.model.dao.ProductDAO#selectThumbnailList() */
-               A.PRO_NO
-             , A.CATE_NO
-             , B.CATE_A
-             , A.ID
-             , C.NAME
-             , D.IMG_NO
-             , D.PRO_NO
-             , D.P_PATH
-             , D.FILE_NAME
-             , D.SER_FILE
-             , D.THUM_FILE
-          FROM PRODUCT A
-          JOIN PRO_TYPE B ON (A.CATE_NO = B.CATE_NO)
-          JOIN MEMBER C ON (A.ID = C.ID)
-          JOIN PRO_IMG D ON (A.PRO_NO = D.PRO_NO)
-         ORDER BY A.PRO_NO DESC
-	</select>
-	
-		<insert id="insertThumbnailContent" >
-        INSERT /* com.plany.jsp.product.model.dao.ProductDAO#insertThumbnailContent() */
-          INTO PRODUCT 
-        (
-          PRO_NO
-        , CATE_TYPE
-        , ID
-        , PRO_NAME
-        , PRO_PRICE
-        , PRO_CONTENT
-        )
-        VALUES 
-        (
-          PRO_NO.NEXTVAL
-        , #{ categoryCode }
-        , #{ writerMemberNo }
-        , #{ title }
-        , #{ price }
-        , #{ body }
-        , #{ writerMemberNo }
-        )
-        <selectKey keyProperty="no" resultType="Integer" order="AFTER">
-        	SELECT
-        	       PRO_NO.CURRVAL
-        	  FROM DUAL
-        </selectKey>
-	</insert>
 
-	<insert id="insertAttachment">
-        INSERT /* com.plany.jsp.product.model.dao.ProductDAO#insertAttachment() */
+
+	<insert id="insertProductContent" >
+	        INSERT /* com.planty.jsp.product.model.dao.ProductDAO#insertProductContent() */
+	          INTO PRODUCT 
+	        (
+	          PRO_NO
+	        , CATE_NO
+	        , ID	        
+	        , PRO_NAME
+	        , PRO_PRICE
+	        )
+	        VALUES 
+	        (
+	          SEQ_PRO_NO.NEXTVAL
+	        , #{ cateNo }
+	        , #{ id }
+	        , #{ proName }
+	        , #{ proPrice }
+	        )
+		</insert>
+
+			
+		
+		<insert id="insertProductImg">
+		
+	        <selectKey keyProperty="proNo" resultType="Integer" order="BEFORE">
+	        	SELECT
+	        	       SEQ_PRO_NO.CURRVAL
+	        	  FROM DUAL
+	        </selectKey>
+        INSERT /* com.planty.jsp.product.model.dao.ProductDAO#insertAttachment() */
           INTO PRO_IMG
         (
           IMG_NO
@@ -281,160 +56,30 @@
         , P_PATH
         , FILE_NAME
         , SER_FILE
+        <if test="thumFile != null">
         , THUM_FILE
+        </if>
         )
         VALUES 
         (
-          P_IMG_NO.NEXTVAL
-        , #{ refBoardNo }
-        , #{ savePath }
-        , #{ originalName }
-        , #{ savedName }
-        , #{ thumbnailPath }
+          SEQ_P_IMG_NO.NEXTVAL
+        , #{ proNo }
+        , #{ proPath }
+        , #{ fileName }
+        , #{ serFile }
+        <if test="thumFile != null">
+        , #{ thumFile }
+        </if>
         )
 	</insert>
-	<!--  사용 안함
-	<update id="incrementBoardCount">
-        UPDATE /* com.planty.jsp.product.model.dao.ProductDAO#incrementBoardCount() */
-               PRODUCT A
-           SET A.BOARD_COUNT = (SELECT B.BOARD_COUNT
-                                  FROM TBL_BOARD B
-                                 WHERE B.BOARD_NO = #{ no }
-                               ) + 1
-         WHERE A.BOARD_NO = #{ no }
-	</update>
-	-->
-	
-	<select id="selectOneProduct" resultMap="productResultMap">
-        SELECT /* com.planty.jsp.product.model.dao.productDAO#selectOneProduct() */
-               A.PRO_NO
-             , A.CATE_NO
-             , B.CATE_A
-             , A.ID
-             , C.NAME
-             , A.PRO_NAME
-             , A.PRO_PRICE
-             , A.PRO_CONTENT
-             , D.IMG_NO
-             , D.P_PATH
-             , D.FILE_NAME
-             , D.SER_FILE
-             , D.THUM_FILE
-          FROM PRODUCT A
-          JOIN PRO_TYPE B ON (A.CATE_NO = B.CATE_NO)
-          JOIN MEMBER C ON (A.ID = C.ID)
-          JOIN PRO_IMG D ON (A.PRO_NO = D.PRO_NO)
-         WHERE 
-               A.PRO_NO = #{ pro_no }
-	</select>
-	<!-- 
-		<select id="selectProductReview" resultMap="productReviewListMap">
-        SELECT A.REVIEW_NO
-        	 , A.ORD_NO
-        	 . C.PRO_NO
-             , A.ID
-             , B.NAME
-             , A.CONTENT
-             , A.DATE
-             , A.EDIT_DATE
-             , A.DEL_YNN
-          FROM REVIEW A
-          JOIN ORDER C ON (A.ORD_NO = C.ORD_NO)
-          JOIN MEMBER B ON (A.ID = B.ID)
-         WHERE C.PRO_NO = #{ pro_no }
-         ORDER BY A.REVIEW_NO DESC
-	</select>
-	 -->
-	<select id="selectProductReviewList" resultMap="reviewResultMap2">
-        SELECT A.REVIEW_NO
-        	 , A.ORD_NO
-        	 , C.PRO_NO
-             , A.ID
-             , D.NAME
-             , A.SCORE
-             , A.TITLE
-             , A.CONTENT
-             , A.MADE_DATE
-             , B.ATTACHMENT_NO
-             , B.ORG_NAME
-             , B.SAVED_NAME
-             , B.SAVE_PATH
-             , B.THUM_PATH
-          FROM REVIEW A
-          JOIN ATTACHMENT B ON (A.REVIEW_NO = B.REVIEW_NO)
-          JOIN ORDER_P C ON (A.ORD_NO = C.ORD_NO)
-          JOIN MEMBER D ON (A.ID = D.ID)
-         WHERE C.PRO_NO = #{ pro_no }
-         ORDER BY A.REVIEW_NO DESC
-	</select>
-	
-	<select id="selectReviewDetail" resultMap="reviewResultMap2">
-        SELECT A.REVIEW_NO
-        	 , A.ORD_NO
-        	 , C.PRO_NO
-             , A.ID
-             , D.NAME
-             , A.SCORE
-             , A.TITLE
-             , A.CONTENT
-             , A.MADE_DATE
-             , B.ATTACHMENT_NO
-             , B.ORG_NAME
-             , B.SAVED_NAME
-             , B.SAVE_PATH
-             , B.THUM_PATH
-          FROM REVIEW A
-          JOIN ATTACHMENT B ON (A.REVIEW_NO = B.REVIEW_NO)
-          JOIN ORDER_P C ON (A.ORD_NO = C.ORD_NO)
-          JOIN MEMBER D ON (A.ID = D.ID)
-         WHERE A.REVIEW_NO = #{ reviewNo }
-         ORDER BY A.REVIEW_NO DESC
-	</select>
-	
-	<select id="selectProductQnaList" resultMap="qnaResultMap">
-        SELECT A.Q_NO
-        	 , A.ID
-        	 , B.NAME
-        	 , A.PRO_NO
-        	 , A.CATE_NO
-        	 , C.CATE
-             , A.Q_TITLE
-             , A.Q_DATE
-             , A.Q_EDIT_DATE
-             , A.DEL_YN
-             , A.ANSWER
-             , A.Q_YN
-             , A.A_DATE
-             , A.EDIT_DATE
-             , A.A_DEL_YN
-          FROM QNA_Q A
-          JOIN MEMBER B ON (A.ID = B.ID)
-          JOIN QNA_CATE C ON (A.CATE_NO = C.CATE_NO)
-         WHERE A.PRO_NO = #{ pro_no }
-         ORDER BY A.Q_NO DESC
-	</select>
+		
 
-	<select id="selectQnaDetail" resultMap="qnaResultMap">
-        SELECT A.Q_NO
-        	 , A.ID
-        	 , B.NAME
-        	 , A.PRO_NO
-        	 , A.CATE_NO
-        	 , C.CATE
-             , A.Q_TITLE
-             , A.Q_CONTENT
-             , A.Q_DATE
-             , A.Q_EDIT_DATE
-             , A.DEL_YN
-             , A.ANSWER
-             , A.Q_YN
-             , A.A_DATE
-             , A.EDIT_DATE
-             , A.A_DEL_YN
-          FROM QNA_Q A
-          JOIN MEMBER B ON (A.ID = B.ID)
-          JOIN QNA_CATE C ON (A.CATE_NO = C.CATE_NO)
-         WHERE A.Q_NO = #{ q_no }
-         ORDER BY A.Q_NO DESC
-	</select>
+		
+		
+		
+		
+		
+		
+		
+		
 </mapper>
