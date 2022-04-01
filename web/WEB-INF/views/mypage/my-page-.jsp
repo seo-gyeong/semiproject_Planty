@@ -71,7 +71,7 @@
 				</div>
 				<div class="item item4">
 					배송완료<br>
-					<div class="order-num">2</div>
+					<div class="order-num">3</div>
 				</div>
 			</div>
 			<br>
