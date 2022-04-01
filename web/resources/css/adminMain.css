@@ -47,11 +47,11 @@ img {
 	 min-height: 100vh;
 }
 
-.partnerTitle {
+.adminTitle {
 	color: #d4d4d4;
 	font-weight: bold;
 }
 
-.partnerTitle:hover {
+.adminTitle:hover {
     color: #249798;    
 }

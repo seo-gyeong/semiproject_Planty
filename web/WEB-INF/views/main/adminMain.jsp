@@ -29,7 +29,7 @@
 		        <a href="${ pageContext.servletContext.contextPath }/main/aboutus">
 		        	<img class="logo" src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png" alt="home">
 		        </a><br>
-	        	<a class="partnerTitle" href="${ pageContext.servletContext.contextPath }/관리자주소" style="text-decoration: none">
+	        	<a class="adminTitle" href="${ pageContext.servletContext.contextPath }/관리자주소" style="text-decoration: none">
 	        	 ADMIN</a>
 	        </h1>   
 	    </div>
