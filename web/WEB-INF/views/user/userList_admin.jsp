@@ -19,7 +19,9 @@
     <nav class="sb-topnav navbar navbar-expand navbar-light bg-light">
       <!-- Navbar Brand-->
       <div class="planty_logo">
-        <img src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png">
+        <a href="${ pageContext.servletContext.contextPath }/main/aboutus">     	
+      	<img src="${ pageContext.servletContext.contextPath }/resources/image/planty_logo.png">     	
+      </a>
       </div>
   
     </nav>
