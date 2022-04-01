@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Notice</title>
+<title>Notice Detail</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -110,62 +110,55 @@
 <body>
  <jsp:include page="../common/menubar.jsp"/>
  <div class="outer">
-	<div class="wrap">
-		<div class="notice_area">
-			<div class="notice_title">
-				<br><br>
-				<h4>공지사항</h4>
-			</div>
-			<div class="notice_list">
-			<c:forEach var="n" items="${ noticeList }">
-				<ul class="notice_ul" onclick="detailView(${n.no})">
-					<li class="no">${ n.no }</li>
-					<li class="title">${ n.title }</li>
-					<li class="date">${ n.createDate }</li>
-				</ul>
-			</c:forEach>
-			
+		<div class="wrap">
+			<div class="notice_area">
+				<div class="notice_title">
+					<br><br>
+					<h4>공지사항</h4>
+				</div>
+				<div class="notice_content">
+					<div class="subject">
+						<span> 글번호 : ${ notice.no } </span> <span> 작성일 : ${ notice.createDate }
+						</span>
+					</div>
+					<div>
+						<h4>
+							<span class="title_span">&nbsp;</span> 제목
+						</h4>
+						<p>${ notice.title }</p>
+
+						<h4>
+							<span class="title_span">&nbsp;</span> 내용
+						</h4>
+						<pre class="content">${ notice.content }</pre>
+					</div>
+					<div class="btn_area">
+						<button type="button" id="listBtn"
+							onclick="location.href='${ pageContext.servletContext.contextPath }/notice/list'">목록으로</button>
+						
+							<button type="button" onclick="updateNoticeView(${ notice.no })">수정하기</button>
+							<button type="button" onclick="deleteNotice()">삭제하기</button>
+							<!-- form 태그를 post 방식으로 제출 -->
+							<form name="noticeForm" method="post">
+								<input type="hidden" name="no" value="${ notice.no }">
+							</form>
+							<script>
+							function updateNoticeView(no){
+								location.href = "${ pageContext.servletContext.contextPath }/notice/update?no="+no;
+							}
+							function deleteNotice(){
+								if(confirm('이 게시글을 삭제하시겠습니까?')){
+									document.forms.noticeForm.action = "${ pageContext.servletContext.contextPath }/notice/delete";
+									document.forms.noticeForm.submit();
+								}
+							}
+						</script>
+						
+					</div>
+				</div>
 			</div>
 		</div>
-		<div class="search_area">
-			<form action="${ pageContext.servletContext.contextPath }/notice/list" method="get">
-				
-				<select id="searchCondition" name="searchCondition">
-					<option value="title">제목</option>
-					<option value="content">내용</option>
-				</select>
-				
-				<span class="input_area">
-				<input type="search" name="searchValue">
-				</span>
-				<button type="submit" class="btn btn-secondary">검색하기</button>
-				
-			</form>
-		</div>
 	</div>
-	</div>
-	<script>
-		
-		const noticeList = document.querySelector(".notice_list");
-		
-		noticeList.addEventListener('mouseover', function() {
-			if(event.target.classList.contains('notice_ul'))
-				event.target.classList.add('onmouseover');
-			else if(event.target.parentNode.classList.contains('notice_ul'))
-				event.target.parentNode.classList.add('onmouseover');
-		});
-		
-		noticeList.addEventListener('mouseout', function() {
-			if(event.target.classList.contains('notice_ul'))
-				event.target.classList.remove('onmouseover');
-			else if(event.target.parentNode.classList.contains('notice_ul'))
-				event.target.parentNode.classList.remove('onmouseover');
-		});
-	
-		function detailView(no){
-			location.href = '${ pageContext.servletContext.contextPath }/notice/detail?no=' + no;
-		}
-	</script>
   	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"></script>
     <script src="js/scripts.js"></script>

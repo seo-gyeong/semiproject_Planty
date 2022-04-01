@@ -1,7 +1,6 @@
 package com.planty.jsp.main.controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -12,20 +11,22 @@ import javax.servlet.http.HttpServletResponse;
 import com.planty.jsp.customercare.notice.model.dto.NoticeDTO;
 import com.planty.jsp.customercare.notice.model.service.NoticeService;
 
+@WebServlet("/main/notice/detail") 
+public class NoticeSelectDetailServlet extends HttpServlet {
 
-@WebServlet("/main/notice") 
-public class noticeServlet extends HttpServlet {
-	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		List<NoticeDTO> noticeList = new NoticeService().selectAllNoticeList();
+		int no = Integer.parseInt(request.getParameter("no"));
 		
-		System.out.println(noticeList);
+		NoticeService noticeService = new NoticeService();
+		NoticeDTO noticeDetail = noticeService.selectNoticeDetail(no);
+		
+		System.out.println("noticeDetail : " + noticeDetail);
 		
 		String path = "";
-		if(noticeList != null) {
-			path = "/WEB-INF/views/main/notice.jsp";
-			request.setAttribute("noticeList", noticeList);
+		if(noticeDetail != null) {
+			path = "/WEB-INF/views/main/noticeDetail.jsp";
+			request.setAttribute("notice", noticeDetail);
 		} 
 		
 		request.getRequestDispatcher(path).forward(request, response);
