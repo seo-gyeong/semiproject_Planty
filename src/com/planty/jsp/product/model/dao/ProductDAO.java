@@ -11,7 +11,17 @@ import com.planty.jsp.product.model.dto.ProductImgDTO;
 
 public class ProductDAO {
 	
+//	 상품 조회 메소드
+//		public int selectTotalCount(SqlSession session, Map<String, String> searchMap) {
+//			
+//			return session.selectOne("BoardDAO.selectTotalCount", searchMap);
+//		}
 
+//		public List<ProductDTO> selectProductList(SqlSession session) {
+//			
+//			return session.selectList("ProcuctDAO.selectProductList");
+//						
+//		}
 //			
 		public int insertProduct(SqlSession session, ProductDTO newProduct) {
 			
